@@ -67,10 +67,10 @@ export default function Cart() {
           <div className="container mx-auto max-w-6xl">
             <div className="flex justify-center">
               <div className="w-full max-w-3xl animate-pulse">
-                <div className="h-8 bg-gray-200 rounded w-1/4 mb-8"></div>
-                <div className="h-32 bg-gray-200 rounded w-full mb-4"></div>
-                <div className="h-32 bg-gray-200 rounded w-full mb-4"></div>
-                <div className="h-64 bg-gray-200 rounded w-full"></div>
+                <div className="h-8 bg-muted rounded w-1/4 mb-8"></div>
+                <div className="h-32 bg-muted rounded w-full mb-4"></div>
+                <div className="h-32 bg-muted rounded w-full mb-4"></div>
+                <div className="h-64 bg-muted rounded w-full"></div>
               </div>
             </div>
           </div>
@@ -87,36 +87,36 @@ export default function Cart() {
       <main className="flex-grow pt-32 pb-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="mb-8 fade-in">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Shopping Cart</h1>
-            <p className="text-gray-600">{cartItems.length} {cartItems.length === 1 ? 'course' : 'courses'} in cart</p>
+            <h1 className="text-3xl font-bold text-foreground mb-2">Your Programs</h1>
+            <p className="text-muted-foreground">{cartItems.length} {cartItems.length === 1 ? 'program' : 'programs'} selected</p>
           </div>
           
           {cartItems.length === 0 ? (
             <div className="text-center py-16 fade-in">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-6">
-                <ShoppingCart className="h-10 w-10 text-gray-500" />
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-muted rounded-full mb-6">
+                <ShoppingCart className="h-10 w-10 text-muted-foreground" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Your cart is empty</h2>
-              <p className="text-gray-600 mb-8 max-w-md mx-auto">
-                Looks like you haven't added any courses to your cart yet.
+              <h2 className="text-2xl font-bold text-foreground mb-4">No programs selected</h2>
+              <p className="text-muted-foreground mb-8 max-w-md mx-auto">
+                Browse our coaching programs and start your recovery journey.
               </p>
               <Link to="/courses">
-                <Button className="bg-learnify-600 hover:bg-learnify-700 text-white">
-                  Browse Courses
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                  Browse Programs
                 </Button>
               </Link>
             </div>
           ) : (
             <div className="grid md:grid-cols-3 gap-8">
               <div className="md:col-span-2 fade-in">
-                <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                <div className="bg-card rounded-lg shadow-sm border border-border overflow-hidden">
                   <div className="p-6 pb-3">
                     <div className="flex justify-between items-center mb-4">
-                      <h2 className="text-xl font-bold text-gray-900">Course in Cart</h2>
+                      <h2 className="text-xl font-bold text-card-foreground">Selected Programs</h2>
                       <Button 
                         variant="ghost" 
                         size="sm" 
-                        className="text-gray-500 hover:text-red-600"
+                        className="text-muted-foreground hover:text-destructive"
                         onClick={clearCart}
                       >
                         Remove All
@@ -126,7 +126,7 @@ export default function Cart() {
                   
                   <Separator />
                   
-                  <div className="divide-y divide-gray-200">
+                  <div className="divide-y divide-border">
                     {cartItems.map((item) => (
                       <div key={item.id} className="p-6 flex fade-in">
                         <div className="w-24 h-16 rounded-md overflow-hidden flex-shrink-0 mr-4">
@@ -140,13 +140,13 @@ export default function Cart() {
                         <div className="flex-grow">
                           <div className="flex justify-between">
                             <div>
-                              <Link to={`/course/${item.slug}`} className="font-medium text-gray-900 hover:text-learnify-600">
+                              <Link to={`/course/${item.slug}`} className="font-medium text-card-foreground hover:text-primary">
                                 {item.title}
                               </Link>
-                              <p className="text-sm text-gray-500">
+                              <p className="text-sm text-muted-foreground">
                                 By {item.instructor}
                               </p>
-                              <div className="flex items-center mt-1 text-sm text-gray-500">
+                              <div className="flex items-center mt-1 text-sm text-muted-foreground">
                                 <Clock className="h-4 w-4 mr-1" />
                                 <span>{item.duration}</span>
                                 <span className="mx-2">•</span>
@@ -158,15 +158,15 @@ export default function Cart() {
                               <div className="flex items-center mb-2">
                                 {item.salePrice ? (
                                   <>
-                                    <span className="font-bold text-gray-900 mr-2">
+                                    <span className="font-bold text-card-foreground mr-2">
                                       {formatPrice(item.salePrice)}
                                     </span>
-                                    <span className="text-sm text-gray-500 line-through">
+                                    <span className="text-sm text-muted-foreground line-through">
                                       {formatPrice(item.price)}
                                     </span>
                                   </>
                                 ) : (
-                                  <span className="font-bold text-gray-900">
+                                  <span className="font-bold text-card-foreground">
                                     {formatPrice(item.price)}
                                   </span>
                                 )}
@@ -175,7 +175,7 @@ export default function Cart() {
                               <Button 
                                 variant="ghost" 
                                 size="sm" 
-                                className="text-gray-500 hover:text-red-600 -mr-2"
+                                className="text-muted-foreground hover:text-destructive -mr-2"
                                 onClick={() => removeFromCart(item.id)}
                               >
                                 <X className="h-4 w-4 mr-1" />
@@ -188,30 +188,30 @@ export default function Cart() {
                     ))}
                   </div>
                   
-                  <div className="p-6 bg-gray-50">
-                    <Link to="/courses" className="inline-flex items-center text-learnify-600 font-medium hover:text-learnify-700">
+                  <div className="p-6 bg-muted">
+                    <Link to="/courses" className="inline-flex items-center text-primary font-medium hover:text-primary/80">
                       <ChevronLeft className="h-4 w-4 mr-1" />
-                      Continue Shopping
+                      Continue Browsing
                     </Link>
                   </div>
                 </div>
               </div>
               
               <div className="md:col-span-1 fade-in-delay-1">
-                <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden sticky top-24">
+                <div className="bg-card rounded-lg shadow-sm border border-border overflow-hidden sticky top-24">
                   <div className="p-6">
-                    <h2 className="text-xl font-bold text-gray-900 mb-4">Summary</h2>
+                    <h2 className="text-xl font-bold text-card-foreground mb-4">Summary</h2>
                     
                     <div className="space-y-3 mb-4">
                       <div className="flex justify-between">
-                        <span className="text-gray-600">Subtotal</span>
-                        <span className="font-medium">{formatPrice(calculateSubtotal())}</span>
+                        <span className="text-muted-foreground">Subtotal</span>
+                        <span className="font-medium text-card-foreground">{formatPrice(calculateSubtotal())}</span>
                       </div>
                       
                       {calculateDiscount() > 0 && (
                         <div className="flex justify-between">
-                          <span className="text-gray-600">Discount</span>
-                          <span className="font-medium text-green-600">-{formatPrice(calculateDiscount())}</span>
+                          <span className="text-muted-foreground">Discount</span>
+                          <span className="font-medium text-green-500">-{formatPrice(calculateDiscount())}</span>
                         </div>
                       )}
                     </div>
@@ -219,24 +219,24 @@ export default function Cart() {
                     <Separator className="my-4" />
                     
                     <div className="flex justify-between mb-6">
-                      <span className="font-bold text-gray-900">Total</span>
-                      <span className="font-bold text-gray-900">{formatPrice(calculateTotal())}</span>
+                      <span className="font-bold text-card-foreground">Total</span>
+                      <span className="font-bold text-card-foreground">{formatPrice(calculateTotal())}</span>
                     </div>
                     
-                    <Button className="w-full bg-learnify-600 hover:bg-learnify-700 text-white mb-4">
+                    <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mb-4">
                       <CreditCard className="h-4 w-4 mr-2" />
-                      Checkout
+                      Enroll Now
                     </Button>
                     
-                    <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="bg-muted p-4 rounded-lg">
                       <div className="flex items-center mb-3">
-                        <LockIcon className="h-4 w-4 text-gray-500 mr-2" />
-                        <span className="text-sm font-medium text-gray-700">Secure Checkout</span>
+                        <LockIcon className="h-4 w-4 text-muted-foreground mr-2" />
+                        <span className="text-sm font-medium text-card-foreground">Secure Checkout</span>
                       </div>
                       <div className="flex items-start">
-                        <Shield className="h-4 w-4 text-gray-500 mr-2 mt-0.5" />
-                        <p className="text-sm text-gray-600">
-                          30-day money-back guarantee. If you're not satisfied with your purchase, we'll issue a full refund.
+                        <Shield className="h-4 w-4 text-muted-foreground mr-2 mt-0.5" />
+                        <p className="text-sm text-muted-foreground">
+                          30-day money-back guarantee. If you're not satisfied, we'll issue a full refund.
                         </p>
                       </div>
                     </div>
