@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 import CourseCard from "@/components/CourseCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { courses } from "@/data/courses";
+import { useFeaturedCourses } from "@/hooks/use-courses";
 
 export default function Index() {
-  const featuredCourses = courses.filter(c => c.featured).slice(0, 3);
+  const { data: featuredCourses = [] } = useFeaturedCourses();
 
   const framework = [
     { step: "01", title: "Spot the Bid", description: "Recognize when you're seeking approval or performing for validation in real time." },
@@ -39,10 +39,10 @@ export default function Index() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-4 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80')" }}
         />
@@ -74,7 +74,7 @@ export default function Index() {
           </div>
         </div>
       </section>
-      
+
       {/* The Recovery Framework */}
       <section className="py-20 px-4 bg-background">
         <div className="container mx-auto">
@@ -89,7 +89,7 @@ export default function Index() {
               Four steps to break the cycle. Each one builds on the last.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {framework.map((item) => (
               <div key={item.step} className="relative p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group">
@@ -101,7 +101,7 @@ export default function Index() {
           </div>
         </div>
       </section>
-      
+
       {/* Featured Programs */}
       <section className="py-20 px-4 bg-muted">
         <div className="container mx-auto">
@@ -122,7 +122,7 @@ export default function Index() {
           </div>
         </div>
       </section>
-      
+
       {/* Testimonials */}
       <section className="py-20 px-4 bg-background">
         <div className="container mx-auto">
@@ -134,7 +134,7 @@ export default function Index() {
               Real Men. Real Recovery.
             </h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {testimonials.map((t, index) => (
               <div key={index} className="bg-card rounded-xl border border-border p-8 hover:border-primary/30 transition-colors">
@@ -146,10 +146,10 @@ export default function Index() {
           </div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="relative py-20 px-4 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80')" }}
         />
@@ -177,7 +177,7 @@ export default function Index() {
           </div>
         </div>
       </section>
-      
+
       <Footer />
     </div>
   );

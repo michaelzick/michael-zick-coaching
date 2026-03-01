@@ -1,9 +1,8 @@
 
-import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { 
-  Star, Clock, BookOpen, User, BarChart, Globe, Calendar, Award, PlayCircle,
-  ShoppingCart, Share2, Heart, Check
+import {
+  Star, Clock, BookOpen, User, BarChart, Calendar, Award, PlayCircle,
+  ShoppingCart, Check, Loader2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -12,44 +11,33 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CourseCard from '@/components/CourseCard';
 import { useCart } from '@/hooks/use-cart';
-import { getCourseBySlug, getRelatedCourses } from '@/data/courses';
+import { useCourseBySlug, useCourseChapters, useRelatedCourses } from '@/hooks/use-courses';
+
+function formatDuration(seconds: number): string {
+  const m = Math.floor(seconds / 60);
+  const s = seconds % 60;
+  return s > 0 ? `${m}m ${s}s` : `${m}m`;
+}
 
 export default function CourseDetails() {
   const { slug } = useParams<{ slug: string }>();
-  const [course, setCourse] = useState(null);
-  const [relatedCourses, setRelatedCourses] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { data: course, isLoading } = useCourseBySlug(slug);
+  const { data: chapters = [] } = useCourseChapters(course?.id);
+  const { data: relatedCourses = [] } = useRelatedCourses(course?.id, course?.category);
   const { addToCart, isInCart } = useCart();
-  
-  useEffect(() => {
-    const fetchCourse = () => {
-      const foundCourse = getCourseBySlug(slug);
-      setCourse(foundCourse);
-      if (foundCourse) {
-        const related = getRelatedCourses(foundCourse.id, foundCourse.category);
-        setRelatedCourses(related);
-      }
-      setIsLoading(false);
-    };
-    setTimeout(fetchCourse, 500);
-  }, [slug]);
-  
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <div className="flex-grow flex items-center justify-center">
-          <div className="animate-pulse">
-            <div className="h-6 bg-muted rounded w-48 mb-4"></div>
-            <div className="h-10 bg-muted rounded w-96 mb-6"></div>
-            <div className="h-64 bg-muted rounded w-full mb-6"></div>
-          </div>
+          <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
         </div>
         <Footer />
       </div>
     );
   }
-  
+
   if (!course) {
     return (
       <div className="min-h-screen flex flex-col">
@@ -67,15 +55,17 @@ export default function CourseDetails() {
       </div>
     );
   }
-  
+
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price);
   };
-  
+
+  const totalLessons = chapters.reduce((sum, ch) => sum + ch.lessons.length, 0);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
+
       <main className="flex-grow pt-20">
         {/* Course Header */}
         <div className="bg-secondary text-secondary-foreground py-12">
@@ -84,15 +74,15 @@ export default function CourseDetails() {
               <div className="md:col-span-2 fade-in">
                 <div className="flex items-center text-sm mb-4">
                   <Link to="/" className="text-muted-foreground hover:text-primary">Home</Link>
-                  <span className="mx-2">›</span>
+                  <span className="mx-2">&rsaquo;</span>
                   <Link to="/courses" className="text-muted-foreground hover:text-primary">Programs</Link>
-                  <span className="mx-2">›</span>
+                  <span className="mx-2">&rsaquo;</span>
                   <span className="text-muted-foreground">{course.category.replace(/-/g, " ")}</span>
                 </div>
-                
+
                 <h1 className="text-3xl md:text-4xl font-bold mb-4 text-secondary-foreground">{course.title}</h1>
                 <p className="text-xl text-muted-foreground mb-6">{course.shortDescription}</p>
-                
+
                 <div className="flex items-center flex-wrap gap-4 mb-6">
                   <div className="flex items-center">
                     <div className="flex">
@@ -112,7 +102,7 @@ export default function CourseDetails() {
                     <span>Updated {course.lastUpdated}</span>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center mb-6">
                   <div className="w-10 h-10 rounded-full bg-primary/20 mr-3 flex items-center justify-center">
                     <User className="w-5 h-5 text-primary" />
@@ -123,17 +113,17 @@ export default function CourseDetails() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="md:col-span-1 fade-in-delay-1">
                 <div className="bg-card rounded-lg shadow-md overflow-hidden border border-border">
                   <div className="relative pb-[56.25%] overflow-hidden">
-                    <img 
+                    <img
                       src={`${course.thumbnailUrl}?auto=format&fit=crop&w=800&q=80`}
                       alt={course.title}
                       className="absolute inset-0 w-full h-full object-cover"
                     />
                   </div>
-                  
+
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-4">
                       {course.salePrice ? (
@@ -145,7 +135,7 @@ export default function CourseDetails() {
                         <span className="text-3xl font-bold text-card-foreground">{formatPrice(course.price)}</span>
                       )}
                     </div>
-                    
+
                     {isInCart(course.id) ? (
                       <Link to="/cart" className="w-full">
                         <Button variant="outline" className="w-full mb-3 border-primary text-primary hover:bg-primary/10 py-6">
@@ -154,24 +144,24 @@ export default function CourseDetails() {
                         </Button>
                       </Link>
                     ) : (
-                      <Button 
+                      <Button
                         className="w-full mb-3 bg-primary hover:bg-primary/90 text-primary-foreground py-6"
                         onClick={() => addToCart(course.id)}
                       >
                         Enroll Now
                       </Button>
                     )}
-                    
+
                     <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
                       <Button variant="outline" className="w-full py-6 mb-6">
                         Book a Free Session First
                       </Button>
                     </a>
-                    
+
                     <div className="text-center text-sm text-muted-foreground mb-6">
                       30-Day Money-Back Guarantee
                     </div>
-                    
+
                     <div className="border-t border-border pt-6">
                       <h3 className="font-bold text-card-foreground mb-4">This program includes:</h3>
                       <ul className="space-y-3 text-card-foreground">
@@ -199,7 +189,7 @@ export default function CourseDetails() {
             </div>
           </div>
         </div>
-        
+
         {/* Course Content */}
         <div className="py-12 bg-background">
           <div className="container mx-auto max-w-6xl px-4">
@@ -209,13 +199,13 @@ export default function CourseDetails() {
                 <TabsTrigger value="curriculum" className="rounded-md">Curriculum</TabsTrigger>
                 <TabsTrigger value="instructor" className="rounded-md">About Coach</TabsTrigger>
               </TabsList>
-              
+
               <TabsContent value="overview" className="fade-in">
                 <div className="grid md:grid-cols-3 gap-8">
                   <div className="md:col-span-2">
                     <h2 className="text-2xl font-bold text-foreground mb-6">About This Program</h2>
                     <p className="text-muted-foreground mb-8 leading-relaxed">{course.description}</p>
-                    
+
                     <div className="mb-8">
                       <h3 className="text-xl font-bold text-foreground mb-4">What You'll Learn</h3>
                       <div className="grid sm:grid-cols-2 gap-3">
@@ -227,7 +217,7 @@ export default function CourseDetails() {
                         ))}
                       </div>
                     </div>
-                    
+
                     <div>
                       <h3 className="text-xl font-bold text-foreground mb-4">Topics Covered</h3>
                       <div className="flex flex-wrap gap-2">
@@ -239,7 +229,7 @@ export default function CourseDetails() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="md:col-span-1">
                     <div className="bg-muted border border-border rounded-lg p-6">
                       <h3 className="text-lg font-bold text-foreground mb-4">Program Details</h3>
@@ -269,97 +259,64 @@ export default function CourseDetails() {
                   </div>
                 </div>
               </TabsContent>
-              
+
               <TabsContent value="curriculum" className="fade-in">
                 <div className="mb-6">
                   <h2 className="text-2xl font-bold text-foreground mb-2">Program Curriculum</h2>
                   <div className="flex items-center text-muted-foreground mb-6">
                     <BookOpen className="h-5 w-5 mr-2" />
-                    <span>{course.lectureCount} lessons</span>
-                    <span className="mx-3">•</span>
+                    <span>{totalLessons > 0 ? totalLessons : course.lectureCount} lessons</span>
+                    <span className="mx-3">&bull;</span>
                     <Clock className="h-5 w-5 mr-2" />
                     <span>{course.duration} total</span>
                   </div>
-                  
-                  <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value="section-1" className="border border-border rounded-lg mb-4 overflow-hidden">
-                      <AccordionTrigger className="px-6 py-4 hover:bg-muted">
-                        <div className="flex justify-between items-center w-full text-left">
-                          <div>
-                            <h3 className="font-bold text-foreground">Getting Started</h3>
-                            <div className="text-sm text-muted-foreground">5 lessons • 45 minutes</div>
-                          </div>
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <div className="px-6 pb-4">
-                          <ul className="divide-y divide-border">
-                            {["Introduction & Assessment", "Understanding the Pattern", "Your Recovery Roadmap", "Setting Expectations", "First Assignment"].map((title, i) => (
-                              <li key={i} className="py-3 flex justify-between items-center">
-                                <div className="flex items-center">
-                                  <PlayCircle className="h-5 w-5 text-muted-foreground mr-3" />
-                                  <span className="text-foreground">{title}</span>
+
+                  {chapters.length > 0 ? (
+                    <Accordion type="single" collapsible className="w-full">
+                      {chapters.map((chapter) => {
+                        const chapterDuration = chapter.lessons.reduce((s, l) => s + l.durationSeconds, 0);
+                        return (
+                          <AccordionItem key={chapter.id} value={chapter.id} className="border border-border rounded-lg mb-4 overflow-hidden">
+                            <AccordionTrigger className="px-6 py-4 hover:bg-muted">
+                              <div className="flex justify-between items-center w-full text-left">
+                                <div>
+                                  <h3 className="font-bold text-foreground">{chapter.title}</h3>
+                                  <div className="text-sm text-muted-foreground">
+                                    {chapter.lessons.length} lessons {chapterDuration > 0 && `\u2022 ${formatDuration(chapterDuration)}`}
+                                  </div>
                                 </div>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                    
-                    <AccordionItem value="section-2" className="border border-border rounded-lg mb-4 overflow-hidden">
-                      <AccordionTrigger className="px-6 py-4 hover:bg-muted">
-                        <div className="flex justify-between items-center w-full text-left">
-                          <div>
-                            <h3 className="font-bold text-foreground">Core Framework</h3>
-                            <div className="text-sm text-muted-foreground">8 lessons • 1h 15m</div>
-                          </div>
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <div className="px-6 pb-4">
-                          <ul className="divide-y divide-border">
-                            {["The Approval Loop", "Spotting Covert Contracts", "Building Awareness"].map((title, i) => (
-                              <li key={i} className="py-3 flex justify-between items-center">
-                                <div className="flex items-center">
-                                  <PlayCircle className="h-5 w-5 text-muted-foreground mr-3" />
-                                  <span className="text-foreground">{title}</span>
-                                </div>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                    
-                    <AccordionItem value="section-3" className="border border-border rounded-lg overflow-hidden">
-                      <AccordionTrigger className="px-6 py-4 hover:bg-muted">
-                        <div className="flex justify-between items-center w-full text-left">
-                          <div>
-                            <h3 className="font-bold text-foreground">Advanced Recovery</h3>
-                            <div className="text-sm text-muted-foreground">12 lessons • 2h 30m</div>
-                          </div>
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <div className="px-6 pb-4">
-                          <ul className="divide-y divide-border">
-                            {["Displeasure Tolerance", "Setting Hard Boundaries", "Integration & Maintenance"].map((title, i) => (
-                              <li key={i} className="py-3 flex justify-between items-center">
-                                <div className="flex items-center">
-                                  <PlayCircle className="h-5 w-5 text-muted-foreground mr-3" />
-                                  <span className="text-foreground">{title}</span>
-                                </div>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
+                              </div>
+                            </AccordionTrigger>
+                            <AccordionContent>
+                              <div className="px-6 pb-4">
+                                <ul className="divide-y divide-border">
+                                  {chapter.lessons.map((lesson) => (
+                                    <li key={lesson.id} className="py-3 flex justify-between items-center">
+                                      <div className="flex items-center">
+                                        <PlayCircle className="h-5 w-5 text-muted-foreground mr-3" />
+                                        <span className="text-foreground">{lesson.title}</span>
+                                        {lesson.isPreview && (
+                                          <span className="ml-2 text-xs bg-primary/10 text-primary px-2 py-0.5 rounded">Preview</span>
+                                        )}
+                                      </div>
+                                      {lesson.durationSeconds > 0 && (
+                                        <span className="text-sm text-muted-foreground">{formatDuration(lesson.durationSeconds)}</span>
+                                      )}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+                        );
+                      })}
+                    </Accordion>
+                  ) : (
+                    <p className="text-muted-foreground">Curriculum details coming soon.</p>
+                  )}
                 </div>
               </TabsContent>
-              
+
               <TabsContent value="instructor" className="fade-in">
                 <div className="flex items-start mb-8">
                   <div className="w-20 h-20 rounded-full bg-primary/20 mr-6 flex items-center justify-center">
@@ -380,7 +337,7 @@ export default function CourseDetails() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="bg-muted p-6 rounded-lg border border-border mb-8">
                   <h3 className="text-xl font-bold text-foreground mb-4">About Michael</h3>
                   <p className="text-muted-foreground mb-4">
@@ -394,7 +351,7 @@ export default function CourseDetails() {
             </Tabs>
           </div>
         </div>
-        
+
         {/* Related Programs */}
         {relatedCourses.length > 0 && (
           <section className="py-12 bg-muted">
@@ -402,8 +359,8 @@ export default function CourseDetails() {
               <h2 className="text-2xl font-bold text-foreground mb-8">Related Programs</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {relatedCourses.map((relatedCourse, index) => (
-                  <CourseCard 
-                    key={relatedCourse.id} 
+                  <CourseCard
+                    key={relatedCourse.id}
                     course={relatedCourse}
                     className={`fade-in-delay-${index % 3 + 1}`}
                   />
@@ -413,7 +370,7 @@ export default function CourseDetails() {
           </section>
         )}
       </main>
-      
+
       <Footer />
     </div>
   );
