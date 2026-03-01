@@ -12,27 +12,24 @@ export type Course = {
   rating: number;
   ratingCount: number;
   studentsCount: number;
-  duration: string; // e.g., "20h 30m"
+  duration: string;
   lectureCount: number;
   description: string;
   shortDescription: string;
   thumbnailUrl: string;
   featured?: boolean;
   bestseller?: boolean;
-  lastUpdated: string; // e.g., "March 2023"
+  lastUpdated: string;
   language: string;
   topics: string[];
   whatYouWillLearn: string[];
 };
 
 export type CourseCategory = 
-  | 'development' 
-  | 'business' 
-  | 'design' 
-  | 'marketing' 
-  | 'photography' 
-  | 'music' 
-  | 'personal-development';
+  | 'nice-guy-recovery' 
+  | 'relationship-skills' 
+  | 'boundaries-communication' 
+  | 'self-worth-identity';
 
 export type CartItem = {
   courseId: string;

@@ -10,6 +10,9 @@ import Index from "./pages/Index";
 import CoursesPage from "./pages/CoursesPage";
 import CourseDetails from "./pages/CourseDetails";
 import Cart from "./pages/Cart";
+import About from "./pages/About";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +30,9 @@ const App = () => (
               <Route path="/courses" element={<CoursesPage />} />
               <Route path="/course/:slug" element={<CourseDetails />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

@@ -63,17 +63,11 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				learnify: {
-					50: '#f0f4ff',
-					100: '#dbe4ff',
-					200: '#bcceff',
-					300: '#8eaaff',
-					400: 'hsl(var(--learnify-accent))',
-					500: 'hsl(var(--learnify-secondary))', 
-					600: 'hsl(var(--learnify-primary))',
-					700: 'hsl(var(--learnify-primary))',
-					800: 'hsl(var(--learnify-primary))',
-					900: '#1d2c96',
+				mz: {
+					blue: 'hsl(var(--mz-blue))',
+					slate: 'hsl(var(--mz-slate))',
+					charcoal: 'hsl(var(--mz-charcoal))',
+					warm: 'hsl(var(--mz-warm))',
 				}
 			},
 			borderRadius: {
@@ -83,28 +77,16 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
 				},
 				'pulse-slow': {
-					'0%, 100%': {
-						opacity: '1'
-					},
-					'50%': {
-						opacity: '0.8'
-					}
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' }
 				}
 			},
 			animation: {

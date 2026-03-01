@@ -44,12 +44,11 @@ export default function CoursesPage() {
       <main className="flex-grow pt-32 pb-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="mb-8 fade-in">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Browse Courses</h1>
-            <p className="text-gray-600">Discover courses to boost your skills and advance your career</p>
+            <h1 className="text-3xl font-bold text-foreground mb-2">Programs</h1>
+            <p className="text-muted-foreground">Coaching programs designed to help you break free and build an authentic life.</p>
           </div>
           
           <div className="flex flex-col md:flex-row gap-8">
-            {/* Desktop Filter Sidebar */}
             <FilterSidebar 
               filterState={filterState}
               toggleLevel={toggleLevel}
@@ -60,9 +59,7 @@ export default function CoursesPage() {
               isDesktop={true}
             />
             
-            {/* Main Content */}
             <div className="flex-1 fade-in">
-              {/* Search and Filter Controls */}
               <CoursesHeader 
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
@@ -77,14 +74,13 @@ export default function CoursesPage() {
                 hasFilters={hasFilters}
               />
               
-              {/* Mobile Filters */}
               {filterOpen && (
-                <div className="md:hidden bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mb-6 fade-in">
+                <div className="md:hidden bg-card rounded-lg shadow-sm border border-border overflow-hidden mb-6 fade-in">
                   <div className="p-4">
                     <div className="flex justify-between items-center mb-4">
-                      <h2 className="font-bold text-gray-900">Filters</h2>
+                      <h2 className="font-bold text-card-foreground">Filters</h2>
                       <button 
-                        className="text-gray-500 hover:text-red-600"
+                        className="text-muted-foreground hover:text-destructive"
                         onClick={() => setFilterOpen(false)}
                       >
                         <X className="h-4 w-4" />
@@ -105,7 +101,6 @@ export default function CoursesPage() {
                 </div>
               )}
               
-              {/* Courses Grid */}
               <CourseGrid 
                 isLoading={isLoading}
                 courses={filteredCourses}
