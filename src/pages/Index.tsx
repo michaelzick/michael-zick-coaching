@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { ChevronRight, Quote } from "lucide-react";
+import { ChevronRight, Quote } from '@/lib/icons';
 import { Button } from "@/components/ui/button";
 import CourseCard from "@/components/CourseCard";
 import Navbar from "@/components/Navbar";
@@ -92,7 +92,7 @@ export default function Index() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {framework.map((item) => (
-              <div key={item.step} className="relative p-8 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group">
+              <div key={item.step} className="relative p-8 bg-card border-2 border-foreground hover:border-primary transition-all duration-300 group cubist-frame elevated-on-hover">
                 <span className="text-5xl font-bold text-primary/20 group-hover:text-primary/40 transition-colors">{item.step}</span>
                 <h3 className="text-xl font-bold text-card-foreground mt-4 mb-3">{item.title}</h3>
                 <p className="text-muted-foreground">{item.description}</p>
@@ -137,7 +137,7 @@ export default function Index() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {testimonials.map((t, index) => (
-              <div key={index} className="bg-card rounded-xl border border-border p-8 hover:border-primary/30 transition-colors">
+              <div key={index} className="bg-card border-2 border-foreground p-8 hover:border-primary transition-colors cubist-frame elevated-on-hover">
                 <Quote className="h-8 w-8 text-primary/30 mb-4" />
                 <p className="text-card-foreground mb-6 leading-relaxed">"{t.text}"</p>
                 <p className="font-semibold text-primary">{t.name}</p>

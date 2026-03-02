@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Loader2, User, Lock, Upload } from 'lucide-react';
+import { Loader2, User, Lock, Upload } from '@/lib/icons';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -129,7 +129,7 @@ export default function AdminSettings() {
               {/* Avatar */}
               <div className="flex items-center gap-6">
                 <div className="relative">
-                  <div className="h-20 w-20 rounded-full bg-muted flex items-center justify-center overflow-hidden">
+                  <div className="h-20 w-20 bg-muted border-2 border-foreground flex items-center justify-center overflow-hidden">
                     {profile?.avatarUrl ? (
                       <img src={profile.avatarUrl} alt="Avatar" className="h-full w-full object-cover" />
                     ) : (

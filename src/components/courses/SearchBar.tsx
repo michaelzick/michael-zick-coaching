@@ -1,5 +1,5 @@
 
-import { Search } from 'lucide-react';
+import { Search } from '@/lib/icons';
 import { Input } from '@/components/ui/input';
 
 interface SearchBarProps {
@@ -10,11 +10,11 @@ interface SearchBarProps {
 export default function SearchBar({ searchQuery, setSearchQuery }: SearchBarProps) {
   return (
     <div className="relative flex-grow">
-      <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+      <Search className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
       <Input 
         type="text"
-        placeholder="Search courses..." 
-        className="pl-10"
+        placeholder="Search programs..." 
+        className="pl-10 font-semibold uppercase tracking-[0.04em]"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />

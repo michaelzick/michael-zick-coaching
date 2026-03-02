@@ -1,5 +1,5 @@
 
-import { SortDesc, SortAsc } from 'lucide-react';
+import { SortDesc, SortAsc } from '@/lib/icons';
 import {
   Select,
   SelectContent,
@@ -19,10 +19,10 @@ export default function SortSelector({ sortOption, setSortOption }: SortSelector
       value={sortOption}
       onValueChange={setSortOption}
     >
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[220px] font-semibold uppercase tracking-[0.05em]">
         <SelectValue placeholder="Sort By: Popular" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="border-2 border-foreground bg-card">
         <SelectItem value="popular">
           <div className="flex items-center">
             <SortDesc className="h-4 w-4 mr-2" />

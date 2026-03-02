@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import {
   Star, Clock, BookOpen, User, BarChart, Calendar, Award, PlayCircle,
   ShoppingCart, Check, Loader2
-} from 'lucide-react';
+} from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -104,7 +104,7 @@ export default function CourseDetails() {
                 </div>
 
                 <div className="flex items-center mb-6">
-                  <div className="w-10 h-10 rounded-full bg-primary/20 mr-3 flex items-center justify-center">
+                  <div className="w-10 h-10 bg-primary/20 border-2 border-foreground mr-3 flex items-center justify-center">
                     <User className="w-5 h-5 text-primary" />
                   </div>
                   <div>
@@ -115,7 +115,7 @@ export default function CourseDetails() {
               </div>
 
               <div className="md:col-span-1 fade-in-delay-1">
-                <div className="bg-card rounded-lg shadow-md overflow-hidden border border-border">
+                <div className="bg-card overflow-hidden border-2 border-foreground cubist-frame">
                   <div className="relative pb-[56.25%] overflow-hidden">
                     <img
                       src={`${course.thumbnailUrl}?auto=format&fit=crop&w=800&q=80`}
@@ -194,10 +194,10 @@ export default function CourseDetails() {
         <div className="py-12 bg-background">
           <div className="container mx-auto max-w-6xl px-4">
             <Tabs defaultValue="overview">
-              <TabsList className="mb-8 bg-muted p-1 rounded-lg">
-                <TabsTrigger value="overview" className="rounded-md">Overview</TabsTrigger>
-                <TabsTrigger value="curriculum" className="rounded-md">Curriculum</TabsTrigger>
-                <TabsTrigger value="instructor" className="rounded-md">About Coach</TabsTrigger>
+              <TabsList className="mb-8 bg-muted p-1">
+                <TabsTrigger value="overview">Overview</TabsTrigger>
+                <TabsTrigger value="curriculum">Curriculum</TabsTrigger>
+                <TabsTrigger value="instructor">About Coach</TabsTrigger>
               </TabsList>
 
               <TabsContent value="overview" className="fade-in">
@@ -222,7 +222,7 @@ export default function CourseDetails() {
                       <h3 className="text-xl font-bold text-foreground mb-4">Topics Covered</h3>
                       <div className="flex flex-wrap gap-2">
                         {course.topics.map((topic, index) => (
-                          <div key={index} className="bg-muted text-muted-foreground rounded-full py-1 px-4 text-sm">
+                          <div key={index} className="bg-muted text-muted-foreground border-2 border-foreground py-1 px-4 text-sm font-semibold uppercase tracking-[0.05em]">
                             {topic}
                           </div>
                         ))}
@@ -231,7 +231,7 @@ export default function CourseDetails() {
                   </div>
 
                   <div className="md:col-span-1">
-                    <div className="bg-muted border border-border rounded-lg p-6">
+                    <div className="bg-muted border-2 border-foreground p-6 cubist-frame">
                       <h3 className="text-lg font-bold text-foreground mb-4">Program Details</h3>
                       <ul className="space-y-4">
                         <li className="flex justify-between">
@@ -276,7 +276,7 @@ export default function CourseDetails() {
                       {chapters.map((chapter) => {
                         const chapterDuration = chapter.lessons.reduce((s, l) => s + l.durationSeconds, 0);
                         return (
-                          <AccordionItem key={chapter.id} value={chapter.id} className="border border-border rounded-lg mb-4 overflow-hidden">
+                          <AccordionItem key={chapter.id} value={chapter.id} className="border-2 border-foreground mb-4 overflow-hidden">
                             <AccordionTrigger className="px-6 py-4 hover:bg-muted">
                               <div className="flex justify-between items-center w-full text-left">
                                 <div>
@@ -296,7 +296,7 @@ export default function CourseDetails() {
                                         <PlayCircle className="h-5 w-5 text-muted-foreground mr-3" />
                                         <span className="text-foreground">{lesson.title}</span>
                                         {lesson.isPreview && (
-                                          <span className="ml-2 text-xs bg-primary/10 text-primary px-2 py-0.5 rounded">Preview</span>
+                                          <span className="ml-2 text-xs bg-primary/10 text-primary px-2 py-0.5 border-2 border-primary uppercase tracking-[0.05em]">Preview</span>
                                         )}
                                       </div>
                                       {lesson.durationSeconds > 0 && (
@@ -319,7 +319,7 @@ export default function CourseDetails() {
 
               <TabsContent value="instructor" className="fade-in">
                 <div className="flex items-start mb-8">
-                  <div className="w-20 h-20 rounded-full bg-primary/20 mr-6 flex items-center justify-center">
+                  <div className="w-20 h-20 bg-primary/20 border-2 border-foreground mr-6 flex items-center justify-center">
                     <User className="w-10 h-10 text-primary" />
                   </div>
                   <div>
@@ -338,7 +338,7 @@ export default function CourseDetails() {
                   </div>
                 </div>
 
-                <div className="bg-muted p-6 rounded-lg border border-border mb-8">
+                <div className="bg-muted p-6 border-2 border-foreground mb-8 cubist-frame">
                   <h3 className="text-xl font-bold text-foreground mb-4">About Michael</h3>
                   <p className="text-muted-foreground mb-4">
                     Michael Zick is a Nice Guy Recovery Coach who helps men break free from approval addiction and build authentic, fulfilling lives. After his own recovery journey, he developed a structured framework that has helped thousands of men transform their relationships, careers, and self-identity.

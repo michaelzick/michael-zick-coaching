@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Target, Shield, Heart, Mountain } from "lucide-react";
+import { Target, Shield, Heart, Mountain } from '@/lib/icons';
 
 export default function About() {
   const pillars = [
@@ -68,8 +68,8 @@ export default function About() {
               {pillars.map((pillar, index) => {
                 const Icon = pillar.icon;
                 return (
-                  <div key={index} className="bg-card rounded-xl border border-border p-8">
-                    <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <div key={index} className="bg-card border-2 border-foreground p-8 cubist-frame">
+                    <div className="bg-primary/10 w-12 h-12 border-2 border-foreground flex items-center justify-center mb-4">
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
                     <h3 className="text-xl font-bold text-card-foreground mb-3">{pillar.title}</h3>

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { DollarSign, BookOpen, Users, ShoppingCart, Loader2 } from 'lucide-react';
+import { DollarSign, BookOpen, Users, ShoppingCart, Loader2 } from '@/lib/icons';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { fetchDashboardStats } from '@/lib/api/admin';
 
@@ -46,8 +46,8 @@ export default function AdminDashboard() {
       title: 'Recent Orders',
       value: stats?.recentOrders?.length ?? 0,
       icon: ShoppingCart,
-      color: 'text-purple-500',
-      bgColor: 'bg-purple-500/10',
+      color: 'text-orange-500',
+      bgColor: 'bg-orange-500/10',
     },
   ];
 
@@ -62,7 +62,7 @@ export default function AdminDashboard() {
               <CardTitle className="text-sm font-medium text-muted-foreground">
                 {stat.title}
               </CardTitle>
-              <div className={`p-2 rounded-lg ${stat.bgColor}`}>
+              <div className={`p-2 border-2 border-foreground ${stat.bgColor}`}>
                 <stat.icon className={`h-4 w-4 ${stat.color}`} />
               </div>
             </CardHeader>
@@ -93,7 +93,7 @@ export default function AdminDashboard() {
                   </div>
                   <div className="text-right">
                     <p className="font-bold text-card-foreground">{formatCurrency(Number(order.amount_total))}</p>
-                    <span className={`text-xs px-2 py-0.5 rounded-full ${
+                    <span className={`text-xs px-2 py-0.5 border-2 border-foreground uppercase tracking-[0.05em] font-semibold ${
                       order.status === 'completed' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' :
                       order.status === 'pending' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400' :
                       'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'

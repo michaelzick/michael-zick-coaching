@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Star, Clock, BookOpen, ShoppingCart } from 'lucide-react';
+import { Star, Clock, BookOpen, ShoppingCart } from '@/lib/icons';
 import { Course } from '@/types/course';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -25,7 +25,7 @@ export default function CourseCard({ course, className }: CourseCardProps) {
   const categoryLabel = course.category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 
   return (
-    <div className={cn("course-card group bg-card rounded-xl overflow-hidden border border-border transition-all duration-300", className)}>
+    <div className={cn("course-card group bg-card overflow-hidden border-2 border-foreground transition-all duration-300 cubist-frame", className)}>
       <Link to={`/course/${course.slug}`} className="block relative pb-[56.25%] overflow-hidden">
         <img 
           src={`${course.thumbnailUrl}?auto=format&fit=crop&w=800&q=80`}
@@ -46,7 +46,7 @@ export default function CourseCard({ course, className }: CourseCardProps) {
       
       <div className="p-5">
         <div className="flex justify-between items-start mb-2">
-          <span className="text-xs font-medium text-primary uppercase tracking-wider">
+          <span className="text-xs font-bold text-primary uppercase tracking-[0.08em]">
             {categoryLabel}
           </span>
           <div className="flex items-center">
@@ -57,7 +57,7 @@ export default function CourseCard({ course, className }: CourseCardProps) {
         </div>
         
         <Link to={`/course/${course.slug}`} className="block">
-          <h3 className="font-bold text-card-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+          <h3 className="font-bold text-card-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors uppercase tracking-[0.03em]">
             {course.title}
           </h3>
         </Link>
@@ -96,7 +96,7 @@ export default function CourseCard({ course, className }: CourseCardProps) {
         <div className="mt-auto">
           {isInCart(course.id) ? (
             <Link to="/cart" className="w-full">
-              <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">
+              <Button variant="outline" className="w-full border-foreground text-foreground hover:bg-accent">
                 <ShoppingCart className="w-4 h-4 mr-2" />
                 View in Cart
               </Button>

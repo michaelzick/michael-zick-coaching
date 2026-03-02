@@ -1,5 +1,5 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { LayoutDashboard, BookOpen, ShoppingCart, Settings, ChevronLeft } from 'lucide-react';
+import { LayoutDashboard, BookOpen, ShoppingCart, Settings, ChevronLeft } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
 

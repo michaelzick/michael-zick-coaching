@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, PlayCircle, Loader2 } from 'lucide-react';
+import { BookOpen, PlayCircle, Loader2 } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Navbar from '@/components/Navbar';
@@ -26,7 +26,7 @@ export default function MyPrograms() {
             </div>
           ) : enrollments.length === 0 ? (
             <div className="text-center py-16">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-muted rounded-full mb-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-muted border-2 border-foreground mb-6">
                 <BookOpen className="h-10 w-10 text-muted-foreground" />
               </div>
               <h2 className="text-2xl font-bold text-foreground mb-4">No programs yet</h2>
@@ -46,7 +46,7 @@ export default function MyPrograms() {
                 if (!course) return null;
 
                 return (
-                  <Card key={enrollment.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                  <Card key={enrollment.id} className="overflow-hidden">
                     <div className="relative pb-[56.25%] overflow-hidden">
                       <img
                         src={`${course.thumbnail_url}?auto=format&fit=crop&w=600&q=80`}

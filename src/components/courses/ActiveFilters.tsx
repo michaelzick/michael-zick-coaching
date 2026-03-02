@@ -1,5 +1,5 @@
 
-import { X } from 'lucide-react';
+import { X } from '@/lib/icons';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { categories } from './constants';
@@ -30,13 +30,13 @@ export default function ActiveFilters({
   
   return (
     <div className="mt-4 flex flex-wrap gap-2 items-center">
-      <span className="text-sm text-gray-600 mr-2">Active filters:</span>
+      <span className="text-sm text-muted-foreground mr-2 font-bold uppercase tracking-[0.06em]">Active filters:</span>
       
       {selectedLevels.map(level => (
         <Badge 
           key={level} 
           variant="outline" 
-          className="bg-gray-100 text-gray-700 hover:bg-gray-200"
+          className="bg-muted text-foreground hover:bg-accent font-semibold"
         >
           {level}
           <X 
@@ -52,7 +52,7 @@ export default function ActiveFilters({
           <Badge 
             key={catId} 
             variant="outline" 
-            className="bg-gray-100 text-gray-700 hover:bg-gray-200"
+            className="bg-muted text-foreground hover:bg-accent font-semibold"
           >
             {category?.label}
             <X 
@@ -66,7 +66,7 @@ export default function ActiveFilters({
       {!(priceRange[0] === 0 && priceRange[1] === 500) && (
         <Badge 
           variant="outline" 
-          className="bg-gray-100 text-gray-700 hover:bg-gray-200"
+          className="bg-muted text-foreground hover:bg-accent font-semibold"
         >
           {priceRange[0] === 0 && priceRange[1] === 0 
             ? 'Free' 
@@ -81,7 +81,7 @@ export default function ActiveFilters({
       {searchQuery && (
         <Badge 
           variant="outline" 
-          className="bg-gray-100 text-gray-700 hover:bg-gray-200"
+          className="bg-muted text-foreground hover:bg-accent font-semibold"
         >
           "{searchQuery}"
           <X 
@@ -94,7 +94,7 @@ export default function ActiveFilters({
       <Button 
         variant="ghost" 
         size="sm" 
-        className="text-gray-500 hover:text-learnify-600 ml-auto"
+        className="text-muted-foreground hover:text-primary ml-auto"
         onClick={clearFilters}
       >
         Clear All

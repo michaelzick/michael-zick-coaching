@@ -1,5 +1,5 @@
 
-import { Loader2, Search } from 'lucide-react';
+import { Loader2, Search } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 import CourseCard from '@/components/CourseCard';
 import { Course } from '@/types/course';
@@ -23,7 +23,7 @@ export default function CourseGrid({ isLoading, courses, clearFilters }: CourseG
   if (courses.length === 0) {
     return (
       <div className="text-center py-16 fade-in">
-        <div className="inline-flex items-center justify-center w-20 h-20 bg-muted rounded-full mb-6">
+        <div className="inline-flex items-center justify-center w-20 h-20 bg-muted border-2 border-foreground mb-6">
           <Search className="h-10 w-10 text-muted-foreground" />
         </div>
         <h2 className="text-2xl font-bold text-foreground mb-4">No courses found</h2>
@@ -32,7 +32,7 @@ export default function CourseGrid({ isLoading, courses, clearFilters }: CourseG
         </p>
         <Button 
           variant="outline" 
-          className="border-learnify-600 text-learnify-600 hover:bg-learnify-50"
+          className="border-foreground text-foreground hover:bg-accent"
           onClick={clearFilters}
         >
           Clear Filters
@@ -43,7 +43,7 @@ export default function CourseGrid({ isLoading, courses, clearFilters }: CourseG
   
   return (
     <div>
-      <p className="text-sm text-muted-foreground mb-6">
+      <p className="text-sm text-muted-foreground mb-6 font-semibold uppercase tracking-[0.05em]">
         Showing {courses.length} {courses.length === 1 ? 'course' : 'courses'}
       </p>
       

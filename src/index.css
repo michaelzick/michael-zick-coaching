@@ -4,123 +4,245 @@
 
 @layer base {
   :root {
-    --background: 220 20% 97%;
-    --foreground: 220 20% 10%;
+    --background: 47 61% 92%;
+    --foreground: 214 28% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 10%;
+    --card-foreground: 214 28% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 10%;
+    --popover-foreground: 214 28% 11%;
 
-    --primary: 217 91% 60%;
+    --primary: 7 89% 56%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 20%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 209 65% 22%;
+    --secondary-foreground: 54 80% 94%;
 
-    --muted: 220 15% 92%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 44 42% 86%;
+    --muted-foreground: 214 16% 28%;
 
-    --accent: 217 91% 60%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 47 100% 52%;
+    --accent-foreground: 214 28% 11%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 350 75% 45%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 88%;
-    --input: 220 15% 88%;
-    --ring: 217 91% 60%;
+    --border: 214 28% 11%;
+    --input: 214 28% 11%;
+    --ring: 7 89% 56%;
 
-    --radius: 0.5rem;
+    --radius: 0rem;
 
-    --mz-blue: 217 91% 60%;
-    --mz-slate: 220 20% 10%;
-    --mz-charcoal: 220 15% 15%;
-    --mz-warm: 30 10% 50%;
+    --mz-blue: 209 65% 22%;
+    --mz-slate: 214 28% 11%;
+    --mz-charcoal: 214 18% 8%;
+    --mz-warm: 22 85% 52%;
   }
 
   .dark {
-    --background: 220 20% 7%;
-    --foreground: 210 30% 95%;
+    --background: 214 27% 10%;
+    --foreground: 48 53% 90%;
 
-    --card: 220 18% 10%;
-    --card-foreground: 210 30% 95%;
+    --card: 214 27% 14%;
+    --card-foreground: 48 53% 90%;
 
-    --popover: 220 18% 10%;
-    --popover-foreground: 210 30% 95%;
+    --popover: 214 27% 14%;
+    --popover-foreground: 48 53% 90%;
 
-    --primary: 217 91% 60%;
+    --primary: 7 89% 56%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 18%;
-    --secondary-foreground: 210 30% 95%;
+    --secondary: 209 57% 26%;
+    --secondary-foreground: 52 80% 90%;
 
-    --muted: 220 15% 15%;
-    --muted-foreground: 215 15% 55%;
+    --muted: 214 20% 20%;
+    --muted-foreground: 47 26% 76%;
 
-    --accent: 217 91% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 47 95% 55%;
+    --accent-foreground: 214 27% 12%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 350 75% 45%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 217 91% 60%;
-
-    --mz-blue: 217 91% 60%;
-    --mz-slate: 220 20% 10%;
-    --mz-charcoal: 220 15% 8%;
-    --mz-warm: 30 10% 60%;
+    --border: 48 53% 90%;
+    --input: 48 53% 90%;
+    --ring: 7 89% 56%;
   }
 }
 
 @layer base {
+  html {
+    font-size: 125%;
+  }
+
   * {
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground transition-colors duration-300;
+  *,
+  *::before,
+  *::after {
+    border-radius: 0 !important;
   }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Trebuchet MS", "Franklin Gothic Medium", "Arial Narrow", sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    letter-spacing: 0.01em;
+    background-image:
+      linear-gradient(135deg, rgba(218, 42, 30, 0.08) 0%, rgba(218, 42, 30, 0.08) 50%, transparent 50%, transparent 100%),
+      linear-gradient(225deg, rgba(19, 64, 108, 0.08) 0%, rgba(19, 64, 108, 0.08) 34%, transparent 34%, transparent 100%),
+      repeating-linear-gradient(0deg, transparent 0 31px, rgba(18, 32, 44, 0.12) 31px 32px),
+      repeating-linear-gradient(90deg, transparent 0 31px, rgba(18, 32, 44, 0.12) 31px 32px);
+  }
+
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  body::before {
+    top: -14vh;
+    left: -10vw;
+    width: 58vw;
+    height: 50vh;
+    background: hsla(var(--primary), 0.18);
+    clip-path: polygon(6% 4%, 96% 9%, 76% 52%, 100% 88%, 14% 100%, 0 44%);
+  }
+
+  body::after {
+    right: -12vw;
+    bottom: -16vh;
+    width: 52vw;
+    height: 48vh;
+    background: hsla(var(--secondary), 0.16);
+    clip-path: polygon(0 10%, 84% 0, 100% 62%, 72% 100%, 9% 88%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 170px;
+    height: 170px;
+    background: hsla(var(--accent), 0.2);
+    clip-path: polygon(0 0, 100% 0, 67% 48%, 100% 100%, 0 100%, 30% 52%);
+    pointer-events: none;
+  }
+
+  img {
+    filter: contrast(1.08) saturate(1.12);
+  }
+}
+
+@layer components {
+  .elevated-on-hover {
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+
+  .elevated-on-hover:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0 hsla(var(--foreground), 0.95);
+  }
+
+  .cubist-frame {
+    border: 2px solid hsl(var(--foreground));
+    position: relative;
+  }
+
+  .cubist-frame::before {
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    width: 18px;
+    height: 18px;
+    background: hsl(var(--accent));
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+}
+
+.shadow,
+.shadow-sm,
+.shadow-md,
+.shadow-lg,
+.shadow-xl,
+.shadow-2xl,
+.shadow-inner {
+  box-shadow: none !important;
+}
+
+button,
+[role="button"],
+a.cubist-link,
+.course-card,
+.card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+button:hover,
+[role="button"]:hover,
+a.cubist-link:hover,
+.course-card:hover,
+.card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 hsla(var(--foreground), 0.95);
 }
 
 .course-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-width: 2px !important;
 }
 
-.course-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes fadeIn {
+@keyframes cubistFade {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(18px) skewX(-4deg);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) skewX(0deg);
   }
 }
 
 .fade-in {
-  animation: fadeIn 0.6s ease forwards;
+  animation: cubistFade 0.5s ease-out forwards;
 }
 
 .fade-in-delay-1 {
-  animation: fadeIn 0.6s ease 0.1s forwards;
+  animation: cubistFade 0.55s ease-out 0.08s forwards;
   opacity: 0;
 }
 
 .fade-in-delay-2 {
-  animation: fadeIn 0.6s ease 0.2s forwards;
+  animation: cubistFade 0.55s ease-out 0.16s forwards;
   opacity: 0;
 }
 
 .fade-in-delay-3 {
-  animation: fadeIn 0.6s ease 0.3s forwards;
+  animation: cubistFade 0.55s ease-out 0.24s forwards;
   opacity: 0;
 }

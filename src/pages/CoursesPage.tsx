@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { X } from 'lucide-react';
+import { X } from '@/lib/icons';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useCourses } from '@/hooks/use-courses';
@@ -75,10 +75,10 @@ export default function CoursesPage() {
               />
 
               {filterOpen && (
-                <div className="md:hidden bg-card rounded-lg shadow-sm border border-border overflow-hidden mb-6 fade-in">
+                <div className="md:hidden bg-card border-2 border-foreground overflow-hidden mb-6 fade-in cubist-frame">
                   <div className="p-4">
                     <div className="flex justify-between items-center mb-4">
-                      <h2 className="font-bold text-card-foreground">Filters</h2>
+                      <h2 className="font-bold text-card-foreground uppercase tracking-[0.08em]">Filters</h2>
                       <button
                         className="text-muted-foreground hover:text-destructive"
                         onClick={() => setFilterOpen(false)}

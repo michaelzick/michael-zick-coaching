@@ -29,13 +29,13 @@ export default function FilterSidebar({
 
   return (
     <div className={`${isDesktop ? 'hidden md:block w-1/4 fade-in' : 'md:hidden fade-in'}`}>
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden sticky top-24">
+      <div className="bg-card border-2 border-foreground overflow-hidden sticky top-24 cubist-frame">
         <div className="p-6">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="font-bold text-gray-900">Filters</h2>
+            <h2 className="font-bold text-foreground uppercase tracking-[0.08em]">Filters</h2>
             {hasFilters() && (
               <button 
-                className="text-gray-500 hover:text-learnify-600 text-sm"
+                className="text-muted-foreground hover:text-primary text-sm font-bold uppercase tracking-[0.06em]"
                 onClick={clearFilters}
               >
                 Clear All
@@ -46,7 +46,7 @@ export default function FilterSidebar({
           <Accordion type="multiple" defaultValue={['levels', 'categories', 'price']} className="w-full">
             <AccordionItem value="levels" className="border-b-0">
               <AccordionTrigger className="py-3 hover:no-underline">
-                <span className="font-medium text-gray-900">Level</span>
+                <span className="font-bold uppercase tracking-[0.06em] text-foreground">Level</span>
               </AccordionTrigger>
               <AccordionContent>
                 <div className="space-y-2">
@@ -56,9 +56,9 @@ export default function FilterSidebar({
                         id={`${idPrefix}level-${level}`} 
                         checked={selectedLevels.includes(level)}
                         onCheckedChange={() => toggleLevel(level)}
-                        className="mr-2 data-[state=checked]:bg-learnify-600 data-[state=checked]:border-learnify-600"
+                        className="mr-2 border-2 border-foreground data-[state=checked]:bg-primary data-[state=checked]:border-foreground"
                       />
-                      <label htmlFor={`${idPrefix}level-${level}`} className="text-sm text-gray-700 cursor-pointer">
+                      <label htmlFor={`${idPrefix}level-${level}`} className="text-sm text-foreground/85 cursor-pointer font-medium uppercase tracking-[0.04em]">
                         {level}
                       </label>
                     </div>
@@ -69,7 +69,7 @@ export default function FilterSidebar({
             
             <AccordionItem value="categories" className="border-b-0">
               <AccordionTrigger className="py-3 hover:no-underline">
-                <span className="font-medium text-gray-900">Category</span>
+                <span className="font-bold uppercase tracking-[0.06em] text-foreground">Category</span>
               </AccordionTrigger>
               <AccordionContent>
                 <div className="space-y-2">
@@ -79,9 +79,9 @@ export default function FilterSidebar({
                         id={`${idPrefix}category-${category.id}`} 
                         checked={selectedCategories.includes(category.id)}
                         onCheckedChange={() => toggleCategory(category.id)}
-                        className="mr-2 data-[state=checked]:bg-learnify-600 data-[state=checked]:border-learnify-600"
+                        className="mr-2 border-2 border-foreground data-[state=checked]:bg-primary data-[state=checked]:border-foreground"
                       />
-                      <label htmlFor={`${idPrefix}category-${category.id}`} className="text-sm text-gray-700 cursor-pointer">
+                      <label htmlFor={`${idPrefix}category-${category.id}`} className="text-sm text-foreground/85 cursor-pointer font-medium uppercase tracking-[0.04em]">
                         {category.label}
                       </label>
                     </div>
@@ -92,76 +92,76 @@ export default function FilterSidebar({
             
             <AccordionItem value="price" className="border-b-0">
               <AccordionTrigger className="py-3 hover:no-underline">
-                <span className="font-medium text-gray-900">Price</span>
+                <span className="font-bold uppercase tracking-[0.06em] text-foreground">Price</span>
               </AccordionTrigger>
               <AccordionContent>
                 <div className="space-y-2">
                   <div className="flex items-center">
-                    <Checkbox 
-                      id={`${idPrefix}price-all`} 
-                      checked={priceRange[0] === 0 && priceRange[1] === 500}
-                      onCheckedChange={() => setPriceRange([0, 500])}
-                      className="mr-2 data-[state=checked]:bg-learnify-600 data-[state=checked]:border-learnify-600"
-                    />
-                    <label htmlFor={`${idPrefix}price-all`} className="text-sm text-gray-700 cursor-pointer">
-                      All Prices
-                    </label>
-                  </div>
+                      <Checkbox 
+                        id={`${idPrefix}price-all`} 
+                        checked={priceRange[0] === 0 && priceRange[1] === 500}
+                        onCheckedChange={() => setPriceRange([0, 500])}
+                        className="mr-2 border-2 border-foreground data-[state=checked]:bg-primary data-[state=checked]:border-foreground"
+                      />
+                      <label htmlFor={`${idPrefix}price-all`} className="text-sm text-foreground/85 cursor-pointer font-medium uppercase tracking-[0.04em]">
+                        All Prices
+                      </label>
+                    </div>
                   <div className="flex items-center">
-                    <Checkbox 
-                      id={`${idPrefix}price-free`} 
-                      checked={priceRange[0] === 0 && priceRange[1] === 0}
-                      onCheckedChange={() => setPriceRange([0, 0])}
-                      className="mr-2 data-[state=checked]:bg-learnify-600 data-[state=checked]:border-learnify-600"
-                    />
-                    <label htmlFor={`${idPrefix}price-free`} className="text-sm text-gray-700 cursor-pointer">
-                      Free
-                    </label>
-                  </div>
+                      <Checkbox 
+                        id={`${idPrefix}price-free`} 
+                        checked={priceRange[0] === 0 && priceRange[1] === 0}
+                        onCheckedChange={() => setPriceRange([0, 0])}
+                        className="mr-2 border-2 border-foreground data-[state=checked]:bg-primary data-[state=checked]:border-foreground"
+                      />
+                      <label htmlFor={`${idPrefix}price-free`} className="text-sm text-foreground/85 cursor-pointer font-medium uppercase tracking-[0.04em]">
+                        Free
+                      </label>
+                    </div>
                   <div className="flex items-center">
-                    <Checkbox 
-                      id={`${idPrefix}price-paid`} 
-                      checked={priceRange[0] > 0}
-                      onCheckedChange={() => setPriceRange(priceRange[0] > 0 ? [0, 500] : [0.01, 500])}
-                      className="mr-2 data-[state=checked]:bg-learnify-600 data-[state=checked]:border-learnify-600"
-                    />
-                    <label htmlFor={`${idPrefix}price-paid`} className="text-sm text-gray-700 cursor-pointer">
-                      Paid
-                    </label>
-                  </div>
+                      <Checkbox 
+                        id={`${idPrefix}price-paid`} 
+                        checked={priceRange[0] > 0}
+                        onCheckedChange={() => setPriceRange(priceRange[0] > 0 ? [0, 500] : [0.01, 500])}
+                        className="mr-2 border-2 border-foreground data-[state=checked]:bg-primary data-[state=checked]:border-foreground"
+                      />
+                      <label htmlFor={`${idPrefix}price-paid`} className="text-sm text-foreground/85 cursor-pointer font-medium uppercase tracking-[0.04em]">
+                        Paid
+                      </label>
+                    </div>
                   <div className="flex items-center">
-                    <Checkbox 
-                      id={`${idPrefix}price-under-50`} 
-                      checked={priceRange[0] === 0 && priceRange[1] === 50}
-                      onCheckedChange={() => setPriceRange([0, 50])}
-                      className="mr-2 data-[state=checked]:bg-learnify-600 data-[state=checked]:border-learnify-600"
-                    />
-                    <label htmlFor={`${idPrefix}price-under-50`} className="text-sm text-gray-700 cursor-pointer">
-                      Under $50
-                    </label>
-                  </div>
+                      <Checkbox 
+                        id={`${idPrefix}price-under-50`} 
+                        checked={priceRange[0] === 0 && priceRange[1] === 50}
+                        onCheckedChange={() => setPriceRange([0, 50])}
+                        className="mr-2 border-2 border-foreground data-[state=checked]:bg-primary data-[state=checked]:border-foreground"
+                      />
+                      <label htmlFor={`${idPrefix}price-under-50`} className="text-sm text-foreground/85 cursor-pointer font-medium uppercase tracking-[0.04em]">
+                        Under $50
+                      </label>
+                    </div>
                   <div className="flex items-center">
-                    <Checkbox 
-                      id={`${idPrefix}price-50-100`} 
-                      checked={priceRange[0] === 50 && priceRange[1] === 100}
-                      onCheckedChange={() => setPriceRange([50, 100])}
-                      className="mr-2 data-[state=checked]:bg-learnify-600 data-[state=checked]:border-learnify-600"
-                    />
-                    <label htmlFor={`${idPrefix}price-50-100`} className="text-sm text-gray-700 cursor-pointer">
-                      $50 - $100
-                    </label>
-                  </div>
+                      <Checkbox 
+                        id={`${idPrefix}price-50-100`} 
+                        checked={priceRange[0] === 50 && priceRange[1] === 100}
+                        onCheckedChange={() => setPriceRange([50, 100])}
+                        className="mr-2 border-2 border-foreground data-[state=checked]:bg-primary data-[state=checked]:border-foreground"
+                      />
+                      <label htmlFor={`${idPrefix}price-50-100`} className="text-sm text-foreground/85 cursor-pointer font-medium uppercase tracking-[0.04em]">
+                        $50 - $100
+                      </label>
+                    </div>
                   <div className="flex items-center">
-                    <Checkbox 
-                      id={`${idPrefix}price-100-plus`} 
-                      checked={priceRange[0] === 100 && priceRange[1] === 500}
-                      onCheckedChange={() => setPriceRange([100, 500])}
-                      className="mr-2 data-[state=checked]:bg-learnify-600 data-[state=checked]:border-learnify-600"
-                    />
-                    <label htmlFor={`${idPrefix}price-100-plus`} className="text-sm text-gray-700 cursor-pointer">
-                      $100+
-                    </label>
-                  </div>
+                      <Checkbox 
+                        id={`${idPrefix}price-100-plus`} 
+                        checked={priceRange[0] === 100 && priceRange[1] === 500}
+                        onCheckedChange={() => setPriceRange([100, 500])}
+                        className="mr-2 border-2 border-foreground data-[state=checked]:bg-primary data-[state=checked]:border-foreground"
+                      />
+                      <label htmlFor={`${idPrefix}price-100-plus`} className="text-sm text-foreground/85 cursor-pointer font-medium uppercase tracking-[0.04em]">
+                        $100+
+                      </label>
+                    </div>
                 </div>
               </AccordionContent>
             </AccordionItem>
@@ -170,13 +170,13 @@ export default function FilterSidebar({
           {!isDesktop && (
             <div className="mt-4 flex justify-between">
               <button 
-                className="flex-1 mr-2 px-4 py-2 border border-gray-300 rounded-md text-gray-700"
+                className="flex-1 mr-2 px-4 py-2 border-2 border-foreground text-foreground font-bold uppercase tracking-[0.06em] bg-muted"
                 onClick={clearFilters}
               >
                 Clear All
               </button>
               <button 
-                className="flex-1 ml-2 px-4 py-2 bg-learnify-600 hover:bg-learnify-700 text-white rounded-md"
+                className="flex-1 ml-2 px-4 py-2 bg-primary hover:bg-primary/85 text-primary-foreground border-2 border-foreground font-bold uppercase tracking-[0.06em]"
                 onClick={onFilterClose}
               >
                 Apply Filters

@@ -33,7 +33,7 @@ export default function CoursesHeader({
   hasFilters
 }: CoursesHeaderProps) {
   return (
-    <div className="bg-card rounded-lg shadow-sm border border-border p-4 mb-6">
+    <div className="bg-card border-2 border-foreground p-4 mb-6 cubist-frame">
       <div className="flex flex-col md:flex-row gap-4">
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         
