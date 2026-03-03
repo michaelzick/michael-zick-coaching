@@ -140,8 +140,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signOut = async () => {
-    await supabase.auth.signOut();
-    setProfile(null);
+    try {
+      const { error } = await supabase.auth.signOut({ scope: 'local' });
+      if (error) {
+        console.error('Error signing out:', error);
+      }
+    } catch (error) {
+      console.error('Error signing out:', error);
+    } finally {
+      setSession(null);
+      setUser(null);
+      setProfile(null);
+      setIsLoading(false);
+    }
   };
 
   const normalizedRole = typeof profile?.role === 'string'

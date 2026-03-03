@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ShoppingCart, User, LogOut, LayoutDashboard, BookOpen, Settings } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/hooks/use-cart';
@@ -16,7 +16,9 @@ import {
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isSigningOut, setIsSigningOut] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { cart } = useCart();
   const { user, profile, isAdmin, signOut } = useAuth();
   const adminRoutes = [
@@ -35,6 +37,16 @@ export default function Navbar() {
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
+
+  const handleSignOut = async () => {
+    if (isSigningOut) return;
+
+    setIsSigningOut(true);
+    await signOut();
+    setMobileMenuOpen(false);
+    navigate('/', { replace: true });
+    setIsSigningOut(false);
+  };
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav border-b-2 border-foreground ${
@@ -104,9 +116,15 @@ export default function Navbar() {
                     </>
                   )}
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={signOut} className="cursor-pointer uppercase tracking-[0.05em] font-semibold">
+                  <DropdownMenuItem
+                    onSelect={(event) => {
+                      event.preventDefault();
+                      void handleSignOut();
+                    }}
+                    className="cursor-pointer uppercase tracking-[0.05em] font-semibold"
+                  >
                     <LogOut className="mr-2 h-4 w-4" />
-                    Sign Out
+                    {isSigningOut ? 'Signing Out...' : 'Sign Out'}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -172,9 +190,10 @@ export default function Navbar() {
                 <Button
                   variant="ghost"
                   className="justify-start text-foreground hover:text-primary font-bold"
-                  onClick={signOut}
+                  onClick={() => void handleSignOut()}
+                  disabled={isSigningOut}
                 >
-                  Sign Out
+                  {isSigningOut ? 'Signing Out...' : 'Sign Out'}
                 </Button>
               </>
             ) : (
