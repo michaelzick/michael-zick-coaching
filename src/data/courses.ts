@@ -255,7 +255,7 @@ export const courses: Course[] = [
     lectureCount: 10,
     description: "Every man carries a set of invisible scripts about women — stories he tells himself before he even opens his mouth. \"She's out of my league.\" \"She'll reject me and it'll prove I'm worthless.\" \"A woman like her only dates billionaires.\" These are Self-Limiting Beliefs (SLBs) and Negative Predictors (NPs), and they run your love life from the shadows. This course exposes them, traces them to their origins, dismantles the logic behind each one, and gives you a concrete system for replacing fear-based beliefs with evidence-based confidence.",
     shortDescription: "Expose and dismantle the invisible beliefs sabotaging your confidence with women.",
-    thumbnailUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+    thumbnailUrl: "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
     featured: true,
     bestseller: false,
     lastUpdated: "March 2026",
