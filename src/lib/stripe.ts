@@ -2,6 +2,16 @@ import { supabase } from '@/lib/supabase';
 
 const CHECKOUT_TIMEOUT_MS = 15000;
 
+function shouldShowFunctionsHint(message: string) {
+  const lowerMessage = message.toLowerCase();
+  return lowerMessage.includes('failed to fetch')
+    || lowerMessage.includes('functionsfetcherror')
+    || lowerMessage.includes('network')
+    || lowerMessage.includes('non-2xx')
+    || lowerMessage.includes('edge function returned')
+    || lowerMessage.includes('worker_error');
+}
+
 function withTimeout<T>(promise: Promise<T>, message: string) {
   return new Promise<T>((resolve, reject) => {
     const timeoutId = window.setTimeout(() => {
@@ -20,7 +30,7 @@ function withTimeout<T>(promise: Promise<T>, message: string) {
   });
 }
 
-async function getInvokeErrorMessage(error: { message: string; context?: Response }) {
+export async function getInvokeErrorMessage(error: { message: string; context?: Response }) {
   if (error.context) {
     try {
       const errorBody = await error.context.json();
@@ -30,6 +40,10 @@ async function getInvokeErrorMessage(error: { message: string; context?: Respons
     } catch {
       // Fall back to the top-level function error message.
     }
+  }
+
+  if (import.meta.env.DEV && shouldShowFunctionsHint(error.message)) {
+    return 'Unable to reach the local Supabase Edge Functions. Start `npm run supabase:functions:serve` and try again.';
   }
 
   return error.message;

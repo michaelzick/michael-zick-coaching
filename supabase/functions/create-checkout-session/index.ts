@@ -1,31 +1,15 @@
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts';
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-import Stripe from 'https://esm.sh/stripe@13?target=deno';
-
-type CheckoutCourse = {
-  id: string;
-  title: string;
-  price: number;
-  sale_price: number | null;
-  thumbnail_url: string | null;
-};
-
-function getRequiredEnv(name: string) {
-  const value = Deno.env.get(name);
-  if (!value) {
-    throw new Error(`Missing ${name} for checkout configuration.`);
-  }
-  return value;
-}
-
-function getErrorMessage(error: unknown) {
-  return error instanceof Error ? error.message : 'Unknown checkout error';
-}
+import {
+  createServiceClient,
+  createStripeClient,
+  getErrorMessage,
+} from '../_shared/checkout-fulfillment.ts';
 
 serve(async (req) => {
   const corsHeaders = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
   };
 
   if (req.method === 'OPTIONS') {
@@ -33,12 +17,7 @@ serve(async (req) => {
   }
 
   try {
-    const stripeSecretKey = getRequiredEnv('STRIPE_SECRET_KEY');
-    const supabaseUrl = getRequiredEnv('SUPABASE_URL');
-    const supabaseServiceKey = getRequiredEnv('SUPABASE_SERVICE_ROLE_KEY');
-    const stripe = new Stripe(stripeSecretKey, {
-      apiVersion: '2023-10-16',
-    });
+    const stripe = createStripeClient();
 
     // Get user from auth header
     const authHeader = req.headers.get('Authorization');
@@ -49,7 +28,7 @@ serve(async (req) => {
       });
     }
 
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const supabase = createServiceClient();
     const token = authHeader.replace('Bearer ', '');
     const { data: { user }, error: authError } = await supabase.auth.getUser(token);
 

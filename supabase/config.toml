@@ -258,6 +258,15 @@ max_frequency = "5s"
 # [auth.sessions]
 # Force log out after the specified duration.
 # timebox = "24h"
+
+[functions.create-checkout-session]
+verify_jwt = false
+
+[functions.finalize-checkout-session]
+verify_jwt = false
+
+[functions.stripe-webhook]
+verify_jwt = false
 # Force log out if the user has been inactive longer than the specified duration.
 # inactivity_timeout = "8h"
 
