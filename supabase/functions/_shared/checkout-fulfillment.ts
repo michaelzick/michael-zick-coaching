@@ -1,6 +1,8 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import Stripe from 'https://esm.sh/stripe@13?target=deno';
 
+type ServiceClient = ReturnType<typeof createServiceClient>;
+
 type CheckoutCourse = {
   id: string;
   price: number;
@@ -8,10 +10,40 @@ type CheckoutCourse = {
   students_count: number;
 };
 
+type AuthenticatedUser = {
+  id: string;
+  app_metadata?: Record<string, unknown>;
+  user_metadata?: Record<string, unknown>;
+};
+
+type RefundOrderItem = {
+  course_id: string;
+};
+
+export type RefundableOrder = {
+  id: string;
+  user_id: string;
+  status: string;
+  stripe_payment_intent_id: string | null;
+  stripe_refund_id: string | null;
+  refunded_at: string | null;
+  order_items: RefundOrderItem[] | null;
+};
+
 type FinalizeCheckoutResult = {
   orderId: string;
   insertedEnrollmentCount: number;
 };
+
+export class HttpError extends Error {
+  status: number;
+
+  constructor(status: number, message: string) {
+    super(message);
+    this.name = 'HttpError';
+    this.status = status;
+  }
+}
 
 export function getRequiredEnv(name: string) {
   const value = Deno.env.get(name);
@@ -56,6 +88,36 @@ export function createServiceClient() {
   );
 }
 
+function normalizeRole(role: unknown) {
+  return typeof role === 'string' ? role.trim().toLowerCase() : '';
+}
+
+function getMetadataRole(user: AuthenticatedUser | null) {
+  if (!user) return '';
+
+  const roleCandidates = [
+    user.app_metadata?.role,
+    user.app_metadata?.user_role,
+    user.user_metadata?.role,
+    user.user_metadata?.user_role,
+  ];
+
+  return roleCandidates
+    .map(normalizeRole)
+    .find(Boolean) ?? '';
+}
+
+function getBearerToken(authHeader: string | null) {
+  if (!authHeader) return null;
+
+  const [scheme, token] = authHeader.split(' ');
+  if (scheme?.toLowerCase() !== 'bearer' || !token) {
+    return null;
+  }
+
+  return token;
+}
+
 function getCheckoutMetadata(session: Stripe.Checkout.Session) {
   const userId = session.metadata?.user_id;
   const rawCourseIds = session.metadata?.course_ids ?? '';
@@ -79,7 +141,7 @@ function isUniqueViolation(error: unknown) {
 }
 
 async function getExistingEnrollments(
-  supabase: ReturnType<typeof createServiceClient>,
+  supabase: ServiceClient,
   userId: string,
   courseIds: string[],
 ) {
@@ -97,7 +159,7 @@ async function getExistingEnrollments(
 }
 
 async function getCanonicalOrderId(
-  supabase: ReturnType<typeof createServiceClient>,
+  supabase: ServiceClient,
   sessionId: string,
 ) {
   const { data: existingOrders, error } = await supabase
@@ -143,7 +205,7 @@ async function getCanonicalOrderId(
 }
 
 async function incrementStudentCounts(
-  supabase: ReturnType<typeof createServiceClient>,
+  supabase: ServiceClient,
   courses: CheckoutCourse[],
   courseIds: string[],
 ) {
@@ -164,8 +226,218 @@ async function incrementStudentCounts(
   }
 }
 
+export async function requireAdminUser(
+  supabase: ServiceClient,
+  authHeader: string | null,
+): Promise<AuthenticatedUser> {
+  const accessToken = getBearerToken(authHeader);
+  if (!accessToken) {
+    throw new HttpError(401, 'Missing authorization header.');
+  }
+
+  const { data, error: authError } = await supabase.auth.getUser(accessToken);
+  const user = data.user as AuthenticatedUser | null;
+
+  if (authError || !user) {
+    throw new HttpError(401, 'Unauthorized.');
+  }
+
+  const { data: profile, error: profileError } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
+    .maybeSingle();
+
+  if (profileError) {
+    throw profileError;
+  }
+
+  const normalizedProfileRole = normalizeRole(profile?.role);
+  const isAdmin = normalizedProfileRole === 'admin' || getMetadataRole(user) === 'admin';
+
+  if (!isAdmin) {
+    throw new HttpError(403, 'Admin access required.');
+  }
+
+  return user;
+}
+
+async function getOrderByFilter(
+  supabase: ServiceClient,
+  filter: { column: 'id' | 'stripe_payment_intent_id'; value: string },
+) {
+  const query = supabase
+    .from('orders')
+    .select(`
+      id,
+      user_id,
+      status,
+      stripe_payment_intent_id,
+      stripe_refund_id,
+      refunded_at,
+      order_items(course_id)
+    `)
+    .eq(filter.column, filter.value)
+    .order('created_at', { ascending: true })
+    .limit(1)
+    .maybeSingle();
+
+  const { data, error } = await query;
+  if (error) {
+    throw error;
+  }
+
+  return data as RefundableOrder | null;
+}
+
+export async function getRefundableOrderById(
+  supabase: ServiceClient,
+  orderId: string,
+) {
+  const order = await getOrderByFilter(supabase, { column: 'id', value: orderId });
+
+  if (!order) {
+    throw new HttpError(404, 'Order not found.');
+  }
+
+  return order;
+}
+
+export async function getRefundableOrderByPaymentIntent(
+  supabase: ServiceClient,
+  paymentIntentId: string,
+) {
+  return getOrderByFilter(supabase, {
+    column: 'stripe_payment_intent_id',
+    value: paymentIntentId,
+  });
+}
+
+export function assertOrderRefundable(order: RefundableOrder) {
+  if (!order.stripe_payment_intent_id) {
+    throw new HttpError(400, 'This order does not have a Stripe payment to refund.');
+  }
+
+  if (order.status === 'refunded' || order.stripe_refund_id || order.refunded_at) {
+    throw new HttpError(409, 'This order has already been refunded.');
+  }
+
+  if (order.status !== 'completed') {
+    throw new HttpError(409, 'Only completed orders can be refunded.');
+  }
+}
+
+export async function updateOrderRefundState(
+  supabase: ServiceClient,
+  orderId: string,
+  refundId: string | null,
+  refundedAt: string,
+) {
+  const { error } = await supabase
+    .from('orders')
+    .update({
+      status: 'refunded',
+      stripe_refund_id: refundId,
+      refunded_at: refundedAt,
+    })
+    .eq('id', orderId);
+
+  if (error) {
+    throw error;
+  }
+}
+
+async function decrementStudentCounts(
+  supabase: ServiceClient,
+  deletedEnrollmentCourseIds: string[],
+) {
+  if (deletedEnrollmentCourseIds.length === 0) {
+    return;
+  }
+
+  const countsByCourseId = new Map<string, number>();
+  for (const courseId of deletedEnrollmentCourseIds) {
+    countsByCourseId.set(courseId, (countsByCourseId.get(courseId) ?? 0) + 1);
+  }
+
+  const courseIds = Array.from(countsByCourseId.keys());
+  const { data: courses, error: coursesError } = await supabase
+    .from('courses')
+    .select('id, students_count')
+    .in('id', courseIds);
+
+  if (coursesError) {
+    throw coursesError;
+  }
+
+  const courseCountMap = new Map(
+    (courses ?? []).map((course) => [course.id, Number(course.students_count ?? 0)]),
+  );
+
+  for (const [courseId, removedCount] of countsByCourseId.entries()) {
+    const currentCount = courseCountMap.get(courseId) ?? 0;
+    const { error: updateError } = await supabase
+      .from('courses')
+      .update({ students_count: Math.max(0, currentCount - removedCount) })
+      .eq('id', courseId);
+
+    if (updateError) {
+      throw updateError;
+    }
+  }
+}
+
+export async function revokeOrderEnrollments(
+  supabase: ServiceClient,
+  order: RefundableOrder,
+) {
+  const courseIds = Array.from(new Set(
+    (order.order_items ?? [])
+      .map((item) => item.course_id)
+      .filter(Boolean),
+  ));
+
+  if (!order.stripe_payment_intent_id || courseIds.length === 0) {
+    return 0;
+  }
+
+  const { data: deletedEnrollments, error: deleteError } = await supabase
+    .from('enrollments')
+    .delete()
+    .eq('user_id', order.user_id)
+    .eq('stripe_payment_intent_id', order.stripe_payment_intent_id)
+    .in('course_id', courseIds)
+    .select('id, course_id');
+
+  if (deleteError) {
+    throw deleteError;
+  }
+
+  const deleted = deletedEnrollments ?? [];
+  if (deleted.length === 0) {
+    return 0;
+  }
+
+  await decrementStudentCounts(
+    supabase,
+    deleted.map((enrollment) => enrollment.course_id),
+  );
+
+  return deleted.length;
+}
+
+export async function applyRefundToOrder(
+  supabase: ServiceClient,
+  order: RefundableOrder,
+  refundId: string | null,
+  refundedAt: string,
+) {
+  await updateOrderRefundState(supabase, order.id, refundId, refundedAt);
+  return revokeOrderEnrollments(supabase, order);
+}
+
 export async function finalizeCheckoutSession(
-  supabase: ReturnType<typeof createServiceClient>,
+  supabase: ServiceClient,
   session: Stripe.Checkout.Session,
 ): Promise<FinalizeCheckoutResult> {
   const { userId, courseIds } = getCheckoutMetadata(session);

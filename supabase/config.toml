@@ -265,6 +265,9 @@ verify_jwt = false
 [functions.finalize-checkout-session]
 verify_jwt = false
 
+[functions.refund-order-payment]
+verify_jwt = false
+
 [functions.stripe-webhook]
 verify_jwt = false
 # Force log out if the user has been inactive longer than the specified duration.

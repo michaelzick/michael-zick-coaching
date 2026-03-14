@@ -92,10 +92,12 @@ export type DbOrder = {
   user_id: string;
   stripe_checkout_session_id: string | null;
   stripe_payment_intent_id: string | null;
+  stripe_refund_id: string | null;
   amount_total: number;
   currency: string;
   status: 'pending' | 'completed' | 'failed' | 'refunded';
   created_at: string;
+  refunded_at: string | null;
 };
 
 export type DbOrderItem = {
