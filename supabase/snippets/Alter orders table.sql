@@ -1,0 +1,3 @@
+ALTER TABLE public.orders
+ADD COLUMN IF NOT EXISTS stripe_refund_id TEXT,
+ADD COLUMN IF NOT EXISTS refunded_at TIMESTAMPTZ;

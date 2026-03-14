@@ -81,7 +81,7 @@ export default function AdminDashboard() {
         <CardContent>
           {stats?.recentOrders && stats.recentOrders.length > 0 ? (
             <div className="space-y-4">
-              {stats.recentOrders.map((order: any) => (
+              {stats.recentOrders.map((order) => (
                 <div key={order.id} className="flex items-center justify-between py-2 border-b border-border last:border-0">
                   <div>
                     <p className="font-medium text-card-foreground">
@@ -96,6 +96,7 @@ export default function AdminDashboard() {
                     <span className={`text-xs px-2 py-0.5 border-2 border-foreground uppercase tracking-[0.05em] font-semibold ${
                       order.status === 'completed' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' :
                       order.status === 'pending' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400' :
+                      order.status === 'refunded' ? 'bg-muted text-foreground dark:bg-muted/40 dark:text-foreground' :
                       'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'
                     }`}>
                       {order.status}

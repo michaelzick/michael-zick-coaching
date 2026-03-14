@@ -1,7 +1,72 @@
+import {
+  FunctionsHttpError,
+  FunctionsRelayError,
+} from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
-import { DbCourse } from '@/types/database';
+import { DbCourse, DbOrder } from '@/types/database';
 
-export async function fetchDashboardStats() {
+type AdminOrderItem = {
+  id: string;
+  course_id: string;
+  price_paid: number;
+  courses: {
+    title: string;
+  } | null;
+};
+
+export type AdminOrder = DbOrder & {
+  order_items: AdminOrderItem[] | null;
+};
+
+type RecentOrderProfile = {
+  first_name: string | null;
+  last_name: string | null;
+};
+
+export type RecentOrder = DbOrder & {
+  profiles: RecentOrderProfile | null;
+};
+
+export type DashboardStats = {
+  totalCourses: number;
+  totalEnrollments: number;
+  totalRevenue: number;
+  recentOrders: RecentOrder[];
+};
+
+type RefundOrderPaymentResult = {
+  refundId: string;
+  refundStatus: string;
+  orderStatus: 'refunded';
+  revokedEnrollmentCount: number;
+};
+
+async function getFunctionErrorMessage(error: unknown, fallback: string) {
+  if (error instanceof FunctionsHttpError || error instanceof FunctionsRelayError) {
+    try {
+      const payload = await error.context.json();
+      if (payload && typeof payload === 'object') {
+        const message =
+          ('error' in payload ? payload.error : undefined)
+          ?? ('msg' in payload ? payload.msg : undefined);
+
+        if (typeof message === 'string' && message.trim()) {
+          return message;
+        }
+      }
+    } catch {
+      // Fall back to the generic message when the response body isn't JSON.
+    }
+  }
+
+  if (error instanceof Error && error.message.trim()) {
+    return error.message;
+  }
+
+  return fallback;
+}
+
+export async function fetchDashboardStats(): Promise<DashboardStats> {
   const [coursesRes, enrollmentsRes, revenueRes, recentOrdersRes] = await Promise.all([
     supabase.from('courses').select('id', { count: 'exact', head: true }),
     supabase.from('enrollments').select('id', { count: 'exact', head: true }),
@@ -17,7 +82,7 @@ export async function fetchDashboardStats() {
     totalCourses: coursesRes.count ?? 0,
     totalEnrollments: enrollmentsRes.count ?? 0,
     totalRevenue,
-    recentOrders: recentOrdersRes.data ?? [],
+    recentOrders: (recentOrdersRes.data ?? []) as RecentOrder[],
   };
 }
 
@@ -114,5 +179,23 @@ export async function fetchOrders() {
     .order('created_at', { ascending: false });
 
   if (error) throw error;
-  return data ?? [];
+  return (data ?? []) as AdminOrder[];
+}
+
+export async function refundOrderPayment(orderId: string): Promise<RefundOrderPaymentResult> {
+  try {
+    const { data, error } = await supabase.functions.invoke('refund-order-payment', {
+      body: { orderId },
+    });
+
+    if (error) throw error;
+    return data as RefundOrderPaymentResult;
+  } catch (error) {
+    throw new Error(
+      await getFunctionErrorMessage(
+        error,
+        'Unable to refund this order right now.',
+      ),
+    );
+  }
 }
