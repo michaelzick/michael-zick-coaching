@@ -23,6 +23,8 @@ import MyPrograms from "./pages/MyPrograms";
 import ResetPassword from "./pages/ResetPassword";
 import CheckoutSuccess from "./pages/CheckoutSuccess";
 import CheckoutCancel from "./pages/CheckoutCancel";
+import ResourcesPage from "./pages/ResourcesPage";
+import ResourceDetail from "./pages/ResourceDetail";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminCoursesList from "./pages/admin/CoursesList";
@@ -48,6 +50,8 @@ const App = () => (
                 <Route path="/course/:slug" element={<CourseDetails />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/resources" element={<ResourcesPage />} />
+                <Route path="/resources/:slug" element={<ResourceDetail />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/reset-password" element={<ResetPassword />} />

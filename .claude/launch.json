@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vite-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 8080,
+      "autoPort": true
+    },
+    {
+      "name": "supabase-functions",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["supabase", "functions", "serve"],
+      "port": 54321
+    }
+  ]
+}

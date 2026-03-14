@@ -9,6 +9,7 @@ import MarkdownContent from '@/components/MarkdownContent';
 import JournalPrompts from '@/components/player/JournalPrompts';
 import { useCourseBySlug, useCourseChapters } from '@/hooks/use-courses';
 import { LessonItem } from '@/lib/api/courses';
+import SEOHead from '@/components/SEOHead';
 
 export default function CoursePlayer() {
   const { courseSlug, lessonId } = useParams<{ courseSlug: string; lessonId?: string }>();
@@ -66,6 +67,7 @@ export default function CoursePlayer() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <SEOHead title={course?.title || "Course Player"} description="Course player" noIndex />
       {/* Top bar */}
       <div className="bg-secondary border-b-2 border-foreground px-4 py-3">
         <div className="flex items-center justify-between max-w-screen-2xl mx-auto">

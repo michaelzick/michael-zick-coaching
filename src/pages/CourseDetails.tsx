@@ -9,6 +9,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/SEOHead';
+import JsonLd from '@/components/JsonLd';
+import { buildCourseSchema, buildBreadcrumbSchema } from '@/lib/seo/schemas';
 import CourseCard from '@/components/CourseCard';
 import { useCart } from '@/hooks/use-cart';
 import { useCourseBySlug, useCourseChapters, useRelatedCourses } from '@/hooks/use-courses';
@@ -64,6 +67,31 @@ export default function CourseDetails() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead
+        title={course.title}
+        description={course.shortDescription}
+        canonicalPath={`/course/${slug}`}
+        ogImage={course.thumbnailUrl ? `${course.thumbnailUrl}?auto=format&fit=crop&w=1200&q=80` : undefined}
+      />
+      <JsonLd data={buildCourseSchema({
+        title: course.title,
+        description: course.description,
+        slug: slug || '',
+        price: course.price,
+        salePrice: course.salePrice,
+        rating: course.rating,
+        ratingCount: course.ratingCount,
+        thumbnailUrl: course.thumbnailUrl,
+        duration: course.duration,
+        lectureCount: course.lectureCount,
+        language: course.language,
+        category: course.category,
+      })} />
+      <JsonLd data={buildBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Programs", url: "/courses" },
+        { name: course.title, url: `/course/${slug}` },
+      ])} />
       <Navbar />
 
       <main className="flex-grow pt-20">

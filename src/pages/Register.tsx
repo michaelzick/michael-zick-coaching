@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import { useAuth } from "@/hooks/use-auth";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -50,6 +51,7 @@ export default function Register() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead title="Create Account" description="Create a Michael Zick Coaching account" noIndex />
       <Navbar />
 
       <main className="flex-grow pt-32 pb-16 px-4 bg-muted">

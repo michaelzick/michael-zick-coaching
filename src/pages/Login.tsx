@@ -12,6 +12,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import { useAuth } from "@/hooks/use-auth";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -98,6 +99,7 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead title="Sign In" description="Sign in to Michael Zick Coaching" noIndex />
       <Navbar />
 
       <main className="flex-grow pt-32 pb-16 px-4 bg-muted">

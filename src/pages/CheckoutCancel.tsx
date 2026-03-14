@@ -3,10 +3,12 @@ import { XCircle } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/SEOHead';
 
 export default function CheckoutCancel() {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead title="Checkout Cancelled" description="Checkout was cancelled" noIndex />
       <Navbar />
       <main className="flex-grow pt-32 pb-16 px-4">
         <div className="container mx-auto max-w-lg text-center">

@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEOHead from '@/components/SEOHead';
 import {
   ShoppingCart,
   X,
@@ -88,6 +89,7 @@ export default function Cart() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead title="Cart" description="Your selected programs" noIndex />
       <Navbar />
 
       <main className="flex-grow pt-32 pb-16 px-4">

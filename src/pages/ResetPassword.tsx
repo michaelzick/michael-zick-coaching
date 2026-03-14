@@ -6,6 +6,7 @@ import { z } from "zod";
 import { CheckCircle2, Loader2, Lock } from "@/lib/icons";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -105,6 +106,7 @@ export default function ResetPassword() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead title="Reset Password" description="Reset your password" noIndex />
       <Navbar />
 
       <main className="flex-grow pt-32 pb-16 px-4 bg-muted">

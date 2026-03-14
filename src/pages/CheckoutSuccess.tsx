@@ -4,6 +4,7 @@ import { CheckCircle2, Loader2 } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/SEOHead';
 import { useCart } from '@/hooks/use-cart';
 import { useAuth } from '@/hooks/use-auth';
 import { supabase } from '@/lib/supabase';
@@ -80,6 +81,7 @@ export default function CheckoutSuccess() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead title="Checkout Success" description="Your purchase was successful" noIndex />
       <Navbar />
       <main className="flex-grow pt-32 pb-16 px-4">
         <div className="container mx-auto max-w-lg text-center">

@@ -50,6 +50,11 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-secondary-foreground mb-6 tracking-[0.08em]">Resources</h3>
             <ul className="space-y-4">
               <li>
+                <Link to="/resources" className="cubist-link text-secondary-foreground/85 hover:text-accent transition-colors uppercase font-semibold tracking-[0.05em]">
+                  Guides & Articles
+                </Link>
+              </li>
+              <li>
                 <Link to="/about" className="cubist-link text-secondary-foreground/85 hover:text-accent transition-colors uppercase font-semibold tracking-[0.05em]">
                   About Michael
                 </Link>

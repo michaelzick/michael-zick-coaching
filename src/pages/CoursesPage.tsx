@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { X } from '@/lib/icons';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/SEOHead';
+import JsonLd from '@/components/JsonLd';
+import { buildItemListSchema } from '@/lib/seo/schemas';
 import { useCourses } from '@/hooks/use-courses';
 import { FilterState } from '@/components/courses/types';
 import FilterSidebar from '@/components/courses/FilterSidebar';
@@ -39,6 +42,14 @@ export default function CoursesPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead
+        title="Nice Guy Recovery Programs & Courses"
+        description="Online coaching programs for men ready to stop people-pleasing, break approval addiction, set boundaries, and build authentic relationships. Self-paced with lifetime access."
+        canonicalPath="/courses"
+      />
+      {courses.length > 0 && (
+        <JsonLd data={buildItemListSchema(courses.map(c => ({ title: c.title, slug: c.slug })))} />
+      )}
       <Navbar />
 
       <main className="flex-grow pt-32 pb-16 px-4">

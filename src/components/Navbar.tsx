@@ -67,6 +67,9 @@ export default function Navbar() {
             <Link to="/about" className="cubist-link text-foreground hover:text-primary transition-colors font-bold uppercase tracking-[0.08em] border-b-2 border-transparent hover:border-foreground pb-1">
               About
             </Link>
+            <Link to="/resources" className="cubist-link text-foreground hover:text-primary transition-colors font-bold uppercase tracking-[0.08em] border-b-2 border-transparent hover:border-foreground pb-1">
+              Resources
+            </Link>
             <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6">
                 Book a Free Session
@@ -169,6 +172,9 @@ export default function Navbar() {
             </Link>
             <Link to="/about" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.08em] py-2 border-2 border-foreground px-3">
               About
+            </Link>
+            <Link to="/resources" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.08em] py-2 border-2 border-foreground px-3">
+              Resources
             </Link>
             {user ? (
               <>

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/SEOHead';
 import { useMyEnrollments } from '@/hooks/use-enrollments';
 
 export default function MyPrograms() {
@@ -11,6 +12,7 @@ export default function MyPrograms() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead title="My Programs" description="Your enrolled programs" noIndex />
       <Navbar />
 
       <main className="flex-grow pt-32 pb-16 px-4">

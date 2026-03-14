@@ -2,9 +2,13 @@
 import { Link } from "react-router-dom";
 import { ChevronRight, Quote } from '@/lib/icons';
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CourseCard from "@/components/CourseCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
+import JsonLd from "@/components/JsonLd";
+import { buildWebSiteSchema, buildOrganizationSchema, buildFAQSchema } from "@/lib/seo/schemas";
 import { useFeaturedCourses } from "@/hooks/use-courses";
 
 export default function Index() {
@@ -36,15 +40,52 @@ export default function Index() {
     },
   ];
 
+  const homeFAQs = [
+    {
+      question: "What is Nice Guy Syndrome?",
+      answer: "Nice Guy Syndrome is a set of behavioral patterns where men suppress their own needs, avoid conflict, and seek approval from others in an attempt to be liked. It often stems from childhood conditioning and leads to resentment, passive-aggressive behavior, and unfulfilling relationships.",
+    },
+    {
+      question: "How do I know if I'm a Nice Guy?",
+      answer: "Common signs include people-pleasing, difficulty saying no, avoiding conflict at all costs, building covert contracts (doing things expecting something in return without saying so), suppressing anger, and feeling resentful when your efforts aren't reciprocated.",
+    },
+    {
+      question: "What is approval addiction?",
+      answer: "Approval addiction is the compulsive need to seek validation and approval from others. It drives people-pleasing behavior, fear of rejection, and the inability to make decisions based on your own values rather than what others might think of you.",
+    },
+    {
+      question: "Can Nice Guy patterns actually change?",
+      answer: "Yes. Nice Guy patterns are learned behaviors, not personality traits. With the right framework and consistent practice, men can break the cycle of approval-seeking, build authentic boundaries, and develop genuine confidence. Most clients see significant changes within 90 days.",
+    },
+    {
+      question: "What makes this different from reading self-help books?",
+      answer: "Books provide information but not transformation. Most men read No More Mr Nice Guy and understand the concepts, but nothing changes because reading alone doesn't rewire deeply ingrained patterns. These programs provide structured exercises, accountability, and a proven framework that creates lasting behavioral change.",
+    },
+    {
+      question: "How long does Nice Guy recovery take?",
+      answer: "Most men start seeing meaningful shifts within 4-8 weeks of consistent work. Full recovery from deeply ingrained patterns typically takes 3-6 months. The programs are self-paced with lifetime access, so you can work at whatever speed suits you.",
+    },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead
+        title="Nice Guy Recovery Coaching for Men"
+        description="Break the addiction to approval. Coaching programs for men struggling with people-pleasing, codependency, boundaries, and Nice Guy patterns. Build confidence and live authentically."
+        canonicalPath="/"
+      />
+      <JsonLd data={buildWebSiteSchema()} />
+      <JsonLd data={buildOrganizationSchema()} />
+      <JsonLd data={buildFAQSchema(homeFAQs)} />
       <Navbar />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-4 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80')" }}
+        <img
+          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80"
+          alt="Mountain landscape representing the journey of personal growth and Nice Guy recovery"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-mz-slate/80" />
         <div className="container mx-auto relative z-10">
@@ -147,11 +188,40 @@ export default function Index() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-20 px-4 bg-muted">
+        <div className="container mx-auto max-w-3xl">
+          <div className="text-center mb-12">
+            <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">
+              Common Questions
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Frequently Asked Questions
+            </h2>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full">
+            {homeFAQs.map((faq, index) => (
+              <AccordionItem key={index} value={`faq-${index}`} className="border-2 border-foreground mb-4 overflow-hidden bg-card cubist-frame">
+                <AccordionTrigger className="px-6 py-4 hover:bg-muted text-left">
+                  <span className="font-bold text-foreground">{faq.question}</span>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-4">
+                  <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="relative py-20 px-4 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80')" }}
+        <img
+          src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80"
+          alt="Forest landscape symbolizing clarity and new beginnings after breaking free from people-pleasing patterns"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-mz-slate/85" />
         <div className="container mx-auto relative z-10">
