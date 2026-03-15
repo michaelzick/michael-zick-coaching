@@ -406,7 +406,9 @@ export default function Cart() {
         </div>
       )}
 
-      <Footer />
+      <div className={cartItems.length > 0 ? 'pb-24 md:pb-0' : ''}>
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -125,17 +125,17 @@ export default function Login() {
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="password">
-                <TabsList className="grid w-full grid-cols-3 mb-6">
-                  <TabsTrigger value="password" className="flex items-center gap-2">
-                    <KeyRound className="h-4 w-4" />
+                <TabsList className="mb-6 grid w-full grid-cols-1 gap-2 border-0 bg-transparent p-0 sm:grid-cols-3 sm:gap-0 sm:border sm:border-border sm:bg-muted sm:p-1">
+                  <TabsTrigger value="password" className="justify-start gap-2 whitespace-normal px-3 text-left text-[11px] leading-tight sm:justify-center sm:text-center sm:text-xs">
+                    <KeyRound className="hidden h-4 w-4 sm:block" />
                     Password
                   </TabsTrigger>
-                  <TabsTrigger value="magic-link" className="flex items-center gap-2">
-                    <Mail className="h-4 w-4" />
+                  <TabsTrigger value="magic-link" className="justify-start gap-2 whitespace-normal px-3 text-left text-[11px] leading-tight sm:justify-center sm:text-center sm:text-xs">
+                    <Mail className="hidden h-4 w-4 sm:block" />
                     Magic Link
                   </TabsTrigger>
-                  <TabsTrigger value="reset-password" className="flex items-center gap-2">
-                    <Lock className="h-4 w-4" />
+                  <TabsTrigger value="reset-password" className="justify-start gap-2 whitespace-normal px-3 text-left text-[11px] leading-tight sm:justify-center sm:text-center sm:text-xs">
+                    <Lock className="hidden h-4 w-4 sm:block" />
                     Reset
                   </TabsTrigger>
                 </TabsList>
