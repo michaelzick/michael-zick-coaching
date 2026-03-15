@@ -80,7 +80,7 @@ export default function Index() {
           loading="eager"
         />
         <div className="absolute inset-0 bg-mz-slate/80" />
-        <div className="container mx-auto relative z-10">
+        <div className="container mx-auto relative z-10 content-stack">
           <div className="max-w-4xl space-y-6">
             <p className="text-primary font-semibold uppercase tracking-widest text-sm">
               Multi-Coach Recovery Platform
@@ -110,7 +110,7 @@ export default function Index() {
 
       {/* The Recovery Framework */}
       <section className="bg-background py-20 mobile-shell">
-        <div className="container mx-auto">
+        <div className="container mx-auto content-stack">
           <div className="text-center max-w-4xl mx-auto mb-16">
             <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">
               The Framework
@@ -137,7 +137,7 @@ export default function Index() {
 
       {/* Featured Programs */}
       <section className="bg-muted mobile-shell pb-14 pt-20 md:pb-20">
-        <div className="container mx-auto">
+        <div className="container mx-auto content-stack">
           <div className="flex justify-between items-end mb-12">
             <div>
               <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-2">Programs</p>
@@ -158,7 +158,7 @@ export default function Index() {
 
       {/* FAQ Section */}
       <section className="bg-muted py-20 mobile-shell">
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-4xl content-stack">
           <div className="text-center mb-12">
             <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">
               Common Questions
@@ -192,7 +192,7 @@ export default function Index() {
           loading="lazy"
         />
         <div className="absolute inset-0 bg-mz-slate/85" />
-        <div className="container mx-auto relative z-10">
+        <div className="container mx-auto relative z-10 content-stack">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Find the coach and program that matches your next step.

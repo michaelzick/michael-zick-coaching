@@ -107,7 +107,7 @@ export default function Login() {
       <Navbar />
 
       <main className="flex-grow mobile-shell bg-muted pb-16 pt-32">
-        <div className="container mx-auto max-w-md">
+        <div className="container mx-auto max-w-md content-stack">
           <div className="text-center mb-8">
             <Link to="/" className="inline-flex items-center space-x-2 mb-6">
               <span className="text-2xl font-bold text-foreground tracking-tight">
@@ -118,7 +118,7 @@ export default function Login() {
             <p className="text-muted-foreground">Sign in to access your programs</p>
           </div>
 
-          <Card>
+          <Card className="content-stack">
             <CardHeader>
               <CardTitle>Sign In</CardTitle>
               <CardDescription>Choose a password, magic link, or reset email.</CardDescription>

@@ -77,7 +77,7 @@ export default function HowItWorks() {
 
       <main className="flex-grow pt-32 pb-16">
         <section className="bg-muted py-16 mobile-shell">
-          <div className="container mx-auto">
+          <div className="container mx-auto content-stack">
             <div className="max-w-5xl">
               <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">How It Works</p>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -104,7 +104,7 @@ export default function HowItWorks() {
         </section>
 
         <section className="bg-background py-20 mobile-shell">
-          <div className="container mx-auto">
+          <div className="container mx-auto content-stack">
             <div className="max-w-4xl mb-12">
               <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">The Process</p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Three steps. No fluff.</h2>
@@ -131,7 +131,7 @@ export default function HowItWorks() {
         </section>
 
         <section className="bg-muted py-20 mobile-shell">
-          <div className="container mx-auto">
+          <div className="container mx-auto content-stack">
             <div className="max-w-4xl mb-12">
               <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">Core Work</p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">The three pillars of transformation</h2>
@@ -155,7 +155,7 @@ export default function HowItWorks() {
         </section>
 
         <section className="bg-background py-20 mobile-shell">
-          <div className="container mx-auto max-w-4xl">
+          <div className="container mx-auto max-w-4xl content-stack">
             <div className="text-center mb-12">
               <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">Platform FAQ</p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">Common Questions</h2>
@@ -177,7 +177,7 @@ export default function HowItWorks() {
         </section>
 
         <section className="bg-secondary py-20 text-secondary-foreground mobile-shell">
-          <div className="container mx-auto">
+          <div className="container mx-auto content-stack">
             <div className="max-w-4xl">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Start where the pain is loudest.</h2>
               <p className="text-secondary-foreground/80 text-lg mb-8 max-w-2xl">

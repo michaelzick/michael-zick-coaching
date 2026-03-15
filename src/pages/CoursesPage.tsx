@@ -53,7 +53,7 @@ export default function CoursesPage() {
       <Navbar />
 
       <main className="flex-grow mobile-shell pb-16 pt-32">
-        <div className="container mx-auto">
+        <div className="container mx-auto content-stack">
           <div className="mb-8 fade-in">
             <h1 className="text-3xl font-bold text-foreground mb-2">Programs</h1>
             <p className="text-muted-foreground">Coaching programs designed to help you break free and build an authentic life.</p>

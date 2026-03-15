@@ -35,7 +35,7 @@ export default function CourseDetails() {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center">
+        <div className="mobile-shell flex-grow flex items-center justify-center">
           <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
         </div>
         <Footer />
@@ -47,7 +47,7 @@ export default function CourseDetails() {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center">
+        <div className="mobile-shell flex-grow flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-foreground mb-4">Program Not Found</h1>
             <p className="text-xl text-muted-foreground mb-8">We couldn't find the program you're looking for.</p>
@@ -106,7 +106,7 @@ export default function CourseDetails() {
 
       <main className="flex-grow overflow-x-hidden pt-20 pb-28 lg:pb-0">
         <div className="bg-secondary py-12 text-secondary-foreground">
-          <div className="container mx-auto mobile-shell">
+          <div className="container mx-auto mobile-shell content-stack">
             <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)]">
               <div className="min-w-0 fade-in">
                 <div className="mb-4 flex flex-wrap items-center text-sm">
@@ -398,7 +398,7 @@ export default function CourseDetails() {
         {/* Related Programs */}
         {relatedCourses.length > 0 && (
           <section className="py-12 bg-muted">
-            <div className="container mx-auto mobile-shell">
+            <div className="container mx-auto mobile-shell content-stack">
               <h2 className="text-2xl font-bold text-foreground mb-8">Related Programs</h2>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 sm:gap-6">
                 {relatedCourses.map((relatedCourse, index) => (

@@ -22,7 +22,7 @@ export default function CoachesPage() {
       <Navbar />
 
       <main className="flex-grow mobile-shell pb-16 pt-32">
-        <div className="container mx-auto">
+        <div className="container mx-auto content-stack">
           <div className="max-w-5xl mb-12">
             <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">Coaches</p>
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Meet the men behind the work.</h1>
@@ -36,7 +36,7 @@ export default function CoachesPage() {
               <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
             </div>
           ) : coaches.length === 0 ? (
-            <div className="bg-card p-10 max-w-4xl">
+            <div className="content-stack max-w-4xl bg-card p-6 sm:p-10">
               <h2 className="text-2xl font-bold text-card-foreground mb-3">Coach profiles are coming online.</h2>
               <p className="text-muted-foreground mb-6">
                 The platform is being expanded for multiple coaches. Check back soon or browse programs in the meantime.

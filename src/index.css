@@ -167,7 +167,7 @@
 
 @layer components {
   .mobile-shell {
-    @apply px-2 sm:px-3 md:px-4;
+    @apply px-3 md:px-4;
   }
 
   .content-stack {

@@ -16,7 +16,7 @@ export default function MyPrograms() {
       <Navbar />
 
       <main className="flex-grow mobile-shell pb-16 pt-32">
-        <div className="container mx-auto">
+        <div className="container mx-auto content-stack">
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-foreground mb-2">My Programs</h1>
             <p className="text-muted-foreground">Continue your recovery journey.</p>

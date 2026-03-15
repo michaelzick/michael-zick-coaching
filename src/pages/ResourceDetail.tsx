@@ -17,7 +17,7 @@ export default function ResourceDetail() {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center">
+        <div className="mobile-shell flex-grow flex items-center justify-center">
           <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
         </div>
         <Footer />
@@ -29,7 +29,7 @@ export default function ResourceDetail() {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center">
+        <div className="mobile-shell flex-grow flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-foreground mb-4">Resource Not Found</h1>
             <p className="text-xl text-muted-foreground mb-8">We couldn't find the article you're looking for.</p>

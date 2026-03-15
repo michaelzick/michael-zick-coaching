@@ -53,7 +53,7 @@ export default function Navbar() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav border-b border-border ${
       isScrolled ? 'py-3' : 'py-4'
     }`}>
-      <div className="container mx-auto mobile-shell">
+      <div className="container mx-auto mobile-shell content-stack">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2 cubist-link">
             <span className="cta-elevated-on-hover inline-block max-w-[calc(100vw-9rem)] truncate text-sm sm:text-base md:max-w-none md:text-2xl font-bold text-accent-foreground bg-accent px-3 py-1 tracking-[0.03em]">

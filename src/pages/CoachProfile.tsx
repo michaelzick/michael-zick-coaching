@@ -26,7 +26,7 @@ export default function CoachProfile() {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center">
+        <div className="mobile-shell flex-grow flex items-center justify-center">
           <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
         </div>
         <Footer />
@@ -39,7 +39,7 @@ export default function CoachProfile() {
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <div className="mobile-shell flex-grow flex items-center justify-center">
-          <div className="max-w-xl bg-card p-10">
+          <div className="content-stack max-w-xl bg-card p-6 sm:p-10">
             <h1 className="text-3xl font-bold text-card-foreground mb-4">Coach Not Found</h1>
             <p className="text-muted-foreground mb-6">We could not find the coach profile you were looking for.</p>
             <Link to="/coaches">
@@ -80,7 +80,7 @@ export default function CoachProfile() {
 
       <main className="flex-grow pb-16 pt-28 md:pt-32">
         <section className="bg-muted py-12 mobile-shell">
-          <div className="container mx-auto">
+          <div className="container mx-auto content-stack">
             <div className="grid items-start gap-8 lg:grid-cols-[minmax(280px,360px)_minmax(0,1fr)] lg:gap-10">
               <div className="max-w-sm overflow-hidden bg-card lg:max-w-none">
                 <div className="aspect-square bg-secondary">
@@ -139,7 +139,7 @@ export default function CoachProfile() {
         </section>
 
         <section className="bg-background py-20 mobile-shell">
-          <div className="container mx-auto max-w-5xl">
+          <div className="container mx-auto max-w-5xl content-stack">
             <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">Bio</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">How {coach.firstName} works</h2>
             <div className="space-y-6">
@@ -154,7 +154,7 @@ export default function CoachProfile() {
 
         {coach.philosophy.length > 0 && (
           <section className="bg-muted py-20 mobile-shell">
-            <div className="container mx-auto">
+            <div className="container mx-auto content-stack">
               <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">Philosophy</p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10">The principles behind the work</h2>
               <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -177,7 +177,7 @@ export default function CoachProfile() {
 
         {coach.testimonials.length > 0 && (
           <section className="bg-background py-20 mobile-shell">
-            <div className="container mx-auto">
+            <div className="container mx-auto content-stack">
               <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">Client Results</p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10">What men say after the work starts landing</h2>
               <div className="grid gap-6 md:grid-cols-2">
@@ -194,7 +194,7 @@ export default function CoachProfile() {
         )}
 
         <section className="bg-muted py-20 mobile-shell">
-          <div className="container mx-auto">
+          <div className="container mx-auto content-stack">
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-10">
               <div>
                 <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">Programs</p>
@@ -207,7 +207,7 @@ export default function CoachProfile() {
                 <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
               </div>
             ) : courses.length === 0 ? (
-              <div className="bg-card p-8 max-w-3xl">
+              <div className="content-stack max-w-3xl bg-card p-6 sm:p-8">
                 <p className="text-muted-foreground">Programs from this coach are coming soon.</p>
               </div>
             ) : (
@@ -221,7 +221,7 @@ export default function CoachProfile() {
         </section>
 
         <section className="bg-secondary py-20 text-secondary-foreground mobile-shell">
-          <div className="container mx-auto">
+          <div className="container mx-auto content-stack">
             <div className="max-w-4xl">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">If this is your coach, start acting.</h2>
               <p className="text-secondary-foreground/80 text-lg mb-8 max-w-2xl">
