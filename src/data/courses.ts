@@ -1,5 +1,5 @@
 
-import { Course } from "@/types/course";
+import type { Course } from "@/types/course";
 
 export const courses: Course[] = [
   {
@@ -7,6 +7,7 @@ export const courses: Course[] = [
     title: "The Complete Nice Guy Recovery System",
     slug: "complete-nice-guy-recovery-system",
     instructor: "Michael Zick",
+    coachId: null,
     category: "nice-guy-recovery",
     level: "All Levels",
     price: 297,
@@ -37,6 +38,7 @@ export const courses: Course[] = [
     title: "The Approval Addiction Recovery Program",
     slug: "approval-addiction-recovery-program",
     instructor: "Michael Zick",
+    coachId: null,
     category: "nice-guy-recovery",
     level: "Beginner",
     price: 197,
@@ -67,6 +69,7 @@ export const courses: Course[] = [
     title: "Boundaries & Communication Masterclass",
     slug: "boundaries-communication-masterclass",
     instructor: "Michael Zick",
+    coachId: null,
     category: "boundaries-communication",
     level: "Intermediate",
     price: 197,
@@ -96,6 +99,7 @@ export const courses: Course[] = [
     title: "Displeasure Tolerance Training",
     slug: "displeasure-tolerance-training",
     instructor: "Michael Zick",
+    coachId: null,
     category: "self-worth-identity",
     level: "Intermediate",
     price: 147,
@@ -126,6 +130,7 @@ export const courses: Course[] = [
     title: "The Covert Contract Breaker",
     slug: "covert-contract-breaker",
     instructor: "Michael Zick",
+    coachId: null,
     category: "nice-guy-recovery",
     level: "Beginner",
     price: 97,
@@ -155,6 +160,7 @@ export const courses: Course[] = [
     title: "Relationship Frame Workshop",
     slug: "relationship-frame-workshop",
     instructor: "Michael Zick",
+    coachId: null,
     category: "relationship-skills",
     level: "Advanced",
     price: 247,
@@ -185,6 +191,7 @@ export const courses: Course[] = [
     title: "Parental Patterns & Self-Discovery",
     slug: "parental-patterns-self-discovery",
     instructor: "Michael Zick",
+    coachId: null,
     category: "self-worth-identity",
     level: "Intermediate",
     price: 177,
@@ -214,6 +221,7 @@ export const courses: Course[] = [
     title: "Dating from Standards, Not Scarcity",
     slug: "dating-from-standards-not-scarcity",
     instructor: "Michael Zick",
+    coachId: null,
     category: "relationship-skills",
     level: "All Levels",
     price: 147,
@@ -244,6 +252,7 @@ export const courses: Course[] = [
     title: "Breaking Self-Limiting Beliefs with Women",
     slug: "breaking-self-limiting-beliefs-with-women",
     instructor: "Michael Zick",
+    coachId: null,
     category: "self-worth-identity",
     level: "All Levels",
     price: 147,
@@ -274,6 +283,7 @@ export const courses: Course[] = [
     title: "How to Speak Womanese",
     slug: "how-to-speak-womanese",
     instructor: "Michael Zick",
+    coachId: null,
     category: "relationship-skills",
     level: "All Levels",
     price: 147,

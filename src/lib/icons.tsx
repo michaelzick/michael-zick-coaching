@@ -145,6 +145,15 @@ export const Filter = createIcon("Filter", (
   </>
 ));
 
+export const Globe = createIcon("Globe", (
+  <>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M3 12h18" />
+    <path d="M12 3a15 15 0 0 1 0 18" />
+    <path d="M12 3a15 15 0 0 0 0 18" />
+  </>
+));
+
 export const GripVertical = createIcon("GripVertical", (
   <>
     <circle cx="9" cy="6" r="1" fill="currentColor" stroke="none" />

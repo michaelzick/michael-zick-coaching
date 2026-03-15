@@ -17,6 +17,7 @@ import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/components/ui/use-toast';
 import {
   createCourse,
+  fetchAllCoachesAdmin,
   updateCourse,
   createChapter,
   updateChapter,
@@ -32,7 +33,7 @@ import { DbCourse } from '@/types/database';
 const courseSchema = z.object({
   title: z.string().min(1, 'Title is required'),
   slug: z.string().min(1, 'Slug is required'),
-  instructor: z.string().default('Michael Zick'),
+  coach_id: z.string().uuid().nullable().optional(),
   category: z.string().min(1, 'Category is required'),
   level: z.string().min(1, 'Level is required'),
   price: z.coerce.number().min(0),
@@ -88,6 +89,11 @@ export default function AdminCourseForm() {
   const [learnInput, setLearnInput] = useState('');
   const [isSaving, setIsSaving] = useState(false);
 
+  const { data: coaches = [] } = useQuery({
+    queryKey: ['admin', 'coaches'],
+    queryFn: fetchAllCoachesAdmin,
+  });
+
   // Fetch existing course data when editing
   const { data: existingCourse, isLoading: loadingCourse } = useQuery({
     queryKey: ['admin', 'course', id],
@@ -112,7 +118,7 @@ export default function AdminCourseForm() {
   const form = useForm<CourseFormData>({
     resolver: zodResolver(courseSchema),
     defaultValues: {
-      instructor: 'Michael Zick',
+      coach_id: null,
       language: 'English',
       featured: false,
       bestseller: false,
@@ -128,7 +134,7 @@ export default function AdminCourseForm() {
       form.reset({
         title: existingCourse.title,
         slug: existingCourse.slug,
-        instructor: existingCourse.instructor,
+        coach_id: existingCourse.coach_id ?? null,
         category: existingCourse.category,
         level: existingCourse.level,
         price: Number(existingCourse.price),
@@ -266,8 +272,11 @@ export default function AdminCourseForm() {
   const onSubmit = async (data: CourseFormData) => {
     setIsSaving(true);
     try {
+      const selectedCoach = coaches.find((coach) => coach.id === data.coach_id);
       const courseData = {
         ...data,
+        instructor: selectedCoach?.name ?? existingCourse?.instructor ?? 'Nice Guy University',
+        coach_id: data.coach_id ?? null,
         sale_price: data.sale_price || null,
         topics,
         what_you_will_learn: whatYouWillLearn,
@@ -367,7 +376,7 @@ export default function AdminCourseForm() {
                 <CardTitle>Basic Information</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid gap-4 md:grid-cols-2">
                   <div className="space-y-2">
                     <Label>Title</Label>
                     <Input {...form.register('title')} placeholder="Course title" />
@@ -381,7 +390,26 @@ export default function AdminCourseForm() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid gap-4 md:grid-cols-3">
+                  <div className="space-y-2">
+                    <Label>Coach</Label>
+                    <Select
+                      value={form.watch('coach_id') ?? 'unassigned'}
+                      onValueChange={(value) => form.setValue('coach_id', value === 'unassigned' ? null : value)}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select coach" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="unassigned">Unassigned</SelectItem>
+                        {coaches.map((coach) => (
+                          <SelectItem key={coach.id} value={coach.id}>
+                            {coach.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
                   <div className="space-y-2">
                     <Label>Category</Label>
                     <Select value={form.watch('category')} onValueChange={(v) => form.setValue('category', v)}>
@@ -394,7 +422,7 @@ export default function AdminCourseForm() {
                       </SelectContent>
                     </Select>
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2 md:col-span-1">
                     <Label>Level</Label>
                     <Select value={form.watch('level')} onValueChange={(v) => form.setValue('level', v)}>
                       <SelectTrigger><SelectValue placeholder="Select level" /></SelectTrigger>
@@ -423,7 +451,7 @@ export default function AdminCourseForm() {
                   <Input {...form.register('thumbnail_url')} placeholder="https://..." />
                 </div>
 
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid gap-4 md:grid-cols-3">
                   <div className="space-y-2">
                     <Label>Price ($)</Label>
                     <Input type="number" step="0.01" {...form.register('price')} />
@@ -541,7 +569,7 @@ export default function AdminCourseForm() {
                     </Button>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid gap-4 md:grid-cols-2">
                       <div className="space-y-2">
                         <Label>Chapter Title</Label>
                         <Input
@@ -584,7 +612,7 @@ export default function AdminCourseForm() {
                               <Trash2 className="h-3 w-3" />
                             </Button>
                           </div>
-                          <div className="grid grid-cols-2 gap-3">
+                          <div className="grid gap-3 md:grid-cols-2">
                             <div className="space-y-1">
                               <Label className="text-xs">Title</Label>
                               <Input
@@ -613,7 +641,7 @@ export default function AdminCourseForm() {
                               </Select>
                             </div>
                           </div>
-                          <div className="grid grid-cols-2 gap-3">
+                          <div className="grid gap-3 md:grid-cols-2">
                             {['youtube', 'vimeo', 'self_hosted', 's3', 'xapi'].includes(lesson.video_source_type) && (
                               <div className="space-y-1">
                                 <Label className="text-xs">Video URL</Label>

@@ -3,7 +3,9 @@ import {
   FunctionsRelayError,
 } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
-import { DbCourse, DbOrder } from '@/types/database';
+import { mapDbCoachToCoach } from '@/lib/api/coaches';
+import { AdminCoach, Coach } from '@/types/coach';
+import { DbCoach, DbCourse, DbOrder } from '@/types/database';
 
 type AdminOrderItem = {
   id: string;
@@ -122,6 +124,91 @@ export async function updateCourse(id: string, updates: Partial<DbCourse>) {
 export async function deleteCourse(id: string) {
   const { error } = await supabase.from('courses').delete().eq('id', id);
   if (error) throw error;
+}
+
+export async function fetchAllCoachesAdmin(): Promise<AdminCoach[]> {
+  const [coachesRes, coursesRes] = await Promise.all([
+    supabase.from('coaches').select('*').order('created_at', { ascending: false }),
+    supabase.from('courses').select('id, coach_id'),
+  ]);
+
+  if (coachesRes.error) throw coachesRes.error;
+  if (coursesRes.error) throw coursesRes.error;
+
+  const courseCounts = (coursesRes.data ?? []).reduce<Record<string, number>>((acc, course) => {
+    if (course.coach_id) {
+      acc[course.coach_id] = (acc[course.coach_id] ?? 0) + 1;
+    }
+
+    return acc;
+  }, {});
+
+  return (coachesRes.data as DbCoach[]).map((coach) => ({
+    ...mapDbCoachToCoach(coach),
+    courseCount: courseCounts[coach.id] ?? 0,
+  }));
+}
+
+export async function fetchCoachByIdAdmin(id: string): Promise<Coach | null> {
+  const { data, error } = await supabase
+    .from('coaches')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  if (error) {
+    if (error.code === 'PGRST116') return null;
+    throw error;
+  }
+
+  return mapDbCoachToCoach(data as DbCoach);
+}
+
+export async function createCoach(coach: Partial<DbCoach>): Promise<Coach> {
+  const { data, error } = await supabase
+    .from('coaches')
+    .insert(coach)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return mapDbCoachToCoach(data as DbCoach);
+}
+
+export async function updateCoach(id: string, updates: Partial<DbCoach>): Promise<Coach> {
+  const { data, error } = await supabase
+    .from('coaches')
+    .update({ ...updates, updated_at: new Date().toISOString() })
+    .eq('id', id)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return mapDbCoachToCoach(data as DbCoach);
+}
+
+export async function deleteCoach(id: string) {
+  const { error } = await supabase.from('coaches').delete().eq('id', id);
+  if (error) throw error;
+}
+
+export async function uploadCoachImage(file: File, slug: string) {
+  const extension = file.name.split('.').pop()?.toLowerCase() || 'jpg';
+  const safeSlug = slug || `coach-${crypto.randomUUID()}`;
+  const path = `${safeSlug}/${Date.now()}.${extension}`;
+
+  const { error } = await supabase.storage
+    .from('coach-images')
+    .upload(path, file, {
+      cacheControl: '3600',
+      contentType: file.type,
+      upsert: true,
+    });
+
+  if (error) throw error;
+
+  const { data } = supabase.storage.from('coach-images').getPublicUrl(path);
+  return data.publicUrl;
 }
 
 export async function createChapter(chapter: { course_id: string; title: string; description?: string; sort_order: number }) {

@@ -6,7 +6,7 @@ export default function JournalPrompts({ prompts }: JournalPromptsProps) {
   if (prompts.length === 0) return null;
 
   return (
-    <section className="mt-8 rounded-lg border-2 border-foreground bg-card p-6">
+    <section className="mt-8 rounded-lg bg-card p-6">
       <h3 className="text-lg font-bold text-card-foreground mb-4 flex items-center gap-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"

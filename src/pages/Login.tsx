@@ -103,7 +103,7 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <SEOHead title="Sign In" description="Sign in to Michael Zick Coaching" noIndex />
+      <SEOHead title="Sign In" description="Sign in to Nice Guy University" noIndex />
       <Navbar />
 
       <main className="flex-grow pt-32 pb-16 px-4 bg-muted">

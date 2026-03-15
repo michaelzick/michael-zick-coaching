@@ -87,7 +87,7 @@ export default function CheckoutSuccess() {
         <div className="container mx-auto max-w-lg text-center">
           {status === 'loading' ? (
             <>
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-muted border-2 border-foreground mb-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-muted mb-6">
                 <Loader2 className="h-10 w-10 text-muted-foreground animate-spin" />
               </div>
               <h1 className="text-3xl font-bold text-foreground mb-4">Finalizing Your Purchase</h1>
@@ -97,7 +97,7 @@ export default function CheckoutSuccess() {
             </>
           ) : status === 'error' ? (
             <>
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-destructive/10 border-2 border-foreground mb-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-destructive/10 mb-6">
                 <CheckCircle2 className="h-10 w-10 text-destructive" />
               </div>
               <h1 className="text-3xl font-bold text-foreground mb-4">Checkout Needs Attention</h1>
@@ -117,7 +117,7 @@ export default function CheckoutSuccess() {
             </>
           ) : (
             <>
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 dark:bg-green-900/30 border-2 border-foreground mb-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 dark:bg-green-900/30 mb-6">
                 <CheckCircle2 className="h-10 w-10 text-green-600 dark:text-green-400" />
               </div>
               <h1 className="text-3xl font-bold text-foreground mb-4">Payment Successful!</h1>

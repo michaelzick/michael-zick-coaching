@@ -129,7 +129,7 @@ export default function AdminSettings() {
               {/* Avatar */}
               <div className="flex items-center gap-6">
                 <div className="relative">
-                  <div className="h-20 w-20 bg-muted border-2 border-foreground flex items-center justify-center overflow-hidden">
+                  <div className="h-20 w-20 bg-muted flex items-center justify-center overflow-hidden">
                     {profile?.avatarUrl ? (
                       <img src={profile.avatarUrl} alt="Avatar" className="h-full w-full object-cover" />
                     ) : (

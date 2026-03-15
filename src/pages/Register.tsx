@@ -51,7 +51,7 @@ export default function Register() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <SEOHead title="Create Account" description="Create a Michael Zick Coaching account" noIndex />
+      <SEOHead title="Create Account" description="Create a Nice Guy University account" noIndex />
       <Navbar />
 
       <main className="flex-grow pt-32 pb-16 px-4 bg-muted">

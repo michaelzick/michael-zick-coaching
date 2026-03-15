@@ -62,7 +62,7 @@ export default function AdminDashboard() {
               <CardTitle className="text-sm font-medium text-muted-foreground">
                 {stat.title}
               </CardTitle>
-              <div className={`p-2 border-2 border-foreground ${stat.bgColor}`}>
+              <div className={`p-2 ${stat.bgColor}`}>
                 <stat.icon className={`h-4 w-4 ${stat.color}`} />
               </div>
             </CardHeader>
@@ -93,7 +93,7 @@ export default function AdminDashboard() {
                   </div>
                   <div className="text-right">
                     <p className="font-bold text-card-foreground">{formatCurrency(Number(order.amount_total))}</p>
-                    <span className={`text-xs px-2 py-0.5 border-2 border-foreground uppercase tracking-[0.03em] font-semibold ${
+                    <span className={`text-xs px-2 py-0.5 uppercase tracking-[0.03em] font-semibold ${
                       order.status === 'completed' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' :
                       order.status === 'pending' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400' :
                       order.status === 'refunded' ? 'bg-muted text-foreground dark:bg-muted/40 dark:text-foreground' :

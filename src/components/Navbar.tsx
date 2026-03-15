@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ShoppingCart, User, LogOut, LayoutDashboard, BookOpen, Settings } from '@/lib/icons';
+import { Menu, X, ShoppingCart, User, LogOut, LayoutDashboard, BookOpen, Settings, Users } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/hooks/use-cart';
 import { useAuth } from '@/hooks/use-auth';
@@ -24,6 +24,7 @@ export default function Navbar() {
   const adminRoutes = [
     { to: '/admin', label: 'Admin Dashboard', icon: LayoutDashboard },
     { to: '/admin/courses', label: 'Admin Courses', icon: BookOpen },
+    { to: '/admin/coaches', label: 'Admin Coaches', icon: Users },
     { to: '/admin/orders', label: 'Admin Orders', icon: ShoppingCart },
     { to: '/admin/settings', label: 'Admin Settings', icon: Settings },
   ];
@@ -49,38 +50,36 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav border-b-2 border-foreground ${
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav border-b border-border ${
       isScrolled ? 'py-3' : 'py-4'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2 cubist-link">
-            <span className="cta-elevated-on-hover inline-block text-xl md:text-2xl font-bold text-accent-foreground bg-accent border-2 border-foreground px-3 py-1 tracking-[0.03em]">
+            <span className="cta-elevated-on-hover inline-block max-w-[calc(100vw-9rem)] truncate text-sm sm:text-base md:max-w-none md:text-2xl font-bold text-accent-foreground bg-accent px-3 py-1 tracking-[0.03em]">
               NICE GUY UNIVERSITY
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-5">
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-5">
             <Link to="/courses" className="cubist-link text-foreground hover:text-primary transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
               Programs
             </Link>
-            <Link to="/about" className="cubist-link text-foreground hover:text-primary transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
-              About
+            <Link to="/coaches" className="cubist-link text-foreground hover:text-primary transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
+              Coaches
+            </Link>
+            <Link to="/how-it-works" className="cubist-link text-foreground hover:text-primary transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
+              How It Works
             </Link>
             <Link to="/resources" className="cubist-link text-foreground hover:text-primary transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
               Resources
             </Link>
-            <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6">
-                Book a Free Session
-              </Button>
-            </a>
 
             <Link to="/cart" className="relative">
               <Button variant="outline" size="icon" className="text-foreground hover:text-primary">
                 <ShoppingCart className="h-5 w-5" />
                 {cart.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold h-6 min-w-6 px-1 flex items-center justify-center border-2 border-foreground">
+                  <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold h-6 min-w-6 px-1 flex items-center justify-center">
                     {cart.length}
                   </span>
                 )}
@@ -94,7 +93,7 @@ export default function Navbar() {
                     <User className="h-5 w-5" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56 border-2 border-foreground bg-card">
+                <DropdownMenuContent align="end" className="w-56 bg-card">
                   <div className="px-2 py-1.5 text-sm font-bold uppercase tracking-[0.04em]">
                     {profile?.firstName} {profile?.lastName}
                   </div>
@@ -146,7 +145,7 @@ export default function Navbar() {
               <Button variant="outline" size="icon" className="text-foreground">
                 <ShoppingCart className="h-5 w-5" />
                 {cart.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold h-6 min-w-6 px-1 flex items-center justify-center border-2 border-foreground">
+                  <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold h-6 min-w-6 px-1 flex items-center justify-center">
                     {cart.length}
                   </span>
                 )}
@@ -165,29 +164,32 @@ export default function Navbar() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden glass-nav border-t-2 border-foreground py-4 px-4 absolute w-full fade-in">
+        <div className="absolute left-0 top-full max-h-[calc(100dvh-5rem)] w-full overflow-y-auto overscroll-contain border-t border-border bg-secondary py-4 px-4 fade-in md:hidden">
           <nav className="flex flex-col space-y-3">
-            <Link to="/courses" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 border-2 border-foreground px-3">
+            <Link to="/courses" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
               Programs
             </Link>
-            <Link to="/about" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 border-2 border-foreground px-3">
-              About
+            <Link to="/my-programs" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
+              My Programs
             </Link>
-            <Link to="/resources" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 border-2 border-foreground px-3">
+            <Link to="/coaches" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
+              Coaches
+            </Link>
+            <Link to="/how-it-works" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
+              How It Works
+            </Link>
+            <Link to="/resources" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
               Resources
             </Link>
             {user ? (
               <>
-                <Link to="/my-programs" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 border-2 border-foreground px-3">
-                  My Programs
-                </Link>
                 {isAdmin && (
                   <>
                     <p className="text-xs uppercase tracking-wider text-muted-foreground pt-2 font-bold">
                       Admin
                     </p>
                     {adminRoutes.map(({ to, label }) => (
-                      <Link key={to} to={to} className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 border-2 border-foreground px-3">
+                      <Link key={to} to={to} className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
                         {label}
                       </Link>
                     ))}
@@ -203,15 +205,10 @@ export default function Navbar() {
                 </Button>
               </>
             ) : (
-              <Link to="/login" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 border-2 border-foreground px-3">
+              <Link to="/login" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
                 Sign In
               </Link>
             )}
-            <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="pt-2">
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                Book a Free Session
-              </Button>
-            </a>
           </nav>
         </div>
       )}

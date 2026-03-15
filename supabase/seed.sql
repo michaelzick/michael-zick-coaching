@@ -1,3 +1,72 @@
+INSERT INTO coaches (
+  id,
+  slug,
+  first_name,
+  last_name,
+  email,
+  title,
+  bio,
+  short_bio,
+  philosophy,
+  image_url,
+  booking_url,
+  website_url,
+  social_links,
+  testimonials,
+  featured,
+  published
+)
+VALUES (
+  '11111111-1111-1111-1111-111111111111',
+  'michael-zick',
+  'Michael',
+  'Zick',
+  'coach@michaelzick.com',
+  'Founder and Nice Guy Recovery Coach',
+  $$For most of my life, I was a textbook Nice Guy. I said yes when I meant no. I performed for approval. I built covert contracts in every relationship, then resented people when they failed to honor agreements they never actually made.
+
+The turning point came when I realized my "niceness" was not generosity. It was a survival strategy I built as a kid to avoid conflict and earn love. Once I saw the pattern clearly, I could not unsee it.
+
+I spent years doing the work: examining my parental relationships, learning to tolerate displeasure, setting boundaries I had never set before, and building an identity based on my actual values instead of whatever I thought would make people like me.
+
+Now I coach men through the same process with a direct, structured approach. No vague platitudes. No performative motivation. Just clear frameworks, honest feedback, and practical work that changes how you show up in your relationships and your life.$$,
+  'Michael helps men break approval addiction, stop performing for validation, and build lives anchored in standards, honesty, and self-respect.',
+  '[
+    {"title":"Radical Honesty","description":"Stop performing. Start telling the truth to yourself and the people around you.","icon":"Target"},
+    {"title":"Displeasure Tolerance","description":"Build the capacity to handle negative reactions without collapsing or caving.","icon":"Shield"},
+    {"title":"Standards Over Scarcity","description":"Make decisions from abundance and self-respect, not fear of being alone.","icon":"Heart"},
+    {"title":"Staying in the Discomfort","description":"Growth happens in the space between the old pattern and the new behavior.","icon":"Mountain"}
+  ]'::jsonb,
+  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80',
+  'https://calendly.com',
+  'https://www.michaelzick.com',
+  '{"website":"https://www.michaelzick.com"}'::jsonb,
+  '[
+    {"name":"Ryan I.","text":"Working with Michael completely changed how I show up in my relationships. I stopped performing and started being real. My marriage has never been better."},
+    {"name":"Doug S.","text":"I did not even realize I was a Nice Guy until Michael broke it down. Now I have boundaries, I communicate directly, and I do not resent the people I love anymore."},
+    {"name":"Greg C.","text":"The displeasure tolerance work was a game-changer. I used to bend over backwards to avoid conflict. Now I can hold my ground and still feel calm."},
+    {"name":"Earl M.","text":"Michael gave me the tools to finally deal with the patterns I picked up from childhood. I feel like I am living my own life for the first time."}
+  ]'::jsonb,
+  true,
+  true
+)
+ON CONFLICT (id) DO UPDATE
+SET slug = EXCLUDED.slug,
+    first_name = EXCLUDED.first_name,
+    last_name = EXCLUDED.last_name,
+    email = EXCLUDED.email,
+    title = EXCLUDED.title,
+    bio = EXCLUDED.bio,
+    short_bio = EXCLUDED.short_bio,
+    philosophy = EXCLUDED.philosophy,
+    image_url = EXCLUDED.image_url,
+    booking_url = EXCLUDED.booking_url,
+    website_url = EXCLUDED.website_url,
+    social_links = EXCLUDED.social_links,
+    testimonials = EXCLUDED.testimonials,
+    featured = EXCLUDED.featured,
+    published = EXCLUDED.published;
+
 -- Seed courses from existing static data
 INSERT INTO courses (id, title, slug, instructor, category, level, price, sale_price, rating, rating_count, students_count, duration, lecture_count, description, short_description, thumbnail_url, featured, bestseller, last_updated, language, topics, what_you_will_learn, published)
 VALUES
@@ -1571,3 +1640,8 @@ That is how you lead intimacy like a grounded man.
     'How do you usually react internally to hesitation or rejection? What would grounded leadership look like instead?'
   ]
 );
+
+UPDATE courses
+SET coach_id = '11111111-1111-1111-1111-111111111111'
+WHERE coach_id IS NULL
+  AND instructor = 'Michael Zick';

@@ -1,10 +1,11 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { LayoutDashboard, BookOpen, ShoppingCart, Settings, ChevronLeft } from '@/lib/icons';
+import { LayoutDashboard, BookOpen, ShoppingCart, Settings, ChevronLeft, Users } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 
 const navItems = [
   { to: '/admin', icon: LayoutDashboard, label: 'Dashboard', exact: true },
   { to: '/admin/courses', icon: BookOpen, label: 'Courses' },
+  { to: '/admin/coaches', icon: Users, label: 'Coaches' },
   { to: '/admin/orders', icon: ShoppingCart, label: 'Orders' },
   { to: '/admin/settings', icon: Settings, label: 'Settings' },
 ];
@@ -18,7 +19,7 @@ export default function AdminLayout() {
       <aside className="w-64 bg-card border-r border-border flex flex-col">
         <div className="p-6 border-b border-border">
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-lg font-bold text-foreground tracking-tight">MICHAEL ZICK</span>
+            <span className="text-lg font-bold text-foreground tracking-tight">NICE GUY UNIVERSITY</span>
           </Link>
           <p className="text-xs text-muted-foreground mt-1">Admin Dashboard</p>
         </div>

@@ -2,13 +2,14 @@ import { supabase } from '@/lib/supabase';
 import { Course } from '@/types/course';
 import { DbCourse, DbChapter, DbLesson } from '@/types/database';
 
-function mapDbCourseToCourse(db: DbCourse): Course {
+export function mapDbCourseToCourse(db: DbCourse): Course {
   return {
     id: db.id,
     title: db.title,
     slug: db.slug,
     instructor: db.instructor,
     instructorAvatar: db.instructor_avatar ?? undefined,
+    coachId: db.coach_id ?? null,
     category: db.category as Course['category'],
     level: db.level as Course['level'],
     price: Number(db.price),

@@ -1,3 +1,5 @@
+import type { CoachPhilosophyItem, CoachSocialLinks, CoachTestimonial } from '@/types/coach';
+
 export type Profile = {
   id: string;
   firstName: string;
@@ -8,12 +10,34 @@ export type Profile = {
   updatedAt: string;
 };
 
+export type DbCoach = {
+  id: string;
+  slug: string;
+  first_name: string;
+  last_name: string;
+  email: string | null;
+  title: string;
+  bio: string;
+  short_bio: string;
+  philosophy: CoachPhilosophyItem[];
+  image_url: string | null;
+  booking_url: string | null;
+  website_url: string | null;
+  social_links: CoachSocialLinks | null;
+  testimonials: CoachTestimonial[];
+  featured: boolean;
+  published: boolean;
+  created_at: string;
+  updated_at: string;
+};
+
 export type DbCourse = {
   id: string;
   title: string;
   slug: string;
   instructor: string;
   instructor_avatar: string | null;
+  coach_id: string | null;
   category: string;
   level: string;
   price: number;

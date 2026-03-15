@@ -12,13 +12,13 @@ export default function ResourcesPage() {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Nice Guy Recovery Resources & Guides"
-        description="Free guides and articles on Nice Guy Syndrome, people-pleasing, codependency, anxious attachment, boundaries, approval addiction, and more. Written by Nice Guy Recovery Coach Michael Zick."
+        description="Free guides and articles from Nice Guy University on shame, approval addiction, people-pleasing, boundaries, and recovery work for men."
         canonicalPath="/resources"
       />
       <Navbar />
 
       <main className="flex-grow pt-32 pb-16 px-4">
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-5xl">
           <div className="mb-12 fade-in">
             <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-2">Resources</p>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -47,7 +47,7 @@ export default function ResourcesPage() {
                 <Link
                   key={resource.id}
                   to={`/resources/${resource.slug}`}
-                  className="block bg-card border-2 border-foreground p-6 hover:border-primary transition-colors cubist-frame elevated-on-hover"
+                  className="block bg-card p-6 hover:border-primary transition-colors elevated-on-hover"
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">

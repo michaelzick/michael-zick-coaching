@@ -93,7 +93,7 @@ export default function Cart() {
       <Navbar />
 
       <main className="flex-grow pt-32 pb-16 px-4">
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto">
           <div className="mb-8 fade-in">
             <h1 className="text-3xl font-bold text-foreground mb-2">Your Programs</h1>
             <p className="text-muted-foreground">{cartItems.length} {cartItems.length === 1 ? 'program' : 'programs'} selected</p>
@@ -101,7 +101,7 @@ export default function Cart() {
 
           {cartItems.length === 0 ? (
             <div className="text-center py-16 fade-in">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-muted border-2 border-foreground mb-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-muted mb-6">
                 <ShoppingCart className="h-10 w-10 text-muted-foreground" />
               </div>
               <h2 className="text-2xl font-bold text-foreground mb-4">No Programs Selected</h2>
@@ -117,7 +117,7 @@ export default function Cart() {
           ) : (
             <div className="grid md:grid-cols-3 gap-8">
               <div className="md:col-span-2 fade-in">
-                <div className="bg-card border-2 border-foreground overflow-hidden cubist-frame">
+                <div className="bg-card overflow-hidden">
                   <div className="p-6 pb-3">
                     <div className="flex justify-between items-center mb-4">
                       <h2 className="text-xl font-bold text-card-foreground tracking-[0.01em]">Selected Programs</h2>
@@ -137,7 +137,7 @@ export default function Cart() {
                   <div className="divide-y divide-border">
                     {cartItems.map((item) => (
                       <div key={item.id} className="p-6 flex fade-in">
-                        <div className="w-24 h-16 border-2 border-foreground overflow-hidden flex-shrink-0 mr-4">
+                        <div className="w-24 h-16 overflow-hidden flex-shrink-0 mr-4">
                           <img
                             src={`${item.thumbnailUrl}?auto=format&fit=crop&w=240&q=80`}
                             alt={item.title}
@@ -196,7 +196,7 @@ export default function Cart() {
                     ))}
                   </div>
 
-                  <div className="p-6 bg-muted border-t-2 border-foreground">
+                  <div className="p-6 bg-muted border-t border-border">
                     <Link to="/courses" className="inline-flex items-center text-primary font-medium hover:text-primary/80">
                       <ChevronLeft className="h-4 w-4 mr-1" />
                       Continue Browsing
@@ -206,7 +206,7 @@ export default function Cart() {
               </div>
 
               <div className="md:col-span-1 fade-in-delay-1">
-                <div className="bg-card border-2 border-foreground overflow-hidden sticky top-24 cubist-frame">
+                <div className="bg-card overflow-hidden sticky top-24">
                   <div className="p-6">
                     <h2 className="text-xl font-bold text-card-foreground mb-4">Summary</h2>
 
@@ -244,7 +244,7 @@ export default function Cart() {
                       {isCheckingOut ? 'Processing...' : 'Checkout'}
                     </Button>
 
-                    <div className="bg-muted p-4 border-2 border-foreground">
+                    <div className="bg-muted p-4">
                       <div className="flex items-center mb-3">
                         <LockIcon className="h-4 w-4 text-muted-foreground mr-2" />
                         <span className="text-sm font-medium text-card-foreground">Secure Checkout</span>

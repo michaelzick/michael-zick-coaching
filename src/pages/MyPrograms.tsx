@@ -16,7 +16,7 @@ export default function MyPrograms() {
       <Navbar />
 
       <main className="flex-grow pt-32 pb-16 px-4">
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto">
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-foreground mb-2">My Programs</h1>
             <p className="text-muted-foreground">Continue your recovery journey.</p>
@@ -28,7 +28,7 @@ export default function MyPrograms() {
             </div>
           ) : enrollments.length === 0 ? (
             <div className="text-center py-16">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-muted border-2 border-foreground mb-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-muted mb-6">
                 <BookOpen className="h-10 w-10 text-muted-foreground" />
               </div>
               <h2 className="text-2xl font-bold text-foreground mb-4">No Programs Yet</h2>

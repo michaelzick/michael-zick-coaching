@@ -5,6 +5,7 @@ export type Course = {
   slug: string;
   instructor: string;
   instructorAvatar?: string;
+  coachId: string | null;
   category: CourseCategory;
   level: 'Beginner' | 'Intermediate' | 'Advanced' | 'All Levels';
   price: number;

@@ -22,7 +22,7 @@ export default function SortSelector({ sortOption, setSortOption }: SortSelector
       <SelectTrigger className="w-[220px] font-semibold uppercase tracking-[0.03em]">
         <SelectValue placeholder="Sort By: Popular" />
       </SelectTrigger>
-      <SelectContent className="border-2 border-foreground bg-card">
+      <SelectContent className="border border-border bg-card">
         <SelectItem value="popular">
           <div className="flex items-center">
             <SortDesc className="h-4 w-4 mr-2" />

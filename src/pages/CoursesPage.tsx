@@ -53,7 +53,7 @@ export default function CoursesPage() {
       <Navbar />
 
       <main className="flex-grow pt-32 pb-16 px-4">
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto">
           <div className="mb-8 fade-in">
             <h1 className="text-3xl font-bold text-foreground mb-2">Programs</h1>
             <p className="text-muted-foreground">Coaching programs designed to help you break free and build an authentic life.</p>
@@ -86,7 +86,7 @@ export default function CoursesPage() {
               />
 
               {filterOpen && (
-                <div className="md:hidden bg-card border-2 border-foreground overflow-hidden mb-6 fade-in cubist-frame">
+                <div className="md:hidden bg-card overflow-hidden mb-6 fade-in">
                   <div className="p-4">
                     <div className="flex justify-between items-center mb-4">
                       <h2 className="font-bold text-card-foreground tracking-[0.02em]">Filters</h2>

@@ -19,7 +19,7 @@
     --secondary: 209 23% 14%;
     --secondary-foreground: 0 0% 90%;
 
-    --muted: 209 15% 22%;
+    --muted: 209 18% 28%;
     --muted-foreground: 210 10% 65%;
 
     --accent: 47 96% 51%;
@@ -28,8 +28,8 @@
     --destructive: 350 75% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 95%;
-    --input: 0 0% 95%;
+    --border: 209 15% 35%;
+    --input: 209 15% 35%;
     --ring: 211 100% 45%;
 
     --radius: 0rem;
@@ -56,7 +56,7 @@
     --secondary: 209 23% 18%;
     --secondary-foreground: 0 0% 90%;
 
-    --muted: 209 15% 20%;
+    --muted: 209 18% 14%;
     --muted-foreground: 210 10% 60%;
 
     --accent: 47 96% 51%;
@@ -65,8 +65,8 @@
     --destructive: 350 75% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 92%;
-    --input: 0 0% 92%;
+    --border: 209 15% 30%;
+    --input: 209 15% 30%;
     --ring: 211 100% 45%;
   }
 }
@@ -74,6 +74,12 @@
 @layer base {
   html {
     font-size: 125%;
+  }
+
+  @media (max-width: 640px) {
+    html {
+      font-size: 112.5%;
+    }
   }
 
   * {
@@ -202,22 +208,6 @@
     box-shadow: 8px 8px 0 rgba(0, 113, 227, 0.5);
   }
 
-  .cubist-frame {
-    border: 2px solid hsl(var(--foreground));
-    position: relative;
-  }
-
-  .cubist-frame::before {
-    content: "";
-    position: absolute;
-    left: -2px;
-    top: -2px;
-    width: 18px;
-    height: 18px;
-    background: hsl(var(--accent));
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-  }
-
   /* Apply glass automatically to cards and course cards */
   .card, .course-card {
     @apply glass;
@@ -234,9 +224,6 @@
   box-shadow: none !important;
 }
 
-.course-card {
-  border-width: 2px !important;
-}
 
 @keyframes cubistFade {
   from {

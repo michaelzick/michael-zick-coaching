@@ -25,7 +25,7 @@ export default function CourseCard({ course, className }: CourseCardProps) {
   const categoryLabel = course.category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 
   return (
-    <div className={cn("course-card group bg-card overflow-hidden border-2 border-foreground transition-all duration-300 cubist-frame", className)}>
+    <div className={cn("course-card group bg-card overflow-hidden transition-all duration-300", className)}>
       <Link to={`/course/${course.slug}`} className="block relative pb-[56.25%] overflow-hidden">
         <img 
           src={`${course.thumbnailUrl}?auto=format&fit=crop&w=800&q=80`}
@@ -96,7 +96,7 @@ export default function CourseCard({ course, className }: CourseCardProps) {
         <div className="mt-auto">
           {isInCart(course.id) ? (
             <Link to="/cart" className="w-full">
-              <Button variant="outline" className="w-full border-foreground text-foreground hover:bg-accent">
+              <Button variant="outline" className="w-full border-border text-foreground hover:bg-accent">
                 <ShoppingCart className="w-4 h-4 mr-2" />
                 View in Cart
               </Button>

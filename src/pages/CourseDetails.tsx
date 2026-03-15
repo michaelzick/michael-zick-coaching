@@ -15,6 +15,7 @@ import { buildCourseSchema, buildBreadcrumbSchema } from '@/lib/seo/schemas';
 import CourseCard from '@/components/CourseCard';
 import { useCart } from '@/hooks/use-cart';
 import { useCourseBySlug, useCourseChapters, useRelatedCourses } from '@/hooks/use-courses';
+import { useCoachById } from '@/hooks/use-coaches';
 
 function formatDuration(seconds: number): string {
   const m = Math.floor(seconds / 60);
@@ -27,6 +28,7 @@ export default function CourseDetails() {
   const { data: course, isLoading } = useCourseBySlug(slug);
   const { data: chapters = [] } = useCourseChapters(course?.id);
   const { data: relatedCourses = [] } = useRelatedCourses(course?.id, course?.category);
+  const { data: coach } = useCoachById(course?.coachId);
   const { addToCart, isInCart } = useCart();
 
   if (isLoading) {
@@ -64,6 +66,11 @@ export default function CourseDetails() {
   };
 
   const totalLessons = chapters.reduce((sum, ch) => sum + ch.lessons.length, 0);
+  const coachProfileHref = coach ? `/coaches/${coach.slug}` : null;
+  const coachBioParagraphs = coach?.bio
+    ? coach.bio.split(/\n\s*\n/).map((paragraph) => paragraph.trim()).filter(Boolean)
+    : [];
+  const coachDisplayName = coach?.name ?? course.instructor;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -81,6 +88,9 @@ export default function CourseDetails() {
         salePrice: course.salePrice,
         rating: course.rating,
         ratingCount: course.ratingCount,
+        instructorName: coachDisplayName,
+        instructorTitle: coach?.title,
+        instructorUrl: coachProfileHref,
         thumbnailUrl: course.thumbnailUrl,
         duration: course.duration,
         lectureCount: course.lectureCount,
@@ -96,7 +106,7 @@ export default function CourseDetails() {
 
       <main className="flex-grow pt-20">
         <div className="bg-secondary text-secondary-foreground py-12">
-          <div className="container mx-auto max-w-6xl px-4">
+          <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-3 gap-8 items-start">
               <div className="md:col-span-2 fade-in">
                 <div className="flex items-center text-sm mb-4">
@@ -131,16 +141,22 @@ export default function CourseDetails() {
                 </div>
 
                 <div className="flex items-center mb-6">
-                  <div className="w-10 h-10 bg-primary/20 border-2 border-foreground mr-3 flex items-center justify-center">
+                  <div className="w-10 h-10 bg-primary/20 mr-3 flex items-center justify-center">
                     <User className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Created by</p>
-                    <h3 className="font-medium text-secondary-foreground">{course.instructor}</h3>
+                    {coachProfileHref ? (
+                      <Link to={coachProfileHref} className="font-medium text-secondary-foreground hover:text-primary transition-colors">
+                        {coachDisplayName}
+                      </Link>
+                    ) : (
+                      <h3 className="font-medium text-secondary-foreground">{coachDisplayName}</h3>
+                    )}
                   </div>
                 </div>
 
-                <div className="mt-8 bg-background text-foreground border-2 border-foreground p-6 cubist-frame">
+                <div className="mt-8 bg-background text-foreground p-6">
                   <Tabs defaultValue="overview">
                     <TabsList className="mb-8 bg-muted p-1">
                       <TabsTrigger value="overview">Overview</TabsTrigger>
@@ -168,7 +184,7 @@ export default function CourseDetails() {
                         <h3 className="text-xl font-bold text-foreground mb-4">Topics Covered</h3>
                         <div className="flex flex-wrap gap-2">
                           {course.topics.map((topic, index) => (
-                            <div key={index} className="bg-muted text-muted-foreground border-2 border-foreground py-1 px-4 text-sm font-semibold uppercase tracking-[0.03em]">
+                            <div key={index} className="bg-muted text-muted-foreground py-1 px-4 text-sm font-semibold uppercase tracking-[0.03em]">
                               {topic}
                             </div>
                           ))}
@@ -192,7 +208,7 @@ export default function CourseDetails() {
                             {chapters.map((chapter) => {
                               const chapterDuration = chapter.lessons.reduce((s, l) => s + l.durationSeconds, 0);
                               return (
-                                <AccordionItem key={chapter.id} value={chapter.id} className="border-2 border-foreground mb-4 overflow-hidden">
+                                <AccordionItem key={chapter.id} value={chapter.id} className="mb-4 overflow-hidden bg-card">
                                   <AccordionTrigger className="px-6 py-4 hover:bg-muted">
                                     <div className="flex justify-between items-center w-full text-left">
                                       <div>
@@ -212,7 +228,7 @@ export default function CourseDetails() {
                                               <PlayCircle className="h-5 w-5 text-muted-foreground mr-3" />
                                               <span className="text-foreground">{lesson.title}</span>
                                               {lesson.isPreview && (
-                                                <span className="ml-2 text-xs bg-primary/10 text-primary px-2 py-0.5 border-2 border-primary uppercase tracking-[0.03em]">Preview</span>
+                                                <span className="ml-2 text-xs bg-primary/10 text-primary px-2 py-0.5 border border-primary uppercase tracking-[0.03em]">Preview</span>
                                               )}
                                             </div>
                                             {lesson.durationSeconds > 0 && (
@@ -235,33 +251,43 @@ export default function CourseDetails() {
 
                     <TabsContent value="instructor" className="fade-in">
                       <div className="flex items-start mb-8">
-                        <div className="w-20 h-20 bg-primary/20 border-2 border-foreground mr-6 flex items-center justify-center">
-                          <User className="w-10 h-10 text-primary" />
+                        <div className="w-20 h-20 bg-primary/20 mr-6 flex items-center justify-center overflow-hidden">
+                          {coach?.imageUrl ? (
+                            <img src={coach.imageUrl} alt={coachDisplayName} className="w-full h-full object-cover" />
+                          ) : (
+                            <User className="w-10 h-10 text-primary" />
+                          )}
                         </div>
                         <div>
-                          <h2 className="text-2xl font-bold text-foreground mb-2">Michael Zick</h2>
-                          <p className="text-muted-foreground mb-4">Nice Guy Recovery Coach</p>
-                          <div className="flex items-center flex-wrap gap-4 mb-4">
-                            <div className="flex items-center text-muted-foreground">
-                              <Star className="w-4 h-4 text-accent fill-accent mr-1" />
-                              <span>4.8 Rating</span>
-                            </div>
-                            <div className="flex items-center text-muted-foreground">
-                              <User className="w-4 h-4 mr-1" />
-                              <span>5,000+ Clients</span>
-                            </div>
-                          </div>
+                          <h2 className="text-2xl font-bold text-foreground mb-2">{coachDisplayName}</h2>
+                          <p className="text-muted-foreground mb-4">{coach?.title ?? 'Coach profile coming soon'}</p>
+                          {coachProfileHref && (
+                            <Link to={coachProfileHref}>
+                              <Button variant="outline" className="border-border">
+                                View Full Profile
+                              </Button>
+                            </Link>
+                          )}
                         </div>
                       </div>
 
-                      <div className="bg-muted p-6 border-2 border-foreground mb-8 cubist-frame">
-                        <h3 className="text-xl font-bold text-foreground mb-4">About Michael</h3>
-                        <p className="text-muted-foreground mb-4">
-                          Michael Zick is a Nice Guy Recovery Coach who helps men break free from approval addiction and build authentic, fulfilling lives. After his own recovery journey, he developed a structured framework that has helped thousands of men transform their relationships, careers, and self-identity.
-                        </p>
-                        <p className="text-muted-foreground">
-                          His coaching approach is direct, no-nonsense, and results-focused. He doesn't deal in vague platitudes — every program includes specific tools, exercises, and frameworks you can apply immediately.
-                        </p>
+                      <div className="bg-muted p-6 mb-8">
+                        <h3 className="text-xl font-bold text-foreground mb-4">
+                          About {coach?.firstName ?? coachDisplayName.split(' ')[0]}
+                        </h3>
+                        {coachBioParagraphs.length > 0 ? (
+                          <div className="space-y-4">
+                            {coachBioParagraphs.slice(0, 2).map((paragraph) => (
+                              <p key={paragraph.slice(0, 40)} className="text-muted-foreground">
+                                {paragraph}
+                              </p>
+                            ))}
+                          </div>
+                        ) : (
+                          <p className="text-muted-foreground">
+                            We are still syncing the full coach profile for this program. Check back soon for a deeper breakdown of the coach, philosophy, and recommended next steps.
+                          </p>
+                        )}
                       </div>
                     </TabsContent>
                   </Tabs>
@@ -269,7 +295,7 @@ export default function CourseDetails() {
               </div>
 
               <div className="md:col-span-1 fade-in-delay-1 space-y-6">
-                <div className="bg-card overflow-hidden border-2 border-foreground cubist-frame">
+                <div className="bg-card overflow-hidden">
                   <div className="relative pb-[56.25%] overflow-hidden">
                     <img
                       src={`${course.thumbnailUrl}?auto=format&fit=crop&w=800&q=80`}
@@ -306,17 +332,11 @@ export default function CourseDetails() {
                       </Button>
                     )}
 
-                    <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
-                      <Button variant="outline" className="w-full py-6 mb-6">
-                        Book a Free Session First
-                      </Button>
-                    </a>
-
                     <div className="text-center text-sm text-muted-foreground mb-6">
                       30-Day Money-Back Guarantee
                     </div>
 
-                    <div className="border-t-2 border-border pt-6">
+                    <div className="border-t border-border pt-6">
                       <h3 className="font-bold text-card-foreground mb-4">This program includes:</h3>
                       <ul className="space-y-3 text-card-foreground">
                         <li className="flex items-start">
@@ -339,7 +359,7 @@ export default function CourseDetails() {
                     </div>
                   </div>
                 </div>
-                <div className="bg-card border-2 border-foreground p-6 cubist-frame">
+                <div className="bg-card p-6">
                   <h3 className="text-lg font-bold text-card-foreground mb-4">Program Details</h3>
                   <ul className="space-y-4">
                     <li className="flex justify-between">
@@ -372,7 +392,7 @@ export default function CourseDetails() {
         {/* Related Programs */}
         {relatedCourses.length > 0 && (
           <section className="py-12 bg-muted">
-            <div className="container mx-auto max-w-6xl px-4">
+            <div className="container mx-auto px-4">
               <h2 className="text-2xl font-bold text-foreground mb-8">Related Programs</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {relatedCourses.map((relatedCourse, index) => (

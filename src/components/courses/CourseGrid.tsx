@@ -23,7 +23,7 @@ export default function CourseGrid({ isLoading, courses, clearFilters }: CourseG
   if (courses.length === 0) {
     return (
       <div className="text-center py-16 fade-in">
-        <div className="inline-flex items-center justify-center w-20 h-20 bg-muted border-2 border-foreground mb-6">
+        <div className="inline-flex items-center justify-center w-20 h-20 bg-muted mb-6">
           <Search className="h-10 w-10 text-muted-foreground" />
         </div>
         <h2 className="text-2xl font-bold text-foreground mb-4">No courses found</h2>
@@ -32,7 +32,7 @@ export default function CourseGrid({ isLoading, courses, clearFilters }: CourseG
         </p>
         <Button 
           variant="outline" 
-          className="border-foreground text-foreground hover:bg-accent"
+          className="border-border text-foreground hover:bg-accent"
           onClick={clearFilters}
         >
           Clear Filters

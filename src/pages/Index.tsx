@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { ChevronRight, Quote } from '@/lib/icons';
+import { ChevronRight } from '@/lib/icons';
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import CourseCard from "@/components/CourseCard";
@@ -15,28 +15,20 @@ export default function Index() {
   const { data: featuredCourses = [] } = useFeaturedCourses();
 
   const framework = [
-    { step: "01", title: "Spot the Bid", description: "Recognize when you're seeking approval or performing for validation in real time." },
-    { step: "02", title: "Cancel the Covert Contract", description: "Identify the hidden deals you're making and stop the manipulation cycle." },
-    { step: "03", title: "Build Displeasure Tolerance", description: "Learn to sit with others' negative reactions without collapsing or caving." },
-    { step: "04", title: "Choose from Standards", description: "Make decisions based on your values, not fear of rejection or abandonment." },
-  ];
-
-  const testimonials = [
     {
-      name: "Ryan I.",
-      text: "Working with Michael completely changed how I show up in my relationships. I stopped performing and started being real. My marriage has never been better.",
+      step: "01",
+      title: "Confront Your Toxic Shame",
+      description: "Face the core wound driving your people-pleasing so you can stop organizing your life around being acceptable.",
     },
     {
-      name: "Doug S.",
-      text: "I didn't even realize I was a Nice Guy until Michael broke it down. Now I have boundaries, I communicate directly, and I don't resent the people I love anymore.",
+      step: "02",
+      title: "Release the Victim Identity",
+      description: "Drop the story that your life changes when everyone else finally gets it and start owning your decisions now.",
     },
     {
-      name: "Greg C.",
-      text: "The displeasure tolerance work was a game-changer. I used to bend over backwards to avoid conflict. Now I can hold my ground and still feel calm.",
-    },
-    {
-      name: "Earl M.",
-      text: "Michael's coaching gave me the tools to finally deal with the patterns I picked up from my childhood. I feel like I'm living my own life for the first time.",
+      step: "03",
+      title: "Build Masculine Boundaries",
+      description: "Set limits that protect your energy, standards, and relationships without collapsing into guilt or performance.",
     },
   ];
 
@@ -70,8 +62,8 @@ export default function Index() {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Nice Guy Recovery Coaching for Men"
-        description="Break the addiction to approval. Coaching programs for men struggling with people-pleasing, codependency, boundaries, and Nice Guy patterns. Build confidence and live authentically."
+        title="Recovery Programs for Men"
+        description="Nice Guy University is a multi-coach platform for men ready to break approval addiction, build boundaries, and do real recovery work through structured programs."
         canonicalPath="/"
       />
       <JsonLd data={buildWebSiteSchema()} />
@@ -89,28 +81,28 @@ export default function Index() {
         />
         <div className="absolute inset-0 bg-mz-slate/80" />
         <div className="container mx-auto relative z-10">
-          <div className="max-w-3xl space-y-6">
+          <div className="max-w-4xl space-y-6">
             <p className="text-primary font-semibold uppercase tracking-widest text-sm">
-              Nice Guy Recovery Coach
+              Multi-Coach Recovery Platform
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Break the Addiction<br />to Approval
+              Stop performing.<br />Start doing the work.
             </h1>
-            <p className="text-lg text-white/70 max-w-xl">
-              Stop people-pleasing. Set boundaries. Build an authentic life based on your values — not the fear of someone else's displeasure.
+            <p className="text-lg text-white/70 max-w-2xl">
+              Nice Guy University connects you with coaches and programs designed to break shame, approval addiction, weak boundaries, and the patterns keeping you stuck.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link to="/courses">
                 <Button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-lg w-full sm:w-auto">
-                  Explore Programs
+                  Browse Programs
                   <ChevronRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
+              <Link to="/coaches">
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg w-full sm:w-auto">
-                  Book a Free Session
+                  Meet Our Coaches
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -119,21 +111,21 @@ export default function Index() {
       {/* The Recovery Framework */}
       <section className="py-20 px-4 bg-background">
         <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-4xl mx-auto mb-16">
             <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">
               The Framework
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              The Approval Addiction Recovery Loop
+              Three pillars that change how you live
             </h2>
             <p className="text-muted-foreground text-lg">
-              Four steps to break the cycle. Each one builds on the last.
+              Every coach on the platform teaches toward the same outcome: more honesty, more ownership, more standards.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {framework.map((item) => (
-              <div key={item.step} className="relative p-8 bg-card border-2 border-foreground hover:border-primary transition-all duration-300 group cubist-frame elevated-on-hover">
+              <div key={item.step} className="relative p-8 bg-card hover:border-primary transition-all duration-300 group elevated-on-hover">
                 <span className="text-5xl font-bold text-primary/20 group-hover:text-primary/40 transition-colors">{item.step}</span>
                 <h3 className="text-xl font-bold text-card-foreground mt-4 mb-3">{item.title}</h3>
                 <p className="text-muted-foreground">{item.description}</p>
@@ -164,33 +156,9 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 px-4 bg-background">
-        <div className="container mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">
-              Client Results
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Real Men. Real Recovery.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {testimonials.map((t, index) => (
-              <div key={index} className="bg-card border-2 border-foreground p-8 hover:border-primary transition-colors cubist-frame elevated-on-hover">
-                <Quote className="h-8 w-8 text-primary/30 mb-4" />
-                <p className="text-card-foreground mb-6 leading-relaxed">"{t.text}"</p>
-                <p className="font-semibold text-primary">{t.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section className="py-20 px-4 bg-muted">
-        <div className="container mx-auto max-w-3xl">
+        <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">
               Common Questions
@@ -202,7 +170,7 @@ export default function Index() {
 
           <Accordion type="single" collapsible className="w-full">
             {homeFAQs.map((faq, index) => (
-              <AccordionItem key={index} value={`faq-${index}`} className="border-2 border-foreground mb-4 overflow-hidden bg-card cubist-frame">
+              <AccordionItem key={index} value={`faq-${index}`} className="mb-4 overflow-hidden bg-card">
                 <AccordionTrigger className="px-6 py-4 hover:bg-muted text-left">
                   <span className="font-bold text-foreground">{faq.question}</span>
                 </AccordionTrigger>
@@ -225,19 +193,19 @@ export default function Index() {
         />
         <div className="absolute inset-0 bg-mz-slate/85" />
         <div className="container mx-auto relative z-10">
-          <div className="text-center max-w-3xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Stop Being the Nice Guy?
+              Find the coach and program that matches your next step.
             </h2>
-            <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">
-              Book a free session and find out exactly where you are in the recovery process — and what to do next.
+            <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
+              Start with the pain point that is costing you the most. Then do the work until your behavior changes, not just your vocabulary.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
+              <Link to="/coaches">
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg w-full sm:w-auto">
-                  Book a Free Session
+                  Meet Our Coaches
                 </Button>
-              </a>
+              </Link>
               <Link to="/courses">
                 <Button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-lg w-full sm:w-auto">
                   Browse Programs

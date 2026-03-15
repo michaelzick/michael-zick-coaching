@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_NAME = "Michael Zick Coaching";
+const SITE_NAME = "Nice Guy University";
 const DEFAULT_OG_IMAGE = "/og-image.jpg";
 const TWITTER_HANDLE = "@michaelzick"; // Update with actual handle
 

@@ -44,6 +44,9 @@ export default function ResourceDetail() {
   }
 
   const siteUrl = import.meta.env.VITE_SITE_URL || "";
+  const authorUrl = resource.author === 'Michael Zick'
+    ? `${siteUrl}/coaches/michael-zick`
+    : `${siteUrl}/coaches`;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -53,12 +56,12 @@ export default function ResourceDetail() {
     author: {
       "@type": "Person",
       name: resource.author,
-      jobTitle: "Nice Guy Recovery Coach",
-      url: `${siteUrl}/about`,
+      jobTitle: "Coach",
+      url: authorUrl,
     },
     publisher: {
       "@type": "Organization",
-      name: "Michael Zick Coaching",
+      name: "Nice Guy University",
       url: siteUrl || "https://michaelzick.com",
     },
     datePublished: resource.createdAt,
@@ -84,7 +87,7 @@ export default function ResourceDetail() {
 
       <main className="flex-grow pt-32 pb-16">
         <article className="px-4">
-          <div className="container mx-auto max-w-3xl">
+          <div className="container mx-auto max-w-4xl">
             {/* Breadcrumb */}
             <nav className="flex items-center text-sm mb-8">
               <Link to="/" className="text-muted-foreground hover:text-primary">Home</Link>
@@ -117,7 +120,7 @@ export default function ResourceDetail() {
             </div>
 
             {/* CTA */}
-            <div className="bg-card border-2 border-foreground p-8 cubist-frame mb-12">
+            <div className="bg-card p-8 mb-12">
               <h2 className="text-2xl font-bold text-card-foreground mb-4">
                 Ready to Put This Into Practice?
               </h2>
@@ -139,12 +142,12 @@ export default function ResourceDetail() {
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
-                )}
-                <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
+                )} 
+                <Link to="/coaches">
                   <Button variant="outline" className="px-8 py-6 text-lg">
-                    Book a Free Session
+                    Meet Our Coaches
                   </Button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

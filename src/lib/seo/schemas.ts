@@ -1,5 +1,5 @@
 const SITE_URL = import.meta.env.VITE_SITE_URL || "";
-const SITE_NAME = "Michael Zick Coaching";
+const SITE_NAME = "Nice Guy University";
 
 export function buildWebSiteSchema() {
   return {
@@ -7,7 +7,7 @@ export function buildWebSiteSchema() {
     "@type": "WebSite",
     name: SITE_NAME,
     url: SITE_URL || "https://michaelzick.com",
-    description: "Nice Guy Recovery Coaching for Men",
+    description: "A multi-coach recovery platform for men.",
     potentialAction: {
       "@type": "SearchAction",
       target: `${SITE_URL}/courses?q={search_term_string}`,
@@ -24,7 +24,7 @@ export function buildOrganizationSchema(socialLinks: string[] = []) {
     url: SITE_URL || "https://michaelzick.com",
     logo: `${SITE_URL}/og-image.jpg`,
     description:
-      "Coaching programs for men recovering from Nice Guy Syndrome, approval addiction, and people-pleasing patterns.",
+      "A multi-coach platform with programs for men recovering from Nice Guy Syndrome, approval addiction, and people-pleasing patterns.",
     founder: {
       "@type": "Person",
       name: "Michael Zick",
@@ -41,32 +41,38 @@ export function buildOrganizationSchema(socialLinks: string[] = []) {
   };
 }
 
-export function buildPersonSchema(socialLinks: string[] = []) {
+interface PersonSchemaInput {
+  name: string;
+  title: string;
+  description: string;
+  url: string;
+  sameAs?: string[];
+  knowsAbout?: string[];
+}
+
+export function buildPersonSchema({
+  name,
+  title,
+  description,
+  url,
+  sameAs = [],
+  knowsAbout = [],
+}: PersonSchemaInput) {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Michael Zick",
-    jobTitle: "Nice Guy Recovery Coach",
-    description:
-      "Nice Guy Recovery Coach helping men break free from approval addiction, people-pleasing, codependency, and anxious attachment through structured coaching programs.",
-    url: `${SITE_URL}/about`,
-    sameAs: [
-      "https://www.michaelzick.com",
-      ...socialLinks,
-    ],
-    knowsAbout: [
+    name,
+    jobTitle: title,
+    description,
+    url: `${SITE_URL}${url}`,
+    sameAs,
+    knowsAbout: knowsAbout.length > 0 ? knowsAbout : [
       "Nice Guy Syndrome",
       "Nice Guy Recovery",
       "Approval Addiction",
       "People-Pleasing",
-      "Codependency",
-      "Anxious Attachment",
-      "Avoidant Attachment",
       "Boundaries",
-      "Self-Esteem",
       "Men's Coaching",
-      "Covert Contracts",
-      "Displeasure Tolerance",
     ],
   };
 }
@@ -79,6 +85,9 @@ interface CourseSchemaInput {
   salePrice?: number | null;
   rating: number;
   ratingCount: number;
+  instructorName?: string;
+  instructorTitle?: string;
+  instructorUrl?: string | null;
   thumbnailUrl: string;
   duration: string;
   lectureCount: number;
@@ -101,8 +110,9 @@ export function buildCourseSchema(course: CourseSchemaInput) {
     },
     instructor: {
       "@type": "Person",
-      name: "Michael Zick",
-      jobTitle: "Nice Guy Recovery Coach",
+      name: course.instructorName ?? "Nice Guy University Coach",
+      jobTitle: course.instructorTitle ?? "Coach",
+      ...(course.instructorUrl ? { url: `${SITE_URL}${course.instructorUrl}` } : {}),
     },
     offers: {
       "@type": "Offer",

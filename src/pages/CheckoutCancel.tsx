@@ -12,7 +12,7 @@ export default function CheckoutCancel() {
       <Navbar />
       <main className="flex-grow pt-32 pb-16 px-4">
         <div className="container mx-auto max-w-lg text-center">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-muted border-2 border-foreground mb-6">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-muted mb-6">
             <XCircle className="h-10 w-10 text-muted-foreground" />
           </div>
           <h1 className="text-3xl font-bold text-foreground mb-4">Checkout Cancelled</h1>
