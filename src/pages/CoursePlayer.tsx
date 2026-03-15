@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, PlayCircle, BookOpen, Loader2, Menu } from '
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import Navbar from '@/components/Navbar';
 import VideoPlayer from '@/components/player/VideoPlayer';
 import MarkdownContent from '@/components/MarkdownContent';
 import JournalPrompts from '@/components/player/JournalPrompts';
@@ -131,20 +132,26 @@ export default function CoursePlayer() {
 
   if (courseLoading || chaptersLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+      <div className="min-h-screen flex flex-col bg-background">
+        <Navbar />
+        <div className="flex flex-1 items-center justify-center px-4 pt-20">
+          <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+        </div>
       </div>
     );
   }
 
   if (!course) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Program Not Found</h1>
-          <Link to="/courses">
-            <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Browse Programs</Button>
-          </Link>
+      <div className="min-h-screen flex flex-col bg-background">
+        <Navbar />
+        <div className="flex flex-1 items-center justify-center px-4 pt-20">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-foreground mb-4">Program Not Found</h1>
+            <Link to="/courses">
+              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Browse Programs</Button>
+            </Link>
+          </div>
         </div>
       </div>
     );
@@ -153,115 +160,119 @@ export default function CoursePlayer() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEOHead title={course?.title || "Course Player"} description="Course player" noIndex />
-      {/* Top bar */}
-      <div className="bg-secondary border-b border-border px-4 py-3">
-        <div className="flex items-center justify-between gap-3 max-w-screen-2xl mx-auto">
-          <div className="flex min-w-0 items-center gap-4">
-            <Link to={`/course/${courseSlug}`}>
-              <Button variant="ghost" size="sm" className="text-secondary-foreground/80">
-                <ChevronLeft className="h-4 w-4 mr-1" />
-                Back
-              </Button>
-            </Link>
-            <h1 className="text-sm font-medium text-secondary-foreground truncate max-w-md">
-              {course.title}
-            </h1>
-          </div>
-          <div className="flex shrink-0 items-center gap-2">
-            <div className="hidden text-sm text-muted-foreground sm:block">
-              {currentIndex + 1} / {allLessons.length} lessons
+      <Navbar />
+
+      <main className="flex flex-1 flex-col pt-20">
+        {/* Top bar */}
+        <div className="border-b border-border bg-secondary px-4 py-3">
+          <div className="mx-auto flex max-w-screen-2xl items-center justify-between gap-3">
+            <div className="flex min-w-0 items-center gap-4">
+              <Link to={`/course/${courseSlug}`}>
+                <Button variant="ghost" size="sm" className="text-secondary-foreground/80">
+                  <ChevronLeft className="h-4 w-4 mr-1" />
+                  Back
+                </Button>
+              </Link>
+              <h1 className="max-w-md truncate text-sm font-medium text-secondary-foreground">
+                {course.title}
+              </h1>
             </div>
-            <Sheet open={mobileCourseMenuOpen} onOpenChange={setMobileCourseMenuOpen}>
-              <Button
-                variant="outline"
-                size="sm"
-                className="lg:hidden border-border bg-background text-foreground hover:bg-muted"
-                onClick={() => setMobileCourseMenuOpen(true)}
-              >
-                <Menu className="h-4 w-4 mr-2" />
-                Course Content
-              </Button>
-              <SheetContent
-                side="right"
-                className="w-full max-w-sm border-l border-border bg-card p-0 text-card-foreground sm:max-w-md"
-              >
-                <SheetHeader className="border-b border-border bg-secondary px-5 py-4 text-left">
-                  <SheetTitle className="flex items-center gap-2 text-card-foreground">
-                    <BookOpen className="h-4 w-4" />
-                    Course Content
-                  </SheetTitle>
-                  <SheetDescription>
-                    {currentIndex + 1} of {allLessons.length} lessons
-                  </SheetDescription>
-                </SheetHeader>
-                <div className="overflow-y-auto pb-8">
-                  {renderCourseContent('mobile')}
-                </div>
-              </SheetContent>
-            </Sheet>
+            <div className="flex shrink-0 items-center gap-2">
+              <div className="hidden text-sm text-muted-foreground sm:block">
+                {currentIndex + 1} / {allLessons.length} lessons
+              </div>
+              <Sheet open={mobileCourseMenuOpen} onOpenChange={setMobileCourseMenuOpen}>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="lg:hidden border-border bg-background text-foreground hover:border-primary/50 hover:bg-secondary hover:text-foreground active:bg-muted"
+                  onClick={() => setMobileCourseMenuOpen(true)}
+                >
+                  <Menu className="h-4 w-4 mr-2" />
+                  Course Content
+                </Button>
+                <SheetContent
+                  side="right"
+                  className="flex h-full w-full max-w-sm flex-col border-l border-border bg-card p-0 text-card-foreground sm:max-w-md"
+                >
+                  <SheetHeader className="shrink-0 border-b border-border bg-secondary px-5 py-4 text-left">
+                    <SheetTitle className="flex items-center gap-2 text-card-foreground">
+                      <BookOpen className="h-4 w-4" />
+                      Course Content
+                    </SheetTitle>
+                    <SheetDescription>
+                      {currentIndex + 1} of {allLessons.length} lessons
+                    </SheetDescription>
+                  </SheetHeader>
+                  <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain pb-8">
+                    {renderCourseContent('mobile')}
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Main content */}
-      <div className="flex-grow flex flex-col lg:flex-row">
-        {/* Video area */}
-        <div className="min-w-0 flex-grow p-4 lg:p-8">
-          {currentLesson ? (
-            <>
-              <VideoPlayer lesson={currentLesson} />
-              <div className="mt-6">
-                <h2 className="text-2xl font-bold text-foreground mb-2">{currentLesson.title}</h2>
-                {currentLesson.description && (
-                  <p className="text-muted-foreground">{currentLesson.description}</p>
+        {/* Main content */}
+        <div className="flex flex-1 flex-col lg:flex-row">
+          {/* Video area */}
+          <div className="min-w-0 flex-grow p-4 lg:p-8">
+            {currentLesson ? (
+              <>
+                <VideoPlayer lesson={currentLesson} />
+                <div className="mt-6">
+                  <h2 className="text-2xl font-bold text-foreground mb-2">{currentLesson.title}</h2>
+                  {currentLesson.description && (
+                    <p className="text-muted-foreground">{currentLesson.description}</p>
+                  )}
+                </div>
+
+                {currentLesson.content && (
+                  <div className="mt-8">
+                    <MarkdownContent content={currentLesson.content} />
+                  </div>
                 )}
-              </div>
 
-              {currentLesson.content && (
-                <div className="mt-8">
-                  <MarkdownContent content={currentLesson.content} />
+                <JournalPrompts prompts={currentLesson.journalPrompts} />
+
+                {/* Navigation */}
+                <div className="flex justify-between mt-8 pt-4 border-t border-border">
+                  {prevLesson ? (
+                    <Button variant="outline" onClick={() => navigateToLesson(prevLesson)}>
+                      <ChevronLeft className="h-4 w-4 mr-2" />
+                      Previous
+                    </Button>
+                  ) : <div />}
+                  {nextLesson ? (
+                    <Button onClick={() => navigateToLesson(nextLesson)}>
+                      Next
+                      <ChevronRight className="h-4 w-4 ml-2" />
+                    </Button>
+                  ) : <div />}
                 </div>
-              )}
-
-              <JournalPrompts prompts={currentLesson.journalPrompts} />
-
-              {/* Navigation */}
-              <div className="flex justify-between mt-8 pt-4 border-t border-border">
-                {prevLesson ? (
-                  <Button variant="outline" onClick={() => navigateToLesson(prevLesson)}>
-                    <ChevronLeft className="h-4 w-4 mr-2" />
-                    Previous
-                  </Button>
-                ) : <div />}
-                {nextLesson ? (
-                  <Button onClick={() => navigateToLesson(nextLesson)}>
-                    Next
-                    <ChevronRight className="h-4 w-4 ml-2" />
-                  </Button>
-                ) : <div />}
+              </>
+            ) : (
+              <div className="aspect-video bg-muted flex items-center justify-center">
+                <p className="text-muted-foreground">No lessons available yet.</p>
               </div>
-            </>
-          ) : (
-            <div className="aspect-video bg-muted flex items-center justify-center">
-              <p className="text-muted-foreground">No lessons available yet.</p>
-            </div>
-          )}
-        </div>
-
-        {/* Desktop sidebar */}
-        <aside className="hidden lg:block lg:w-96 lg:flex-shrink-0 lg:self-start lg:sticky lg:top-0 border-l border-border bg-card">
-          <div className="border-b border-border p-4">
-            <h3 className="font-bold text-card-foreground flex items-center gap-2">
-              <BookOpen className="h-4 w-4" />
-              Course Content
-            </h3>
-            <p className="mt-2 text-xs uppercase tracking-[0.08em] text-muted-foreground">
-              {allLessons.length} lessons across {chapters.length} chapters
-            </p>
+            )}
           </div>
-          <div>{renderCourseContent('desktop')}</div>
-        </aside>
-      </div>
+
+          {/* Desktop sidebar */}
+          <aside className="hidden border-l border-border bg-card lg:sticky lg:top-20 lg:block lg:w-96 lg:flex-shrink-0 lg:self-start">
+            <div className="border-b border-border p-4">
+              <h3 className="font-bold text-card-foreground flex items-center gap-2">
+                <BookOpen className="h-4 w-4" />
+                Course Content
+              </h3>
+              <p className="mt-2 text-xs uppercase tracking-[0.08em] text-muted-foreground">
+                {allLessons.length} lessons across {chapters.length} chapters
+              </p>
+            </div>
+            <div>{renderCourseContent('desktop')}</div>
+          </aside>
+        </div>
+      </main>
     </div>
   );
 }

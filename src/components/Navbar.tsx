@@ -164,7 +164,7 @@ export default function Navbar() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="absolute w-full border-t border-border bg-secondary py-4 px-4 fade-in md:hidden">
+        <div className="absolute left-0 top-full max-h-[calc(100dvh-5rem)] w-full overflow-y-auto overscroll-contain border-t border-border bg-secondary py-4 px-4 fade-in md:hidden">
           <nav className="flex flex-col space-y-3">
             <Link to="/courses" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
               Programs
