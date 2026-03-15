@@ -169,6 +169,9 @@ export default function Navbar() {
             <Link to="/courses" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
               Programs
             </Link>
+            <Link to="/my-programs" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
+              My Programs
+            </Link>
             <Link to="/coaches" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
               Coaches
             </Link>
@@ -180,9 +183,6 @@ export default function Navbar() {
             </Link>
             {user ? (
               <>
-                <Link to="/my-programs" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
-                  My Programs
-                </Link>
                 {isAdmin && (
                   <>
                     <p className="text-xs uppercase tracking-wider text-muted-foreground pt-2 font-bold">
