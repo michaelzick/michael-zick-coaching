@@ -56,7 +56,7 @@ export default function CoachProfile() {
   const bioParagraphs = splitParagraphs(coach.bio);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <SEOHead
         title={coach.name}
         description={coach.shortBio}
@@ -78,11 +78,11 @@ export default function CoachProfile() {
       ])} />
       <Navbar />
 
-      <main className="flex-grow pt-32 pb-16">
+      <main className="flex-grow pb-16 pt-28 md:pt-32">
         <section className="px-4 py-12 bg-muted">
           <div className="container mx-auto">
-            <div className="grid gap-10 lg:grid-cols-[360px_minmax(0,1fr)] items-start">
-              <div className="bg-card overflow-hidden">
+            <div className="grid items-start gap-8 lg:grid-cols-[minmax(280px,360px)_minmax(0,1fr)] lg:gap-10">
+              <div className="max-w-sm overflow-hidden bg-card lg:max-w-none">
                 <div className="aspect-square bg-secondary">
                   {coach.imageUrl ? (
                     <img src={coach.imageUrl} alt={coach.name} className="w-full h-full object-cover" />
@@ -94,11 +94,11 @@ export default function CoachProfile() {
                 </div>
               </div>
 
-              <div className="max-w-4xl">
+              <div className="min-w-0 max-w-4xl">
                 <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">Coach Profile</p>
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">{coach.name}</h1>
-                <p className="text-xl text-muted-foreground mb-6">{coach.title}</p>
-                <p className="text-lg text-muted-foreground mb-8 max-w-3xl">{coach.shortBio}</p>
+                <h1 className="mb-3 break-words text-4xl font-bold text-foreground md:text-5xl">{coach.name}</h1>
+                <p className="mb-6 break-words text-xl text-muted-foreground">{coach.title}</p>
+                <p className="mb-8 max-w-3xl break-words text-lg text-muted-foreground">{coach.shortBio}</p>
 
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
                   {coach.bookingUrl && (
@@ -144,7 +144,7 @@ export default function CoachProfile() {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">How {coach.firstName} works</h2>
             <div className="space-y-6">
               {bioParagraphs.map((paragraph) => (
-                <p key={paragraph.slice(0, 40)} className="text-lg leading-relaxed text-muted-foreground">
+                <p key={paragraph.slice(0, 40)} className="break-words text-lg leading-relaxed text-muted-foreground">
                   {paragraph}
                 </p>
               ))}

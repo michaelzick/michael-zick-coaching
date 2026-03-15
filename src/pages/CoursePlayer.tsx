@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, PlayCircle, BookOpen, Loader2, Menu } from '@/lib/icons';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { ChevronLeft, ChevronRight, PlayCircle, BookOpen, Loader2, Menu, CheckCircle2 } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet';
@@ -11,18 +12,32 @@ import JournalPrompts from '@/components/player/JournalPrompts';
 import { useCourseBySlug, useCourseChapters } from '@/hooks/use-courses';
 import { LessonItem } from '@/lib/api/courses';
 import SEOHead from '@/components/SEOHead';
+import { useToast } from '@/components/ui/use-toast';
+import { fetchCourseProgress, updateLessonProgress } from '@/lib/api/progress';
+import { DbLessonProgress } from '@/types/database';
 
 export default function CoursePlayer() {
   const { courseSlug, lessonId } = useParams<{ courseSlug: string; lessonId?: string }>();
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  const { toast } = useToast();
   const { data: course, isLoading: courseLoading } = useCourseBySlug(courseSlug);
   const { data: chapters = [], isLoading: chaptersLoading } = useCourseChapters(course?.id);
   const [currentLesson, setCurrentLesson] = useState<LessonItem | null>(null);
   const [mobileCourseMenuOpen, setMobileCourseMenuOpen] = useState(false);
   const [openChapters, setOpenChapters] = useState<string[]>([]);
+  const [isCompletingCourse, setIsCompletingCourse] = useState(false);
+  const { data: progressRecords = [] } = useQuery<DbLessonProgress[]>({
+    queryKey: ['course-progress', course?.id],
+    queryFn: () => fetchCourseProgress(course!.id),
+    enabled: !!course?.id,
+  });
 
   // Flatten all lessons for navigation
   const allLessons = chapters.flatMap(ch => ch.lessons);
+  const completedLessonIds = new Set(
+    progressRecords.filter((record) => record.completed).map((record) => record.lesson_id)
+  );
   const activeChapterId = chapters.find((chapter) =>
     chapter.lessons.some((lesson) => lesson.id === currentLesson?.id)
   )?.id;
@@ -63,11 +78,41 @@ export default function CoursePlayer() {
   const currentIndex = currentLesson ? allLessons.findIndex(l => l.id === currentLesson.id) : -1;
   const prevLesson = currentIndex > 0 ? allLessons[currentIndex - 1] : null;
   const nextLesson = currentIndex < allLessons.length - 1 ? allLessons[currentIndex + 1] : null;
+  const lessonProgressLabel = allLessons.length > 0
+    ? `Lesson ${Math.max(currentIndex + 1, 1)} of ${allLessons.length}`
+    : 'Lesson player';
 
   const navigateToLesson = (lesson: LessonItem) => {
     navigate(`/learn/${courseSlug}/${lesson.id}`, { replace: true });
     setCurrentLesson(lesson);
     setMobileCourseMenuOpen(false);
+  };
+
+  const handleCompleteCourse = async () => {
+    if (!currentLesson || !course) return;
+
+    setIsCompletingCourse(true);
+
+    try {
+      await updateLessonProgress(currentLesson.id, {
+        completed: true,
+        progressPercent: 100,
+      });
+      await queryClient.invalidateQueries({ queryKey: ['course-progress', course.id] });
+      toast({
+        title: 'Course completed',
+        description: `${course.title} has been marked complete.`,
+      });
+      navigate('/my-programs');
+    } catch (error) {
+      toast({
+        title: 'Unable to complete course',
+        description: error instanceof Error ? error.message : 'Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsCompletingCourse(false);
+    }
   };
 
   const renderCourseContent = (variant: 'desktop' | 'mobile') => (
@@ -95,30 +140,37 @@ export default function CoursePlayer() {
             <ul className="border-t border-border/70 bg-background/20">
               {chapter.lessons.map((lesson) => {
                 const isActive = currentLesson?.id === lesson.id;
+                const isCompleted = completedLessonIds.has(lesson.id);
 
                 return (
                   <li key={lesson.id}>
                     <button
                       onClick={() => navigateToLesson(lesson)}
-                      className={`w-full text-left px-4 py-3 flex items-start gap-3 transition-colors hover:bg-muted/60 ${
-                        isActive ? 'bg-primary/10 border-l-2 border-primary' : ''
+                      className={`flex w-full items-start justify-between gap-3 px-4 py-3 text-left transition-colors hover:bg-muted/60 ${
+                        isActive ? 'border-l-2 border-primary bg-primary/10' : ''
                       }`}
                     >
-                      <PlayCircle className={`h-4 w-4 mt-0.5 flex-shrink-0 ${
-                        isActive ? 'text-primary' : 'text-muted-foreground'
-                      }`} />
-                      <div className="flex-grow min-w-0">
-                        <p className={`text-sm ${
-                          isActive ? 'font-medium text-primary' : 'text-card-foreground'
-                        }`}>
-                          {lesson.title}
-                        </p>
-                        {lesson.durationSeconds > 0 && (
-                          <p className="mt-1 text-xs uppercase tracking-[0.08em] text-muted-foreground">
-                            {Math.floor(lesson.durationSeconds / 60)} min
+                      <div className="flex min-w-0 items-start gap-3">
+                        <PlayCircle className={`mt-0.5 h-4 w-4 flex-shrink-0 ${
+                          isActive ? 'text-primary' : 'text-muted-foreground'
+                        }`} />
+                        <div className="min-w-0 flex-grow">
+                          <p className={`text-sm ${
+                            isActive ? 'font-medium text-primary' : 'text-card-foreground'
+                          }`}>
+                            {lesson.title}
                           </p>
-                        )}
+                          <div className="mt-1 flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.08em] text-muted-foreground">
+                            {lesson.durationSeconds > 0 && (
+                              <span>{Math.floor(lesson.durationSeconds / 60)} min</span>
+                            )}
+                            {isCompleted && <span className="text-primary">Completed</span>}
+                          </div>
+                        </div>
                       </div>
+                      {isCompleted && (
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                      )}
                     </button>
                   </li>
                 );
@@ -162,34 +214,40 @@ export default function CoursePlayer() {
       <SEOHead title={course?.title || "Course Player"} description="Course player" noIndex />
       <Navbar />
 
-      <main className="flex flex-1 flex-col pt-20">
+      <main className="flex min-w-0 flex-1 flex-col pt-20">
         {/* Top bar */}
         <div className="border-b border-border bg-secondary px-4 py-3">
-          <div className="mx-auto flex max-w-screen-2xl items-center justify-between gap-3">
-            <div className="flex min-w-0 items-center gap-4">
-              <Link to={`/course/${courseSlug}`}>
-                <Button variant="ghost" size="sm" className="text-secondary-foreground/80">
+          <div className="mx-auto flex max-w-screen-2xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex min-w-0 items-center gap-2 sm:gap-4">
+              <Link to={`/course/${courseSlug}`} className="shrink-0">
+                <Button variant="ghost" size="sm" className="shrink-0 px-2 text-xs text-secondary-foreground/80 sm:px-3 sm:text-sm">
                   <ChevronLeft className="h-4 w-4 mr-1" />
                   Back
                 </Button>
               </Link>
-              <h1 className="max-w-md truncate text-sm font-medium text-secondary-foreground">
-                {course.title}
-              </h1>
+              <div className="min-w-0">
+                <p className="text-[11px] uppercase tracking-[0.08em] text-muted-foreground sm:hidden">
+                  {lessonProgressLabel}
+                </p>
+                <h1 className="truncate text-sm font-medium text-secondary-foreground">
+                  {course.title}
+                </h1>
+              </div>
             </div>
-            <div className="flex shrink-0 items-center gap-2">
+            <div className="flex w-full items-center justify-between gap-2 sm:w-auto sm:justify-end">
               <div className="hidden text-sm text-muted-foreground sm:block">
-                {currentIndex + 1} / {allLessons.length} lessons
+                {lessonProgressLabel}
               </div>
               <Sheet open={mobileCourseMenuOpen} onOpenChange={setMobileCourseMenuOpen}>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="lg:hidden border-border bg-background text-foreground hover:border-primary/50 hover:bg-secondary hover:text-foreground active:bg-muted"
+                  aria-label="Open course content"
+                  className="min-w-[10rem] justify-center border-border bg-background px-3 text-xs text-foreground hover:border-primary/50 hover:bg-secondary hover:text-foreground active:bg-muted sm:text-sm lg:hidden"
                   onClick={() => setMobileCourseMenuOpen(true)}
                 >
                   <Menu className="h-4 w-4 mr-2" />
-                  Course Content
+                  <span className="truncate">Course&nbsp;Content</span>
                 </Button>
                 <SheetContent
                   side="right"
@@ -201,7 +259,7 @@ export default function CoursePlayer() {
                       Course Content
                     </SheetTitle>
                     <SheetDescription>
-                      {currentIndex + 1} of {allLessons.length} lessons
+                      {lessonProgressLabel}
                     </SheetDescription>
                   </SheetHeader>
                   <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain pb-8">
@@ -221,6 +279,9 @@ export default function CoursePlayer() {
               <>
                 <VideoPlayer lesson={currentLesson} />
                 <div className="mt-6">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-primary">
+                    {lessonProgressLabel}
+                  </p>
                   <h2 className="text-2xl font-bold text-foreground mb-2">{currentLesson.title}</h2>
                   {currentLesson.description && (
                     <p className="text-muted-foreground">{currentLesson.description}</p>
@@ -236,7 +297,7 @@ export default function CoursePlayer() {
                 <JournalPrompts prompts={currentLesson.journalPrompts} />
 
                 {/* Navigation */}
-                <div className="flex justify-between mt-8 pt-4 border-t border-border">
+                <div className="mt-8 flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between">
                   {prevLesson ? (
                     <Button variant="outline" onClick={() => navigateToLesson(prevLesson)}>
                       <ChevronLeft className="h-4 w-4 mr-2" />
@@ -248,7 +309,16 @@ export default function CoursePlayer() {
                       Next
                       <ChevronRight className="h-4 w-4 ml-2" />
                     </Button>
-                  ) : <div />}
+                  ) : (
+                    <Button onClick={() => void handleCompleteCourse()} disabled={isCompletingCourse}>
+                      {isCompletingCourse ? (
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      ) : (
+                        <CheckCircle2 className="mr-2 h-4 w-4" />
+                      )}
+                      Complete Course
+                    </Button>
+                  )}
                 </div>
               </>
             ) : (

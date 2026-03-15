@@ -1,6 +1,9 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import SEOHead from "@/components/SEOHead";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 
 const NotFound = () => {
   const location = useLocation();
@@ -13,15 +16,30 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background px-4">
+    <div className="min-h-screen flex flex-col bg-background">
       <SEOHead title="Page Not Found" description="The page you're looking for doesn't exist" noIndex />
-      <div className="text-center bg-card p-10">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-muted-foreground mb-4">Oops! Page not found</p>
-        <a href="/" className="text-primary hover:text-foreground underline font-semibold uppercase tracking-[0.03em]">
-          Return to Home
-        </a>
-      </div>
+      <Navbar />
+      <main className="flex flex-1 items-center justify-center px-4 pb-16 pt-32">
+        <div className="max-w-xl bg-card p-10 text-center">
+          <h1 className="mb-4 text-4xl font-bold">404</h1>
+          <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
+          <p className="mb-8 text-muted-foreground">
+            The page at <span className="font-medium text-foreground">{location.pathname}</span> does not exist.
+          </p>
+          <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <Link to="/">
+              <Button>Return Home</Button>
+            </Link>
+            <Link to="/courses">
+              <Button variant="outline">Browse Programs</Button>
+            </Link>
+            <Link to="/coaches">
+              <Button variant="outline">Meet Our Coaches</Button>
+            </Link>
+          </div>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 };

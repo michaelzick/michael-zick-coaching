@@ -76,7 +76,7 @@ export default function Navbar() {
             </Link>
 
             <Link to="/cart" className="relative">
-              <Button variant="outline" size="icon" className="text-foreground hover:text-primary">
+              <Button variant="outline" size="icon" className="text-foreground hover:text-primary" aria-label="View cart">
                 <ShoppingCart className="h-5 w-5" />
                 {cart.length > 0 && (
                   <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold h-6 min-w-6 px-1 flex items-center justify-center">
@@ -89,7 +89,7 @@ export default function Navbar() {
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline" size="icon" className="text-foreground hover:text-primary">
+                  <Button variant="outline" size="icon" className="text-foreground hover:text-primary" aria-label="Open account menu">
                     <User className="h-5 w-5" />
                   </Button>
                 </DropdownMenuTrigger>
@@ -142,7 +142,7 @@ export default function Navbar() {
 
           <div className="flex items-center space-x-2 md:hidden">
             <Link to="/cart" className="relative">
-              <Button variant="outline" size="icon" className="text-foreground">
+              <Button variant="outline" size="icon" className="text-foreground" aria-label="View cart">
                 <ShoppingCart className="h-5 w-5" />
                 {cart.length > 0 && (
                   <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold h-6 min-w-6 px-1 flex items-center justify-center">
@@ -155,6 +155,8 @@ export default function Navbar() {
               variant="outline"
               size="icon"
               className="text-foreground"
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileMenuOpen}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -185,7 +187,7 @@ export default function Navbar() {
               <>
                 {isAdmin && (
                   <>
-                    <p className="text-xs uppercase tracking-wider text-muted-foreground pt-2 font-bold">
+                    <p className="pt-3 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-secondary-foreground/80">
                       Admin
                     </p>
                     {adminRoutes.map(({ to, label }) => (

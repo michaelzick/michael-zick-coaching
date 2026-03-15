@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-secondary pt-16 pb-12 relative overflow-hidden">
       <div className="absolute -left-[1.4rem] top-0 h-[4.9rem] w-[4.9rem] bg-accent" style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }} />
-      <div className="absolute -right-10 bottom-0 z-10 h-36 w-36 bg-primary" style={{ clipPath: 'polygon(0 22%, 100% 0, 82% 100%, 12% 80%)' }} />
+      <div className="absolute -right-10 bottom-0 z-10 hidden h-36 w-36 bg-primary md:block" style={{ clipPath: 'polygon(0 22%, 100% 0, 82% 100%, 12% 80%)' }} />
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>

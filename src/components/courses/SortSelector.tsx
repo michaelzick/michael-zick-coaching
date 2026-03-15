@@ -19,7 +19,7 @@ export default function SortSelector({ sortOption, setSortOption }: SortSelector
       value={sortOption}
       onValueChange={setSortOption}
     >
-      <SelectTrigger className="w-[220px] font-semibold uppercase tracking-[0.03em]">
+      <SelectTrigger className="w-full min-w-0 font-semibold uppercase tracking-[0.03em] text-xs sm:w-[220px] sm:text-sm">
         <SelectValue placeholder="Sort By: Popular" />
       </SelectTrigger>
       <SelectContent className="border border-border bg-card">

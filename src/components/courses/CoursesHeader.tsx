@@ -37,7 +37,7 @@ export default function CoursesHeader({
       <div className="flex flex-col md:flex-row gap-4">
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         
-        <div className="flex items-center gap-3">
+        <div className="grid grid-cols-2 gap-3 md:flex md:items-center">
           <MobileFilterButton onClick={() => setFilterOpen(true)} />
           <SortSelector sortOption={sortOption} setSortOption={setSortOption} />
         </div>

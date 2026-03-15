@@ -72,11 +72,11 @@ export default function Index() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-4 overflow-hidden">
+      <section className="relative flex min-h-[72vh] items-center overflow-hidden px-4 pb-24 pt-32 sm:min-h-[36rem]">
         <img
           src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80"
           alt="Mountain landscape representing the journey of personal growth and Nice Guy recovery"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-[58%_center] sm:object-center"
           loading="eager"
         />
         <div className="absolute inset-0 bg-mz-slate/80" />
@@ -136,7 +136,7 @@ export default function Index() {
       </section>
 
       {/* Featured Programs */}
-      <section className="py-20 px-4 bg-muted">
+      <section className="bg-muted px-4 pb-14 pt-20 md:pb-20">
         <div className="container mx-auto">
           <div className="flex justify-between items-end mb-12">
             <div>
@@ -184,7 +184,7 @@ export default function Index() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 px-4 overflow-hidden">
+      <section className="relative overflow-hidden px-4 pb-20 pt-14 md:pt-20">
         <img
           src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80"
           alt="Forest landscape symbolizing clarity and new beginnings after breaking free from people-pleasing patterns"

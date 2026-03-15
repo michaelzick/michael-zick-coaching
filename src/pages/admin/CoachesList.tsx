@@ -58,10 +58,10 @@ export default function AdminCoachesList() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-8">
+      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="text-3xl font-bold text-foreground">Coaches</h1>
         <Link to="/admin/coaches/new">
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 sm:w-auto">
             <Plus className="h-4 w-4 mr-2" />
             New Coach
           </Button>

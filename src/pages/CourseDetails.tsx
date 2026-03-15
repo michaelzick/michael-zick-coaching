@@ -73,7 +73,7 @@ export default function CourseDetails() {
   const coachDisplayName = coach?.name ?? course.instructor;
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <SEOHead
         title={course.title}
         description={course.shortDescription}
@@ -104,12 +104,12 @@ export default function CourseDetails() {
       ])} />
       <Navbar />
 
-      <main className="flex-grow pt-20">
+      <main className="flex-grow overflow-x-hidden pt-20 pb-28 lg:pb-0">
         <div className="bg-secondary text-secondary-foreground py-12">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-3 gap-8 items-start">
-              <div className="md:col-span-2 fade-in">
-                <div className="flex items-center text-sm mb-4">
+            <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)]">
+              <div className="min-w-0 fade-in">
+                <div className="mb-4 flex flex-wrap items-center text-sm">
                   <Link to="/" className="text-muted-foreground hover:text-primary">Home</Link>
                   <span className="mx-2">&rsaquo;</span>
                   <Link to="/courses" className="text-muted-foreground hover:text-primary">Programs</Link>
@@ -117,8 +117,8 @@ export default function CourseDetails() {
                   <span className="text-muted-foreground">{course.category.replace(/-/g, " ")}</span>
                 </div>
 
-                <h1 className="text-3xl md:text-4xl font-bold mb-4 text-secondary-foreground">{course.title}</h1>
-                <p className="text-xl text-muted-foreground mb-6">{course.shortDescription}</p>
+                <h1 className="mb-4 break-words text-3xl font-bold text-secondary-foreground md:text-4xl">{course.title}</h1>
+                <p className="mb-6 break-words text-xl text-muted-foreground">{course.shortDescription}</p>
 
                 <div className="flex items-center flex-wrap gap-4 mb-6">
                   <div className="flex items-center">
@@ -156,25 +156,31 @@ export default function CourseDetails() {
                   </div>
                 </div>
 
-                <div className="mt-8 bg-background text-foreground p-6">
+                <div className="mt-8 bg-background p-6 text-foreground">
                   <Tabs defaultValue="overview">
-                    <TabsList className="mb-8 bg-muted p-1">
-                      <TabsTrigger value="overview">Overview</TabsTrigger>
-                      <TabsTrigger value="curriculum">Curriculum</TabsTrigger>
-                      <TabsTrigger value="instructor">About Coach</TabsTrigger>
+                    <TabsList className="mb-8 grid h-auto w-full grid-cols-3 bg-muted p-1">
+                      <TabsTrigger value="overview" className="min-w-0 whitespace-normal px-2 py-3 text-[11px] leading-tight sm:text-sm">
+                        Overview
+                      </TabsTrigger>
+                      <TabsTrigger value="curriculum" className="min-w-0 whitespace-normal px-2 py-3 text-[11px] leading-tight sm:text-sm">
+                        Curriculum
+                      </TabsTrigger>
+                      <TabsTrigger value="instructor" className="min-w-0 whitespace-normal px-2 py-3 text-[11px] leading-tight sm:text-sm">
+                        About Coach
+                      </TabsTrigger>
                     </TabsList>
 
                     <TabsContent value="overview" className="fade-in">
                       <h2 className="text-2xl font-bold text-foreground mb-6">About This Program</h2>
-                      <p className="text-muted-foreground mb-8 leading-relaxed">{course.description}</p>
+                      <p className="mb-8 break-words leading-relaxed text-muted-foreground">{course.description}</p>
 
                       <div className="mb-8">
                         <h3 className="text-xl font-bold text-foreground mb-4">What You'll Learn</h3>
                         <div className="grid sm:grid-cols-2 gap-3">
                           {course.whatYouWillLearn.map((item, index) => (
-                            <div key={index} className="flex items-start">
+                            <div key={index} className="flex min-w-0 items-start">
                               <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
-                              <span className="text-muted-foreground">{item}</span>
+                              <span className="min-w-0 break-words text-muted-foreground">{item}</span>
                             </div>
                           ))}
                         </div>
@@ -184,7 +190,7 @@ export default function CourseDetails() {
                         <h3 className="text-xl font-bold text-foreground mb-4">Topics Covered</h3>
                         <div className="flex flex-wrap gap-2">
                           {course.topics.map((topic, index) => (
-                            <div key={index} className="bg-muted text-muted-foreground py-1 px-4 text-sm font-semibold uppercase tracking-[0.03em]">
+                            <div key={index} className="max-w-full break-words bg-muted px-4 py-1 text-sm font-semibold uppercase tracking-[0.03em] text-muted-foreground">
                               {topic}
                             </div>
                           ))}
@@ -223,10 +229,10 @@ export default function CourseDetails() {
                                     <div className="px-6 pb-4">
                                       <ul className="divide-y divide-border">
                                         {chapter.lessons.map((lesson) => (
-                                          <li key={lesson.id} className="py-3 flex justify-between items-center">
-                                            <div className="flex items-center">
+                                          <li key={lesson.id} className="flex flex-col gap-2 py-3 sm:flex-row sm:items-center sm:justify-between">
+                                            <div className="flex min-w-0 items-center">
                                               <PlayCircle className="h-5 w-5 text-muted-foreground mr-3" />
-                                              <span className="text-foreground">{lesson.title}</span>
+                                              <span className="min-w-0 break-words text-foreground">{lesson.title}</span>
                                               {lesson.isPreview && (
                                                 <span className="ml-2 text-xs bg-primary/10 text-primary px-2 py-0.5 border border-primary uppercase tracking-[0.03em]">Preview</span>
                                               )}
@@ -250,17 +256,17 @@ export default function CourseDetails() {
                     </TabsContent>
 
                     <TabsContent value="instructor" className="fade-in">
-                      <div className="flex items-start mb-8">
-                        <div className="w-20 h-20 bg-primary/20 mr-6 flex items-center justify-center overflow-hidden">
+                      <div className="mb-8 flex flex-col gap-6 sm:flex-row sm:items-start">
+                        <div className="flex h-20 w-20 items-center justify-center overflow-hidden bg-primary/20">
                           {coach?.imageUrl ? (
                             <img src={coach.imageUrl} alt={coachDisplayName} className="w-full h-full object-cover" />
                           ) : (
                             <User className="w-10 h-10 text-primary" />
                           )}
                         </div>
-                        <div>
+                        <div className="min-w-0">
                           <h2 className="text-2xl font-bold text-foreground mb-2">{coachDisplayName}</h2>
-                          <p className="text-muted-foreground mb-4">{coach?.title ?? 'Coach profile coming soon'}</p>
+                          <p className="mb-4 break-words text-muted-foreground">{coach?.title ?? 'Coach profile coming soon'}</p>
                           {coachProfileHref && (
                             <Link to={coachProfileHref}>
                               <Button variant="outline" className="border-border">
@@ -278,7 +284,7 @@ export default function CourseDetails() {
                         {coachBioParagraphs.length > 0 ? (
                           <div className="space-y-4">
                             {coachBioParagraphs.slice(0, 2).map((paragraph) => (
-                              <p key={paragraph.slice(0, 40)} className="text-muted-foreground">
+                              <p key={paragraph.slice(0, 40)} className="break-words text-muted-foreground">
                                 {paragraph}
                               </p>
                             ))}
@@ -294,7 +300,7 @@ export default function CourseDetails() {
                 </div>
               </div>
 
-              <div className="md:col-span-1 fade-in-delay-1 space-y-6">
+              <div className="space-y-6 fade-in-delay-1 lg:sticky lg:top-24">
                 <div className="bg-card overflow-hidden">
                   <div className="relative pb-[56.25%] overflow-hidden">
                     <img
@@ -362,25 +368,25 @@ export default function CourseDetails() {
                 <div className="bg-card p-6">
                   <h3 className="text-lg font-bold text-card-foreground mb-4">Program Details</h3>
                   <ul className="space-y-4">
-                    <li className="flex justify-between">
+                    <li className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                       <span className="text-muted-foreground">Level</span>
-                      <span className="font-medium text-foreground">{course.level}</span>
+                      <span className="break-words font-medium text-foreground sm:text-right">{course.level}</span>
                     </li>
-                    <li className="flex justify-between">
+                    <li className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                       <span className="text-muted-foreground">Category</span>
-                      <span className="font-medium text-primary">{course.category.replace(/-/g, " ")}</span>
+                      <span className="break-words font-medium text-primary sm:text-right">{course.category.replace(/-/g, " ")}</span>
                     </li>
-                    <li className="flex justify-between">
+                    <li className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                       <span className="text-muted-foreground">Language</span>
-                      <span className="font-medium text-foreground">{course.language}</span>
+                      <span className="break-words font-medium text-foreground sm:text-right">{course.language}</span>
                     </li>
-                    <li className="flex justify-between">
+                    <li className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                       <span className="text-muted-foreground">Last Updated</span>
-                      <span className="font-medium text-foreground">{course.lastUpdated}</span>
+                      <span className="break-words font-medium text-foreground sm:text-right">{course.lastUpdated}</span>
                     </li>
-                    <li className="flex justify-between">
+                    <li className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                       <span className="text-muted-foreground">Enrolled</span>
-                      <span className="font-medium text-foreground">{course.studentsCount.toLocaleString()}</span>
+                      <span className="break-words font-medium text-foreground sm:text-right">{course.studentsCount.toLocaleString()}</span>
                     </li>
                   </ul>
                 </div>
@@ -407,6 +413,38 @@ export default function CourseDetails() {
           </section>
         )}
       </main>
+
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur lg:hidden">
+        <div className="mx-auto flex max-w-5xl items-center gap-3">
+          <div className="min-w-0 flex-1">
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">Program Price</p>
+            <div className="flex items-baseline gap-2">
+              <span className="truncate text-xl font-bold text-card-foreground">
+                {formatPrice(course.salePrice ?? course.price)}
+              </span>
+              {course.salePrice && (
+                <span className="truncate text-sm text-muted-foreground line-through">
+                  {formatPrice(course.price)}
+                </span>
+              )}
+            </div>
+          </div>
+          {isInCart(course.id) ? (
+            <Link to="/cart" className="shrink-0">
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
+                Go to Cart
+              </Button>
+            </Link>
+          ) : (
+            <Button
+              className="shrink-0 bg-primary text-primary-foreground hover:bg-primary/90"
+              onClick={() => addToCart(course.id)}
+            >
+              Enroll Now
+            </Button>
+          )}
+        </div>
+      </div>
 
       <Footer />
     </div>

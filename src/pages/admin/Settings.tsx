@@ -108,12 +108,12 @@ export default function AdminSettings() {
       <h1 className="text-3xl font-bold text-foreground mb-8">Settings</h1>
 
       <Tabs defaultValue="profile" className="space-y-6">
-        <TabsList>
-          <TabsTrigger value="profile" className="gap-2">
+        <TabsList className="grid h-auto w-full grid-cols-2 md:w-auto">
+          <TabsTrigger value="profile" className="gap-2 py-3">
             <User className="h-4 w-4" />
             Profile
           </TabsTrigger>
-          <TabsTrigger value="password" className="gap-2">
+          <TabsTrigger value="password" className="gap-2 py-3">
             <Lock className="h-4 w-4" />
             Password
           </TabsTrigger>

@@ -17,7 +17,7 @@ export default function ResourcesPage() {
       />
       <Navbar />
 
-      <main className="flex-grow pt-32 pb-16 px-4">
+      <main className="flex-grow px-4 pb-16 pt-28 md:pt-32">
         <div className="container mx-auto max-w-5xl">
           <div className="mb-12 fade-in">
             <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-2">Resources</p>
@@ -34,7 +34,7 @@ export default function ResourcesPage() {
               <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
             </div>
           ) : resources.length === 0 ? (
-            <div className="text-center py-20">
+            <div className="py-12 text-center md:py-20">
               <BookOpen className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
               <h2 className="text-xl font-bold text-foreground mb-2">Resources Coming Soon</h2>
               <p className="text-muted-foreground">

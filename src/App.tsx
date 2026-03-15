@@ -51,6 +51,7 @@ const App = () => (
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/courses" element={<CoursesPage />} />
+                <Route path="/programs" element={<Navigate to="/courses" replace />} />
                 <Route path="/course/:slug" element={<CourseDetails />} />
                 <Route path="/coaches" element={<CoachesPage />} />
                 <Route path="/coaches/:slug" element={<CoachProfile />} />
@@ -74,6 +75,7 @@ const App = () => (
                   <AdminGuard><AdminLayout /></AdminGuard>
                 }>
                   <Route index element={<AdminDashboard />} />
+                  <Route path="dashboard" element={<AdminDashboard />} />
                   <Route path="courses" element={<AdminCoursesList />} />
                   <Route path="courses/new" element={<AdminCourseForm />} />
                   <Route path="courses/:id/edit" element={<AdminCourseForm />} />
