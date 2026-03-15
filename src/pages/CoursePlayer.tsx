@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, CheckCircle2, PlayCircle, BookOpen, Loader2 } from '@/lib/icons';
+import { ChevronLeft, ChevronRight, PlayCircle, BookOpen, Loader2, Menu } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import VideoPlayer from '@/components/player/VideoPlayer';
 import MarkdownContent from '@/components/MarkdownContent';
 import JournalPrompts from '@/components/player/JournalPrompts';
@@ -17,9 +17,14 @@ export default function CoursePlayer() {
   const { data: course, isLoading: courseLoading } = useCourseBySlug(courseSlug);
   const { data: chapters = [], isLoading: chaptersLoading } = useCourseChapters(course?.id);
   const [currentLesson, setCurrentLesson] = useState<LessonItem | null>(null);
+  const [mobileCourseMenuOpen, setMobileCourseMenuOpen] = useState(false);
+  const [openChapters, setOpenChapters] = useState<string[]>([]);
 
   // Flatten all lessons for navigation
   const allLessons = chapters.flatMap(ch => ch.lessons);
+  const activeChapterId = chapters.find((chapter) =>
+    chapter.lessons.some((lesson) => lesson.id === currentLesson?.id)
+  )?.id;
 
   useEffect(() => {
     if (allLessons.length === 0) return;
@@ -33,7 +38,26 @@ export default function CoursePlayer() {
     }
     // Default to first lesson
     setCurrentLesson(allLessons[0]);
-  }, [allLessons.length, lessonId]);
+  }, [allLessons, lessonId]);
+
+  useEffect(() => {
+    if (chapters.length === 0) return;
+
+    setOpenChapters((current) => {
+      const chapterIds = chapters.map((chapter) => chapter.id);
+      const nextOpenChapters = current.filter((chapterId) => chapterIds.includes(chapterId));
+
+      if (nextOpenChapters.length === 0) {
+        return chapterIds;
+      }
+
+      if (activeChapterId && !nextOpenChapters.includes(activeChapterId)) {
+        return [...nextOpenChapters, activeChapterId];
+      }
+
+      return nextOpenChapters;
+    });
+  }, [chapters, activeChapterId]);
 
   const currentIndex = currentLesson ? allLessons.findIndex(l => l.id === currentLesson.id) : -1;
   const prevLesson = currentIndex > 0 ? allLessons[currentIndex - 1] : null;
@@ -42,7 +66,68 @@ export default function CoursePlayer() {
   const navigateToLesson = (lesson: LessonItem) => {
     navigate(`/learn/${courseSlug}/${lesson.id}`, { replace: true });
     setCurrentLesson(lesson);
+    setMobileCourseMenuOpen(false);
   };
+
+  const renderCourseContent = (variant: 'desktop' | 'mobile') => (
+    <Accordion
+      type="multiple"
+      value={openChapters}
+      onValueChange={setOpenChapters}
+      className="w-full"
+    >
+      {chapters.map((chapter) => (
+        <AccordionItem key={chapter.id} value={chapter.id} className="border-b border-border">
+          <AccordionTrigger
+            className={`px-4 py-4 text-left hover:bg-muted/70 hover:no-underline ${
+              variant === 'mobile' ? 'text-base' : 'text-sm'
+            }`}
+          >
+            <div className="flex min-w-0 flex-col items-start gap-1 pr-4">
+              <span className="font-semibold text-card-foreground">{chapter.title}</span>
+              <span className="text-xs font-normal uppercase tracking-[0.08em] text-muted-foreground">
+                {chapter.lessons.length} {chapter.lessons.length === 1 ? 'lesson' : 'lessons'}
+              </span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="pb-0">
+            <ul className="border-t border-border/70 bg-background/20">
+              {chapter.lessons.map((lesson) => {
+                const isActive = currentLesson?.id === lesson.id;
+
+                return (
+                  <li key={lesson.id}>
+                    <button
+                      onClick={() => navigateToLesson(lesson)}
+                      className={`w-full text-left px-4 py-3 flex items-start gap-3 transition-colors hover:bg-muted/60 ${
+                        isActive ? 'bg-primary/10 border-l-2 border-primary' : ''
+                      }`}
+                    >
+                      <PlayCircle className={`h-4 w-4 mt-0.5 flex-shrink-0 ${
+                        isActive ? 'text-primary' : 'text-muted-foreground'
+                      }`} />
+                      <div className="flex-grow min-w-0">
+                        <p className={`text-sm ${
+                          isActive ? 'font-medium text-primary' : 'text-card-foreground'
+                        }`}>
+                          {lesson.title}
+                        </p>
+                        {lesson.durationSeconds > 0 && (
+                          <p className="mt-1 text-xs uppercase tracking-[0.08em] text-muted-foreground">
+                            {Math.floor(lesson.durationSeconds / 60)} min
+                          </p>
+                        )}
+                      </div>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  );
 
   if (courseLoading || chaptersLoading) {
     return (
@@ -70,8 +155,8 @@ export default function CoursePlayer() {
       <SEOHead title={course?.title || "Course Player"} description="Course player" noIndex />
       {/* Top bar */}
       <div className="bg-secondary border-b border-border px-4 py-3">
-        <div className="flex items-center justify-between max-w-screen-2xl mx-auto">
-          <div className="flex items-center gap-4">
+        <div className="flex items-center justify-between gap-3 max-w-screen-2xl mx-auto">
+          <div className="flex min-w-0 items-center gap-4">
             <Link to={`/course/${courseSlug}`}>
               <Button variant="ghost" size="sm" className="text-secondary-foreground/80">
                 <ChevronLeft className="h-4 w-4 mr-1" />
@@ -82,8 +167,38 @@ export default function CoursePlayer() {
               {course.title}
             </h1>
           </div>
-          <div className="text-sm text-muted-foreground">
-            {currentIndex + 1} / {allLessons.length} lessons
+          <div className="flex shrink-0 items-center gap-2">
+            <div className="hidden text-sm text-muted-foreground sm:block">
+              {currentIndex + 1} / {allLessons.length} lessons
+            </div>
+            <Sheet open={mobileCourseMenuOpen} onOpenChange={setMobileCourseMenuOpen}>
+              <Button
+                variant="outline"
+                size="sm"
+                className="lg:hidden border-border bg-background text-foreground hover:bg-muted"
+                onClick={() => setMobileCourseMenuOpen(true)}
+              >
+                <Menu className="h-4 w-4 mr-2" />
+                Course Content
+              </Button>
+              <SheetContent
+                side="right"
+                className="w-full max-w-sm border-l border-border bg-card p-0 text-card-foreground sm:max-w-md"
+              >
+                <SheetHeader className="border-b border-border bg-secondary px-5 py-4 text-left">
+                  <SheetTitle className="flex items-center gap-2 text-card-foreground">
+                    <BookOpen className="h-4 w-4" />
+                    Course Content
+                  </SheetTitle>
+                  <SheetDescription>
+                    {currentIndex + 1} of {allLessons.length} lessons
+                  </SheetDescription>
+                </SheetHeader>
+                <div className="overflow-y-auto pb-8">
+                  {renderCourseContent('mobile')}
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
@@ -91,7 +206,7 @@ export default function CoursePlayer() {
       {/* Main content */}
       <div className="flex-grow flex flex-col lg:flex-row">
         {/* Video area */}
-        <div className="flex-grow p-4 lg:p-8">
+        <div className="min-w-0 flex-grow p-4 lg:p-8">
           {currentLesson ? (
             <>
               <VideoPlayer lesson={currentLesson} />
@@ -133,59 +248,19 @@ export default function CoursePlayer() {
           )}
         </div>
 
-        {/* Sidebar */}
-        <div className="w-full lg:w-96 border-t lg:border-t-0 lg:border-l border-border bg-card">
-          <div className="p-4 border-b border-border">
+        {/* Desktop sidebar */}
+        <aside className="hidden lg:block lg:w-96 lg:flex-shrink-0 lg:self-start lg:sticky lg:top-0 border-l border-border bg-card">
+          <div className="border-b border-border p-4">
             <h3 className="font-bold text-card-foreground flex items-center gap-2">
               <BookOpen className="h-4 w-4" />
               Course Content
             </h3>
+            <p className="mt-2 text-xs uppercase tracking-[0.08em] text-muted-foreground">
+              {allLessons.length} lessons across {chapters.length} chapters
+            </p>
           </div>
-          <ScrollArea className="h-[calc(100vh-12rem)]">
-            <Accordion type="multiple" defaultValue={chapters.map(ch => ch.id)} className="w-full">
-              {chapters.map((chapter) => (
-                <AccordionItem key={chapter.id} value={chapter.id} className="border-b border-border">
-                  <AccordionTrigger className="px-4 py-3 hover:bg-muted text-sm">
-                    <span className="font-semibold text-left">{chapter.title}</span>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <ul>
-                      {chapter.lessons.map((lesson) => {
-                        const isActive = currentLesson?.id === lesson.id;
-                        return (
-                          <li key={lesson.id}>
-                            <button
-                              onClick={() => navigateToLesson(lesson)}
-                              className={`w-full text-left px-4 py-3 flex items-start gap-3 hover:bg-muted/50 transition-colors ${
-                                isActive ? 'bg-primary/5 border-l-2 border-primary' : ''
-                              }`}
-                            >
-                              <PlayCircle className={`h-4 w-4 mt-0.5 flex-shrink-0 ${
-                                isActive ? 'text-primary' : 'text-muted-foreground'
-                              }`} />
-                              <div className="flex-grow min-w-0">
-                                <p className={`text-sm truncate ${
-                                  isActive ? 'font-medium text-primary' : 'text-card-foreground'
-                                }`}>
-                                  {lesson.title}
-                                </p>
-                                {lesson.durationSeconds > 0 && (
-                                  <p className="text-xs text-muted-foreground mt-0.5">
-                                    {Math.floor(lesson.durationSeconds / 60)}m
-                                  </p>
-                                )}
-                              </div>
-                            </button>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </ScrollArea>
-        </div>
+          <div>{renderCourseContent('desktop')}</div>
+        </aside>
       </div>
     </div>
   );
