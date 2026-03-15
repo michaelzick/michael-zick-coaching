@@ -5,8 +5,8 @@ import { Mail } from '@/lib/icons';
 export default function Footer() {
   return (
     <footer className="bg-secondary pt-16 pb-12 relative overflow-hidden">
-      <div className="absolute -left-8 top-0 h-28 w-28 bg-accent opacity-90" style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }} />
-      <div className="absolute -right-10 bottom-0 h-36 w-36 bg-primary/80" style={{ clipPath: 'polygon(0 22%, 100% 0, 82% 100%, 12% 80%)' }} />
+      <div className="absolute -left-[1.4rem] top-0 h-[4.9rem] w-[4.9rem] bg-accent" style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }} />
+      <div className="absolute -right-10 bottom-0 z-10 h-36 w-36 bg-primary" style={{ clipPath: 'polygon(0 22%, 100% 0, 82% 100%, 12% 80%)' }} />
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
@@ -82,8 +82,9 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-border mt-12 pt-8">
-          <p className="text-secondary-foreground/85 text-center text-sm font-semibold uppercase tracking-[0.04em]">
+        <div className="relative mt-12 pt-8">
+          <div className="absolute inset-x-0 top-0 z-0 border-t border-border" />
+          <p className="relative z-20 text-secondary-foreground/85 text-center text-sm font-semibold uppercase tracking-[0.04em]">
             © {new Date().getFullYear()} Nice Guy University. All rights reserved.
           </p>
         </div>
