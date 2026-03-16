@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import { ChevronLeft, ChevronRight, PlayCircle, BookOpen, Loader2, Menu, CheckCircle2 } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -13,8 +13,7 @@ import { useCourseBySlug, useCourseChapters } from '@/hooks/use-courses';
 import { LessonItem } from '@/lib/api/courses';
 import SEOHead from '@/components/SEOHead';
 import { useToast } from '@/components/ui/use-toast';
-import { fetchCourseProgress, updateLessonProgress, markCourseCompleted } from '@/lib/api/progress';
-import { DbLessonProgress } from '@/types/database';
+import { markCourseCompleted } from '@/lib/api/progress';
 
 export default function CoursePlayer() {
   const { courseSlug, lessonId } = useParams<{ courseSlug: string; lessonId?: string }>();
@@ -27,17 +26,9 @@ export default function CoursePlayer() {
   const [mobileCourseMenuOpen, setMobileCourseMenuOpen] = useState(false);
   const [openChapters, setOpenChapters] = useState<string[]>([]);
   const [isCompletingCourse, setIsCompletingCourse] = useState(false);
-  const { data: progressRecords = [] } = useQuery<DbLessonProgress[]>({
-    queryKey: ['course-progress', course?.id],
-    queryFn: () => fetchCourseProgress(course!.id),
-    enabled: !!course?.id,
-  });
 
   // Flatten all lessons for navigation
   const allLessons = chapters.flatMap(ch => ch.lessons);
-  const completedLessonIds = new Set(
-    progressRecords.filter((record) => record.completed).map((record) => record.lesson_id)
-  );
   const activeChapterId = chapters.find((chapter) =>
     chapter.lessons.some((lesson) => lesson.id === currentLesson?.id)
   )?.id;
@@ -89,17 +80,12 @@ export default function CoursePlayer() {
   };
 
   const handleCompleteCourse = async () => {
-    if (!currentLesson || !course) return;
+    if (!course) return;
 
     setIsCompletingCourse(true);
 
     try {
-      await updateLessonProgress(currentLesson.id, {
-        completed: true,
-        progressPercent: 100,
-      });
       await markCourseCompleted(course.id);
-      await queryClient.invalidateQueries({ queryKey: ['course-progress', course.id] });
       await queryClient.invalidateQueries({ queryKey: ['enrollments'] });
       toast({
         title: 'Course completed',
@@ -142,7 +128,6 @@ export default function CoursePlayer() {
             <ul className="border-t border-border/70 bg-background/20">
               {chapter.lessons.map((lesson) => {
                 const isActive = currentLesson?.id === lesson.id;
-                const isCompleted = completedLessonIds.has(lesson.id);
 
                 return (
                   <li key={lesson.id}>
@@ -162,17 +147,13 @@ export default function CoursePlayer() {
                           }`}>
                             {lesson.title}
                           </p>
-                          <div className="mt-1 flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.08em] text-muted-foreground">
-                            {lesson.durationSeconds > 0 && (
-                              <span>{Math.floor(lesson.durationSeconds / 60)} min</span>
-                            )}
-                            {isCompleted && <span className="text-primary">Completed</span>}
-                          </div>
+                          {lesson.durationSeconds > 0 && (
+                            <p className="mt-1 text-xs uppercase tracking-[0.08em] text-muted-foreground">
+                              {Math.floor(lesson.durationSeconds / 60)} min
+                            </p>
+                          )}
                         </div>
                       </div>
-                      {isCompleted && (
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                      )}
                     </button>
                   </li>
                 );
