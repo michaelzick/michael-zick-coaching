@@ -109,14 +109,14 @@ export default function Cart() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <SEOHead title="Cart" description="Your selected programs" noIndex />
+      <SEOHead title="Cart" description="Your selected courses" noIndex />
       <Navbar />
 
       <main className={`flex-grow mobile-shell pt-32 ${cartItems.length > 0 ? 'mobile-bottom-bar-offset md:pb-16' : 'pb-16'}`}>
         <div className="container mx-auto content-stack">
           <div className="mb-8 fade-in">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Your Programs</h1>
-            <p className="text-muted-foreground">{cartItems.length} {cartItems.length === 1 ? 'program' : 'programs'} selected</p>
+            <h1 className="text-3xl font-bold text-foreground mb-2">Your Courses</h1>
+            <p className="text-muted-foreground">{cartItems.length} {cartItems.length === 1 ? 'course' : 'courses'} selected</p>
           </div>
 
           {cartItems.length === 0 ? (
@@ -124,13 +124,13 @@ export default function Cart() {
               <div className="inline-flex items-center justify-center w-20 h-20 bg-muted mb-6">
                 <ShoppingCart className="h-10 w-10 text-muted-foreground" />
               </div>
-              <h2 className="text-2xl font-bold text-foreground mb-4">No Programs Selected</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">No Courses Selected</h2>
               <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-                Browse our coaching programs and start your recovery journey.
+                Browse our coaching courses and start your recovery journey.
               </p>
               <Link to="/courses" className="inline-flex w-full justify-center sm:w-auto">
                 <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground sm:w-auto">
-                  Browse Programs
+                  Browse Courses
                 </Button>
               </Link>
             </div>
@@ -140,7 +140,7 @@ export default function Cart() {
                 <div className="hidden overflow-hidden bg-card md:block">
                   <div className="p-6 pb-3">
                     <div className="mb-4 flex items-center justify-between gap-4">
-                      <h2 className="text-xl font-bold text-card-foreground tracking-[0.01em]">Selected Programs</h2>
+                      <h2 className="text-xl font-bold text-card-foreground tracking-[0.01em]">Selected Courses</h2>
                       <Button
                         variant="ghost"
                         size="sm"
@@ -213,7 +213,7 @@ export default function Cart() {
 
                 <div className="space-y-4 md:hidden">
                   <div className="bg-card p-4">
-                    <h2 className="text-xl font-bold tracking-[0.01em] text-card-foreground">Selected Programs</h2>
+                    <h2 className="text-xl font-bold tracking-[0.01em] text-card-foreground">Selected Courses</h2>
                     <Button
                       variant="outline"
                       className="mt-3 w-full"

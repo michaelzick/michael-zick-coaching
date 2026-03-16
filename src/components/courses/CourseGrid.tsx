@@ -15,7 +15,7 @@ export default function CourseGrid({ isLoading, courses, clearFilters }: CourseG
     return (
       <div className="py-16 flex flex-col items-center justify-center gap-3">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
-        <p className="text-sm text-muted-foreground">Loading programs...</p>
+        <p className="text-sm text-muted-foreground">Loading courses...</p>
       </div>
     );
   }

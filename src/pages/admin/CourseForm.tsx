@@ -16,6 +16,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/components/ui/use-toast';
+import { useIsMobile } from '@/hooks/use-mobile';
 import {
   createCourse,
   fetchAllCoachesAdmin,
@@ -82,6 +83,7 @@ export default function AdminCourseForm() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const isEditing = !!id;
+  const isMobile = useIsMobile();
 
   const [chapters, setChapters] = useState<ChapterFormItem[]>([]);
   const [topics, setTopics] = useState<string[]>([]);
@@ -373,7 +375,11 @@ export default function AdminCourseForm() {
         }
       }
 
-      queryClient.invalidateQueries({ queryKey: ['admin'] });
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ['admin'] }),
+        queryClient.invalidateQueries({ queryKey: ['courses'] }),
+        queryClient.invalidateQueries({ queryKey: ['course'] }),
+      ]);
       toast({ title: isEditing ? 'Course updated' : 'Course created' });
       navigate('/admin/courses');
     } catch (err) {
@@ -859,7 +865,7 @@ export default function AdminCourseForm() {
       </h1>
 
       <form onSubmit={form.handleSubmit(onSubmit)} className="content-stack pb-28 md:pb-0">
-        <div className="hidden md:block">
+        {!isMobile ? (
           <Tabs defaultValue="details">
             <TabsList className="mb-6 grid w-full grid-cols-3 lg:w-fit">
               <TabsTrigger value="details">Course Details</TabsTrigger>
@@ -893,9 +899,7 @@ export default function AdminCourseForm() {
               </Card>
             </TabsContent>
           </Tabs>
-        </div>
-
-        <div className="md:hidden">
+        ) : (
           <Accordion type="multiple" defaultValue={['details', 'content', 'settings']} className="space-y-3">
             <AccordionItem value="details" className="overflow-hidden border border-border bg-card">
               <AccordionTrigger className="px-4 py-4 text-left hover:bg-muted/70 hover:no-underline">
@@ -924,7 +928,7 @@ export default function AdminCourseForm() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-        </div>
+        )}
 
         <div className="mt-8 hidden justify-end gap-4 md:flex">
           <Button type="button" variant="outline" onClick={() => navigate('/admin/courses')}>

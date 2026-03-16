@@ -93,7 +93,7 @@ export default function AdminCoachesList() {
 
                   <div className="grid grid-cols-2 gap-3 text-sm">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">Programs</p>
+                      <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">Courses</p>
                       <p className="mt-1 font-medium text-card-foreground">{coach.courseCount}</p>
                     </div>
                     <div>
@@ -163,7 +163,7 @@ export default function AdminCoachesList() {
                 <TableRow>
                   <TableHead>Name</TableHead>
                   <TableHead>Title</TableHead>
-                  <TableHead>Programs</TableHead>
+                  <TableHead>Courses</TableHead>
                   <TableHead>Status</TableHead>
                   <TableHead className="text-right">Actions</TableHead>
                 </TableRow>

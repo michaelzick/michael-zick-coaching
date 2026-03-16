@@ -39,10 +39,10 @@ export default function CoachesPage() {
             <div className="content-stack max-w-4xl bg-card p-6 sm:p-10">
               <h2 className="text-2xl font-bold text-card-foreground mb-3">Coach profiles are coming online.</h2>
               <p className="text-muted-foreground mb-6">
-                The platform is being expanded for multiple coaches. Check back soon or browse programs in the meantime.
+                The platform is being expanded for multiple coaches. Check back soon or browse courses in the meantime.
               </p>
               <Link to="/courses">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Browse Programs</Button>
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Browse Courses</Button>
               </Link>
             </div>
           ) : (

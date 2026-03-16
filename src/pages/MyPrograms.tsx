@@ -40,13 +40,13 @@ export default function MyPrograms() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <SEOHead title="My Programs" description="Your enrolled programs" noIndex />
+      <SEOHead title="My Courses" description="Your enrolled courses" noIndex />
       <Navbar />
 
       <main className="flex-grow mobile-shell pb-16 pt-32">
         <div className="container mx-auto content-stack">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">My Programs</h1>
+            <h1 className="text-3xl font-bold text-foreground mb-2">My Courses</h1>
             <p className="text-muted-foreground">Continue your recovery journey.</p>
           </div>
 
@@ -59,13 +59,13 @@ export default function MyPrograms() {
               <div className="inline-flex items-center justify-center w-20 h-20 bg-muted mb-6">
                 <BookOpen className="h-10 w-10 text-muted-foreground" />
               </div>
-              <h2 className="text-2xl font-bold text-foreground mb-4">No Programs Yet</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">No Courses Yet</h2>
               <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-                You haven't enrolled in any programs yet. Browse our catalog to get started.
+                You haven't enrolled in any courses yet. Browse our catalog to get started.
               </p>
               <Link to="/courses">
                 <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                  Browse Programs
+                  Browse Courses
                 </Button>
               </Link>
             </div>

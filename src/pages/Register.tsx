@@ -69,7 +69,7 @@ export default function Register() {
           <Card className="content-stack">
             <CardHeader>
               <CardTitle>Sign Up</CardTitle>
-              <CardDescription>Create your account to access coaching programs</CardDescription>
+              <CardDescription>Create your account to access coaching courses</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">

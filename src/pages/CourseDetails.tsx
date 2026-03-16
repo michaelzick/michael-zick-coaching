@@ -49,10 +49,10 @@ export default function CourseDetails() {
         <Navbar />
         <div className="mobile-shell flex-grow flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-foreground mb-4">Program Not Found</h1>
-            <p className="text-xl text-muted-foreground mb-8">We couldn't find the program you're looking for.</p>
+            <h1 className="text-3xl font-bold text-foreground mb-4">Course Not Found</h1>
+            <p className="text-xl text-muted-foreground mb-8">We couldn't find the course you're looking for.</p>
             <Link to="/courses">
-              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Browse Programs</Button>
+              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Browse Courses</Button>
             </Link>
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function CourseDetails() {
       })} />
       <JsonLd data={buildBreadcrumbSchema([
         { name: "Home", url: "/" },
-        { name: "Programs", url: "/courses" },
+        { name: "Courses", url: "/courses" },
         { name: course.title, url: `/course/${slug}` },
       ])} />
       <Navbar />
@@ -112,7 +112,7 @@ export default function CourseDetails() {
                 <div className="mb-4 flex flex-wrap items-center text-sm">
                   <Link to="/" className="text-muted-foreground hover:text-primary">Home</Link>
                   <span className="mx-2">&rsaquo;</span>
-                  <Link to="/courses" className="text-muted-foreground hover:text-primary">Programs</Link>
+                  <Link to="/courses" className="text-muted-foreground hover:text-primary">Courses</Link>
                   <span className="mx-2">&rsaquo;</span>
                   <span className="text-muted-foreground">{course.category.replace(/-/g, " ")}</span>
                 </div>
@@ -171,7 +171,7 @@ export default function CourseDetails() {
                     </TabsList>
 
                     <TabsContent value="overview" className="fade-in">
-                      <h2 className="text-2xl font-bold text-foreground mb-6">About This Program</h2>
+                      <h2 className="text-2xl font-bold text-foreground mb-6">About This Course</h2>
                       <p className="mb-8 break-words leading-relaxed text-muted-foreground">{course.description}</p>
 
                       <div className="mb-8">
@@ -200,7 +200,7 @@ export default function CourseDetails() {
 
                     <TabsContent value="curriculum" className="fade-in">
                       <div className="mb-6">
-                        <h2 className="text-2xl font-bold text-foreground mb-2">Program Curriculum</h2>
+                        <h2 className="text-2xl font-bold text-foreground mb-2">Course Curriculum</h2>
                         <div className="flex items-center text-muted-foreground mb-6">
                           <BookOpen className="h-5 w-5 mr-2" />
                           <span>{totalLessons > 0 ? totalLessons : course.lectureCount} lessons</span>
@@ -291,7 +291,7 @@ export default function CourseDetails() {
                           </div>
                         ) : (
                           <p className="text-muted-foreground">
-                            We are still syncing the full coach profile for this program. Check back soon for a deeper breakdown of the coach, philosophy, and recommended next steps.
+                            We are still syncing the full coach profile for this course. Check back soon for a deeper breakdown of the coach, philosophy, and recommended next steps.
                           </p>
                         )}
                       </div>
@@ -343,7 +343,7 @@ export default function CourseDetails() {
                     </div>
 
                     <div className="border-t border-border pt-6">
-                      <h3 className="font-bold text-card-foreground mb-4">This program includes:</h3>
+                      <h3 className="font-bold text-card-foreground mb-4">This course includes:</h3>
                       <ul className="space-y-3 text-card-foreground">
                         <li className="flex items-start">
                           <Clock className="h-5 w-5 text-muted-foreground mr-3 flex-shrink-0 mt-0.5" />
@@ -366,7 +366,7 @@ export default function CourseDetails() {
                   </div>
                 </div>
                 <div className="bg-card p-4 sm:p-6">
-                  <h3 className="text-lg font-bold text-card-foreground mb-4">Program Details</h3>
+                  <h3 className="text-lg font-bold text-card-foreground mb-4">Course Details</h3>
                   <ul className="space-y-4">
                     <li className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                       <span className="text-muted-foreground">Level</span>
@@ -395,11 +395,11 @@ export default function CourseDetails() {
           </div>
         </div>
 
-        {/* Related Programs */}
+        {/* Related Courses */}
         {relatedCourses.length > 0 && (
           <section className="py-12 bg-muted">
             <div className="container mx-auto mobile-shell content-stack">
-              <h2 className="text-2xl font-bold text-foreground mb-8">Related Programs</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-8">Related Courses</h2>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 sm:gap-6">
                 {relatedCourses.map((relatedCourse, index) => (
                   <CourseCard
@@ -417,7 +417,7 @@ export default function CourseDetails() {
       <div className="mobile-shell fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/95 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur lg:hidden">
         <div className="mx-auto flex max-w-5xl items-center gap-3">
           <div className="min-w-0 flex-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">Program Price</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">Course Price</p>
             <div className="flex items-baseline gap-2">
               <span className="truncate text-xl font-bold text-card-foreground">
                 {formatPrice(course.salePrice ?? course.price)}

@@ -21,11 +21,11 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="mb-4 text-lg font-semibold tracking-[0.03em] text-secondary-foreground sm:mb-6">Programs</h3>
+            <h3 className="mb-4 text-lg font-semibold tracking-[0.03em] text-secondary-foreground sm:mb-6">Courses</h3>
             <ul className="space-y-3 sm:space-y-4">
               <li>
                 <Link to="/courses" className="cubist-link text-secondary-foreground/85 hover:text-accent transition-colors uppercase font-semibold tracking-[0.03em]">
-                  All Programs
+                  All Courses
                 </Link>
               </li>
               <li>
@@ -69,7 +69,7 @@ export default function Footer() {
           
           <div>
             <h3 className="mb-4 text-lg font-semibold tracking-[0.03em] text-secondary-foreground sm:mb-6">Contact</h3>
-            <p className="mb-3 font-medium text-secondary-foreground/85 sm:mb-4">Questions about the platform or a program? Reach out.</p>
+            <p className="mb-3 font-medium text-secondary-foreground/85 sm:mb-4">Questions about the platform or a course? Reach out.</p>
             <div className="mb-4 flex w-full max-w-full items-center space-x-3 bg-background px-3 py-2 text-foreground sm:w-fit">
               <Mail className="h-5 w-5 text-primary" />
               <span className="min-w-0 break-all font-semibold">coach@michaelzick.com</span>

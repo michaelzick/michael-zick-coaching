@@ -46,6 +46,10 @@ function getMetadataRole(user: User | null) {
     .find(Boolean) ?? '';
 }
 
+function requiresProfileRoleResolution(user: User | null) {
+  return !!user && getMetadataRole(user) !== 'admin';
+}
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
@@ -83,12 +87,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const syncSessionState = (nextSession: Session | null) => {
     setSession(nextSession);
-    setUser(nextSession?.user ?? null);
+    const nextUser = nextSession?.user ?? null;
+    setUser(nextUser);
 
-    if (!nextSession?.user) {
+    if (!nextUser) {
       setProfile(null);
       setIsProfileLoading(false);
+      return;
     }
+
+    setProfile((currentProfile) => currentProfile?.id === nextUser.id ? currentProfile : null);
+    setIsProfileLoading(requiresProfileRoleResolution(nextUser));
   };
 
   useEffect(() => {
@@ -137,7 +146,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       };
     }
 
-    setIsProfileLoading(true);
+    setIsProfileLoading(requiresProfileRoleResolution(user));
 
     void fetchProfile(user.id)
       .then((nextProfile) => {

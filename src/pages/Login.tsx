@@ -115,7 +115,7 @@ export default function Login() {
               </span>
             </Link>
             <h1 className="text-3xl font-bold text-foreground mb-2">Welcome Back</h1>
-            <p className="text-muted-foreground">Sign in to access your programs</p>
+            <p className="text-muted-foreground">Sign in to access your courses</p>
           </div>
 
           <Card className="content-stack">

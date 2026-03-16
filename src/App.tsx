@@ -52,6 +52,7 @@ const App = () => (
                 <Route path="/" element={<Index />} />
                 <Route path="/courses" element={<CoursesPage />} />
                 <Route path="/programs" element={<Navigate to="/courses" replace />} />
+                <Route path="/course/approval-addiction-recovery-program" element={<Navigate to="/course/approval-addiction-recovery-course" replace />} />
                 <Route path="/course/:slug" element={<CourseDetails />} />
                 <Route path="/coaches" element={<CoachesPage />} />
                 <Route path="/coaches/:slug" element={<CoachProfile />} />
@@ -68,9 +69,10 @@ const App = () => (
                 <Route path="/learn/:courseSlug/:lessonId?" element={
                   <AuthGuard><CoursePlayer /></AuthGuard>
                 } />
-                <Route path="/my-programs" element={
+                <Route path="/my-courses" element={
                   <AuthGuard><MyPrograms /></AuthGuard>
                 } />
+                <Route path="/my-programs" element={<Navigate to="/my-courses" replace />} />
                 <Route path="/admin" element={
                   <AdminGuard><AdminLayout /></AdminGuard>
                 }>

@@ -15,7 +15,7 @@ const steps = [
     icon: Users,
   },
   {
-    title: 'Pick a Program',
+    title: 'Pick a Course',
     description: 'Choose the course that matches the pattern you need to break now, whether that is shame, approval addiction, dating, or boundaries.',
     icon: BookOpen,
   },
@@ -50,16 +50,16 @@ const faqs = [
     answer: 'Nice Guy University is for men who are tired of living through approval, conflict avoidance, covert contracts, and low self-respect. Some start with dating problems, some with marriage, and some with identity. The common thread is that they are done performing.',
   },
   {
-    question: 'Are the programs live or self-paced?',
-    answer: 'The platform is built around self-paced programs you can start immediately. Each coach can also include booking links for men who want direct support after they understand the framework.',
+    question: 'Are the courses live or self-paced?',
+    answer: 'The platform is built around self-paced courses you can start immediately. Each coach can also include booking links for men who want direct support after they understand the framework.',
   },
   {
-    question: 'How do I choose the right program?',
+    question: 'How do I choose the right course?',
     answer: 'Start with the pattern causing the most pain right now. If you are stuck people-pleasing, begin there. If your issue is dating, standards, or communication, choose the coach and course that address that problem directly.',
   },
   {
     question: 'Do I need one-on-one coaching first?',
-    answer: 'No. Most men should start by doing the work inside a program. Coach booking is there when you want higher-touch support, not as a gate before you can begin.',
+    answer: 'No. Most men should start by doing the work inside a course. Coach booking is there when you want higher-touch support, not as a gate before you can begin.',
   },
 ];
 
@@ -68,7 +68,7 @@ export default function HowItWorks() {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="How It Works"
-        description="Learn how Nice Guy University works: browse coaches, pick the right program, and do the work that breaks shame, approval addiction, and weak boundaries."
+        description="Learn how Nice Guy University works: browse coaches, pick the right course, and do the work that breaks shame, approval addiction, and weak boundaries."
         canonicalPath="/how-it-works"
       />
       <JsonLd data={buildOrganizationSchema()} />
@@ -84,7 +84,7 @@ export default function HowItWorks() {
                 A platform for men who are ready to stop performing.
               </h1>
               <p className="text-lg text-muted-foreground max-w-3xl mb-8">
-                Nice Guy University brings together coaches and programs built around the same outcome: less shame, fewer covert contracts, stronger standards, and more honest action in your real life.
+                Nice Guy University brings together coaches and courses built around the same outcome: less shame, fewer covert contracts, stronger standards, and more honest action in your real life.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/coaches" className="w-full sm:w-auto">
@@ -94,7 +94,7 @@ export default function HowItWorks() {
                 </Link>
                 <Link to="/courses" className="w-full sm:w-auto">
                   <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
-                    Browse Programs
+                    Browse Courses
                     <ChevronRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -181,7 +181,7 @@ export default function HowItWorks() {
             <div className="max-w-4xl">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Start where the pain is loudest.</h2>
               <p className="text-secondary-foreground/80 text-lg mb-8 max-w-2xl">
-                You do not need another round of passive insight. Pick the coach, choose the program, and start acting differently.
+                You do not need another round of passive insight. Pick the coach, choose the course, and start acting differently.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/coaches" className="w-full sm:w-auto">
@@ -191,7 +191,7 @@ export default function HowItWorks() {
                 </Link>
                 <Link to="/courses" className="w-full sm:w-auto">
                   <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
-                    Browse Programs
+                    Browse Courses
                   </Button>
                 </Link>
               </div>

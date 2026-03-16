@@ -141,7 +141,7 @@ export default function AdminOrdersList() {
                             <AlertDialogTitle>Refund this order?</AlertDialogTitle>
                             <AlertDialogDescription>
                               This will issue a full refund of {formatCurrency(Number(order.amount_total))}
-                              {' '}through Stripe and immediately revoke access to every program in this order.
+                              {' '}through Stripe and immediately revoke access to every course in this order.
                             </AlertDialogDescription>
                           </AlertDialogHeader>
                           <AlertDialogFooter>
@@ -233,7 +233,7 @@ export default function AdminOrdersList() {
                                 <AlertDialogTitle>Refund this order?</AlertDialogTitle>
                                 <AlertDialogDescription>
                                   This will issue a full refund of {formatCurrency(Number(order.amount_total))}
-                                  {' '}through Stripe and immediately revoke access to every program in this order.
+                                  {' '}through Stripe and immediately revoke access to every course in this order.
                                 </AlertDialogDescription>
                               </AlertDialogHeader>
                               <AlertDialogFooter>

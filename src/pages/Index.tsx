@@ -51,19 +51,19 @@ export default function Index() {
     },
     {
       question: "What makes this different from reading self-help books?",
-      answer: "Books provide information but not transformation. Most men read No More Mr Nice Guy and understand the concepts, but nothing changes because reading alone doesn't rewire deeply ingrained patterns. These programs provide structured exercises, accountability, and a proven framework that creates lasting behavioral change.",
+      answer: "Books provide information but not transformation. Most men read No More Mr Nice Guy and understand the concepts, but nothing changes because reading alone doesn't rewire deeply ingrained patterns. These courses provide structured exercises, accountability, and a proven framework that creates lasting behavioral change.",
     },
     {
       question: "How long does Nice Guy recovery take?",
-      answer: "Most men start seeing meaningful shifts within 4-8 weeks of consistent work. Full recovery from deeply ingrained patterns typically takes 3-6 months. The programs are self-paced with lifetime access, so you can work at whatever speed suits you.",
+      answer: "Most men start seeing meaningful shifts within 4-8 weeks of consistent work. Full recovery from deeply ingrained patterns typically takes 3-6 months. The courses are self-paced with lifetime access, so you can work at whatever speed suits you.",
     },
   ];
 
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Recovery Programs for Men"
-        description="Nice Guy University is a multi-coach platform for men ready to break approval addiction, build boundaries, and do real recovery work through structured programs."
+        title="Recovery Courses for Men"
+        description="Nice Guy University is a multi-coach platform for men ready to break approval addiction, build boundaries, and do real recovery work through structured courses."
         canonicalPath="/"
       />
       <JsonLd data={buildWebSiteSchema()} />
@@ -89,12 +89,12 @@ export default function Index() {
               Stop performing.<br />Start doing the work.
             </h1>
             <p className="text-lg text-white/70 max-w-2xl">
-              Nice Guy University connects you with coaches and programs designed to break shame, approval addiction, weak boundaries, and the patterns keeping you stuck.
+              Nice Guy University connects you with coaches and courses designed to break shame, approval addiction, weak boundaries, and the patterns keeping you stuck.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link to="/courses" className="w-full sm:w-auto">
                 <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
-                  Browse Programs
+                  Browse Courses
                   <ChevronRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -135,13 +135,13 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Featured Programs */}
+      {/* Featured Courses */}
       <section className="bg-muted mobile-shell pb-14 pt-20 md:pb-20">
         <div className="container mx-auto content-stack">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-2">Programs</p>
-              <h2 className="text-3xl font-bold text-foreground">Featured Programs</h2>
+              <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-2">Courses</p>
+              <h2 className="text-3xl font-bold text-foreground">Featured Courses</h2>
             </div>
             <Link to="/courses" className="text-primary hover:text-primary/80 font-medium flex items-center">
               View All
@@ -195,7 +195,7 @@ export default function Index() {
         <div className="container mx-auto relative z-10 content-stack">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Find the coach and program that matches your next step.
+              Find the coach and course that matches your next step.
             </h2>
             <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
               Start with the pain point that is costing you the most. Then do the work until your behavior changes, not just your vocabulary.
@@ -208,7 +208,7 @@ export default function Index() {
               </Link>
               <Link to="/courses" className="w-full sm:w-auto">
                 <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
-                  Browse Programs
+                  Browse Courses
                 </Button>
               </Link>
             </div>

@@ -134,8 +134,8 @@ export default function ResetPassword() {
                   <p className="text-muted-foreground mb-4">
                     Your password has been reset. You can continue into the app now.
                   </p>
-                  <Button className="w-full sm:w-auto" onClick={() => navigate("/my-programs", { replace: true })}>
-                    Go to My Programs
+                  <Button className="w-full sm:w-auto" onClick={() => navigate("/my-courses", { replace: true })}>
+                    Go to My Courses
                   </Button>
                 </div>
               ) : (

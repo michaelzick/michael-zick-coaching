@@ -91,7 +91,7 @@ export default function CoursePlayer() {
         title: 'Course completed',
         description: `${course.title} has been marked complete.`,
       });
-      navigate('/my-programs');
+      navigate('/my-courses');
     } catch (error) {
       toast({
         title: 'Unable to complete course',
@@ -182,9 +182,9 @@ export default function CoursePlayer() {
         <Navbar />
         <div className="mobile-shell flex flex-1 items-center justify-center pt-20">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-foreground mb-4">Program Not Found</h1>
+            <h1 className="text-2xl font-bold text-foreground mb-4">Course Not Found</h1>
             <Link to="/courses">
-              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Browse Programs</Button>
+              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Browse Courses</Button>
             </Link>
           </div>
         </div>

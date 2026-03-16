@@ -38,7 +38,7 @@ export default function CheckoutSuccess() {
       if (!user) {
         if (isCurrent) {
           setStatus('error');
-          setErrorMessage('Sign in again to finish granting access to your purchased programs.');
+          setErrorMessage('Sign in again to finish granting access to your purchased courses.');
         }
         return;
       }
@@ -92,7 +92,7 @@ export default function CheckoutSuccess() {
               </div>
               <h1 className="text-3xl font-bold text-foreground mb-4">Finalizing Your Purchase</h1>
               <p className="text-muted-foreground">
-                Confirming your Stripe sandbox checkout and unlocking your programs.
+                Confirming your Stripe sandbox checkout and unlocking your courses.
               </p>
             </>
           ) : status === 'error' ? (
@@ -110,8 +110,8 @@ export default function CheckoutSuccess() {
                     Return to Cart
                   </Button>
                 </Link>
-                <Link to="/my-programs" className="w-full sm:w-auto">
-                  <Button variant="outline" className="w-full">Check My Programs</Button>
+                <Link to="/my-courses" className="w-full sm:w-auto">
+                  <Button variant="outline" className="w-full">Check My Courses</Button>
                 </Link>
               </div>
             </>
@@ -122,16 +122,16 @@ export default function CheckoutSuccess() {
               </div>
               <h1 className="text-3xl font-bold text-foreground mb-4">Payment Successful!</h1>
               <p className="text-muted-foreground mb-8">
-                Thank you for your purchase. You now have access to your programs. Start learning right away!
+                Thank you for your purchase. You now have access to your courses. Start learning right away!
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Link to="/my-programs" className="w-full sm:w-auto">
+                <Link to="/my-courses" className="w-full sm:w-auto">
                   <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                    Go to My Programs
+                    Go to My Courses
                   </Button>
                 </Link>
                 <Link to="/courses" className="w-full sm:w-auto">
-                  <Button variant="outline" className="w-full">Browse More Programs</Button>
+                  <Button variant="outline" className="w-full">Browse More Courses</Button>
                 </Link>
               </div>
             </>

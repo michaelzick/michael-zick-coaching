@@ -24,7 +24,7 @@ export function buildOrganizationSchema(socialLinks: string[] = []) {
     url: SITE_URL || "https://michaelzick.com",
     logo: `${SITE_URL}/og-image.jpg`,
     description:
-      "A multi-coach platform with programs for men recovering from Nice Guy Syndrome, approval addiction, and people-pleasing patterns.",
+      "A multi-coach platform with courses for men recovering from Nice Guy Syndrome, approval addiction, and people-pleasing patterns.",
     founder: {
       "@type": "Person",
       name: "Michael Zick",

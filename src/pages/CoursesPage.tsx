@@ -43,8 +43,8 @@ export default function CoursesPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Nice Guy Recovery Programs & Courses"
-        description="Online coaching programs for men ready to stop people-pleasing, break approval addiction, set boundaries, and build authentic relationships. Self-paced with lifetime access."
+        title="Nice Guy Recovery Courses"
+        description="Online coaching courses for men ready to stop people-pleasing, break approval addiction, set boundaries, and build authentic relationships. Self-paced with lifetime access."
         canonicalPath="/courses"
       />
       {courses.length > 0 && (
@@ -55,8 +55,8 @@ export default function CoursesPage() {
       <main className="flex-grow mobile-shell pb-16 pt-32">
         <div className="container mx-auto content-stack">
           <div className="mb-8 fade-in">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Programs</h1>
-            <p className="text-muted-foreground">Coaching programs designed to help you break free and build an authentic life.</p>
+            <h1 className="text-3xl font-bold text-foreground mb-2">Courses</h1>
+            <p className="text-muted-foreground">Coaching courses designed to help you break free and build an authentic life.</p>
           </div>
 
           <div className="flex flex-col md:flex-row gap-8">

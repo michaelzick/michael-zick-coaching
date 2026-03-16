@@ -63,7 +63,7 @@ export default function Navbar() {
 
           <nav className="hidden md:flex items-center space-x-4 lg:space-x-5">
             <Link to="/courses" className="cubist-link text-foreground hover:text-primary transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
-              Programs
+              Courses
             </Link>
             <Link to="/coaches" className="cubist-link text-foreground hover:text-primary transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
               Coaches
@@ -99,9 +99,9 @@ export default function Navbar() {
                   </div>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
-                    <Link to="/my-programs" className="flex items-center cursor-pointer uppercase tracking-[0.03em] font-semibold">
+                    <Link to="/my-courses" className="flex items-center cursor-pointer uppercase tracking-[0.03em] font-semibold">
                       <BookOpen className="mr-2 h-4 w-4" />
-                      My Programs
+                      My Courses
                     </Link>
                   </DropdownMenuItem>
                   {isAdmin && (
@@ -169,10 +169,10 @@ export default function Navbar() {
         <div className="absolute left-0 top-full max-h-[calc(100dvh-5rem)] w-full overflow-y-auto overscroll-contain border-t border-border bg-secondary py-4 mobile-shell fade-in md:hidden">
           <nav className="flex flex-col space-y-3">
             <Link to="/courses" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
-              Programs
+              Courses
             </Link>
-            <Link to="/my-programs" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
-              My Programs
+            <Link to="/my-courses" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
+              My Courses
             </Link>
             <Link to="/coaches" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
               Coaches

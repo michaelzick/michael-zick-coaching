@@ -125,20 +125,20 @@ export default function ResourceDetail() {
                 Ready to Put This Into Practice?
               </h2>
               <p className="text-muted-foreground mb-6">
-                Reading is a good start, but lasting change requires structured work. Explore the coaching programs designed to break these patterns for good.
+                Reading is a good start, but lasting change requires structured work. Explore the coaching courses designed to break these patterns for good.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 {resource.relatedCourseSlug ? (
                   <Link to={`/course/${resource.relatedCourseSlug}`} className="w-full sm:w-auto">
                     <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                      View Recommended Program
+                      View Recommended Course
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
                 ) : (
                   <Link to="/courses" className="w-full sm:w-auto">
                     <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                      Explore Programs
+                      Explore Courses
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>

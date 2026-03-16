@@ -110,7 +110,7 @@ export default function CoachProfile() {
                   )}
                   <Link to="/courses" className="w-full sm:w-auto">
                     <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
-                      Browse Programs
+                      Browse Courses
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
@@ -197,7 +197,7 @@ export default function CoachProfile() {
           <div className="container mx-auto content-stack">
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-10">
               <div>
-                <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">Programs</p>
+                <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">Courses</p>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground">Courses from {coach.firstName}</h2>
               </div>
             </div>
@@ -208,7 +208,7 @@ export default function CoachProfile() {
               </div>
             ) : courses.length === 0 ? (
               <div className="content-stack max-w-3xl bg-card p-6 sm:p-8">
-                <p className="text-muted-foreground">Programs from this coach are coming soon.</p>
+                <p className="text-muted-foreground">Courses from this coach are coming soon.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -225,7 +225,7 @@ export default function CoachProfile() {
             <div className="max-w-4xl">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">If this is your coach, start acting.</h2>
               <p className="text-secondary-foreground/80 text-lg mb-8 max-w-2xl">
-                Pick a program or book the conversation. Either way, do not stay stuck in analysis.
+                Pick a course or book the conversation. Either way, do not stay stuck in analysis.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 {coach.bookingUrl && (
@@ -237,7 +237,7 @@ export default function CoachProfile() {
                 )}
                 <Link to="/courses" className="w-full sm:w-auto">
                   <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
-                    Browse Programs
+                    Browse Courses
                   </Button>
                 </Link>
               </div>
