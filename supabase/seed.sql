@@ -25,7 +25,7 @@ VALUES (
   'Founder and Nice Guy Recovery Coach',
   $$For most of my life, I was a textbook Nice Guy. I said yes when I meant no. I performed for approval. I built covert contracts in every relationship, then resented people when they failed to honor agreements they never actually made.
 
-The turning point came when I realized my "niceness" was not generosity. It was a survival strategy I built as a kid to avoid conflict and earn love. Once I saw the pattern clearly, I could not unsee it.
+The turning point came when I realized my "niceness" wasn't generosity. It was a survival strategy I built as a kid to avoid conflict and earn love. Once I saw the pattern clearly, I couldn't unsee it.
 
 I spent years doing the work: examining my parental relationships, learning to tolerate displeasure, setting boundaries I had never set before, and building an identity based on my actual values instead of whatever I thought would make people like me.
 
@@ -43,9 +43,9 @@ Now I coach men through the same process with a direct, structured approach. No 
   '{"website":"https://www.michaelzick.com"}'::jsonb,
   '[
     {"name":"Ryan I.","text":"Working with Michael completely changed how I show up in my relationships. I stopped performing and started being real. My marriage has never been better."},
-    {"name":"Doug S.","text":"I did not even realize I was a Nice Guy until Michael broke it down. Now I have boundaries, I communicate directly, and I do not resent the people I love anymore."},
+    {"name":"Doug S.","text":"I didn''t even realize I was a Nice Guy until Michael broke it down. Now I have boundaries, I communicate directly, and I don''t resent the people I love anymore."},
     {"name":"Greg C.","text":"The displeasure tolerance work was a game-changer. I used to bend over backwards to avoid conflict. Now I can hold my ground and still feel calm."},
-    {"name":"Earl M.","text":"Michael gave me the tools to finally deal with the patterns I picked up from childhood. I feel like I am living my own life for the first time."}
+    {"name":"Earl M.","text":"Michael gave me the tools to finally deal with the patterns I picked up from childhood. I feel like I''m living my own life for the first time."}
   ]'::jsonb,
   true,
   true
@@ -76,21 +76,27 @@ VALUES
 
   ('00000000-0000-0000-0000-000000000003', 'Boundaries & Communication Masterclass', 'boundaries-communication-masterclass', 'Michael Zick', 'boundaries-communication', 'Intermediate', 197, NULL, 4.7, 195, 756, '10h 15m', 38, 'Most Nice Guys have never learned to set boundaries or communicate their needs directly. This masterclass teaches you the exact frameworks for setting boundaries without aggression, expressing needs without manipulation, and having difficult conversations with confidence. You''ll practice with real scenarios from relationships, work, and family.', 'Learn to set boundaries and communicate with confidence.', 'https://images.unsplash.com/photo-1501854140801-50d01698950b', true, true, 'February 2026', 'English', ARRAY['Boundaries', 'Communication', 'Assertiveness', 'Conflict Resolution', 'Difficult Conversations'], ARRAY['Set clear boundaries without guilt or aggression', 'Communicate your needs directly and effectively', 'Navigate difficult conversations with confidence', 'Handle pushback when you start changing', 'Build relationships based on honesty, not performance'], true),
 
-  ('00000000-0000-0000-0000-000000000004', 'Displeasure Tolerance Training', 'displeasure-tolerance-training', 'Michael Zick', 'self-worth-identity', 'Intermediate', 147, 97, 4.8, 167, 623, '6h 30m', 24, 'The Nice Guy''s biggest fear is displeasure — from partners, bosses, friends, even strangers. This training builds your tolerance for others'' negative reactions so you can finally be honest, set limits, and stop contorting yourself to keep everyone happy. Through structured exposure exercises and mindset work, you''ll become comfortable with discomfort.', 'Build tolerance for discomfort and stop managing everyone''s emotions.', 'https://images.unsplash.com/photo-1433086966358-54859d0ed716', false, false, 'November 2025', 'English', ARRAY['Displeasure Tolerance', 'Emotional Regulation', 'Discomfort', 'Growth', 'Resilience'], ARRAY['Understand why you fear others'' displeasure', 'Build tolerance through structured exercises', 'Stop managing everyone else''s emotional state', 'Stay grounded when people push back on your boundaries', 'Transform discomfort from threat to growth signal'], true),
+  ('00000000-0000-0000-0000-000000000004', 'Displeasure Tolerance Training', 'displeasure-tolerance-training', 'Michael Zick', 'self-worth-identity', 'Intermediate', 147, 97, 4.8, 167, 623, '6h 30m', 24, 'The Nice Guy''s biggest fear is displeasure, from partners, bosses, friends, even strangers. This training builds your tolerance for others'' negative reactions so you can finally be honest, set limits, and stop contorting yourself to keep everyone happy. Through structured exposure exercises and mindset work, you''ll become comfortable with discomfort.', 'Build tolerance for discomfort and stop managing everyone''s emotions.', 'https://images.unsplash.com/photo-1433086966358-54859d0ed716', false, false, 'November 2025', 'English', ARRAY['Displeasure Tolerance', 'Emotional Regulation', 'Discomfort', 'Growth', 'Resilience'], ARRAY['Understand why you fear others'' displeasure', 'Build tolerance through structured exercises', 'Stop managing everyone else''s emotional state', 'Stay grounded when people push back on your boundaries', 'Transform discomfort from threat to growth signal'], true),
 
   ('00000000-0000-0000-0000-000000000005', 'The Covert Contract Breaker', 'covert-contract-breaker', 'Michael Zick', 'nice-guy-recovery', 'Beginner', 97, NULL, 4.9, 234, 892, '5h 15m', 20, 'Covert contracts are the unspoken deals Nice Guys make: ''If I do X, you should do Y.'' They''re the source of resentment, frustration, and broken relationships. This course teaches you to identify your covert contracts, understand why you create them, and replace them with direct communication and genuine giving.', 'Identify and eliminate the hidden deals destroying your relationships.', 'https://images.unsplash.com/photo-1482938289607-e9573fc25ebb', false, true, 'October 2025', 'English', ARRAY['Covert Contracts', 'Resentment', 'Direct Communication', 'Relationships', 'Honesty'], ARRAY['Spot covert contracts in every area of your life', 'Understand the Nice Guy logic that creates them', 'Replace covert contracts with direct requests', 'Give without strings attached', 'Eliminate resentment at its source'], true),
 
   ('00000000-0000-0000-0000-000000000006', 'Relationship Frame Workshop', 'relationship-frame-workshop', 'Michael Zick', 'relationship-skills', 'Advanced', 247, 197, 4.8, 156, 534, '9h 45m', 36, 'Your relationship frame determines the quality of every romantic relationship you''ll have. This workshop teaches you how to establish and maintain a healthy relationship frame based on standards, not scarcity. You''ll learn to attract from abundance, lead with integrity, and build partnerships where both people thrive.', 'Establish a healthy relationship frame based on standards, not scarcity.', 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429', false, false, 'January 2026', 'English', ARRAY['Relationship Frame', 'Dating Standards', 'Attraction', 'Partnership', 'Masculine Leadership'], ARRAY['Define your non-negotiable relationship standards', 'Stop dating from scarcity and desperation', 'Build attraction through authenticity, not performance', 'Lead in relationships without being controlling', 'Create partnerships where both people grow'], true),
 
-  ('00000000-0000-0000-0000-000000000007', 'Parental Patterns & Self-Discovery', 'parental-patterns-self-discovery', 'Michael Zick', 'self-worth-identity', 'Intermediate', 177, NULL, 4.7, 143, 478, '7h 30m', 28, 'Your Nice Guy patterns didn''t start with you — they started in your childhood. This deep-dive course helps you examine your parental relationships, identify the survival strategies you developed as a child, and consciously choose which patterns to keep and which to release. Understanding your past is the key to changing your future.', 'Examine childhood patterns and consciously choose who you become.', 'https://images.unsplash.com/photo-1506744038136-46273834b3fb', false, false, 'September 2025', 'English', ARRAY['Childhood Patterns', 'Parental Relationships', 'Self-Discovery', 'Inner Child', 'Healing'], ARRAY['Map your parental relationship dynamics', 'Identify survival strategies from childhood', 'Understand how those patterns show up in adult life', 'Release patterns that no longer serve you', 'Build a conscious identity based on choice, not conditioning'], true),
+  ('00000000-0000-0000-0000-000000000007', 'Parental Patterns & Self-Discovery', 'parental-patterns-self-discovery', 'Michael Zick', 'self-worth-identity', 'Intermediate', 177, NULL, 4.7, 143, 478, '7h 30m', 28, 'Your Nice Guy patterns didn''t start with you; they started in your childhood. This deep-dive course helps you examine your parental relationships, identify the survival strategies you developed as a child, and consciously choose which patterns to keep and which to release. Understanding your past is the key to changing your future.', 'Examine childhood patterns and consciously choose who you become.', 'https://images.unsplash.com/photo-1506744038136-46273834b3fb', false, false, 'September 2025', 'English', ARRAY['Childhood Patterns', 'Parental Relationships', 'Self-Discovery', 'Inner Child', 'Healing'], ARRAY['Map your parental relationship dynamics', 'Identify survival strategies from childhood', 'Understand how those patterns show up in adult life', 'Release patterns that no longer serve you', 'Build a conscious identity based on choice, not conditioning'], true),
 
-  ('00000000-0000-0000-0000-000000000008', 'Dating from Standards, Not Scarcity', 'dating-from-standards-not-scarcity', 'Michael Zick', 'relationship-skills', 'All Levels', 147, 97, 4.8, 198, 712, '6h 45m', 26, 'Most Nice Guys settle in dating because they believe they can''t do better, or they chase women hoping to earn love through performance. This course flips the script: you''ll define your standards, build genuine confidence, and learn to date from a place of abundance rather than desperation.', 'Stop settling and start dating from confidence and clarity.', 'https://images.unsplash.com/photo-1469474968028-56623f02e42e', false, true, 'December 2025', 'English', ARRAY['Dating', 'Standards', 'Confidence', 'Abundance Mindset', 'Attraction'], ARRAY['Define what you actually want in a partner', 'Stop settling out of fear or scarcity', 'Build genuine confidence that attracts', 'Date from abundance, not desperation', 'Recognize red flags and honor your standards'], true);
+  ('00000000-0000-0000-0000-000000000008', 'Dating from Standards, Not Scarcity', 'dating-from-standards-not-scarcity', 'Michael Zick', 'relationship-skills', 'All Levels', 147, 97, 4.8, 198, 712, '6h 45m', 26, 'Most Nice Guys settle in dating because they believe they can''t do better, or they chase women hoping to earn love through performance. This course flips the script: you''ll define your standards, build genuine confidence, and learn to date from a place of abundance rather than desperation.', 'Stop settling and start dating from confidence and clarity.', 'https://images.unsplash.com/photo-1469474968028-56623f02e42e', false, true, 'December 2025', 'English', ARRAY['Dating', 'Standards', 'Confidence', 'Abundance Mindset', 'Attraction'], ARRAY['Define what you actually want in a partner', 'Stop settling out of fear or scarcity', 'Build genuine confidence that attracts', 'Date from abundance, not desperation', 'Recognize red flags and honor your standards'], true)
+ON CONFLICT (id) DO UPDATE SET
+  description = EXCLUDED.description,
+  short_description = EXCLUDED.short_description,
+  topics = EXCLUDED.topics,
+  what_you_will_learn = EXCLUDED.what_you_will_learn;
 
 -- Seed chapters and lessons for Course 1 (Complete Nice Guy Recovery System)
 INSERT INTO chapters (id, course_id, title, description, sort_order) VALUES
   ('10000000-0000-0000-0000-000000000001', '00000000-0000-0000-0000-000000000001', 'Getting Started', 'Introduction and assessment', 0),
   ('10000000-0000-0000-0000-000000000002', '00000000-0000-0000-0000-000000000001', 'Core Framework', 'The approval addiction recovery loop', 1),
-  ('10000000-0000-0000-0000-000000000003', '00000000-0000-0000-0000-000000000001', 'Advanced Recovery', 'Deep work and integration', 2);
+  ('10000000-0000-0000-0000-000000000003', '00000000-0000-0000-0000-000000000001', 'Advanced Recovery', 'Deep work and integration', 2)
+ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO lessons (id, chapter_id, title, sort_order, duration_seconds, video_source_type, video_url, is_preview) VALUES
   ('20000000-0000-0000-0000-000000000001', '10000000-0000-0000-0000-000000000001', 'Introduction & Assessment', 0, 540, 'youtube', 'https://www.youtube.com/watch?v=rb1CbqHaolM', true),
@@ -103,7 +109,8 @@ INSERT INTO lessons (id, chapter_id, title, sort_order, duration_seconds, video_
   ('20000000-0000-0000-0000-000000000008', '10000000-0000-0000-0000-000000000002', 'Building Awareness', 2, 780, 'youtube', 'https://www.youtube.com/watch?v=rb1CbqHaolM', false),
   ('20000000-0000-0000-0000-000000000009', '10000000-0000-0000-0000-000000000003', 'Displeasure Tolerance', 0, 960, 'youtube', 'https://www.youtube.com/watch?v=rb1CbqHaolM', false),
   ('20000000-0000-0000-0000-000000000010', '10000000-0000-0000-0000-000000000003', 'Setting Hard Boundaries', 1, 1020, 'youtube', 'https://www.youtube.com/watch?v=rb1CbqHaolM', false),
-  ('20000000-0000-0000-0000-000000000011', '10000000-0000-0000-0000-000000000003', 'Integration & Maintenance', 2, 840, 'youtube', 'https://www.youtube.com/watch?v=rb1CbqHaolM', false);
+  ('20000000-0000-0000-0000-000000000011', '10000000-0000-0000-0000-000000000003', 'Integration & Maintenance', 2, 840, 'youtube', 'https://www.youtube.com/watch?v=rb1CbqHaolM', false)
+ON CONFLICT (id) DO NOTHING;
 
 -- ============================================================
 -- Course 9: Breaking Self-Limiting Beliefs with Women
@@ -123,7 +130,7 @@ VALUES (
   0,
   '5h 30m',
   10,
-  $$Every man carries a set of invisible scripts about women — stories he tells himself before he even opens his mouth. "She's out of my league." "She'll reject me and it'll prove I'm worthless." "A woman like her only dates billionaires." These are Self-Limiting Beliefs (SLBs) and Negative Predictors (NPs), and they run your love life from the shadows. This course exposes them, traces them to their origins, dismantles the logic behind each one, and gives you a concrete system for replacing fear-based beliefs with evidence-based confidence. You'll walk away with a new operating system — one built on what's actually true, not what your fear tells you is true.$$,
+  $$Every man carries a set of invisible scripts about women, stories he tells himself before he even opens his mouth. "She's out of my league." "She'll reject me and it'll prove I'm worthless." "A woman like her only dates billionaires." These are Self-Limiting Beliefs (SLBs) and Negative Predictors (NPs), and they run your love life from the shadows. This course exposes them, traces them to their origins, dismantles the logic behind each one, and gives you a concrete system for replacing fear-based beliefs with evidence-based confidence. You'll walk away with a new operating system, one built on what's actually true, not what your fear tells you is true.$$,
   'Expose and dismantle the invisible beliefs sabotaging your confidence with women.',
   'https://images.unsplash.com/photo-1469474968028-56623f02e42e',
   true,
@@ -133,13 +140,19 @@ VALUES (
   ARRAY['Self-Limiting Beliefs', 'Negative Predictors', 'Confidence', 'Approaching Women', 'Rejection', 'Mindset', 'Dating Psychology'],
   ARRAY['Identify the specific self-limiting beliefs running your interactions with women', 'Trace each belief back to its origin so it loses its power', 'Dismantle the most common SLBs men carry about attraction and rejection', 'Build an evidence-based belief system rooted in reality, not fear', 'Create a daily practice that keeps your beliefs grounded and your confidence real'],
   true
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  description = EXCLUDED.description,
+  short_description = EXCLUDED.short_description,
+  topics = EXCLUDED.topics,
+  what_you_will_learn = EXCLUDED.what_you_will_learn;
 
 -- Chapters for Course 9
 INSERT INTO chapters (id, course_id, title, description, sort_order) VALUES
   ('10000000-0000-0000-0000-000000000009', '00000000-0000-0000-0000-000000000009', 'Understanding Self-Limiting Beliefs & Negative Predictors', 'Learn what SLBs and NPs are, where they come from, and what they cost you', 0),
   ('10000000-0000-0000-0000-000000000010', '00000000-0000-0000-0000-000000000009', 'The Most Common SLBs Decoded', 'Break down the specific beliefs that keep men stuck', 1),
-  ('10000000-0000-0000-0000-000000000011', '00000000-0000-0000-0000-000000000009', 'Replacing SLBs with Grounded Beliefs', 'Build a new operating system based on evidence, action, and maintenance', 2);
+  ('10000000-0000-0000-0000-000000000011', '00000000-0000-0000-0000-000000000009', 'Replacing SLBs with Grounded Beliefs', 'Build a new operating system based on evidence, action, and maintenance', 2)
+ON CONFLICT (id) DO NOTHING;
 
 -- ============================================================
 -- Lessons for Chapter 1: Understanding SLBs & NPs
@@ -150,7 +163,7 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
   '20000000-0000-0000-0000-000000000101',
   '10000000-0000-0000-0000-000000000009',
   'What Are SLBs and NPs?',
-  'Defines self-limiting beliefs and negative predictors, how the brain creates them, and why they feel true even when they are not.',
+  'Defines self-limiting beliefs and negative predictors, how the brain creates them, and why they feel true even when they aren''t.',
   0,
   1980,
   'youtube',
@@ -160,30 +173,30 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
 
 Welcome to the first lesson of Breaking Self-Limiting Beliefs with Women. I'm Michael Zick, and before we get into specific beliefs, we need to understand what we're dealing with.
 
-A **Self-Limiting Belief** — or SLB — is a story you tell yourself about who you are, what you're capable of, or what's possible for you, and that story keeps you from taking action. It feels like truth. It feels like realism. But it's not — it's a conclusion your brain drew from incomplete data, usually a long time ago, and it's been running on autopilot ever since.
+A **Self-Limiting Belief**, or SLB, is a story you tell yourself about who you are, what you're capable of, or what's possible for you, and that story keeps you from taking action. It feels like truth. It feels like realism. But it's not; it's a conclusion your brain drew from incomplete data, usually a long time ago, and it's been running on autopilot ever since.
 
-A **Negative Predictor** — or NP — is a specific type of SLB. It's when you predict a negative outcome before anything has happened. "If I walk over there, she's going to look at me like I have a disease." That's not a fact. That's a prediction. And your brain treats it like a fact because the emotional charge behind it is so strong.
+A **Negative Predictor**, or NP, is a specific type of SLB. It's when you predict a negative outcome before anything has happened. "If I walk over there, she's going to look at me like I have a disease." That's not a fact. That's a prediction. And your brain treats it like a fact because the emotional charge behind it is so strong.
 
-Here's what I want you to understand: **your brain is not trying to hurt you.** Your brain is trying to protect you. SLBs and NPs exist because at some point in your life — maybe when you were 8, maybe when you were 15, maybe when you were 25 — something happened that your brain logged as dangerous. You got rejected. You got laughed at. You watched your father get humiliated. You saw something on TV that told you men like you don't get women like her. And your brain said, "Okay, I'll make sure we never feel that again." So it built a wall. That wall is the SLB.
+Here's what I want you to understand: **your brain isn't trying to hurt you.** Your brain is trying to protect you. SLBs and NPs exist because at some point in your life, maybe when you were 8, maybe when you were 15, maybe when you were 25, something happened that your brain logged as dangerous. You got rejected. You got laughed at. You watched your father get humiliated. You saw something on TV that told you men like you don't get women like her. And your brain said, "Okay, I'll make sure we never feel that again." So it built a wall. That wall is the SLB.
 
-The problem is that walls built to protect a child don't serve a grown man. They don't protect you anymore — they imprison you. They keep you from approaching. They keep you from being honest about what you want. They keep you stuck in a loop of wanting connection but predicting rejection so consistently that you never even try.
+The problem is that walls built to protect a child don't serve a grown man. They don't protect you anymore; they imprison you. They keep you from approaching. They keep you from being honest about what you want. They keep you stuck in a loop of wanting connection but predicting rejection so consistently that you never even try.
 
-Here's the thing that will change everything for you: **SLBs feel true because they were once useful, not because they are accurate.** There's a massive difference between a belief that protected you at age 12 and a belief that reflects reality at age 35. Your job in this course is to learn to tell the difference.
+Here's the thing that will change everything for you: **SLBs feel true because they were once useful, not because they're accurate.** There's a massive difference between a belief that protected you at age 12 and a belief that reflects reality at age 35. Your job in this course is to learn to tell the difference.
 
 Let me give you some examples of SLBs and NPs that are specific to how men relate to women:
 
 - "She's out of my league."
 - "If I approach her, she's going to see everything I'm hiding and read me like a magazine."
-- "If she rejects me — and she will — it's going to prove how low I am on the totem pole."
+- "If she rejects me, and she will, it's going to prove how low I am on the totem pole."
 - "A woman like her only dates billionaires."
 - "She's hot, but she's probably a bitch who will shit test me endlessly."
 - "I'm not the top 1% of the top 1%. Why should I even try?"
 - "She probably wants to get married and take all my money like all women do."
 - "It would be better to not want her at all than to want her and get rejected."
 
-Sound familiar? We're going to break every single one of these down in this course. But first, you need to recognize them in yourself — because SLBs are sneaky. They don't announce themselves as beliefs. They announce themselves as facts. They sound like common sense. They sound like "just being realistic."
+Sound familiar? We're going to break every single one of these down in this course. But first, you need to recognize them in yourself, because SLBs are sneaky. They don't announce themselves as beliefs. They announce themselves as facts. They sound like common sense. They sound like "just being realistic."
 
-That's the first skill we're building: the ability to catch an SLB in real time and say, "Wait — is that a fact, or is that a story I'm telling myself?"
+That's the first skill we're building: the ability to catch an SLB in real time and say, "Wait, is that a fact, or is that a story I'm telling myself?"
 
 ---
 
@@ -193,15 +206,19 @@ That's the first skill we're building: the ability to catch an SLB in real time 
 - **NP defined:** Predicting a negative outcome before anything has happened
 - **Why they exist:** Your brain's protection mechanism from past pain
 - **Why they persist:** Emotional charge makes them feel like facts
-- **Key insight:** SLBs feel true because they were once *useful*, not because they are *accurate*
+- **Key insight:** SLBs feel true because they were once *useful*, not because they're *accurate*
 - **Common SLB examples** with women: league thinking, rejection catastrophizing, dismissive generalizations
-- **First skill:** Catch the belief in real time — is it a fact or a story?$$,
+- **First skill:** Catch the belief in real time; is it a fact or a story?$$,
   ARRAY[
-    'Write down every belief you hold about approaching or interacting with women that stops you from taking action. Don''t edit or judge — just list them all.',
+    'Write down every belief you hold about approaching or interacting with women that stops you from taking action. Don''t edit or judge; just list them all.',
     'For each belief you listed, write down when you first remember feeling this way. How old were you? What was happening?',
-    'Pick the one belief from your list that has the strongest emotional charge — the one that feels most "obviously true." Write it down and then write: "This is a story, not a fact." How does that statement land for you?'
+    'Pick the one belief from your list that has the strongest emotional charge, the one that feels most "obviously true." Write it down and then write: "This is a story, not a fact." How does that statement land for you?'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 2: Where Your SLBs Came From
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -222,53 +239,57 @@ There are four main factories that produce self-limiting beliefs about women. Le
 
 **1. Childhood Messaging**
 
-This is the biggest one. What did you learn about women, about yourself, and about your worth from your parents — especially from your mother and your father's relationship?
+This is the biggest one. What did you learn about women, about yourself, and about your worth from your parents, especially from your mother and your father's relationship?
 
-If your mother was critical, dismissive, or emotionally unpredictable, you may have learned that women are dangerous — that getting close to a woman means walking on eggshells. If your father was passive, absent, or dominated by your mother, you may have learned that men don't get to have power in relationships. If your parents' relationship was cold, transactional, or resentful, you may have learned that intimacy is a trap.
+If your mother was critical, dismissive, or emotionally unpredictable, you may have learned that women are dangerous, that getting close to a woman means walking on eggshells. If your father was passive, absent, or dominated by your mother, you may have learned that men don't get to have power in relationships. If your parents' relationship was cold, transactional, or resentful, you may have learned that intimacy is a trap.
 
 These aren't conscious lessons. Nobody sat you down and said, "Son, women will destroy you." But you watched. You absorbed. And your brain made conclusions that have been running silently in the background ever since.
 
 **2. Social Conditioning**
 
-Starting in middle school, you entered the hierarchy. You learned where you ranked. You learned who the "cool" kids were, who got the girls, and where you fell on that spectrum. If you were the nerdy kid, the overweight kid, the quiet kid, the weird kid — you internalized that ranking as permanent.
+Starting in middle school, you entered the hierarchy. You learned where you ranked. You learned who the "cool" kids were, who got the girls, and where you fell on that spectrum. If you were the nerdy kid, the overweight kid, the quiet kid, the weird kid, you internalized that ranking as permanent.
 
 The hierarchy told you: "Guys who look like X get girls who look like Y. You don't look like X, so you don't get Y." And even though you're an adult now and those hierarchies are meaningless, your nervous system still carries the ranking. You still walk into a room and unconsciously assess where you "belong."
 
 **3. Past Rejections**
 
-Every man has a rejection story. Maybe multiple. And the brain doesn't forget them — it catalogs them as evidence. "See? You tried, and look what happened." The problem is that your brain doesn't catalog the full context. It doesn't remember that you were 16 and had no social skills. It doesn't remember that the girl who rejected you was going through her own issues. It just remembers the pain and files it under: "Don't do that again."
+Every man has a rejection story. Maybe multiple. And the brain doesn't forget them; it catalogs them as evidence. "See? You tried, and look what happened." The problem is that your brain doesn't catalog the full context. It doesn't remember that you were 16 and had no social skills. It doesn't remember that the girl who rejected you was going through her own issues. It just remembers the pain and files it under: "Don't do that again."
 
 One rejection can become a life sentence if you let your brain use it as proof rather than as one data point in a much larger picture.
 
 **4. Media and Cultural Narratives**
 
-Movies, TV, social media, dating gurus, red pill content, black pill content — you've been swimming in stories about what women want, what men should be, and what the "rules" are. Most of these narratives are designed to get clicks, not to reflect reality. But they shape your beliefs anyway.
+Movies, TV, social media, dating gurus, red pill content, black pill content, you've been swimming in stories about what women want, what men should be, and what the "rules" are. Most of these narratives are designed to get clicks, not to reflect reality. But they shape your beliefs anyway.
 
-"Women only want the top 1%." "If you're not 6 feet tall with a six-figure income, it's over." "All women are hypergamous gold-diggers." These are not facts — they're content. But if you consume enough of it, your brain starts to treat it as truth.
+"Women only want the top 1%." "If you're not 6 feet tall with a six-figure income, it's over." "All women are hypergamous gold-diggers." These aren't facts; they're content. But if you consume enough of it, your brain starts to treat it as truth.
 
 Here's the exercise I want you to do: **for each SLB you identified in the last lesson, trace it back to one of these four sources.** Which factory made it? Childhood? Social conditioning? A specific rejection? Something you consumed online?
 
-When you can look at a belief and say, "I believe this because of what happened when I was 14," or "I believe this because I've been watching too many YouTube videos about female nature" — the belief starts to shrink. It goes from "the truth about reality" to "something I picked up along the way." And something you picked up can also be put down.
+When you can look at a belief and say, "I believe this because of what happened when I was 14," or "I believe this because I've been watching too many YouTube videos about female nature," the belief starts to shrink. It goes from "the truth about reality" to "something I picked up along the way." And something you picked up can also be put down.
 
 ---
 
 ## Quick-Reference Outline
 
 - **Four factories of SLBs:**
-  1. **Childhood messaging** — what you learned from watching your parents
-  2. **Social conditioning** — the hierarchies and rankings of adolescence
-  3. **Past rejections** — specific painful experiences cataloged as permanent evidence
-  4. **Media/cultural narratives** — content consumed as truth (red pill, social media, movies)
-- **Key insight:** Your brain doesn't catalog *context*, only *pain* — making old experiences feel like current truth
+  1. **Childhood messaging:** what you learned from watching your parents
+  2. **Social conditioning:** the hierarchies and rankings of adolescence
+  3. **Past rejections:** specific painful experiences cataloged as permanent evidence
+  4. **Media/cultural narratives:** content consumed as truth (red pill, social media, movies)
+- **Key insight:** Your brain doesn't catalog *context*, only *pain*, making old experiences feel like current truth
 - **The power of tracing:** When you identify the source, the belief shrinks from "truth" to "something I picked up"
 - **Exercise:** Map each SLB to its factory of origin$$,
   ARRAY[
     'Write about the earliest memory you have of feeling "not good enough" around women or girls. What happened? How old were you? What did you conclude about yourself?',
     'What did you learn about women from watching your parents'' relationship? Write at least three "lessons" you absorbed, whether they were spoken or unspoken.',
-    'Think about a specific rejection that still stings. Write the full story — then write the context your brain leaves out when it replays the memory. What were you missing about the situation at the time?',
+    'Think about a specific rejection that still stings. Write the full story, then write the context your brain leaves out when it replays the memory. What were you missing about the situation at the time?',
     'What media narratives about women and dating have you consumed heavily? How have they shaped your beliefs? Are there specific claims you''ve accepted as fact without questioning them?'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 3: The Cost of Believing Your SLBs
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -285,31 +306,31 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
 
 Alright, so you know what SLBs are, and you know where they come from. Now I need you to understand something that might be uncomfortable: **what they've already cost you.**
 
-Because here's the thing — SLBs don't just sit in your head as harmless thoughts. They make decisions for you. Every time you see a woman you're attracted to and your brain says, "Don't bother, she's out of your league," a decision just got made. You didn't make it. Your SLB made it. And you obeyed.
+Because here's the thing: SLBs don't just sit in your head as harmless thoughts. They make decisions for you. Every time you see a woman you're attracted to and your brain says, "Don't bother, she's out of your league," a decision just got made. You didn't make it. Your SLB made it. And you obeyed.
 
 Let me paint a picture of what SLBs actually cost when you add it all up over years.
 
 **Missed Connections**
 
-Think about every woman you were attracted to but never spoke to. Not because you were busy. Not because the timing was wrong. But because your SLB told you not to. That's not one or two women — for most guys, that's hundreds. Maybe thousands over a lifetime. Each one a potential conversation, a potential date, a potential relationship, a potential life-changing connection. Gone. Not because she said no, but because your belief said no on her behalf.
+Think about every woman you were attracted to but never spoke to. Not because you were busy. Not because the timing was wrong. But because your SLB told you not to. That's not one or two women; for most guys, that's hundreds. Maybe thousands over a lifetime. Each one a potential conversation, a potential date, a potential relationship, a potential life-changing connection. Gone. Not because she said no, but because your belief said no on her behalf.
 
 **Eroded Confidence**
 
-Every time you obey an SLB, you send yourself a message: "You're right to be afraid. You're right that you're not enough." And that message compounds. It's not just that you didn't talk to one woman — it's that you confirmed your own belief that you can't. Each avoided interaction makes the next one harder. Your comfort zone shrinks. Your confidence erodes. Not because anything bad happened, but because you keep telling yourself something bad would happen.
+Every time you obey an SLB, you send yourself a message: "You're right to be afraid. You're right that you're not enough." And that message compounds. It's not just that you didn't talk to one woman; it's that you confirmed your own belief that you can't. Each avoided interaction makes the next one harder. Your comfort zone shrinks. Your confidence erodes. Not because anything bad happened, but because you keep telling yourself something bad would happen.
 
 **Settled Relationships**
 
-Many men with strong SLBs don't end up alone — they end up settled. They date women they're not genuinely attracted to because those women feel "safe" — meaning the risk of rejection feels lower. They build entire relationships on the foundation of "she probably won't leave me" instead of "I genuinely want to be with her." That's not a relationship — that's a hiding spot.
+Many men with strong SLBs don't end up alone; they end up settled. They date women they're not genuinely attracted to because those women feel "safe," meaning the risk of rejection feels lower. They build entire relationships on the foundation of "she probably won't leave me" instead of "I genuinely want to be with her." That's not a relationship; that's a hiding spot.
 
 **Resentment and Bitterness**
 
-When you spend years watching other men approach women, date women, build relationships with women — and you're on the sidelines because your SLBs told you to stay there — resentment builds. You start resenting the women for not coming to you. You start resenting the men for having what you want. You start resenting yourself for being "weak." And that resentment, if left unchecked, can turn into cynicism, into misogyny, into the kind of bitterness that guarantees you'll never get what you want.
+When you spend years watching other men approach women, date women, build relationships with women, and you're on the sidelines because your SLBs told you to stay there, resentment builds. You start resenting the women for not coming to you. You start resenting the men for having what you want. You start resenting yourself for being "weak." And that resentment, if left unchecked, can turn into cynicism, into misogyny, into the kind of bitterness that guarantees you'll never get what you want.
 
 **Loss of Self-Respect**
 
-This is the deepest cost. When you consistently let fear make your decisions, you lose respect for yourself. You know you're hiding. You know you're capable of more. And that gap between who you are and who you're being eats at you. It's not about getting a woman — it's about being a man who acts on what he wants instead of hiding behind beliefs he didn't even choose.
+This is the deepest cost. When you consistently let fear make your decisions, you lose respect for yourself. You know you're hiding. You know you're capable of more. And that gap between who you are and who you're being eats at you. It's not about getting a woman; it's about being a man who acts on what he wants instead of hiding behind beliefs he didn't even choose.
 
-I'm not telling you this to make you feel bad. I'm telling you this so you understand the stakes. SLBs are not harmless little thoughts. They are thieves. They steal your time, your confidence, your connections, and your self-respect. And they do it quietly, one avoided interaction at a time.
+I'm not telling you this to make you feel bad. I'm telling you this so you understand the stakes. SLBs aren't harmless little thoughts. They are thieves. They steal your time, your confidence, your connections, and your self-respect. And they do it quietly, one avoided interaction at a time.
 
 The good news? Every belief you dismantle gives you something back. We're starting that dismantling in the next chapter.
 
@@ -317,21 +338,25 @@ The good news? Every belief you dismantle gives you something back. We're starti
 
 ## Quick-Reference Outline
 
-- **SLBs make decisions for you** — you obey them without realizing it
+- **SLBs make decisions for you;** you obey them without realizing it
 - **Five costs of SLBs:**
-  1. **Missed connections** — hundreds/thousands of conversations you never had
-  2. **Eroded confidence** — each avoidance confirms the belief and shrinks your comfort zone
-  3. **Settled relationships** — dating from safety instead of genuine desire
-  4. **Resentment and bitterness** — watching from the sidelines breeds cynicism
-  5. **Loss of self-respect** — the gap between who you are and who you're being
-- **Key insight:** SLBs don't just limit opportunity — they compound over time, stealing more with each year
+  1. **Missed connections:** hundreds/thousands of conversations you never had
+  2. **Eroded confidence:** each avoidance confirms the belief and shrinks your comfort zone
+  3. **Settled relationships:** dating from safety instead of genuine desire
+  4. **Resentment and bitterness:** watching from the sidelines breeds cynicism
+  5. **Loss of self-respect:** the gap between who you are and who you're being
+- **Key insight:** SLBs don't just limit opportunity; they compound over time, stealing more with each year
 - **Reframe:** Every belief you dismantle gives something back$$,
   ARRAY[
     'List five specific situations in the past year where an SLB stopped you from approaching or engaging with a woman you were attracted to. What did your SLB tell you in that moment?',
     'Have you ever entered or stayed in a relationship that felt "safe" rather than genuinely exciting? What SLB was operating underneath that choice?',
     'Write honestly about any resentment or bitterness you carry toward women, toward other men, or toward yourself. Where does it come from? Can you trace it to an SLB?'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- ============================================================
 -- Lessons for Chapter 2: The Most Common SLBs Decoded
@@ -342,7 +367,7 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
   '20000000-0000-0000-0000-000000000104',
   '10000000-0000-0000-0000-000000000010',
   $$"She's Out of My League"$$,
-  'Dismantles the league concept. Attraction is not a ranking system.',
+  'Dismantles the league concept. Attraction isn''t a ranking system.',
   0,
   2100,
   'youtube',
@@ -352,7 +377,7 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
 
 Let's start dismantling specific beliefs, beginning with the granddaddy of all male SLBs: **"She's out of my league."**
 
-This belief is so common that most men don't even recognize it as a belief. It feels like an observation — like saying the sky is blue. You see a beautiful woman and your brain automatically calculates: her value, your value, the gap between them, and the verdict — "Not for you."
+This belief is so common that most men don't even recognize it as a belief. It feels like an observation, like saying the sky is blue. You see a beautiful woman and your brain automatically calculates: her value, your value, the gap between them, and the verdict, "Not for you."
 
 But here's what I need you to understand: **leagues don't exist.** They are a fiction created by your brain to organize a world that feels chaotic and threatening. Your brain wants a ranking system because ranking systems are predictable. If you know your "place," you don't have to risk finding out where you actually stand.
 
@@ -362,36 +387,36 @@ Let me break down the logic behind "she's out of my league" and show you why it 
 
 The league belief assumes that people can be ranked on a linear scale from 1 to 10, and that you can only date people within a few points of your own number. This is absurd for several reasons:
 
-First, attraction is not linear — it's multidimensional. A woman might find one man attractive because of his confidence, another because of his humor, another because of the way he listens, another because of his ambition. There is no single scale.
+First, attraction isn't linear; it's multidimensional. A woman might find one man attractive because of his confidence, another because of his humor, another because of the way he listens, another because of his ambition. There is no single scale.
 
 Second, you're a terrible judge of your own "ranking." You see yourself through the lens of every insecurity, every SLB, every bad day. You're rating yourself from inside the prison of your own beliefs.
 
-Third — and this is the big one — **you have no idea what she finds attractive.** You're projecting your assumptions about what she wants onto her, and then disqualifying yourself based on your own projection. You're the judge, the jury, and the executioner in a trial where the other person hasn't even testified.
+Third, and this is the big one, **you have no idea what she finds attractive.** You're projecting your assumptions about what she wants onto her, and then disqualifying yourself based on your own projection. You're the judge, the jury, and the executioner in a trial where the other person hasn't even testified.
 
 **Why This Belief Persists**
 
-The league belief persists because it's comfortable. If she's "out of your league," you don't have to approach. You don't have to risk rejection. You don't have to face the possibility that your fear — not your league — is what's stopping you. The league belief is a permission slip to stay stuck.
+The league belief persists because it's comfortable. If she's "out of your league," you don't have to approach. You don't have to risk rejection. You don't have to face the possibility that your fear, not your league, is what's stopping you. The league belief is a permission slip to stay stuck.
 
-It also persists because of **confirmation bias.** You notice the times a beautiful woman ignores you or seems disinterested, and you file that under "proof." You ignore or dismiss the times a woman was receptive, or you rationalize it away — "She was just being nice." Your brain is a lawyer making a case for your belief, not a scientist looking for truth.
+It also persists because of **confirmation bias.** You notice the times a beautiful woman ignores you or seems disinterested, and you file that under "proof." You ignore or dismiss the times a woman was receptive, or you rationalize it away, "She was just being nice." Your brain is a lawyer making a case for your belief, not a scientist looking for truth.
 
 **The Reality**
 
 Here's what I've seen over and over in my coaching work: the men who approach "out of their league" women don't get rejected more often than anyone else. They often get better responses because the act of approaching with confidence is itself attractive. Meanwhile, the men who stay in their "lane" miss every opportunity that exists outside of it.
 
-The woman you think is "out of your league" has insecurities of her own. She has days where she doesn't feel attractive. She has past relationships where men treated her poorly. She might be desperately wishing that a genuine, confident man would just walk up and talk to her like a human being — and you're over there running math on a league system that doesn't exist.
+The woman you think is "out of your league" has insecurities of her own. She has days where she doesn't feel attractive. She has past relationships where men treated her poorly. She might be desperately wishing that a genuine, confident man would just walk up and talk to her like a human being, and you're over there running math on a league system that doesn't exist.
 
 **The Replacement Belief**
 
-Instead of "she's out of my league," try this: **"I don't know what she's looking for, and neither does she until we interact."** That's not optimistic fluff — that's reality. Attraction is discovered through interaction, not calculated in advance.
+Instead of "she's out of my league," try this: **"I don't know what she's looking for, and neither does she until we interact."** That's not optimistic fluff; that's reality. Attraction is discovered through interaction, not calculated in advance.
 
 ---
 
 ## Quick-Reference Outline
 
-- **"Leagues" are fiction** — your brain's way of creating predictable hierarchy where none exists
+- **"Leagues" are fiction;** your brain's way of creating predictable hierarchy where none exists
 - **Attraction is multidimensional**, not a 1-10 linear scale
-- **You're a bad judge of your own value** — you see yourself through insecurity, not reality
-- **You're projecting** — deciding what she wants and disqualifying yourself before she speaks
+- **You're a bad judge of your own value;** you see yourself through insecurity, not reality
+- **You're projecting;** deciding what she wants and disqualifying yourself before she speaks
 - **Why it persists:** comfort (no risk), confirmation bias (selective evidence)
 - **Reality check:** Confident approach itself is attractive; "league" women are human too
 - **Replacement belief:** "I don't know what she's looking for until we interact"$$,
@@ -400,7 +425,11 @@ Instead of "she's out of my league," try this: **"I don't know what she's lookin
     'Where did you first learn that people come in "leagues"? Can you trace this to a specific experience, social group, or media source?',
     'Write about a time when someone you didn''t expect to be interested in you showed genuine interest. What did that teach you about the "league" system?'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 5: "If I Approach Her, She'll Reject Me"
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -419,25 +448,25 @@ This is the Negative Predictor that stops more men dead in their tracks than any
 
 Sometimes it comes with embellishments: "She's going to look at me like I have a disease." "She's going to laugh." "She's going to see right through me and read everything I'm hiding like a magazine." "Everyone around us is going to watch me crash and burn."
 
-Let me be direct: **you are not predicting the future. You are writing horror fiction and then treating it as a preview of coming attractions.**
+Let me be direct: **you're not predicting the future. You're writing horror fiction and then treating it as a preview of coming attractions.**
 
 Here's how this NP actually works in your brain:
 
 **The Catastrophic Prediction Loop**
 
 Step 1: You see a woman you're attracted to.
-Step 2: Your brain scans for threats (this is automatic — it happens in milliseconds).
+Step 2: Your brain scans for threats (this is automatic; it happens in milliseconds).
 Step 3: Your brain finds the threat: possible rejection.
-Step 4: Your brain doesn't just flag the threat — it **simulates** it. It creates a vivid mental movie of the worst-case scenario. You see her face scrunching in disgust. You feel the shame. You hear the laughter.
+Step 4: Your brain doesn't just flag the threat; it **simulates** it. It creates a vivid mental movie of the worst-case scenario. You see her face scrunching in disgust. You feel the shame. You hear the laughter.
 Step 5: Your nervous system responds to the simulation as if it's real. Cortisol spikes. Heart rate increases. Palms sweat.
 Step 6: Your brain says, "See? This is going to be terrible. Don't go."
-Step 7: You don't go. And you feel a wave of relief — which your brain logs as proof that it saved you from danger.
+Step 7: You don't go. And you feel a wave of relief, which your brain logs as proof that it saved you from danger.
 
 The entire loop takes about two seconds. And at no point in that loop did reality get consulted.
 
 **Prediction vs. Reality**
 
-Here's what the research actually shows about cold approaches: most women, when approached respectfully and confidently by a man, respond neutrally to positively. That doesn't mean they all say yes to a date. It means the catastrophic scenario — the disgust, the public humiliation, the soul-destroying rejection — almost never happens.
+Here's what the research actually shows about cold approaches: most women, when approached respectfully and confidently by a man, respond neutrally to positively. That doesn't mean they all say yes to a date. It means the catastrophic scenario, the disgust, the public humiliation, the soul-destroying rejection, almost never happens.
 
 What actually happens is one of three things:
 
@@ -449,13 +478,13 @@ Notice that none of those three are the horror movie your brain plays. The worst
 
 **Why Your Brain Writes Horror Movies**
 
-Your brain doesn't care about probability — it cares about magnitude. A 2% chance of a humiliating rejection registers the same as a 90% chance because the emotional weight is enormous. Your brain isn't doing math — it's doing threat assessment. And it always overweights the worst case.
+Your brain doesn't care about probability; it cares about magnitude. A 2% chance of a humiliating rejection registers the same as a 90% chance because the emotional weight is enormous. Your brain isn't doing math; it's doing threat assessment. And it always overweights the worst case.
 
 This is the same system that kept your ancestors alive by assuming every rustle in the bushes was a predator. Great for survival. Terrible for your dating life.
 
 **The Approach That Doesn't Land**
 
-Here's something nobody tells you: even when an approach "doesn't work," nothing bad happens to you. Your status doesn't change. Your worth doesn't decrease. The people around you don't care — they're in their own heads, worried about their own SLBs. The only person who keeps score is you, and you're keeping score with a rigged system.
+Here's something nobody tells you: even when an approach "doesn't work," nothing bad happens to you. Your status doesn't change. Your worth doesn't decrease. The people around you don't care; they're in their own heads, worried about their own SLBs. The only person who keeps score is you, and you're keeping score with a rigged system.
 
 **The Replacement Belief**
 
@@ -465,19 +494,23 @@ Instead of "she's going to reject me," try this: **"I have no idea how this will
 
 ## Quick-Reference Outline
 
-- **The NP:** "If I approach her, she'll reject me" — vivid horror fiction treated as prediction
+- **The NP:** "If I approach her, she'll reject me," vivid horror fiction treated as prediction
 - **The Catastrophic Prediction Loop:** See her → brain simulates worst case → nervous system responds → you retreat → relief confirms the "danger"
 - **Three realistic outcomes:** Receptive conversation, polite decline, neutral non-event
 - **None of them match the horror movie**
-- **Why horror movies:** Brain weighs *magnitude* over *probability* — 2% catastrophe outweighs 98% normal
+- **Why horror movies:** Brain weighs *magnitude* over *probability*; 2% catastrophe outweighs 98% normal
 - **Post-approach reality:** Nothing bad actually happens. No status change. No lasting damage.
 - **Replacement belief:** "I have no idea how this will go. The only way to find out is to find out."$$,
   ARRAY[
-    'Write out the specific horror movie your brain plays when you think about approaching a woman. Be as detailed as possible — what do you see, hear, feel? Now write what has ACTUALLY happened the last 3 times you spoke to a new woman (even in non-romantic contexts).',
-    'Describe a time you predicted a social interaction would go terribly and it turned out fine — or even good. What does that tell you about the reliability of your predictions?',
+    'Write out the specific horror movie your brain plays when you think about approaching a woman. Be as detailed as possible: what do you see, hear, feel? Now write what has ACTUALLY happened the last 3 times you spoke to a new woman (even in non-romantic contexts).',
+    'Describe a time you predicted a social interaction would go terribly and it turned out fine, or even good. What does that tell you about the reliability of your predictions?',
     'What is the actual worst realistic outcome of approaching a woman who isn''t interested? Write it out plainly, without the emotional charge. How does it compare to the movie your brain plays?'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 6: "Rejection Proves I'm Worthless"
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -494,7 +527,7 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
 
 Here's the SLB that makes rejection feel life-threatening: **"If she rejects me, it proves I'm worthless."** Or its cousin: "If she rejects me, it proves how low I am on the totem pole."
 
-This is the belief that gives rejection its nuclear charge. Without this belief, rejection is a minor inconvenience — someone wasn't interested, you move on. With this belief, rejection becomes an existential threat — a public verdict on your worth as a human being.
+This is the belief that gives rejection its nuclear charge. Without this belief, rejection is a minor inconvenience; someone wasn't interested, you move on. With this belief, rejection becomes an existential threat, a public verdict on your worth as a human being.
 
 Let's take this apart.
 
@@ -504,11 +537,11 @@ This SLB is built on a logical error so fundamental that once you see it, you ca
 
 If a woman isn't interested in you, this belief says that means something about *who you are.* Not about compatibility. Not about timing. Not about her mood, her preferences, her current life situation. About YOU. About your fundamental value.
 
-This is like saying that if you apply for a job and don't get it, you're a worthless professional. Or if you cook a meal and someone doesn't like it, you're a terrible person. The outcome of a single interaction has zero authority over your identity — unless you give it that authority.
+This is like saying that if you apply for a job and don't get it, you're a worthless professional. Or if you cook a meal and someone doesn't like it, you're a terrible person. The outcome of a single interaction has zero authority over your identity, unless you give it that authority.
 
 **Why You Give It That Authority**
 
-Most men who carry this belief have a shaky foundation of self-worth. They don't have a solid, internal sense of their own value. Instead, their self-worth is *contingent* — it depends on external validation. If people approve, they feel good. If people reject, they feel worthless.
+Most men who carry this belief have a shaky foundation of self-worth. They don't have a solid, internal sense of their own value. Instead, their self-worth is *contingent*; it depends on external validation. If people approve, they feel good. If people reject, they feel worthless.
 
 This is the Nice Guy operating system in its purest form: "My worth is determined by how others respond to me." When your worth is external, every interaction becomes a performance review. And rejection becomes a failing grade.
 
@@ -522,7 +555,7 @@ When a woman isn't interested, it means one of many things:
 - She's not in a place emotionally to connect
 - She's having a bad day
 - The context wasn't right
-- You're simply not her type — the same way many women aren't yours
+- You're simply not her type, the same way many women aren't yours
 
 None of these have anything to do with your worth. Not one.
 
@@ -530,9 +563,9 @@ A man who gets rejected by a woman he just met has the exact same value as he ha
 
 **Building Identity That Doesn't Need Approval**
 
-The antidote to this SLB isn't thicker skin — it's a different foundation. You need a source of self-worth that doesn't depend on whether a specific woman wants to date you.
+The antidote to this SLB isn't thicker skin; it's a different foundation. You need a source of self-worth that doesn't depend on whether a specific woman wants to date you.
 
-That means building your identity on things you control: your integrity, your effort, your growth, your willingness to act in the face of fear. When your self-worth is rooted in how you show up — not in how people respond — rejection loses its charge. It becomes feedback. It becomes just another thing that happened.
+That means building your identity on things you control: your integrity, your effort, your growth, your willingness to act in the face of fear. When your self-worth is rooted in how you show up, not in how people respond, rejection loses its charge. It becomes feedback. It becomes just another thing that happened.
 
 We'll work on this more in Chapter 3. For now, I want you to start noticing: when you imagine being rejected, do you feel like you're losing something about yourself? That feeling is the SLB. That's the belief doing its work.
 
@@ -542,25 +575,29 @@ We'll work on this more in Chapter 3. For now, I want you to start noticing: whe
 
 - **The SLB:** Rejection = proof of worthlessness (outcome equated with identity)
 - **The logic error:** A single interaction has zero authority over your identity
-- **Why it sticks:** Contingent self-worth — value depends on external validation
+- **Why it sticks:** Contingent self-worth; value depends on external validation
 - **Nice Guy OS:** "My worth is determined by how others respond to me"
 - **What rejection actually is:** Information about compatibility, not a verdict on value
-- **Many reasons for rejection** — most have nothing to do with you
+- **Many reasons for rejection;** most have nothing to do with you
 - **The antidote:** Build identity on what you control (integrity, effort, growth, courage)
 - **Notice the feeling:** When imagining rejection, does it feel like losing part of yourself? That's the SLB.$$,
   ARRAY[
     'Write about a specific rejection that felt like it said something about your worth as a person. Now rewrite the same event as a neutral data point about compatibility. How does the story change?',
     'Where does your self-worth currently come from? List the top 5 sources. How many of them depend on other people''s responses to you?',
-    'Write a description of yourself that is based entirely on things you control — your character, your values, your effort, your growth. No external validation. How does this version of your identity feel compared to the approval-dependent version?'
+    'Write a description of yourself that is based entirely on things you control, your character, your values, your effort, your growth. No external validation. How does this version of your identity feel compared to the approval-dependent version?'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 7: Preemptive Dismissals
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
   '20000000-0000-0000-0000-000000000107',
   '10000000-0000-0000-0000-000000000010',
   'Preemptive Dismissals: The Beliefs That Reject Her Before She Can Reject You',
-  'Covers protective devaluation: deciding she is terrible before she can decide anything about you.',
+  'Covers protective devaluation: deciding she''s terrible before she can decide anything about you.',
   3,
   2400,
   'youtube',
@@ -577,7 +614,7 @@ Let me give you the lineup:
 - "She probably wants to get married and take all my money like all women do."
 - "It would be better to not want her at all than to want her and get rejected."
 
-These all sound different on the surface, but they share the same engine: **protective devaluation.** You devalue the thing you want so that not getting it doesn't hurt. It's the fox and the grapes — she's probably sour anyway, so who cares?
+These all sound different on the surface, but they share the same engine: **protective devaluation.** You devalue the thing you want so that not getting it doesn't hurt. It's the fox and the grapes; she's probably sour anyway, so who cares?
 
 **"She's Hot But Probably a Bitch"**
 
@@ -585,51 +622,55 @@ This one is classic. You see an attractive woman and immediately assign her a ne
 
 What's actually happening: your brain is threat-mitigating. If she's terrible, you don't want her. If you don't want her, you don't have to approach. If you don't approach, you can't get rejected. The entire belief exists to protect you from the vulnerability of desire.
 
-Here's the truth: you know nothing about her personality. You've assigned her a character based on her appearance — which is a form of prejudice. Beautiful women can be kind, insecure, funny, boring, generous, anxious — they're human beings with the full range of human qualities. Your assumption that she's "probably a bitch" says everything about your fear and nothing about her.
+Here's the truth: you know nothing about her personality. You've assigned her a character based on her appearance, which is a form of prejudice. Beautiful women can be kind, insecure, funny, boring, generous, anxious; they're human beings with the full range of human qualities. Your assumption that she's "probably a bitch" says everything about your fear and nothing about her.
 
 **"She Only Dates Billionaires"**
 
-This belief disqualifies you on economic grounds before any interaction takes place. It assumes that women — particularly attractive women — are vending machines where you insert money and receive affection.
+This belief disqualifies you on economic grounds before any interaction takes place. It assumes that women, particularly attractive women, are vending machines where you insert money and receive affection.
 
 The reality: some women care a lot about money. Some don't. Some care about ambition more than current income. Some care about emotional intelligence more than either. You're taking one possible preference, assigning it to all attractive women, and using it as an excuse to disengage.
 
 **"She Wants to Get Married and Take All My Money"**
 
-This is the cynicism belief. It paints all women as predators running a long con. And while there are absolutely predatory people out there — men and women — this belief generalizes one bad outcome to an entire gender.
+This is the cynicism belief. It paints all women as predators running a long con. And while there are absolutely predatory people out there, men and women, this belief generalizes one bad outcome to an entire gender.
 
-Where does it come from? Often from a painful divorce, a bitter father, a bad relationship, or an internet echo chamber where men share worst-case stories until those stories become everyone's expected reality. If this is your belief, you're not protecting yourself — you're guaranteeing isolation.
+Where does it come from? Often from a painful divorce, a bitter father, a bad relationship, or an internet echo chamber where men share worst-case stories until those stories become everyone's expected reality. If this is your belief, you're not protecting yourself; you're guaranteeing isolation.
 
 **"Better to Not Want Her Than to Want Her and Get Rejected"**
 
-This is the most honest of the Preemptive Dismissals because it names the real fear directly: wanting something and not getting it. This belief says that desire itself is dangerous — that the safest position is to not want.
+This is the most honest of the Preemptive Dismissals because it names the real fear directly: wanting something and not getting it. This belief says that desire itself is dangerous, that the safest position is to not want.
 
-This is not strength. This is emotional shutdown. You're not transcending desire — you're hiding from it. And the cost is enormous: a life where you train yourself not to want the connection you actually crave.
+This isn't strength. This is emotional shutdown. You're not transcending desire; you're hiding from it. And the cost is enormous: a life where you train yourself not to want the connection you actually crave.
 
 **The Common Thread**
 
-All Preemptive Dismissals work the same way: they let you off the hook by making *her* the problem. She's a bitch. She's a gold digger. She's a predator. She's not worth wanting. None of these are about her — they're about your fear of vulnerability.
+All Preemptive Dismissals work the same way: they let you off the hook by making *her* the problem. She's a bitch. She's a gold digger. She's a predator. She's not worth wanting. None of these are about her; they're about your fear of vulnerability.
 
-The replacement for all of them is the same: **"I don't know anything about her yet, and I'm willing to find out."** That's what confidence looks like — not the absence of fear, but the willingness to engage despite not knowing the outcome.
+The replacement for all of them is the same: **"I don't know anything about her yet, and I'm willing to find out."** That's what confidence looks like, not the absence of fear, but the willingness to engage despite not knowing the outcome.
 
 ---
 
 ## Quick-Reference Outline
 
 - **Preemptive Dismissals:** Beliefs that reject her before she can reject you
-- **Engine: Protective devaluation** — devalue what you want so not getting it doesn't hurt
-- **"She's probably a bitch"** — assigning negative personality to avoid vulnerability of desire
-- **"She only dates billionaires"** — disqualifying on economic grounds; women-as-vending-machine assumption
-- **"She wants my money"** — cynicism generalized from pain, divorce, or internet echo chambers
-- **"Better to not want her"** — emotional shutdown disguised as wisdom; hiding from desire
+- **Engine: Protective devaluation;** devalue what you want so not getting it doesn't hurt
+- **"She's probably a bitch";** assigning negative personality to avoid vulnerability of desire
+- **"She only dates billionaires";** disqualifying on economic grounds; women-as-vending-machine assumption
+- **"She wants my money";** cynicism generalized from pain, divorce, or internet echo chambers
+- **"Better to not want her";** emotional shutdown disguised as wisdom; hiding from desire
 - **Common thread:** All make HER the problem to avoid facing YOUR fear
 - **Replacement belief:** "I don't know anything about her yet, and I'm willing to find out."$$,
   ARRAY[
     'Which Preemptive Dismissal do you use most often? Write about the last time you used it. What were you actually afraid of underneath it?',
     'Have you ever dismissed a woman preemptively and then found out later she was completely different from what you assumed? What did that experience teach you?',
     'Write honestly: are there ways you''ve trained yourself not to want connection to avoid the risk of rejection? What has that cost you?',
-    'If you carry the "she wants my money" or "all women are predators" belief — where specifically did it come from? A personal experience? Someone else''s story? Online content? Write the origin story.'
+    'If you carry the "she wants my money" or "all women are predators" belief, where specifically did it come from? A personal experience? Someone else''s story? Online content? Write the origin story.'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- ============================================================
 -- Lessons for Chapter 3: Replacing SLBs with Grounded Beliefs
@@ -656,9 +697,9 @@ So we're not doing affirmations. We're doing something that actually works: **bu
 
 **What Is an Evidence-Based Belief?**
 
-An evidence-based belief is a conclusion drawn from actual experiences — things that have happened to you, not things you're afraid might happen. It's built the same way a scientist builds a theory: through observation, experimentation, and data collection.
+An evidence-based belief is a conclusion drawn from actual experiences, things that have happened to you, not things you're afraid might happen. It's built the same way a scientist builds a theory: through observation, experimentation, and data collection.
 
-Right now, your SLBs are based on *biased* evidence. Your brain selectively remembers rejections, ignores positive signals, and reinforces the narrative that matches the belief. An evidence-based belief is built on *complete* evidence — including the data your brain has been filtering out.
+Right now, your SLBs are based on *biased* evidence. Your brain selectively remembers rejections, ignores positive signals, and reinforces the narrative that matches the belief. An evidence-based belief is built on *complete* evidence, including the data your brain has been filtering out.
 
 **The Evidence Journal Method**
 
@@ -668,13 +709,13 @@ Here's the practice. It's simple, but it's powerful:
 Write down the specific belief. Example: "Attractive women don't want to talk to me."
 
 **Step 2: Look for counter-evidence.**
-Actively search your memory for experiences that contradict this belief. Has an attractive woman ever been friendly to you? Has one ever laughed at your joke? Has one ever made eye contact and smiled? Has one ever given you a compliment? These moments exist — your brain just doesn't file them as evidence because they don't match the story.
+Actively search your memory for experiences that contradict this belief. Has an attractive woman ever been friendly to you? Has one ever laughed at your joke? Has one ever made eye contact and smiled? Has one ever given you a compliment? These moments exist; your brain just doesn't file them as evidence because they don't match the story.
 
 **Step 3: Start collecting new evidence.**
-This is where the action comes in. Begin having small interactions — not just with women you're attracted to, but with everyone. Cashiers. Baristas. Coworkers. Neighbors. The purpose is to collect real data about how people actually respond to you when you show up with openness and confidence.
+This is where the action comes in. Begin having small interactions, not just with women you're attracted to, but with everyone. Cashiers. Baristas. Coworkers. Neighbors. The purpose is to collect real data about how people actually respond to you when you show up with openness and confidence.
 
 **Step 4: Log the evidence.**
-Write it down. Every positive or neutral interaction gets logged. Over time, this journal becomes a counter-narrative — a body of proof that your SLB is wrong. Not because you've decided it's wrong, but because the evidence says so.
+Write it down. Every positive or neutral interaction gets logged. Over time, this journal becomes a counter-narrative, a body of proof that your SLB is wrong. Not because you've decided it's wrong, but because the evidence says so.
 
 **Why This Works**
 
@@ -684,7 +725,7 @@ The key is consistency. One good interaction doesn't override 20 years of belief
 
 **The Replacement Process**
 
-As evidence accumulates, you'll notice your SLBs start to weaken on their own. You won't need to argue with them — they'll just start to feel less true. That's because beliefs aren't intellectual positions — they're emotional habits. And emotional habits change when new experiences repeatedly contradict them.
+As evidence accumulates, you'll notice your SLBs start to weaken on their own. You won't need to argue with them; they'll just start to feel less true. That's because beliefs aren't intellectual positions; they're emotional habits. And emotional habits change when new experiences repeatedly contradict them.
 
 Your SLB: "She's out of my league."
 Your evidence: "I've had 30 positive interactions this month with women I find attractive."
@@ -694,22 +735,26 @@ The SLB can't survive that data.
 
 ## Quick-Reference Outline
 
-- **Not affirmations** — brain doesn't believe words that contradict experience
+- **Not affirmations;** brain doesn't believe words that contradict experience
 - **Evidence-based beliefs:** Conclusions drawn from actual experience, not fear
 - **The Evidence Journal Method:**
   1. Name the specific SLB
-  2. Search memory for counter-evidence (it exists — brain filters it out)
+  2. Search memory for counter-evidence (it exists; brain filters it out)
   3. Collect new evidence through daily small interactions
   4. Log every positive/neutral interaction
 - **Why it works:** Brain trusts experience over argument
 - **Consistency is key:** 100 logged experiences over 3 months = new operating system
-- **Beliefs are emotional habits** — they change when new experiences contradict them repeatedly$$,
+- **Beliefs are emotional habits;** they change when new experiences contradict them repeatedly$$,
   ARRAY[
-    'Pick your top 3 SLBs from this course. For each one, write at least 3 counter-examples from your own life that contradict the belief. They can be small moments — they count.',
+    'Pick your top 3 SLBs from this course. For each one, write at least 3 counter-examples from your own life that contradict the belief. They can be small moments; they count.',
     'Start your Evidence Journal today. Set up a simple format: Date, Interaction, What Happened, What This Tells Me. Log your first 3 entries this week.',
     'What would your belief about women look like if it were based ONLY on your actual positive experiences? Write that belief out as a statement.'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 9: Acting Before the Belief Changes
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -724,21 +769,21 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
   false,
   $$## Full Script
 
-Here's where most men get stuck: they understand their SLBs, they see the logic, they even agree that the beliefs are wrong — but they wait to *feel* different before they *act* different. They think, "Once I really believe I'm enough, I'll start approaching." "Once my confidence is solid, I'll put myself out there."
+Here's where most men get stuck: they understand their SLBs, they see the logic, they even agree that the beliefs are wrong, but they wait to *feel* different before they *act* different. They think, "Once I really believe I'm enough, I'll start approaching." "Once my confidence is solid, I'll put myself out there."
 
 That's backwards. And it will keep you stuck forever.
 
 **The Action-First Principle**
 
-Here's the truth that changes everything: **you do not wait until you believe differently to act differently. You act differently, and the belief changes as a result.**
+Here's the truth that changes everything: **you don't wait until you believe differently to act differently. You act differently, and the belief changes as a result.**
 
-Confidence doesn't come before action — it comes from action. You don't become confident and then approach women. You approach women and become confident through the experience. The evidence journal from the last lesson? It gets filled by action, not by sitting in your room thinking positive thoughts.
+Confidence doesn't come before action; it comes from action. You don't become confident and then approach women. You approach women and become confident through the experience. The evidence journal from the last lesson? It gets filled by action, not by sitting in your room thinking positive thoughts.
 
-This is not my opinion. This is how human psychology actually works. The therapeutic model called **Behavioral Activation** is built on this principle: change behavior first, and cognition follows. You've been trying to think your way into new behavior. The path is to behave your way into new thinking.
+This isn't my opinion. This is how human psychology actually works. The therapeutic model called **Behavioral Activation** is built on this principle: change behavior first, and cognition follows. You've been trying to think your way into new behavior. The path is to behave your way into new thinking.
 
 **Structured Exposure: The Practice**
 
-I'm not asking you to go cold-approach 50 women this weekend. That's not structured exposure — that's flooding, and it usually backfires. Instead, we're going to build a graduated exposure ladder:
+I'm not asking you to go cold-approach 50 women this weekend. That's not structured exposure; that's flooding, and it usually backfires. Instead, we're going to build a graduated exposure ladder:
 
 **Level 1: Micro-Interactions (Week 1-2)**
 - Make eye contact with 3 strangers per day and hold it for 2 seconds
@@ -748,23 +793,23 @@ I'm not asking you to go cold-approach 50 women this weekend. That's not structu
 **Level 2: Conversations (Week 3-4)**
 - Have a 2-minute conversation with someone new each day
 - Give one genuine compliment per day to a stranger
-- Ask follow-up questions — show curiosity about someone's answer instead of just exchanging pleasantries
+- Ask follow-up questions; show curiosity about someone's answer instead of just exchanging pleasantries
 
 **Level 3: Intentional Interactions (Week 5-6)**
 - Start conversations specifically with women you find attractive
 - Keep it simple: observe something about the situation, make a comment, see if it develops
-- If it goes well, say, "I'd love to keep talking — can I get your number?"
+- If it goes well, say, "I'd love to keep talking. Can I get your number?"
 - If it doesn't go well, notice that you're still alive and nothing bad happened
 
 **The Discomfort Is the Point**
 
-Every level will feel uncomfortable. Good. The discomfort is not a sign that you're doing it wrong — it's a sign that you're pushing against the SLB's boundary. Your SLB wants you to stay comfortable. Comfort is the prison. Discomfort is the exit.
+Every level will feel uncomfortable. Good. The discomfort isn't a sign that you're doing it wrong; it's a sign that you're pushing against the SLB's boundary. Your SLB wants you to stay comfortable. Comfort is the prison. Discomfort is the exit.
 
-Here's what you'll notice: the first time you do each level, it's terrifying. The third time, it's nerve-wracking. The tenth time, it's just a thing you do. The fiftieth time, you wonder what you were ever afraid of. That's the SLB dying — not from argument, but from repeated exposure.
+Here's what you'll notice: the first time you do each level, it's terrifying. The third time, it's nerve-wracking. The tenth time, it's just a thing you do. The fiftieth time, you wonder what you were ever afraid of. That's the SLB dying, not from argument, but from repeated exposure.
 
 **What If You "Fail"?**
 
-There is no failure in this practice. If you approach a woman and she's not interested — congratulations, you just proved that rejection doesn't kill you. That's evidence. If you try to make eye contact and look away too fast — fine, try again tomorrow. If you chicken out entirely — notice that, write about it in your journal, and try again. The only failure is stopping.
+There is no failure in this practice. If you approach a woman and she's not interested, congratulations, you just proved that rejection doesn't kill you. That's evidence. If you try to make eye contact and look away too fast, fine, try again tomorrow. If you chicken out entirely, notice that, write about it in your journal, and try again. The only failure is stopping.
 
 **The Compound Effect**
 
@@ -776,21 +821,25 @@ You're not trying to become a "pickup artist." You're trying to become a man who
 
 ## Quick-Reference Outline
 
-- **Action-first principle:** Don't wait to feel confident — act, and confidence follows
+- **Action-first principle:** Don't wait to feel confident; act, and confidence follows
 - **Behavioral Activation model:** Change behavior first, cognition follows
 - **Structured exposure ladder:**
   - Level 1 (Weeks 1-2): Eye contact, greetings, micro-questions
   - Level 2 (Weeks 3-4): 2-min conversations, compliments, curiosity
   - Level 3 (Weeks 5-6): Intentional conversations with women you're attracted to
-- **Discomfort is the exit**, not the enemy — it means you're pushing the SLB boundary
+- **Discomfort is the exit**, not the enemy; it means you're pushing the SLB boundary
 - **No failure:** Every outcome is data. Only stopping is failure.
 - **Compound effect:** Courage builds on courage over weeks and months$$,
   ARRAY[
     'Where are you on the exposure ladder right now? Be honest. Write down 3 specific actions from the appropriate level that you will take THIS WEEK.',
-    'Write about a time you waited to feel ready before acting — and the readiness never came. What would have happened if you had just acted anyway?',
+    'Write about a time you waited to feel ready before acting, and the readiness never came. What would have happened if you had just acted anyway?',
     'After completing your first week of structured exposure, write about what actually happened vs. what you predicted would happen. Where was your brain wrong?'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 10: Maintaining Your New Operating System
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -805,7 +854,7 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
   false,
   $$## Full Script
 
-Welcome to the final lesson. If you've done the work in this course — identified your SLBs, traced their origins, counted their costs, dismantled their logic, started building evidence-based beliefs, and begun taking action — you're in a fundamentally different place than when you started.
+Welcome to the final lesson. If you've done the work in this course, identified your SLBs, traced their origins, counted their costs, dismantled their logic, started building evidence-based beliefs, and begun taking action, you're in a fundamentally different place than when you started.
 
 But I need to be honest with you: **SLBs don't die once and stay dead.** They come back. Especially under stress, fatigue, loneliness, or after a painful experience. A bad rejection after months of progress can trigger old beliefs like someone flipped a switch. And if you're not prepared for that, you'll think, "I knew it. The old beliefs were right all along."
 
@@ -815,12 +864,12 @@ They're not right. They're just loud. And this lesson is about keeping the volum
 
 Here's how relapse typically works:
 
-1. **Trigger:** Something happens that echoes the old pain — a rejection, a breakup, a period of loneliness, seeing your ex with someone new, comparing yourself to other men on social media.
+1. **Trigger:** Something happens that echoes the old pain, a rejection, a breakup, a period of loneliness, seeing your ex with someone new, comparing yourself to other men on social media.
 2. **Old belief activates:** The SLB wakes up and says, "See? I told you."
-3. **Emotional flood:** You feel the old feelings — worthlessness, hopelessness, the urge to withdraw.
+3. **Emotional flood:** You feel the old feelings, worthlessness, hopelessness, the urge to withdraw.
 4. **Choice point:** This is where it matters. You either recognize what's happening and respond with your new tools, or you collapse back into the old operating system.
 
-The difference between men who maintain their progress and men who relapse is not that one group never gets triggered. **Everyone gets triggered.** The difference is what you do at the choice point.
+The difference between men who maintain their progress and men who relapse isn't that one group never gets triggered. **Everyone gets triggered.** The difference is what you do at the choice point.
 
 **Tool 1: The SLB Inventory Check-In**
 
@@ -831,11 +880,11 @@ Once a week, sit down for 10 minutes and do an inventory:
 - Did I obey them, or did I act despite them?
 - What evidence from this week contradicts them?
 
-This isn't journaling for the sake of journaling — it's surveillance on your own mind. You're watching for the old beliefs like a security guard watches for intruders. The moment you name an SLB, it loses half its power. The moment you name it and act anyway, it loses the other half.
+This isn't journaling for the sake of journaling; it's surveillance on your own mind. You're watching for the old beliefs like a security guard watches for intruders. The moment you name an SLB, it loses half its power. The moment you name it and act anyway, it loses the other half.
 
 **Tool 2: The Evidence Journal (Ongoing)**
 
-Don't stop logging. The evidence journal from Lesson 8 isn't a one-time exercise — it's a permanent practice. Every week, add new entries. Over months, your journal becomes an overwhelming body of proof that your SLBs are wrong. When old beliefs come back, you open the journal and let the evidence speak.
+Don't stop logging. The evidence journal from Lesson 8 isn't a one-time exercise; it's a permanent practice. Every week, add new entries. Over months, your journal becomes an overwhelming body of proof that your SLBs are wrong. When old beliefs come back, you open the journal and let the evidence speak.
 
 **Tool 3: The Post-Trigger Protocol**
 
@@ -847,13 +896,13 @@ When you get triggered and feel the old beliefs surging back, use this three-ste
 
 **Tool 4: Community and Accountability**
 
-SLBs thrive in isolation. When you're alone with your thoughts, the old beliefs have the loudest voice. That's why having other men in your life who are doing this work is crucial. Whether it's a coaching group, a trusted friend, or a men's group — have someone you can call when the old beliefs come back. Say it out loud: "I'm having the 'I'm not enough' thought again." Speaking an SLB out loud to another man is one of the fastest ways to deflate it.
+SLBs thrive in isolation. When you're alone with your thoughts, the old beliefs have the loudest voice. That's why having other men in your life who are doing this work is crucial. Whether it's a coaching group, a trusted friend, or a men's group, have someone you can call when the old beliefs come back. Say it out loud: "I'm having the 'I'm not enough' thought again." Speaking an SLB out loud to another man is one of the fastest ways to deflate it.
 
 **The Long Game**
 
 I want to set realistic expectations. After this course, you'll have good weeks and bad weeks. You'll have stretches where the SLBs are quiet and stretches where they're screaming. That's normal. That's the process.
 
-What changes is not the presence of the beliefs — it's your relationship to them. Over time, they go from being the voice of truth to being background noise. They go from being your operating system to being a legacy program that occasionally tries to run. You notice it, you dismiss it, you act anyway.
+What changes isn't the presence of the beliefs; it's your relationship to them. Over time, they go from being the voice of truth to being background noise. They go from being your operating system to being a legacy program that occasionally tries to run. You notice it, you dismiss it, you act anyway.
 
 That's freedom. Not the absence of old beliefs, but the ability to act in spite of them. You've built the tools. Now it's about showing up, every day, and using them.
 
@@ -861,21 +910,25 @@ That's freedom. Not the absence of old beliefs, but the ability to act in spite 
 
 ## Quick-Reference Outline
 
-- **SLBs come back** — especially under stress, rejection, loneliness, or comparison
+- **SLBs come back,** especially under stress, rejection, loneliness, or comparison
 - **The relapse pattern:** Trigger → old belief activates → emotional flood → choice point
 - **Four maintenance tools:**
   1. **Weekly SLB Inventory:** Name what showed up, what triggered it, how you responded
-  2. **Ongoing Evidence Journal:** Keep logging — it becomes your permanent counter-narrative
+  2. **Ongoing Evidence Journal:** Keep logging; it becomes your permanent counter-narrative
   3. **Post-Trigger Protocol:** Name it → Ground it (evidence journal) → Act within 24 hours
   4. **Community/Accountability:** SLBs thrive in isolation; speak them to other men
-- **Realistic expectations:** Good weeks and bad weeks are normal — the relationship to beliefs changes, not the beliefs themselves
+- **Realistic expectations:** Good weeks and bad weeks are normal; the relationship to beliefs changes, not the beliefs themselves
 - **Freedom:** Not the absence of SLBs, but the ability to act in spite of them$$,
 ARRAY[
     'Create your personal SLB Maintenance Plan: When will you do your weekly inventory? Where will you keep your evidence journal? Who is your accountability contact? Write this out as a concrete, scheduled commitment.',
     'Write a letter to your future self for the day when the old beliefs come roaring back. What do you want to remember? What evidence should you revisit? What would you tell yourself in that moment?',
     'Looking back over this entire course, what is the single most important thing you''ve learned about yourself and your beliefs? How will you carry that forward?'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- ============================================================
 -- Course 10: How to Speak Womanese
@@ -895,7 +948,7 @@ VALUES (
   0,
   '8h 30m',
   15,
-  $$Do you ever feel like you and women are speaking two entirely different languages? That's because you are. "Womanese" doesn't run on pure logic; it runs on emotional subcommunication and safety testing. In this course, we decode the specific phrases men misunderstand—like "I'm fine," "You always," and "Whatever"—and show you how to respond calmly instead of getting triggered. We also break down exactly why women use "shit tests" and how they "poke the bear" when they actually want you to lead and initiate intimacy. Then we go deeper: you will learn the neuroscience of conflict, proven de-escalation techniques, and how to break the Nice Guy enmeshment pattern that silently sabotages attraction, increases testing, and creates the very conflict you are trying to avoid.$$,
+  $$Do you ever feel like you and women are speaking two entirely different languages? That's because you are. "Womanese" doesn't run on pure logic; it runs on emotional subcommunication and safety testing. In this course, we decode the specific phrases men misunderstand, like "I'm fine," "You always," and "Whatever," and show you how to respond calmly instead of getting triggered. We also break down exactly why women use "shit tests" and how they "poke the bear" when they actually want you to lead and initiate intimacy. Then we go deeper: you will learn the neuroscience of conflict, proven de-escalation techniques, and how to break the Nice Guy enmeshment pattern that silently sabotages attraction, increases testing, and creates the very conflict you're trying to avoid.$$,
   'Decode subcommunication, testing dynamics, intimacy cues, conflict de-escalation, and differentiation while staying calm and grounded.',
   'https://images.unsplash.com/photo-1469474968028-56623f02e42e',
   true,
@@ -905,7 +958,12 @@ VALUES (
   ARRAY['Communication', 'Relationship Skills', 'Dating Dynamics', 'Shit Tests', 'Emotional Regulation', 'Masculine Leadership', 'Intimacy', 'Conflict De-escalation', 'Differentiation', 'Nervous System Regulation'],
   ARRAY['Translate emotionally loaded phrases without arguing the facts', 'Identify compliance, congruence, and fitness tests in real time', 'Stay calm and grounded under pressure instead of getting reactive', 'Distinguish friction from flirtation without forcing the moment', 'Lead clearly while respecting reciprocity and consent', 'De-escalate conflict using physiological regulation and repair techniques', 'Break the enmeshment pattern and build differentiated, lasting attraction'],
   true
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  description = EXCLUDED.description,
+  short_description = EXCLUDED.short_description,
+  topics = EXCLUDED.topics,
+  what_you_will_learn = EXCLUDED.what_you_will_learn;
 
 -- Chapters for Course 10
 INSERT INTO chapters (id, course_id, title, description, sort_order) VALUES
@@ -913,7 +971,8 @@ INSERT INTO chapters (id, course_id, title, description, sort_order) VALUES
   ('10000000-0000-0000-0000-000000000013', '00000000-0000-0000-0000-000000000010', 'Understanding Shit Tests', 'Understand why testing happens and how to stay composed through compliance, congruence, and fitness tests.', 1),
   ('10000000-0000-0000-0000-000000000014', '00000000-0000-0000-0000-000000000010', 'Poking the Bear', 'Differentiate friction from flirtation and lead with calm, consent-centered escalation when interest is reciprocal.', 2),
   ('10000000-0000-0000-0000-000000000015', '00000000-0000-0000-0000-000000000010', 'De-escalating Conflict', 'Understand the neuroscience behind emotional reactivity and learn proven techniques for calming heated moments before they become relationship damage.', 3),
-  ('10000000-0000-0000-0000-000000000016', '00000000-0000-0000-0000-000000000010', 'Differentiation Over Enmeshment', 'Break the Nice Guy pattern of merging with a woman for safety and learn how healthy separateness creates stronger attraction, less conflict, and longer-lasting relationships.', 4);
+  ('10000000-0000-0000-0000-000000000016', '00000000-0000-0000-0000-000000000010', 'Differentiation Over Enmeshment', 'Break the Nice Guy pattern of merging with a woman for safety and learn how healthy separateness creates stronger attraction, less conflict, and longer-lasting relationships.', 4)
+ON CONFLICT (id) DO NOTHING;
 
 -- ============================================================
 -- Lessons for Chapter 1: Decoding the Negative
@@ -932,33 +991,33 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
   true,
   $$## Full Script
 
-Welcome to How to Speak Womanese. We are starting with one of the oldest phrases in the book: "I'm fine." Closely related to it is "Nothing's wrong." Every man has heard one of those lines while looking at a face, a tone, and a body that clearly said the opposite.
+Welcome to How to Speak Womanese. We're starting with one of the oldest phrases in the book: "I'm fine." Closely related to it is "Nothing's wrong." Every man has heard one of those lines while looking at a face, a tone, and a body that clearly said the opposite.
 
-Here is the first principle: **when the words and the emotional signal conflict, do not answer the words only.** If you respond to "I'm fine" as if nothing is happening, you will miss the actual conversation. The actual conversation is not about the sentence. It is about the emotional state underneath the sentence.
+Here's the first principle: **when the words and the emotional signal conflict, don't answer the words only.** If you respond to "I'm fine" as if nothing is happening, you will miss the actual conversation. The actual conversation isn't about the sentence. It's about the emotional state underneath the sentence.
 
-Most women do not say "I'm fine" because they love being confusing. They say it because they are activated and not yet organized. They feel hurt, disappointed, anxious, or disconnected, but they do not yet want to hand you the clean, vulnerable truth. Sometimes they are checking whether you can feel the shift without being spoon-fed. Sometimes they are buying time because they do not yet trust that honesty will be handled well. Sometimes they are hoping you care enough to stay present, but not so needy that you collapse into panic.
+Most women don't say "I'm fine" because they love being confusing. They say it because they're activated and not yet organized. They feel hurt, disappointed, anxious, or disconnected, but they don't yet want to hand you the clean, vulnerable truth. Sometimes they're checking whether you can feel the shift without being spoon-fed. Sometimes they're buying time because they don't yet trust that honesty will be handled well. Sometimes they're hoping you care enough to stay present, but not so needy that you collapse into panic.
 
-That is why the two most common male mistakes both fail.
+That's why the two most common male mistakes both fail.
 
-**Mistake one is picking a fight.** You hear "I'm fine," you know it is false, and you come in hot. "No you're not. Just say what you mean." Now she feels both upset and pressured. Your need to get clarity immediately becomes the dominant energy in the room. That kills safety.
+**Mistake one is picking a fight.** You hear "I'm fine," you know it's false, and you come in hot. "No you're not. Just say what you mean." Now she feels both upset and pressured. Your need to get clarity immediately becomes the dominant energy in the room. That kills safety.
 
 **Mistake two is disappearing.** You take the words literally, back off completely, and act like you see nothing. Sometimes that looks like passive withdrawal. Sometimes it looks like punishing distance: "Fine, if you don't want to talk, whatever." Now she feels alone with the emotion and unsupported by the man in front of her.
 
-Grounded masculine presence sits between those two extremes. You do not attack. You do not abandon. You stay.
+Grounded masculine presence sits between those two extremes. You don't attack. You don't abandon. You stay.
 
 What does that sound like in real life?
 
 - "You seem off. I'm here."
 - "I can feel something changed. Let's not do the pretend nothing thing."
-- "Okay, maybe you are not ready to talk yet, but something is bothering you. When you are ready, I'm here."
+- "Okay, maybe you're not ready to talk yet, but something is bothering you. When you're ready, I'm here."
 
-Notice what is happening in those responses. You are naming reality without escalating it. You are not pretending the shift is not there. You are also not demanding instant emotional labor from her. That is leadership.
+Notice what's happening in those responses. You're naming reality without escalating it. You're not pretending the shift isn't there. You're also not demanding instant emotional labor from her. That's leadership.
 
-Now, leadership here does not mean chasing. If she truly wants a little space, honor that. But do it in a way that keeps the bridge intact. "Take ten minutes. We'll come back to it." That is very different from storming off or going cold. The difference is intention. One creates re-entry. The other creates distance.
+Now, leadership here doesn't mean chasing. If she truly wants a little space, honor that. But do it in a way that keeps the bridge intact. "Take ten minutes. We'll come back to it." That's very different from storming off or going cold. The difference is intention. One creates re-entry. The other creates distance.
 
-The reason this matters so much is that women often experience connection through emotional attunement. If she has to flatten the truth, tidy the feeling, and present it in perfect logic before you can handle it, she will not feel led. She will feel like she has to manage your nervous system before she can share her own.
+The reason this matters so much is that women often experience connection through emotional attunement. If she has to flatten the truth, tidy the feeling, and present it in perfect logic before you can handle it, she won't feel led. She'll feel like she has to manage your nervous system before she can share her own.
 
-That does not mean you reward passive-aggressive behavior. It means you translate the signal correctly. The translation is not "She is irrational." The translation is "She is activated, she does not yet have the clean language for it, and she needs steadiness more than argument."
+That doesn't mean you reward passive-aggressive behavior. It means you translate the signal correctly. The translation isn't "She's irrational." The translation is "She's activated, she doesn't yet have the clean language for it, and she needs steadiness more than argument."
 
 Your job is simple:
 
@@ -968,7 +1027,7 @@ Your job is simple:
 4. Offer an opening.
 5. Stay self-respecting if she needs a beat before she talks.
 
-If you can do that, a lot of tension dissolves before it becomes conflict. Instead of getting hooked by the phrase, you respond to the person. That is the first step in learning Womanese.
+If you can do that, a lot of tension dissolves before it becomes conflict. Instead of getting hooked by the phrase, you respond to the person. That's the first step in learning Womanese.
 
 ---
 
@@ -986,7 +1045,11 @@ If you can do that, a lot of tension dissolves before it becomes conflict. Inste
     'Create two grounded response lines you can use the next time you feel emotional incongruence instead of taking the words literally.',
     'What happens inside your body when someone is upset with you? Describe the urge you feel most strongly: fix, defend, disappear, or pressure.'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 2: The Language of Extremes
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -1003,39 +1066,39 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
 
 Let's talk about another phrase that drives men crazy: "You always..." and "You never..."
 
-She says, "You never listen to me." Your brain instantly pulls up evidence. "That is not true. I listened yesterday. I listened last week. I literally asked you three questions this morning." Now you are in court, building a case, while she is in an emotional experience trying to communicate impact.
+She says, "You never listen to me." Your brain instantly pulls up evidence. "That's not true. I listened yesterday. I listened last week. I literally asked you three questions this morning." Now you're in court, building a case, while she's in an emotional experience trying to communicate impact.
 
 This is why arguing the facts almost always makes things worse.
 
-When a woman uses extreme language, she is usually not giving you a spreadsheet. She is describing the weight of a pattern as she feels it in that moment. Emotional language compresses. It uses intensity to communicate experience. "Always" often means "often enough that I feel it." "Never" often means "not in the way I need right now."
+When a woman uses extreme language, she's usually not giving you a spreadsheet. She's describing the weight of a pattern as she feels it in that moment. Emotional language compresses. It uses intensity to communicate experience. "Always" often means "often enough that I feel it." "Never" often means "not in the way I need right now."
 
-That does not make the language technically accurate. It makes it emotionally meaningful.
+That doesn't make the language technically accurate. It makes it emotionally meaningful.
 
-Men get trapped here because we think precision is the highest good in the moment. It is not. **Connection is the higher priority before precision.** If she feels missed and you respond like a defense attorney, she will only increase the charge. Why? Because she now has two problems: the original hurt and the fact that you are defending yourself instead of understanding her.
+Men get trapped here because we think precision is the highest good in the moment. It's not. **Connection is the higher priority before precision.** If she feels missed and you respond like a defense attorney, she'll only increase the charge. Why? Because she now has two problems: the original hurt and the fact that you're defending yourself instead of understanding her.
 
 Here is the translation.
 
-- "You always make everything about work" often means, "I do not feel prioritized."
-- "You never listen" often means, "I do not feel felt."
+- "You always make everything about work" often means, "I don't feel prioritized."
+- "You never listen" often means, "I don't feel felt."
 - "You always shut down" often means, "I feel alone when conflict shows up."
 
-Once you hear the actual message, your response changes. Instead of saying, "That is not true," you can say:
+Once you hear the actual message, your response changes. Instead of saying, "That's not true," you can say:
 
-- "Okay, you are feeling deprioritized. Tell me where it landed that way."
-- "I hear that you are feeling unheard. Slow it down and show me what I missed."
-- "You are saying you feel alone when tension comes up. I want to understand that."
+- "Okay, you're feeling deprioritized. Tell me where it landed that way."
+- "I hear that you're feeling unheard. Slow it down and show me what I missed."
+- "You're saying you feel alone when tension comes up. I want to understand that."
 
-Notice what you are not doing. You are not agreeing with the literal exaggeration. You are also not getting hypnotized by it. You are translating it into the underlying emotional complaint.
+Notice what you're not doing. You're not agreeing with the literal exaggeration. You're also not getting hypnotized by it. You're translating it into the underlying emotional complaint.
 
-Now, there is nuance here. Sometimes the extreme language is unfair. Sometimes it is sloppy. Sometimes it is genuinely disrespectful. But if you try to correct the language before you address the feeling, you will rarely get anywhere productive. Lead with understanding, then come back to accuracy if needed.
+Now, there's nuance here. Sometimes the extreme language is unfair. Sometimes it's sloppy. Sometimes it's genuinely disrespectful. But if you try to correct the language before you address the feeling, you'll rarely get anywhere productive. Lead with understanding, then come back to accuracy if needed.
 
-That might sound like this: "I get that you feel dismissed. That matters. And once we get through this, I also want us to speak accurately because 'always' and 'never' make real repair harder." That is a grounded response. You are not surrendering reality. You are sequencing it correctly.
+That might sound like this: "I get that you feel dismissed. That matters. And once we get through this, I also want us to speak accurately because 'always' and 'never' make real repair harder." That's a grounded response. You're not surrendering reality. You're sequencing it correctly.
 
-The deeper reason this matters is that emotional moments are not logic tests. They are regulation tests. Can you hear charged language without becoming charged yourself? Can you stay stable enough to listen for what is being said underneath what is being said?
+The deeper reason this matters is that emotional moments aren't logic tests. They're regulation tests. Can you hear charged language without becoming charged yourself? Can you stay stable enough to listen for what's being said underneath what's being said?
 
-If you can, you become far more trustworthy. She does not have to escalate the volume to get your attention because she learns you can hear the signal sooner. That alone will change the tone of a relationship.
+If you can, you become far more trustworthy. She doesn't have to escalate the volume to get your attention because she learns you can hear the signal sooner. That alone will change the tone of a relationship.
 
-So remember: when you hear the language of extremes, do not ask, "Is that literally true?" Ask, "What pain is this language trying to point at?" Answer that, and you are speaking Womanese instead of fighting with subtitles.
+So remember: when you hear the language of extremes, don't ask, "Is that literally true?" Ask, "What pain is this language trying to point at?" Answer that, and you're speaking Womanese instead of fighting with subtitles.
 
 ---
 
@@ -1052,14 +1115,18 @@ So remember: when you hear the language of extremes, do not ask, "Is that litera
     'For each phrase, translate it into the underlying emotional message. What might the person actually be trying to say?',
     'Write a two-sentence response you can use in the future that validates the feeling first and corrects the exaggeration later.'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 3: Dismissive Agreements
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
   '20000000-0000-0000-0000-000000000113',
   '10000000-0000-0000-0000-000000000012',
   'Dismissive Agreements',
-  'Spot false compliance, stop asking for permission, and lead with clarity when "whatever" is not literal.',
+  'Spot false compliance, stop asking for permission, and lead with clarity when "whatever" isn''t literal.',
   2,
   1980,
   'youtube',
@@ -1073,13 +1140,13 @@ Now we move into one of the most confusing categories for men: dismissive agreem
 "I don't care."
 "Whatever."
 
-On paper those look like permission. In reality, many times they are not permission at all. They are emotionally loaded statements delivered in a flat wrapper. The wrapper says yes. The energy says no, or at least "I am not happy and I want to see what you do with that."
+On paper those look like permission. In reality, many times they're not permission at all. They're emotionally loaded statements delivered in a flat wrapper. The wrapper says yes. The energy says no, or at least "I'm not happy and I want to see what you do with that."
 
 The weak move is to pretend the wrapper is the whole message because that gives you plausible deniability later. "Well, you said it was fine." That response might win the courtroom. It loses the relationship dynamic.
 
-Here is what is often happening underneath those phrases. She does care, but she does not want to manage your choice for you. She does not want to play your mother. She wants to see whether you can read the room, take ownership, and move decisively without collapsing into permission-seeking.
+Here's what's often happening underneath those phrases. She does care, but she doesn't want to manage your choice for you. She doesn't want to play your mother. She wants to see whether you can read the room, take ownership, and move decisively without collapsing into permission-seeking.
 
-Many men get stuck because they outsource their leadership. They ask for approval for every move. "Is it okay if I go?" "Are you cool with this?" "Should I do that?" There is a place for collaboration, of course. But constant permission-seeking communicates uncertainty. It says, "Please regulate my decision for me so I do not have to risk displeasing you."
+Many men get stuck because they outsource their leadership. They ask for approval for every move. "Is it okay if I go?" "Are you cool with this?" "Should I do that?" There's a place for collaboration, of course. But constant permission-seeking communicates uncertainty. It says, "Please regulate my decision for me so I don't have to risk displeasing you."
 
 Dismissive agreements expose that pattern immediately.
 
@@ -1087,21 +1154,21 @@ The grounded move is to respond to both layers at once. Hear the emotional conte
 
 For example:
 
-- "You do care. I can hear that. I am still going to dinner with the guys, and we can talk when I get back."
-- "You are not thrilled with this. Got it. I am going to make the call and own it."
-- "If you have a real preference, say it clearly. If not, I am going to lead this one."
+- "You do care. I can hear that. I'm still going to dinner with the guys, and we can talk when I get back."
+- "You're not thrilled with this. Got it. I'm going to make the call and own it."
+- "If you have a real preference, say it clearly. If not, I'm going to lead this one."
 
-That is not aggression. That is clarity.
+That's not aggression. That's clarity.
 
-Notice the balance. You are not becoming a robot who bulldozes her input. If she has a real concern, listen to it. If the concern is valid, adapt. But if the dynamic is her throwing out ambiguous resistance and you folding every time, attraction and respect both drop. Somebody has to be able to carry weight in the interaction.
+Notice the balance. You're not becoming a robot who bulldozes her input. If she has a real concern, listen to it. If the concern is valid, adapt. But if the dynamic is her throwing out ambiguous resistance and you folding every time, attraction and respect both drop. Somebody has to be able to carry weight in the interaction.
 
 This is especially true when the issue is small but emotionally loaded. Where to go. What time to leave. Whether to continue the date. Whether to stay another hour or head home. The less secure man keeps polling the room. The grounded man reads the room, considers the information, and makes a clean choice.
 
-There is another side of this lesson too: do not manipulate with fake indifference yourself. If you want something, say it directly. You cannot resent a woman for "whatever" while you are doing your own version of covert contracts. Mature communication requires clarity from both sides.
+There's another side of this lesson too: don't manipulate with fake indifference yourself. If you want something, say it directly. You can't resent a woman for "whatever" while you're doing your own version of covert contracts. Mature communication requires clarity from both sides.
 
-So the real translation of dismissive agreements is this: **do not hide behind the literal words, and do not throw your agency away.** Hear the emotional resistance. Stay calm. Invite honesty. Then decide like a man who can tolerate a little tension.
+So the real translation of dismissive agreements is this: **don't hide behind the literal words, and don't throw your agency away.** Hear the emotional resistance. Stay calm. Invite honesty. Then decide like a man who can tolerate a little tension.
 
-That is how you stop asking for permission and start leading without becoming controlling.
+That's how you stop asking for permission and start leading without becoming controlling.
 
 ---
 
@@ -1111,14 +1178,18 @@ That is how you stop asking for permission and start leading without becoming co
 - Pretending the literal wrapper is all that matters creates plausible deniability, not leadership.
 - The deeper issue is often permission-seeking and fear of displeasing her.
 - Better response: acknowledge the energy, invite clarity, then own your choice.
-- Leadership is not bulldozing. It is reading the room, tolerating tension, and deciding cleanly.
+- Leadership isn't bulldozing. It's reading the room, tolerating tension, and deciding cleanly.
 - Do not use fake indifference yourself; directness is required on both sides.$$,
   ARRAY[
     'List three situations where you asked for permission when what you really needed was to make a decision and own it.',
     'Write a script for how you can acknowledge emotional resistance without handing away your agency.',
     'Where do you use your own version of fake indifference or vague communication? Write down one area where you need to be more direct.'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- ============================================================
 -- Lessons for Chapter 2: Understanding Shit Tests
@@ -1139,21 +1210,21 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
 
 Now we get to the phrase men obsess over: "shit test."
 
-I want to clean this up immediately, because a lot of men hear that term and go sideways. They imagine that every challenge from a woman is manipulation, hostility, or some kind of game. That interpretation makes men paranoid, reactive, and weird. It also guarantees they fail the very dynamic they are trying to understand.
+I want to clean this up immediately, because a lot of men hear that term and go sideways. They imagine that every challenge from a woman is manipulation, hostility, or some kind of game. That interpretation makes men paranoid, reactive, and weird. It also guarantees they fail the very dynamic they're trying to understand.
 
-A better definition is this: **a shit test is a moment where your emotional steadiness, confidence, or congruence gets lightly challenged to see whether it is real.** Sometimes that challenge is conscious. Often it is not. Often it is simply part of how attraction and trust get calibrated in real time.
+A better definition is this: **a shit test is a moment where your emotional steadiness, confidence, or congruence gets lightly challenged to see whether it's real.** Sometimes that challenge is conscious. Often it's not. Often it's simply part of how attraction and trust get calibrated in real time.
 
 Why would this happen?
 
 Because words are cheap. Plenty of men say strong things. Plenty of men present themselves as grounded, decisive, and calm. The question is whether that steadiness survives contact with friction. If a little teasing, resistance, or challenge knocks you off center, the signal she receives is simple: "This man is more fragile than he sounds."
 
-That is the trust issue underneath the test.
+That's the trust issue underneath the test.
 
-If she can move you with one sarcastic comment, one social challenge, one playful jab, or one emotionally loaded remark, then your center is not actually yours. It belongs to the room. It belongs to her mood. It belongs to circumstances. That does not feel safe.
+If she can move you with one sarcastic comment, one social challenge, one playful jab, or one emotionally loaded remark, then your center isn't actually yours. It belongs to the room. It belongs to her mood. It belongs to circumstances. That doesn't feel safe.
 
-So no, most tests are not about cruelty. They are about calibration.
+So no, most tests aren't about cruelty. They're about calibration.
 
-Now, this does not mean every woman is testing every man all the time. It also does not mean every bad behavior should be reframed as a test. If someone is consistently disrespectful, manipulative, or chaotic, the move is not to "pass." The move is to set a boundary or leave. Mature men do not stay in toxic dynamics to prove a point.
+Now, this doesn't mean every woman is testing every man all the time. It also doesn't mean every bad behavior should be reframed as a test. If someone is consistently disrespectful, manipulative, or chaotic, the move isn't to "pass." The move is to set a boundary or leave. Mature men don't stay in toxic dynamics to prove a point.
 
 But in a healthy or potentially healthy interaction, small tests are normal. She might tease your confidence. She might challenge your stated plan. She might disagree with your frame and watch what you do. She might see whether you become needy, defensive, apologetic, or angry.
 
@@ -1166,20 +1237,20 @@ Men fail tests in predictable ways:
 - They become aggressive and try to dominate.
 - They overcompensate with fake alpha posturing.
 
-All four responses communicate the same thing: "I am not settled in myself."
+All four responses communicate the same thing: "I'm not settled in myself."
 
-The pass is much simpler than men think. Stay in your body. Keep your tone clean. Do not rush to prove yourself. Do not hand your state away. If correction is needed, make it cleanly. If humor fits, use humor. If the challenge is nothing, let it pass. If it crosses a line, set a boundary.
+The pass is much simpler than men think. Stay in your body. Keep your tone clean. Don't rush to prove yourself. Don't hand your state away. If correction is needed, make it cleanly. If humor fits, use humor. If the challenge is nothing, let it pass. If it crosses a line, set a boundary.
 
-The deeper truth is that women are not only testing your words. They are testing your nervous system.
+The deeper truth is that women aren't only testing your words. They're testing your nervous system.
 
-Can you stay calm when there is pressure?
+Can you stay calm when there's pressure?
 Can you stay playful without becoming a clown?
 Can you stay firm without becoming harsh?
 Can you stay present without getting hooked?
 
 Those are adult capacities. They are attractive because they create safety, clarity, and polarity all at once.
 
-So from this point forward, stop treating the term like some mystical dating trick. Translate it into something useful: a moment where your inner state is being checked against your outer presentation. If the two match, trust rises. If they do not, trust drops.
+So from this point forward, stop treating the term like some mystical dating trick. Translate it into something useful: a moment where your inner state is being checked against your outer presentation. If the two match, trust rises. If they don't, trust drops.
 
 That is all a shit test really is.
 
@@ -1189,7 +1260,7 @@ That is all a shit test really is.
 
 - A shit test is a challenge to your steadiness, confidence, or congruence.
 - The underlying issue is calibration: are your words backed by a stable nervous system?
-- Most tests are not cruelty; they are small trust checks inside attraction and relationship dynamics.
+- Most tests aren't cruelty; they're small trust checks inside attraction and relationship dynamics.
 - Overreaction fails the test faster than the content of the challenge itself.
 - Not every bad behavior is a test; repeated disrespect still requires boundaries or exit.
 - The real question is whether your inner state matches your outer presentation.$$,
@@ -1198,7 +1269,11 @@ That is all a shit test really is.
     'Think of three moments when you got challenged and lost your center. What exactly happened in your body and behavior?',
     'What does grounded congruence look like for you in practice: tone, posture, pacing, and word choice? Describe it clearly.'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 5: The Most Common Types of Tests
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -1213,7 +1288,7 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
   false,
   $$## Full Script
 
-Now that you understand the function of a shit test, let's get practical. The easiest way to stay grounded is to recognize the category of challenge in front of you. Not every test is the same, and your response should match what is actually happening.
+Now that you understand the function of a shit test, let's get practical. The easiest way to stay grounded is to recognize the category of challenge in front of you. Not every test is the same, and your response should match what's actually happening.
 
 The three categories you need most are **compliance tests, congruence tests, and fitness tests.**
 
@@ -1225,19 +1300,19 @@ This can look small:
 
 - "Stay longer," when you already said you were leaving.
 - "Cancel your plans," to prove that she matters more.
-- "Text me right now," when you are busy and she knows it.
+- "Text me right now," when you're busy and she knows it.
 
-The surface issue is the request. The deeper issue is whether you have a backbone. If you fold instantly because you are afraid of displeasing her, you may think you are being loving. What you are actually teaching is that your boundaries are negotiable under emotional pressure.
+The surface issue is the request. The deeper issue is whether you have a backbone. If you fold instantly because you're afraid of displeasing her, you may think you're being loving. What you're actually teaching is that your boundaries are negotiable under emotional pressure.
 
-Passing a compliance test does not mean being rigid. It means you do not betray yourself to buy harmony. You can be warm and still say, "No, I am heading out. I will see you tomorrow."
+Passing a compliance test doesn't mean being rigid. It means you don't betray yourself to buy harmony. You can be warm and still say, "No, I'm heading out. I'll see you tomorrow."
 
 **2. Congruence Tests**
 
 A congruence test asks, "Are your values real when they get challenged?"
 
-Maybe you say you are not into drama, then you get pulled into a circular emotional argument for an hour. Maybe you say you are a direct man, but when tension shows up you start hedging and softening everything you mean. Maybe you say you are done with casual ambiguity, but when you like her enough you tolerate it anyway.
+Maybe you say you're not into drama, then you get pulled into a circular emotional argument for an hour. Maybe you say you're a direct man, but when tension shows up you start hedging and softening everything you mean. Maybe you say you're done with casual ambiguity, but when you like her enough you tolerate it anyway.
 
-Congruence tests reveal whether your identity is situational. She is not only hearing your statements. She is watching whether they survive discomfort.
+Congruence tests reveal whether your identity is situational. She's not only hearing your statements. She's watching whether they survive discomfort.
 
 This is one of the biggest reasons men lose respect in relationships. Not because their values were wrong, but because those values vanished under pressure.
 
@@ -1251,7 +1326,7 @@ The content is less important than your state. Do you shrink? Do you overreact? 
 
 Fitness tests matter because attraction is strongly tied to perceived emotional strength. Not performative aggression. Not macho theater. Actual composure.
 
-Now here is the nuance: the same behavior can contain more than one test. A request to cancel your plans might be compliance and congruence at the same time. Public teasing might be fitness and congruence if you have claimed to be hard to shake. Real life is messy. The point is not to categorize perfectly. The point is to notice what is being pressured in you.
+Now here's the nuance: the same behavior can contain more than one test. A request to cancel your plans might be compliance and congruence at the same time. Public teasing might be fitness and congruence if you have claimed to be hard to shake. Real life is messy. The point isn't to categorize perfectly. The point is to notice what is being pressured in you.
 
 Ask yourself:
 
@@ -1261,9 +1336,9 @@ Ask yourself:
 
 That question alone will help you respond intelligently instead of emotionally.
 
-Also remember: not every disagreement is a test. Sometimes she is simply expressing a preference. Sometimes she is genuinely hurt. Sometimes she needs repair, not calibration. Men get stupid when they label every emotional moment as a test. That keeps you detached and suspicious. Stay human. Stay nuanced.
+Also remember: not every disagreement is a test. Sometimes she's simply expressing a preference. Sometimes she's genuinely hurt. Sometimes she needs repair, not calibration. Men get stupid when they label every emotional moment as a test. That keeps you detached and suspicious. Stay human. Stay nuanced.
 
-But when it is a test, knowing the type keeps you from fumbling. You stop taking it personally and start reading the dynamic accurately.
+But when it's a test, knowing the type keeps you from fumbling. You stop taking it personally and start reading the dynamic accurately.
 
 ---
 
@@ -1278,9 +1353,13 @@ But when it is a test, knowing the type keeps you from fumbling. You stop taking
   ARRAY[
     'Review your last five tense interactions with women and label them: compliance, congruence, fitness, or not a test at all.',
     'Where do you most often fold: boundaries, values, or composure? Write down the exact pattern.',
-    'Create one example response for each type of test so you are not improvising from anxiety in the moment.'
+    'Create one example response for each type of test so you''re not improvising from anxiety in the moment.'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 6: How to Respond
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -1299,11 +1378,11 @@ Now let's get to the part men care about most: what do you actually do when a te
 
 You need three core responses in your toolkit: **Amuse and Amplify, Ignore, and Set a Boundary.**
 
-These are not tricks. They are expressions of state. The move only works if your nervous system matches it.
+These aren't tricks. They're expressions of state. The move only works if your nervous system matches it.
 
 ### 1. Amuse and Amplify
 
-This works best for light, playful, low-stakes tests. The energy is teasing, not hostile. She pokes, you stay loose, and you respond with a little humor that shows you are not threatened.
+This works best for light, playful, low-stakes tests. The energy is teasing, not hostile. She pokes, you stay loose, and you respond with a little humor that shows you're not threatened.
 
 Example:
 
@@ -1315,32 +1394,32 @@ Or she says, "You could never handle me."
 
 You respond, "That is fair. I was hoping for an easier side quest."
 
-The goal is not to become a comedian. The goal is to show that you are not rattled. Humor works because it keeps the energy light while communicating inner stability.
+The goal isn't to become a comedian. The goal is to show that you're not rattled. Humor works because it keeps the energy light while communicating inner stability.
 
 ### 2. Ignore
 
 Some tests deserve no oxygen at all. If the challenge is tiny and obviously bait, the strongest move can be to simply keep moving. Continue the conversation. Continue the plan. Continue your energy.
 
-This is where many men talk themselves into failure. They think every jab needs a response. It does not. If you bite every hook, you communicate that you are easy to steer.
+This is where many men talk themselves into failure. They think every jab needs a response. It doesn't. If you bite every hook, you communicate that you're easy to steer.
 
-Ignoring is powerful when the test is minor and your non-reaction says everything. She notices that the dart did not land.
+Ignoring is powerful when the test is minor and your non-reaction says everything. She notices that the dart didn't land.
 
-But be careful: ignoring is not sulking, freezing, or passive aggression. It is relaxed non-importance.
+But be careful: ignoring isn't sulking, freezing, or passive aggression. It's relaxed non-importance.
 
 ### 3. Set a Boundary
 
-When the challenge crosses into genuine disrespect, repeated pressure, or a demand that violates your standards, do not joke and do not disappear. Set a clean boundary.
+When the challenge crosses into genuine disrespect, repeated pressure, or a demand that violates your standards, don't joke and don't disappear. Set a clean boundary.
 
 That sounds like:
 
-- "Do not speak to me like that."
-- "I am not doing that."
-- "If this keeps going in that tone, I am out."
-- "You can disagree with me. You cannot be disrespectful."
+- "Don't speak to me like that."
+- "I'm not doing that."
+- "If this keeps going in that tone, I'm out."
+- "You can disagree with me. You can't be disrespectful."
 
 Short. Clean. No TED Talk.
 
-This is where a lot of men fail because they explain too much. The more you over-explain a boundary, the more it sounds like you are seeking permission to have it. State it once. Then follow through if necessary.
+This is where a lot of men fail because they explain too much. The more you over-explain a boundary, the more it sounds like you're seeking permission to have it. State it once. Then follow through if necessary.
 
 ### How to Choose the Right Response
 
@@ -1350,21 +1429,21 @@ Ask three questions:
 2. Is the challenge small or meaningful?
 3. Is there still goodwill in the interaction?
 
-If it is playful and low stakes, amuse and amplify.
-If it is tiny and not worth oxygen, ignore.
-If it is disrespectful or repeated, set a boundary.
+If it's playful and low stakes, amuse and amplify.
+If it's tiny and not worth oxygen, ignore.
+If it's disrespectful or repeated, set a boundary.
 
-The biggest mistake is mismatching the response. Men go hard when lightness would have passed, or they joke when seriousness is needed. That is why calibration matters.
+The biggest mistake is mismatching the response. Men go hard when lightness would have passed, or they joke when seriousness is needed. That's why calibration matters.
 
 ### Your State Matters More Than Your Script
 
-Here is the uncomfortable truth: the line is not the magic. The state is the magic.
+Here's the uncomfortable truth: the line isn't the magic. The state is the magic.
 
-You can say the perfect boundary line with shaky energy and it will land weak. You can say a simple sentence with total calm and it lands strong. Women are always reading more than your words. They are reading pace, tone, eye contact, posture, and whether you seem internally split.
+You can say the perfect boundary line with shaky energy and it will land weak. You can say a simple sentence with total calm and it lands strong. Women are always reading more than your words. They're reading pace, tone, eye contact, posture, and whether you seem internally split.
 
 So when a test lands, slow down first. Breathe once. Relax your jaw. Drop your shoulders. Then respond. That half-second of regulation will save you from dozens of dumb reactions.
 
-And remember this: you are not trying to "win." You are trying to remain yourself under pressure. That is the whole game.
+And remember this: you're not trying to "win." You're trying to remain yourself under pressure. That's the whole game.
 
 ---
 
@@ -1381,7 +1460,11 @@ And remember this: you are not trying to "win." You are trying to remain yoursel
     'Which mistake do you make most often: overreacting, over-explaining, or trying to be funny when a boundary is needed?',
     'The next time you feel challenged, what physical cue will remind you to regulate first before you speak?'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- ============================================================
 -- Lessons for Chapter 3: Poking the Bear
@@ -1392,7 +1475,7 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
   '20000000-0000-0000-0000-000000000117',
   '10000000-0000-0000-0000-000000000014',
   'The Difference Between Testing and Poking',
-  'Learn to separate real disrespect from playful tension so you do not misread attraction as conflict.',
+  'Learn to separate real disrespect from playful tension so you don''t misread attraction as conflict.',
   0,
   1800,
   'youtube',
@@ -1400,9 +1483,9 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
   false,
   $$## Full Script
 
-Now we enter a more nuanced part of the conversation: the difference between testing and what I am calling "poking the bear."
+Now we enter a more nuanced part of the conversation: the difference between testing and what I'm calling "poking the bear."
 
-Both can look like friction. Both can involve teasing, resistance, challenge, or a little heat. But they are not the same thing, and confusing them creates a lot of bad outcomes.
+Both can look like friction. Both can involve teasing, resistance, challenge, or a little heat. But they're not the same thing, and confusing them creates a lot of bad outcomes.
 
 **Testing** is usually about checking your center. It asks, "Are you solid?"
 
@@ -1414,9 +1497,9 @@ This is where men go wrong in two different directions.
 
 One man misreads every spark of friction as disrespect and becomes cold, moralizing, or punitive. He kills the play instantly.
 
-Another man assumes every challenge is flirtation and starts escalating when the moment is not actually safe, mutual, or sexual. He becomes pushy and tone-deaf.
+Another man assumes every challenge is flirtation and starts escalating when the moment isn't actually safe, mutual, or sexual. He becomes pushy and tone-deaf.
 
-Both men are not reading. They are projecting.
+Both men aren't reading. They're projecting.
 
 So what does playful poking usually look like?
 
@@ -1425,29 +1508,29 @@ So what does playful poking usually look like?
 - She throws a little attitude, but her eyes, body, and energy stay warm.
 - She creates tension, then stays in it with you instead of withdrawing.
 
-That last part matters. Real playful tension usually includes **continued participation**. She does not just throw a grenade and disappear. She stays engaged in the exchange.
+That last part matters. Real playful tension usually includes **continued participation**. She doesn't just throw a grenade and disappear. She stays engaged in the exchange.
 
-What does it look like when it is not playful?
+What does it look like when it's not playful?
 
 - Her tone is sharp and closed.
 - Her body turns away or stiffens.
 - She looks uncomfortable, not energized.
 - She withdraws after the friction instead of leaning in.
-- There is no warmth underneath it, only irritation or contempt.
+- There's no warmth underneath it, only irritation or contempt.
 
-That is not a cue to "lead harder." That is a cue to slow down, clarify, or set a boundary depending on the moment.
+That's not a cue to "lead harder." That's a cue to slow down, clarify, or set a boundary depending on the moment.
 
-Here is the principle I want you to remember: **playful friction is not blanket consent.** It is not permission to overpower, assume, or force the moment forward. It is simply a sign that more energy may be welcome if it stays attuned and mutual.
+Here's the principle I want you to remember: **playful friction isn't blanket consent.** It's not permission to overpower, assume, or force the moment forward. It's simply a sign that more energy may be welcome if it stays attuned and mutual.
 
-When you sense a poke, the mature response is not to get verbally busy. It is to become more present. Less explaining. Less nervous chatter. More eye contact. More steadiness. More ability to hold tension without scrambling to discharge it.
+When you sense a poke, the mature response isn't to get verbally busy. It's to become more present. Less explaining. Less nervous chatter. More eye contact. More steadiness. More ability to hold tension without scrambling to discharge it.
 
 Sometimes that means playful banter back. Sometimes it means a slower tone and a cleaner lead. Sometimes it means saying less and letting the moment breathe.
 
-But if you are not sure what it is, use the safest and strongest rule: **ambiguity means do not force escalation.** Stay grounded, keep reading, and let the next cue tell you more.
+But if you're not sure what it is, use the safest and strongest rule: **ambiguity means don't force escalation.** Stay grounded, keep reading, and let the next cue tell you more.
 
 That rule alone will save you from most of the dumb mistakes men make in dating.
 
-Testing and poking both reveal the same thing in you: whether you can tolerate tension without losing judgment. That is the actual skill we are building.
+Testing and poking both reveal the same thing in you: whether you can tolerate tension without losing judgment. That's the actual skill we're building.
 
 ---
 
@@ -1458,13 +1541,17 @@ Testing and poking both reveal the same thing in you: whether you can tolerate t
 - Misreading every challenge as flirtation creates pushy, tone-deaf escalation.
 - Playful poking usually includes warmth, eye contact, re-engagement, and continued participation.
 - Closed body language, sharp tone, withdrawal, or discomfort are signs to slow down, clarify, or boundary.
-- Playful friction is never blanket consent; ambiguity means do not force the moment.$$,
+- Playful friction is never blanket consent; ambiguity means don't force the moment.$$,
   ARRAY[
     'Think of one situation you misread as disrespect that may actually have been playful tension. What cues did you miss?',
     'Think of one situation you treated as flirtation when it was actually closed or unclear. What signs told the truth that you ignored?',
     'Write your personal rule for handling ambiguity so you stay grounded instead of impulsive.'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 8: Recognizing the Signs
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -1479,9 +1566,9 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
   false,
   $$## Full Script
 
-If you are going to stay grounded around intimacy, you need to get good at reading signals without fantasy, fear, or wishful thinking.
+If you're going to stay grounded around intimacy, you need to get good at reading signals without fantasy, fear, or wishful thinking.
 
-Many men are bad at this in both directions. The timid man misses obvious green lights because he is terrified of getting it wrong. The overeager man invents green lights because he wants the moment to be something it is not.
+Many men are bad at this in both directions. The timid man misses obvious green lights because he's terrified of getting it wrong. The overeager man invents green lights because he wants the moment to be something it isn't.
 
 The skill is accurate attunement.
 
@@ -1494,7 +1581,7 @@ Let's start with signs of **reciprocal interest**:
 - She teases or challenges, then smiles, softens, or re-engages.
 - Her body remains open and responsive instead of frozen or collapsed.
 
-Those signs do not mean "go as far as you want." They mean the moment may be open and you can continue reading it with more confidence.
+Those signs don't mean "go as far as you want." They mean the moment may be open and you can continue reading it with more confidence.
 
 Now let's talk about the signals men ignore when they want something badly.
 
@@ -1508,7 +1595,7 @@ Signs to slow down or stop include:
 - She seems to tolerate rather than participate.
 - She says yes with words but no with energy.
 
-That last one matters a lot. Verbal compliance without real participation is not the green light men think it is. You are not looking for technical permission. You are looking for mutuality.
+That last one matters a lot. Verbal compliance without real participation isn't the green light men think it is. You're not looking for technical permission. You're looking for mutuality.
 
 This is why I keep saying: **ambiguity means slow down.**
 
@@ -1518,17 +1605,17 @@ Sometimes slowing down means dropping the intensity and going back to conversati
 
 - "You good?"
 - "Come here if you want to."
-- "If you are not feeling it, no problem."
+- "If you're not feeling it, no problem."
 
-Men often worry that clear check-ins kill tension. Insecure check-ins do. Grounded check-ins do not. When the invitation is calm and unattached, it actually increases safety and often increases attraction because she feels you are both leading and paying attention.
+Men often worry that clear check-ins kill tension. Insecure check-ins do. Grounded check-ins don't. When the invitation is calm and unattached, it actually increases safety and often increases attraction because she feels you're both leading and paying attention.
 
-The bigger point is that recognizing the signs is not about decoding women like mind readers. It is about telling the truth about what is in front of you. No fantasy. No projection. No "maybe if I push a little more."
+The bigger point is that recognizing the signs isn't about decoding women like mind readers. It's about telling the truth about what's in front of you. No fantasy. No projection. No "maybe if I push a little more."
 
 If the signs are green, proceed slowly and let her meet you there.
 If the signs are mixed, reduce pressure and read again.
 If the signs are closed, stop.
 
-That is what mature masculine energy looks like around intimacy: not guessing wildly, not freezing, not forcing. Reading, leading, and adjusting in real time.
+That's what mature masculine energy looks like around intimacy: not guessing wildly, not freezing, not forcing. Reading, leading, and adjusting in real time.
 
 ---
 
@@ -1536,7 +1623,7 @@ That is what mature masculine energy looks like around intimacy: not guessing wi
 
 - Reciprocal interest shows up in repeated engagement, closeness, warmth, and active participation.
 - Warning signs include leaning away, rigidity, polite energy, short responses, and lack of reciprocation.
-- Verbal compliance without real participation is not the standard; mutuality is.
+- Verbal compliance without real participation isn't the standard; mutuality is.
 - Ambiguity means slow down, reduce pressure, and read again.
 - Grounded check-ins can preserve tension while increasing safety.
 - Accurate attunement beats fantasy and wishful thinking every time.$$,
@@ -1545,7 +1632,11 @@ That is what mature masculine energy looks like around intimacy: not guessing wi
     'Describe what real mutuality looks like to you in body language, pacing, and responsiveness.',
     'Create three calm check-in lines you can use that feel clear and masculine instead of needy or apologetic.'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 9: Escalating with Calm, Masculine Energy
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -1566,11 +1657,11 @@ How do you escalate intimacy without getting flustered, permission-seeking, or p
 
 The answer is simpler than most men think: **slow down, lead clearly, and require reciprocity.**
 
-That is calm masculine energy.
+That's calm masculine energy.
 
 Weak escalation is frantic. It asks too many anxious questions, moves too fast, and uses momentum to avoid feeling vulnerable.
 
-Bad escalation is forceful. It assumes attraction where there is only ambiguity. It treats hesitation like a hurdle to overcome. It keeps going when participation drops.
+Bad escalation is forceful. It assumes attraction where there's only ambiguity. It treats hesitation like a hurdle to overcome. It keeps going when participation drops.
 
 Grounded escalation is none of those things. It brings direction to the moment while staying fully responsive to the other person's signals.
 
@@ -1585,7 +1676,7 @@ Leadership can sound like:
 - "Sit with me."
 - "I want to kiss you."
 
-Those lines work when they come from calm certainty, not from frantic performance. You are not dumping the decision on her. You are offering direction. Then you watch whether she meets you there.
+Those lines work when they come from calm certainty, not from frantic performance. You're not dumping the decision on her. You're offering direction. Then you watch whether she meets you there.
 
 That part is crucial. **Reciprocity is the green light.**
 
@@ -1595,13 +1686,13 @@ Sometimes slowing down means pausing and giving space.
 Sometimes it means asking clearly: "You good?" or "Do you want this?"
 Sometimes it means stopping entirely and shifting the energy back to conversation.
 
-This does not make you less masculine. It makes you trustworthy.
+This doesn't make you less masculine. It makes you trustworthy.
 
-A lot of men learned a terrible model of leadership: be relentless, push through resistance, and treat hesitation like part of the game. That is not leadership. That is insecurity plus entitlement. Mature masculine presence does not need to force a yes. It can handle a no, a not yet, or a maybe.
+A lot of men learned a terrible model of leadership: be relentless, push through resistance, and treat hesitation like part of the game. That's not leadership. That's insecurity plus entitlement. Mature masculine presence doesn't need to force a yes. It can handle a no, a not yet, or a maybe.
 
-In fact, the ability to handle those answers cleanly is part of what makes your energy strong. When she can feel that you are not trying to extract something from her, intimacy gets safer. And when intimacy gets safer, real desire has room to breathe.
+In fact, the ability to handle those answers cleanly is part of what makes your energy strong. When she can feel that you're not trying to extract something from her, intimacy gets safer. And when intimacy gets safer, real desire has room to breathe.
 
-There is also a subtle but important point here about permission. Men often swing between two extremes. They either become pushy and assume too much, or they become so timid and approval-seeking that every step feels nervous and disconnected.
+There's also a subtle but important point here about permission. Men often swing between two extremes. They either become pushy and assume too much, or they become so timid and approval-seeking that every step feels nervous and disconnected.
 
 The middle path is clear invitation plus responsive attunement.
 
@@ -1618,13 +1709,13 @@ The template looks like this:
 5. If participation becomes unclear, pause and clarify.
 6. If participation drops, stop cleanly and without resentment.
 
-That last part matters. If your warmth vanishes the second she is unsure, then your earlier confidence was conditional. It was a performance designed to get an outcome. Real groundedness remains grounded even when the answer is no.
+That last part matters. If your warmth vanishes the second she's unsure, then your earlier confidence was conditional. It was a performance designed to get an outcome. Real groundedness remains grounded even when the answer is no.
 
-That is what women can trust. Not the loudest man. Not the most aggressive man. The man who can hold desire, direction, and self-control at the same time.
+That's what women can trust. Not the loudest man. Not the most aggressive man. The man who can hold desire, direction, and self-control at the same time.
 
-So when she "pokes the bear," do not think your job is to overwhelm her. Your job is to meet the energy with presence, direction, and attunement. If it is mutual, the moment deepens. If it is not, you know how to slow down or stop without losing yourself.
+So when she "pokes the bear," don't think your job is to overwhelm her. Your job is to meet the energy with presence, direction, and attunement. If it's mutual, the moment deepens. If it's not, you know how to slow down or stop without losing yourself.
 
-That is how you lead intimacy like a grounded man.
+That's how you lead intimacy like a grounded man.
 
 ---
 
@@ -1634,14 +1725,18 @@ That is how you lead intimacy like a grounded man.
 - Weak escalation is frantic; bad escalation is forceful. Grounded escalation is directional and responsive.
 - Lead one step at a time with clear invitations instead of anxious over-explaining.
 - Reciprocity is the green light: participation, warmth, closeness, and active engagement.
-- Ambiguity or hesitation means pause, clarify, or stop. Do not push through uncertainty.
+- Ambiguity or hesitation means pause, clarify, or stop. Don't push through uncertainty.
 - Trustworthy masculine energy can handle no, not yet, and maybe without resentment.$$,
   ARRAY[
     'Write down the difference between your old model of escalation and the consent-centered model from this lesson.',
     'What specific signs tell you to continue, pause, or stop when intimacy begins to build? Make your own three-column list.',
     'How do you usually react internally to hesitation or rejection? What would grounded leadership look like instead?'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- ============================================================
 -- Lessons for Chapter 4: De-escalating Conflict
@@ -1660,7 +1755,7 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
   false,
   $$## Full Script
 
-Before we talk about how to de-escalate conflict, you need to understand what is happening inside your body when conflict shows up. Because most men are trying to solve a physiological problem with logic, and that is why they keep failing.
+Before we talk about how to de-escalate conflict, you need to understand what's happening inside your body when conflict shows up. Because most men are trying to solve a physiological problem with logic, and that's why they keep failing.
 
 Your brain has a region called the **amygdala**. It sits deep in the limbic system and functions like a smoke alarm. Its job is threat detection. When it perceives danger, whether physical, emotional, or relational, it triggers a cascade of hormones, primarily adrenaline and cortisol, that prepare your body to survive.
 
@@ -1668,31 +1763,31 @@ This is called the **stress response**, and it has four main expressions.
 
 ### Fight
 
-Your body mobilizes for confrontation. Heart rate spikes. Blood pressure rises. Muscles tense. Jaw locks. Fists clench. In relationships, fight looks like raising your voice, getting sarcastic, arguing to win, becoming aggressive, or going on the attack. You are not trying to resolve anything. You are trying to dominate the threat.
+Your body mobilizes for confrontation. Heart rate spikes. Blood pressure rises. Muscles tense. Jaw locks. Fists clench. In relationships, fight looks like raising your voice, getting sarcastic, arguing to win, becoming aggressive, or going on the attack. You're not trying to resolve anything. You're trying to dominate the threat.
 
 ### Flight
 
-Your body mobilizes for escape. Your legs feel restless. Your mind starts planning exit routes, either physical or emotional. In relationships, flight looks like walking out mid-conversation, changing the subject, deflecting with humor, or emotionally checking out while your body is still in the room. You are not running from a bear. You are running from discomfort.
+Your body mobilizes for escape. Your legs feel restless. Your mind starts planning exit routes, either physical or emotional. In relationships, flight looks like walking out mid-conversation, changing the subject, deflecting with humor, or emotionally checking out while your body is still in the room. You're not running from a bear. You're running from discomfort.
 
 ### Freeze
 
-Your body shuts down. You go blank. Words disappear. Your mind feels foggy and slow. In relationships, freeze looks like going silent, staring, spacing out, or becoming completely passive during an argument. She is talking and you are somewhere else entirely. This is not indifference. It is overwhelm. Your nervous system decided the threat was too big to fight or flee, so it just stopped.
+Your body shuts down. You go blank. Words disappear. Your mind feels foggy and slow. In relationships, freeze looks like going silent, staring, spacing out, or becoming completely passive during an argument. She's talking and you're somewhere else entirely. This isn't indifference. It's overwhelm. Your nervous system decided the threat was too big to fight or flee, so it just stopped.
 
 ### Fawn
 
-Your body shifts into appeasement mode. You over-agree, over-apologize, and abandon your position entirely to make the tension stop. In relationships, fawn looks like saying sorry for things that are not your fault, agreeing with her even when she is wrong, suppressing your own needs, or performing compliance to restore peace. You are not resolving the conflict. You are performing submission to survive the moment.
+Your body shifts into appeasement mode. You over-agree, over-apologize, and abandon your position entirely to make the tension stop. In relationships, fawn looks like saying sorry for things that aren't your fault, agreeing with her even when she's wrong, suppressing your own needs, or performing compliance to restore peace. You're not resolving the conflict. You're performing submission to survive the moment.
 
 Here is the critical thing: **when any of these responses activate, your prefrontal cortex, the part of your brain responsible for rational thought, empathy, language, and problem-solving, goes partially offline.** This is what psychologist Daniel Goleman calls an **amygdala hijack**.
 
-Your thinking brain does not disappear entirely, but it loses executive control. The survival brain takes over. That is why you say things during arguments you would never say when calm. That is why you go blank when she asks a direct question. That is why you fold and agree to things you later resent.
+Your thinking brain doesn't disappear entirely, but it loses executive control. The survival brain takes over. That's why you say things during arguments you'd never say when calm. That's why you go blank when she asks a direct question. That's why you fold and agree to things you later resent.
 
-You are not weak. You are hijacked.
+You're not weak. You're hijacked.
 
-The reason this matters for de-escalation is simple: **you cannot resolve a conflict while your nervous system is in survival mode.** You can react. You can defend. You can flee. You can submit. But you cannot think clearly, listen generously, or respond with the kind of presence that actually repairs anything.
+The reason this matters for de-escalation is simple: **you can't resolve a conflict while your nervous system is in survival mode.** You can react. You can defend. You can flee. You can submit. But you can't think clearly, listen generously, or respond with the kind of presence that actually repairs anything.
 
-So the first skill of de-escalation is not a communication technique. It is a physiological skill. You need to learn how to recognize when you are activated and bring your nervous system back into a regulated window before you try to have a productive conversation.
+So the first skill of de-escalation isn't a communication technique. It's a physiological skill. You need to learn how to recognize when you're activated and bring your nervous system back into a regulated window before you try to have a productive conversation.
 
-Signs you are activated include:
+Signs you're activated include:
 
 - Heart rate above 100 beats per minute
 - Tightness in your chest, jaw, or fists
@@ -1701,9 +1796,9 @@ Signs you are activated include:
 - Inability to find words or think clearly
 - The urge to yell, leave, shut down, or apologize for everything
 
-When you notice those signs, that is not the time to make your best argument. That is the time to slow down, breathe, and regulate. We will cover exactly how to do that in the next lesson.
+When you notice those signs, that's not the time to make your best argument. That's the time to slow down, breathe, and regulate. We'll cover exactly how to do that in the next lesson.
 
-For now, the most important takeaway is this: **your stress response is not a character flaw. It is a survival mechanism. But a survival mechanism running your relationship will eventually destroy it.** Learning to recognize and manage your activation is the foundation of every de-escalation skill that follows.
+For now, the most important takeaway is this: **your stress response isn't a character flaw. It's a survival mechanism. But a survival mechanism running your relationship will eventually destroy it.** Learning to recognize and manage your activation is the foundation of every de-escalation skill that follows.
 
 ---
 
@@ -1712,7 +1807,7 @@ For now, the most important takeaway is this: **your stress response is not a ch
 - The amygdala triggers the stress response when it detects threat, including emotional and relational threats.
 - Four responses: fight (attack), flight (escape), freeze (shutdown), fawn (appease).
 - During activation, the prefrontal cortex loses executive control: this is an amygdala hijack.
-- You cannot resolve conflict while your nervous system is in survival mode.
+- You can't resolve conflict while your nervous system is in survival mode.
 - Recognize activation by physical cues: heart rate, tightness, tunnel vision, racing thoughts, heat.
 - The first de-escalation skill is physiological: regulate your body before engaging your mouth.$$,
   ARRAY[
@@ -1720,7 +1815,11 @@ For now, the most important takeaway is this: **your stress response is not a ch
     'Think of a recent argument where you said or did something you regretted. Write down the physical sensations you felt in the 30 seconds before that moment.',
     'What are three early warning signs in your body that tell you your amygdala has taken over? Be as specific as possible: jaw, chest, hands, breath, vision.'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 11: The Art of the Cool-Down
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -1737,26 +1836,26 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
 
 Now that you understand what happens in your brain during conflict, let's talk about what to do about it.
 
-De-escalation is not about winning. It is not about being right. It is about getting both nervous systems back into a range where real conversation can happen. Because as long as either person is flooded, you are not having a discussion. You are having two stress responses crashing into each other.
+De-escalation isn't about winning. It's not about being right. It's about getting both nervous systems back into a range where real conversation can happen. Because as long as either person is flooded, you're not having a discussion. You're having two stress responses crashing into each other.
 
 ### Technique 1: The Physiological Time-Out
 
 Research from the Gottman Institute shows that when your heart rate exceeds roughly 100 beats per minute during conflict, your ability to listen, empathize, and problem-solve drops dramatically. At that point, the most productive thing you can do is stop the conversation temporarily.
 
-This is not storming off. This is not the silent treatment. This is a structured pause.
+This isn't storming off. This isn't the silent treatment. This is a structured pause.
 
-Here is how to do it well:
+Here's how to do it well:
 
-1. **Name what is happening.** Say something like: "I am getting activated and I do not want to say something I will regret. I need twenty minutes."
+1. **Name what is happening.** Say something like: "I'm getting activated and I don't want to say something I'll regret. I need twenty minutes."
 2. **Give a time frame.** "Twenty minutes" or "Give me half an hour" is very different from disappearing with no return plan. The time frame tells her this is regulation, not abandonment.
-3. **Actually regulate.** During the pause, do not sit there rehearsing your argument. Do something that brings your nervous system down: slow breathing, a walk, cold water on your face, progressive muscle relaxation. The goal is physiological, not strategic.
+3. **Actually regulate.** During the pause, don't sit there rehearsing your argument. Do something that brings your nervous system down: slow breathing, a walk, cold water on your face, progressive muscle relaxation. The goal is physiological, not strategic.
 4. **Come back.** This is where most men fail. They take the break and never return to the conversation, or they come back three hours later expecting her to have forgotten. Come back at or near the time you promised and re-engage.
 
 That cycle, name it, time it, regulate, return, is one of the most powerful tools in relationship communication. It respects your nervous system without abandoning hers.
 
 ### Technique 2: The Soft Startup
 
-Most arguments do not escalate because of the topic. They escalate because of the first thirty seconds.
+Most arguments don't escalate because of the topic. They escalate because of the first thirty seconds.
 
 Gottman's research found that conversations almost always end on the same emotional note they began on. If you start with criticism, contempt, or blame, the conversation will end in a fight. If you start with a soft approach, the conversation has a much higher chance of staying productive.
 
@@ -1768,7 +1867,7 @@ A soft startup has three parts:
 
 The formula: **"I feel [emotion] when [specific situation] because [impact]. What I need is [request]."**
 
-This is not weak. This is precise. You are giving her exactly what she needs to understand your experience without triggering her defenses.
+This isn't weak. This is precise. You're giving her exactly what she needs to understand your experience without triggering her defenses.
 
 ### Technique 3: Repair Attempts
 
@@ -1777,17 +1876,17 @@ A repair attempt is any statement or action during conflict that tries to de-esc
 Repairs can be simple:
 
 - "Can we start over? I came in too hot."
-- "I hear you. I am not trying to fight."
+- "I hear you. I'm not trying to fight."
 - "This is getting too heated. I still love you. Let's slow down."
-- "I think we are on the same side here. Let's figure this out together."
+- "I think we're on the same side here. Let's figure this out together."
 - Using appropriate humor to break the tension, not sarcasm.
 - Reaching for physical connection: a hand on her arm, a pause followed by a hug.
 
-The key is that **repair attempts only work if the other person can receive them.** If she is too flooded, your repair will bounce off. That is not failure. That is a signal that a time-out is needed first.
+The key is that **repair attempts only work if the other person can receive them.** If she's too flooded, your repair will bounce off. That's not failure. That's a signal that a time-out is needed first.
 
 ### Technique 4: Validation Before Solution
 
-Men love to fix. She brings a problem, and your brain instantly starts generating solutions. But when she is emotionally activated, offering a fix before validating the feeling almost always backfires.
+Men love to fix. She brings a problem, and your brain instantly starts generating solutions. But when she's emotionally activated, offering a fix before validating the feeling almost always backfires.
 
 Why? Because the solution tells her, "Your emotion is a problem to be solved." What she often needs first is, "Your emotion makes sense."
 
@@ -1797,27 +1896,27 @@ Validation sounds like:
 - "I can see why that landed that way."
 - "Of course you feel that. I would too."
 
-You are not agreeing that you are wrong. You are acknowledging that her emotional experience is real and understandable. Once she feels heard, the solution conversation becomes dramatically easier.
+You're not agreeing that you're wrong. You're acknowledging that her emotional experience is real and understandable. Once she feels heard, the solution conversation becomes dramatically easier.
 
 ### Putting It Together
 
 Here is the de-escalation sequence when conflict starts heating up:
 
 1. Notice your activation. Check your body.
-2. If you are flooded, call a time-out. Name it, time it, regulate, return.
+2. If you're flooded, call a time-out. Name it, time it, regulate, return.
 3. When you re-engage, use a soft startup. Lead with "I," describe without blame, state what you need.
 4. Offer repair attempts throughout the conversation.
 5. Validate her experience before proposing solutions.
-6. Stay curious instead of defensive. Ask, "Help me understand" instead of "That is not what happened."
+6. Stay curious instead of defensive. Ask, "Help me understand" instead of "That's not what happened."
 
-This sequence will not prevent all conflict. Conflict is normal and sometimes necessary. But it will prevent unnecessary escalation, protect the trust between you, and give both of you a shot at actually resolving what is wrong.
+This sequence won't prevent all conflict. Conflict is normal and sometimes necessary. But it will prevent unnecessary escalation, protect the trust between you, and give both of you a shot at actually resolving what is wrong.
 
 ---
 
 ## Quick-Reference Outline
 
 - When heart rate exceeds 100 BPM, productive conversation becomes nearly impossible.
-- Physiological time-out: name it, time it, regulate, return. Do not storm off or disappear.
+- Physiological time-out: name it, time it, regulate, return. Don't storm off or disappear.
 - Soft startup: lead with "I," describe without judgment, state what you need.
 - Repair attempts: any bid to de-escalate mid-conflict. Their success predicts relationship longevity.
 - Validate the emotion before offering the solution.
@@ -1827,7 +1926,11 @@ This sequence will not prevent all conflict. Conflict is normal and sometimes ne
     'Think of a recent complaint you had. Rewrite it using the soft startup formula: "I feel [emotion] when [situation] because [impact]. What I need is [request]."',
     'What is your go-to repair attempt? Write down three repair lines that feel natural to you and that you can use when conflict starts escalating.'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 12: Staying in the Fire Without Getting Burned
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -1842,19 +1945,19 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
   false,
   $$## Full Script
 
-You now understand the physiology. You have the techniques. But here is the piece most men skip: **building the actual capacity to stay present during emotional intensity.**
+You now understand the physiology. You have the techniques. But here's the piece most men skip: **building the actual capacity to stay present during emotional intensity.**
 
-Knowing the theory and living it under pressure are two completely different things. You can memorize every soft startup formula in existence, but if your nervous system hijacks you in the first ten seconds of tension, that knowledge lives in a part of your brain you cannot access.
+Knowing the theory and living it under pressure are two completely different things. You can memorize every soft startup formula in existence, but if your nervous system hijacks you in the first ten seconds of tension, that knowledge lives in a part of your brain you can't access.
 
 This lesson is about building what I call **emotional stamina**: the ability to stay in difficult moments without shutting down, blowing up, or abandoning yourself.
 
 ### Why Men Struggle to Stay Present
 
-Most men were not taught to tolerate emotional discomfort. We were taught to fix it, suppress it, or leave. That conditioning runs deep.
+Most men weren't taught to tolerate emotional discomfort. We were taught to fix it, suppress it, or leave. That conditioning runs deep.
 
-When a woman is upset, many men experience her emotion as a threat to their safety. Not because she is actually dangerous, but because his nervous system was trained early, often in childhood, to interpret emotional intensity as something that must be resolved immediately or escaped from.
+When a woman is upset, many men experience her emotion as a threat to their safety. Not because she's actually dangerous, but because his nervous system was trained early, often in childhood, to interpret emotional intensity as something that must be resolved immediately or escaped from.
 
-That is why so many men either escalate to end the discomfort quickly or withdraw to escape it entirely. Both moves are attempts to regulate his own nervous system at the expense of the connection.
+That's why so many men either escalate to end the discomfort quickly or withdraw to escape it entirely. Both moves are attempts to regulate his own nervous system at the expense of the connection.
 
 Staying present means tolerating the discomfort without needing it to stop immediately.
 
@@ -1864,7 +1967,7 @@ Psychiatrist Dan Siegel developed the concept of the **window of tolerance**: th
 
 De-escalation is fundamentally about staying inside your window or getting back into it quickly when you leave.
 
-The good news is that your window of tolerance is not fixed. It can be expanded through practice.
+The good news is that your window of tolerance isn't fixed. It can be expanded through practice.
 
 ### Expanding Your Capacity
 
@@ -1874,31 +1977,31 @@ Spend five minutes a day sitting quietly and scanning your body. Notice where yo
 
 **2. Breathwork under stress.**
 
-Box breathing works well: inhale for four counts, hold for four, exhale for four, hold for four. But the real skill is not doing it in a quiet room. The real skill is doing it when she is standing in front of you telling you something you do not want to hear. Practice during minor annoyances first. Traffic. A frustrating email. A small disagreement. Build the reflex before you need it in a crisis.
+Box breathing works well: inhale for four counts, hold for four, exhale for four, hold for four. But the real skill isn't doing it in a quiet room. The real skill is doing it when she's standing in front of you telling you something you don't want to hear. Practice during minor annoyances first. Traffic. A frustrating email. A small disagreement. Build the reflex before you need it in a crisis.
 
 **3. The internal narrator.**
 
-When conflict hits, your internal narrator starts running scripts: "Here we go again." "She is being unreasonable." "I cannot do anything right." Those stories accelerate your activation because they add meaning to the sensation.
+When conflict hits, your internal narrator starts running scripts: "Here we go again." "She's being unreasonable." "I can't do anything right." Those stories accelerate your activation because they add meaning to the sensation.
 
-Practice noticing the story without believing it. "My mind is telling me she is attacking me. That is a story, not necessarily the truth. What is she actually saying?" That tiny gap between stimulus and interpretation is where your freedom lives.
+Practice noticing the story without believing it. "My mind is telling me she's attacking me. That's a story, not necessarily the truth. What is she actually saying?" That tiny gap between stimulus and interpretation is where your freedom lives.
 
 **4. Staying embodied during her emotion.**
 
-This is the hardest one. When she is crying, yelling, or emotionally intense, your job is not to make it stop. Your job is to stay connected to your own body while remaining available to hers.
+This is the hardest one. When she's crying, yelling, or emotionally intense, your job isn't to make it stop. Your job is to stay connected to your own body while remaining available to hers.
 
 That looks like:
 
 - Feet on the floor. Feel your weight.
 - Hands relaxed and open.
 - Breathing slow and deliberate.
-- Eye contact that is steady but soft, not staring her down.
+- Eye contact that's steady but soft, not staring her down.
 - Internal reminder: "Her emotion is not my emergency. I can be here without fixing this."
 
 That last sentence is worth memorizing. **Her emotion is not my emergency.** You can be compassionate, present, and steady without taking responsibility for making her feeling go away.
 
 ### The Difference Between Presence and Passivity
 
-Staying in the fire does not mean becoming a doormat. It does not mean sitting there absorbing abuse. It does not mean abandoning your own perspective to keep peace.
+Staying in the fire doesn't mean becoming a doormat. It doesn't mean sitting there absorbing abuse. It doesn't mean abandoning your own perspective to keep peace.
 
 Presence means:
 
@@ -1911,7 +2014,7 @@ Presence means:
 Passivity means:
 
 - You collapse your position to avoid her displeasure.
-- You agree with things you do not believe.
+- You agree with things you don't believe.
 - You suppress your needs to prevent more tension.
 - You leave your body and check out while pretending to be there.
 
@@ -1939,20 +2042,24 @@ This is the work. Not memorizing scripts. Building a nervous system that can hol
 - Most men were conditioned to fix, suppress, or escape emotional discomfort rather than tolerate it.
 - The window of tolerance can be expanded through deliberate practice.
 - Key practices: somatic awareness, breathwork under stress, noticing internal narratives, staying embodied during her emotion.
-- "Her emotion is not my emergency" — you can be present without taking responsibility for fixing her feeling.
-- Presence is not passivity: stay in the room, speak your truth, hold your boundary, allow her to feel.$$,
+- "Her emotion is not my emergency"; you can be present without taking responsibility for fixing her feeling.
+- Presence isn't passivity: stay in the room, speak your truth, hold your boundary, allow her to feel.$$,
   ARRAY[
     'What is your default escape route when emotional intensity shows up: anger, shutdown, people-pleasing, or leaving? Describe it honestly.',
     'Practice the internal narrator exercise right now. Write down three stories your mind tells you during conflict and then write the neutral observation underneath each one.',
     'Describe what staying present without fixing would look like for you in your most common conflict scenario. Be specific about body, tone, and words.'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- ============================================================
 -- Lessons for Chapter 5: Differentiation Over Enmeshment
 -- ============================================================
 
--- Lesson 13: The Nice Guy Trap — Why Enmeshment Kills Attraction
+-- Lesson 13: The Nice Guy Trap: Why Enmeshment Kills Attraction
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
   '20000000-0000-0000-0000-000000000123',
   '10000000-0000-0000-0000-000000000016',
@@ -1965,21 +2072,21 @@ INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_se
   false,
   $$## Full Script
 
-Everything we have talked about so far, decoding language, handling tests, de-escalating conflict, those are skills. They are valuable. But if you do not understand the deeper pattern driving most of your relationship problems, you will keep using those skills from the wrong foundation.
+Everything we've talked about so far, decoding language, handling tests, de-escalating conflict, those are skills. They're valuable. But if you don't understand the deeper pattern driving most of your relationship problems, you'll keep using those skills from the wrong foundation.
 
-The deeper pattern is **enmeshment**. And for Nice Guys, it is the silent engine behind almost every dynamic we have covered.
+The deeper pattern is **enmeshment**. And for Nice Guys, it's the silent engine behind almost every dynamic we've covered.
 
 ### What Is Enmeshment?
 
-Enmeshment is the unconscious attempt to merge your emotional identity with another person, usually a woman you are attracted to or in a relationship with. It means your mood depends on her mood. Your sense of okayness depends on her approval. Your emotional stability depends on her emotional state. When she is happy, you are happy. When she is upset, you are destabilized.
+Enmeshment is the unconscious attempt to merge your emotional identity with another person, usually a woman you're attracted to or in a relationship with. It means your mood depends on her mood. Your sense of okayness depends on her approval. Your emotional stability depends on her emotional state. When she's happy, you're happy. When she's upset, you're destabilized.
 
-On the surface, this can look like love. It can feel like closeness. But it is not love. It is dependency wearing the costume of intimacy.
+On the surface, this can look like love. It can feel like closeness. But it's not love. It's dependency wearing the costume of intimacy.
 
 The Nice Guy version of enmeshment is particularly hard to spot because it hides behind good behavior. He is attentive. He is responsive. He anticipates her needs. He avoids conflict. He molds himself to her preferences. He makes her emotional comfort his primary project.
 
-And he does all of this not because he is generous, but because **he needs her to be okay so that he can be okay.**
+And he does all of this not because he's generous, but because **he needs her to be okay so that he can be okay.**
 
-That is the trap.
+That's the trap.
 
 ### Why Enmeshment Increases Shit Tests
 
@@ -1987,23 +2094,23 @@ Go back to what we learned about shit tests. A test checks whether your center i
 
 Now think about a man whose emotional center is literally located inside her approval. What happens when she pushes?
 
-He folds. He panics. He over-explains. He apologizes for things that are not his fault. He chases reassurance. He changes his position the moment she shows displeasure.
+He folds. He panics. He over-explains. He apologizes for things that aren't his fault. He chases reassurance. He changes his position the moment she shows displeasure.
 
-Every one of those responses fails the test, and not because he gave the wrong answer. It fails because his behavior reveals that **he does not have a self that is separate from her.**
+Every one of those responses fails the test, and not because he gave the wrong answer. It fails because his behavior reveals that **he doesn't have a self that is separate from her.**
 
-That is deeply unattractive. Not because women are cruel, but because a man who cannot hold his own center cannot hold space for hers either. She pushes a little, and the whole structure collapses. That does not feel safe. That does not feel like leadership. That feels like she is dating a man who needs a mother more than a partner.
+That's deeply unattractive. Not because women are cruel, but because a man who can't hold his own center can't hold space for hers either. She pushes a little, and the whole structure collapses. That doesn't feel safe. That doesn't feel like leadership. That feels like she's dating a man who needs a mother more than a partner.
 
-So she tests more. Not to torment him. Often to find the ground that is not there. The more enmeshed he is, the more she tests. The more he fails. The more she loses attraction. The more conflict increases.
+So she tests more. Not to torment him. Often to find the ground that isn't there. The more enmeshed he is, the more she tests. The more he fails. The more she loses attraction. The more conflict increases.
 
 ### Why Enmeshment Kills Attraction
 
 Attraction requires polarity. Polarity requires difference. Two people who have merged into one emotional blob have no tension, no spark, no edge.
 
-The Nice Guy thinks closeness means agreeing on everything, never creating friction, and eliminating all emotional distance. But what he actually creates is a relationship with no air in it. She cannot miss him because he is always there. She cannot respect his backbone because he does not show one. She cannot feel drawn to his masculinity because he has traded it for approval.
+The Nice Guy thinks closeness means agreeing on everything, never creating friction, and eliminating all emotional distance. But what he actually creates is a relationship with no air in it. She can't miss him because he's always there. She can't respect his backbone because he doesn't show one. She can't feel drawn to his masculinity because he's traded it for approval.
 
 The paradox is devastating: **the harder he tries to keep her close by merging, the faster she pulls away.**
 
-Women do not lose attraction because a man disagrees with them, sets a boundary, or has a life outside the relationship. They lose attraction when a man has no identity outside of her. When every decision orbits her mood. When he cannot tolerate her displeasure for even five minutes without scrambling to fix it.
+Women don't lose attraction because a man disagrees with them, sets a boundary, or has a life outside the relationship. They lose attraction when a man has no identity outside of her. When every decision orbits her mood. When he can't tolerate her displeasure for even five minutes without scrambling to fix it.
 
 ### Why Enmeshment Increases Conflict
 
@@ -2011,21 +2118,21 @@ You would think that a man who avoids conflict at all costs would have fewer fig
 
 Enmeshment increases conflict for three reasons:
 
-**1. Suppressed needs eventually explode.** The Nice Guy stuffs his own needs, preferences, and boundaries to keep peace. But those needs do not disappear. They build pressure. Eventually they come out sideways as passive-aggression, resentment, emotional withdrawal, or a sudden blowup that seems to come from nowhere.
+**1. Suppressed needs eventually explode.** The Nice Guy stuffs his own needs, preferences, and boundaries to keep peace. But those needs don't disappear. They build pressure. Eventually they come out sideways as passive-aggression, resentment, emotional withdrawal, or a sudden blowup that seems to come from nowhere.
 
-**2. Covert contracts create invisible betrayal.** He gives without asking, then feels cheated when she does not reciprocate in the way he secretly expected. She did not agree to his unspoken deal. He resents her for breaking a contract she never signed.
+**2. Covert contracts create invisible betrayal.** He gives without asking, then feels cheated when she doesn't reciprocate in the way he secretly expected. She didn't agree to his unspoken deal. He resents her for breaking a contract she never signed.
 
-**3. Her frustration at carrying the emotional leadership.** When he will not make decisions, will not hold boundaries, and will not express what he actually thinks, she has to carry the weight of both people's emotional direction. That is exhausting. Resentment builds. Conflict follows.
+**3. Her frustration at carrying the emotional leadership.** When he won't make decisions, won't hold boundaries, and won't express what he actually thinks, she has to carry the weight of both people's emotional direction. That's exhausting. Resentment builds. Conflict follows.
 
 ### The Way Out
 
-The opposite of enmeshment is not coldness, distance, or emotional shutdown. The opposite of enmeshment is **differentiation**.
+The opposite of enmeshment isn't coldness, distance, or emotional shutdown. The opposite of enmeshment is **differentiation**.
 
 Differentiation means you can stay emotionally connected to another person while maintaining a clear, stable sense of who you are. You can love her without losing yourself. You can hear her pain without drowning in it. You can disagree without it meaning the relationship is over.
 
-Differentiated men do not need her to be okay so they can be okay. They want her to be okay, but their internal stability does not depend on it.
+Differentiated men don't need her to be okay so they can be okay. They want her to be okay, but their internal stability doesn't depend on it.
 
-That is the foundation we will build in the next two lessons.
+That's the foundation we'll build in the next two lessons.
 
 ---
 
@@ -2042,7 +2149,11 @@ That is the foundation we will build in the next two lessons.
     'Identify one covert contract you have run: something you gave without asking, then silently resented her for not reciprocating. Write out what you actually needed and never said.',
     'What parts of your identity, hobbies, friendships, opinions, or preferences have you quietly abandoned to keep a woman comfortable? List them.'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 14: The Power of Differentiation
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -2061,7 +2172,7 @@ In the last lesson we named the problem: enmeshment. Now let's talk about the so
 
 **Differentiation** is the ability to maintain your sense of self while staying emotionally connected to another person. It was developed as a concept by psychiatrist Murray Bowen and later expanded by David Schnarch in his work on intimate relationships.
 
-It is not emotional distance. It is not independence to the point of isolation. It is the mature capacity to hold two things at once: "I love you" and "I am still me."
+It's not emotional distance. It's not independence to the point of isolation. It's the mature capacity to hold two things at once: "I love you" and "I'm still me."
 
 ### What Differentiation Looks Like in Practice
 
@@ -2070,41 +2181,41 @@ A differentiated man can:
 - Disagree with her without it becoming a crisis.
 - Tolerate her disappointment without rushing to fix it.
 - Hold his position when pressured, without becoming aggressive.
-- Allow her to have feelings he did not cause and does not need to solve.
+- Allow her to have feelings he didn't cause and doesn't need to solve.
 - Say no without guilt and yes without resentment.
 - Enjoy closeness without losing himself in it.
 - Respect her communication style even when it differs from his.
 
-That last point ties directly back to everything we covered in this course. Women often communicate through emotional subtext, relational testing, and indirect signaling. Men often communicate through directness, logic, and literal language. Neither style is broken. They are different.
+That last point ties directly back to everything we covered in this course. Women often communicate through emotional subtext, relational testing, and indirect signaling. Men often communicate through directness, logic, and literal language. Neither style is broken. They're different.
 
 The enmeshed man experiences her style as a problem to be solved, a threat to be neutralized, or a code to be cracked so he can get back to safety. The differentiated man respects the difference without needing it to change. He learns to translate without losing his own voice.
 
 ### How Differentiation Creates Positive Tension
 
-Here is what most men do not understand: **healthy relationships need tension.**
+Here's what most men don't understand: **healthy relationships need tension.**
 
 Not negative tension. Not walking on eggshells. Not dramatic fights. Positive emotional tension. The kind that comes from two people who are genuinely different, who hold their own ground, and who choose each other not out of need but out of desire.
 
-When you are differentiated:
+When you're differentiated:
 
-- She can miss you because you have a life she is not the center of.
+- She can miss you because you have a life she isn't the center of.
 - She can respect you because you hold positions even when she pushes.
 - She can feel attracted to you because there is a "you" to be attracted to.
-- She can feel safe with you because your stability does not depend on her managing your emotions.
+- She can feel safe with you because your stability doesn't depend on her managing your emotions.
 
-Differentiation creates what Schnarch calls **"the crucible"**: the pressure that comes from two separate people staying connected through discomfort. That pressure is not a sign the relationship is failing. It is the mechanism through which both people grow.
+Differentiation creates what Schnarch calls **"the crucible"**: the pressure that comes from two separate people staying connected through discomfort. That pressure isn't a sign the relationship is failing. It's the mechanism through which both people grow.
 
 ### The Difference Between Differentiation and Detachment
 
 Men who have been burned by enmeshment often overcorrect. They read about differentiation and interpret it as permission to become cold, distant, or emotionally unavailable.
 
-That is not differentiation. That is avoidance wearing a new label.
+That's not differentiation. That's avoidance wearing a new label.
 
-Here is the distinction:
+Here's the distinction:
 
 **Differentiation** says: "I can be close to you and still be me. I can hear your pain and stay grounded. I can love you without needing you to complete me."
 
-**Detachment** says: "I do not need you at all. Your feelings are not my problem. I am going to protect myself by not caring."
+**Detachment** says: "I don't need you at all. Your feelings aren't my problem. I'm going to protect myself by not caring."
 
 Differentiation requires more courage than detachment. It means staying open, staying present, and staying honest while also staying rooted in your own values, needs, and identity.
 
@@ -2114,13 +2225,13 @@ The enmeshed man loses himself in the relationship. The detached man removes him
 
 A huge part of differentiation in heterosexual relationships is accepting that men and women often process and express emotions differently.
 
-When she says "I just need you to listen," she is not being irrational. She is asking for attunement before solutions. That is a legitimate need.
+When she says "I just need you to listen," she's not being irrational. She's asking for attunement before solutions. That's a legitimate need.
 
-When you need time to process before you can talk, that is not emotional immaturity. That is how your nervous system works. That is a legitimate need too.
+When you need time to process before you can talk, that's not emotional immaturity. That's how your nervous system works. That's a legitimate need too.
 
 Differentiation means neither person has to abandon their style. Instead, both people learn to bridge the gap.
 
-She can say, "I need to talk about this emotionally first." He can say, "I hear you. Give me ten minutes to settle, and I will be fully here." Both needs are respected. Neither person is forced to become someone they are not.
+She can say, "I need to talk about this emotionally first." He can say, "I hear you. Give me ten minutes to settle, and I'll be fully here." Both needs are respected. Neither person is forced to become someone they're not.
 
 This is what creates **less negative tension** in a relationship. Not the absence of all tension, but the absence of the kind of tension that comes from two people trying to force each other into their own communication style.
 
@@ -2134,16 +2245,16 @@ Couples research consistently shows that relationships with higher levels of dif
 - Longer duration
 - Less contempt and defensiveness
 
-The reason is straightforward: when both people have a stable sense of self, they do not need the relationship to regulate them. They choose the relationship. And chosen love feels fundamentally different from needed love. It feels like freedom instead of captivity. It feels like desire instead of desperation.
+The reason is straightforward: when both people have a stable sense of self, they don't need the relationship to regulate them. They choose the relationship. And chosen love feels fundamentally different from needed love. It feels like freedom instead of captivity. It feels like desire instead of desperation.
 
-That is the relationship most men actually want. They just did not know they had to stop merging to get it.
+That's the relationship most men actually want. They just didn't know they had to stop merging to get it.
 
 ---
 
 ## Quick-Reference Outline
 
 - Differentiation is maintaining your sense of self while staying emotionally connected to your partner.
-- It is not distance, coldness, or detachment. It requires more courage than avoidance.
+- It's not distance, coldness, or detachment. It requires more courage than avoidance.
 - Differentiated men can disagree, hold boundaries, tolerate her emotions, and stay present without losing themselves.
 - Positive tension comes from two separate people choosing each other, creating attraction, respect, and desire.
 - Respect different communication styles: neither logic nor emotional expression is broken.
@@ -2153,14 +2264,18 @@ That is the relationship most men actually want. They just did not know they had
     'Where have you confused detachment with differentiation? Describe one moment where you shut down emotionally and told yourself you were being "strong" or "independent."',
     'Write down one communication style difference between you and your partner. How can you respect her style without abandoning yours?'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 -- Lesson 15: Spotting Your Anxious Bids and Regulating Without Withdrawing
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
   '20000000-0000-0000-0000-000000000125',
   '10000000-0000-0000-0000-000000000016',
   'Spotting Your Anxious Bids and Regulating Without Withdrawing',
-  'Learn to recognize when you are reaching for her to calm your own nervous system and how to self-regulate without becoming cold or dismissive.',
+  'Learn to recognize when you''re reaching for her to calm your own nervous system and how to self-regulate without becoming cold or dismissive.',
   2,
   2280,
   'youtube',
@@ -2172,79 +2287,79 @@ This is where the rubber meets the road.
 
 You understand enmeshment. You understand differentiation. Now the question becomes: **how do you actually catch yourself in the moment when your nervous system is reaching for her to feel safe, and what do you do instead?**
 
-Because the Nice Guy pattern is not just theoretical. It is somatic. It lives in your body. It shows up as an anxious pull toward her when things feel uncertain, tense, or unresolved. And if you cannot spot it happening in real time, all the theory in the world will not save you.
+Because the Nice Guy pattern isn't just theoretical. It's somatic. It lives in your body. It shows up as an anxious pull toward her when things feel uncertain, tense, or unresolved. And if you can't spot it happening in real time, all the theory in the world won't save you.
 
 ### What Anxious Bids for Safety Look Like
 
-An anxious bid is any behavior driven by the need to use her emotional state to regulate your own. It is reaching for reassurance, not because you are genuinely connecting, but because you cannot tolerate the discomfort of not knowing where you stand.
+An anxious bid is any behavior driven by the need to use her emotional state to regulate your own. It's reaching for reassurance, not because you're genuinely connecting, but because you can't tolerate the discomfort of not knowing where you stand.
 
 Common anxious bids include:
 
-- **Checking in too often.** "Are we okay?" "Are you mad?" "Did I do something wrong?" These questions are not about her. They are about managing your own anxiety.
+- **Checking in too often.** "Are we okay?" "Are you mad?" "Did I do something wrong?" These questions aren't about her. They're about managing your own anxiety.
 
-- **Over-apologizing.** Saying sorry for things that are not your fault, or apologizing multiple times for the same thing, because the tension has not resolved and you need it to stop.
+- **Over-apologizing.** Saying sorry for things that aren't your fault, or apologizing multiple times for the same thing, because the tension hasn't resolved and you need it to stop.
 
 - **Seeking reassurance through touch.** Reaching for her hand, initiating a hug, or trying to be physical not because the moment calls for connection but because you need her body to calm yours.
 
-- **Performing agreement.** Changing your position, abandoning your opinion, or suddenly agreeing with her because disagreement creates a tension you cannot tolerate.
+- **Performing agreement.** Changing your position, abandoning your opinion, or suddenly agreeing with her because disagreement creates a tension you can't tolerate.
 
 - **Monitoring her mood.** Watching her face, reading her texts for tone, scanning for micro-shifts in her energy, and adjusting your behavior to keep her in a state that makes you feel safe.
 
 - **Flooding her with words.** Over-explaining, justifying, narrating your own feelings in excessive detail, not to communicate but to fill the silence that feels unbearable.
 
-Every one of these behaviors is a regulation strategy disguised as connection. You are not reaching for her because you want to connect. You are reaching for her because you need to stop feeling anxious.
+Every one of these behaviors is a regulation strategy disguised as connection. You're not reaching for her because you want to connect. You're reaching for her because you need to stop feeling anxious.
 
 ### Why This Matters
 
 When you use her as your primary emotional regulator, several things happen:
 
-**She feels the weight.** Even if she cannot name it, she can feel that your reaching is about your need, not about genuine care for her. That weight builds resentment over time.
+**She feels the weight.** Even if she can't name it, she can feel that your reaching is about your need, not about genuine care for her. That weight builds resentment over time.
 
 **She starts pulling away.** Because the more you reach, the less space she has. Enmeshed reaching feels clingy, even when the words sound loving.
 
-**She tests more.** As we discussed, your lack of a separate center invites more testing. She is looking for ground that is not there.
+**She tests more.** As we discussed, your lack of a separate center invites more testing. She's looking for ground that isn't there.
 
 **You lose self-respect.** Every time you abandon your position, silence your needs, or perform compliance to manage your anxiety, you chip away at your own sense of self. That erosion compounds.
 
 ### How to Self-Regulate Without Becoming Cold
 
-Here is the trap: many men hear "stop reaching for her" and interpret it as "stop caring." They swing from anxious enmeshment to avoidant detachment. They become cold, distant, dismissive, or emotionally absent.
+Here's the trap: many men hear "stop reaching for her" and interpret it as "stop caring." They swing from anxious enmeshment to avoidant detachment. They become cold, distant, dismissive, or emotionally absent.
 
-That is not regulation. That is the other side of the same coin. Both the anxious bid and the avoidant withdrawal are driven by the same thing: **an inability to tolerate emotional discomfort.**
+That's not regulation. That's the other side of the same coin. Both the anxious bid and the avoidant withdrawal are driven by the same thing: **an inability to tolerate emotional discomfort.**
 
 The anxious man tries to eliminate discomfort by merging.
 The avoidant man tries to eliminate discomfort by disappearing.
 The differentiated man **tolerates the discomfort and stays present anyway.**
 
-Here is what healthy self-regulation looks like:
+Here's what healthy self-regulation looks like:
 
 **1. Catch the impulse before you act on it.**
 
 When you feel the pull to check in, apologize, explain, or reach for reassurance, pause. Ask yourself: "Am I reaching for her right now, or am I reaching for my own calm?"
 
-If the answer is your own calm, do not reach. Regulate yourself first.
+If the answer is your own calm, don't reach. Regulate yourself first.
 
 **2. Use your body, not her body.**
 
 Slow your breathing. Drop your shoulders. Feel your feet on the ground. Put a hand on your own chest. Go for a walk. Do a workout. Call a friend. Journal. Pray. Any of these can bring your nervous system down without outsourcing that job to her.
 
-The goal is to build a library of self-soothing practices that do not require her participation. Not because she should never comfort you. She can and should sometimes. But your baseline regulation should not depend on her.
+The goal is to build a library of self-soothing practices that don't require her participation. Not because she should never comfort you. She can and should sometimes. But your baseline regulation shouldn't depend on her.
 
 **3. Stay warm while staying separate.**
 
-This is the nuance most men miss. Self-regulation does not mean you become robotic or unavailable. You can be warm, loving, and emotionally present while also managing your own internal state.
+This is the nuance most men miss. Self-regulation doesn't mean you become robotic or unavailable. You can be warm, loving, and emotionally present while also managing your own internal state.
 
 That sounds like:
 
-- "I can feel tension between us. I am going to sit with it for a bit before we talk." (Not cold. Not disappearing. Just regulated.)
-- "I am feeling anxious about where we stand. I am not going to ask you to fix that. Just wanted you to know." (Honest without demanding.)
+- "I can feel tension between us. I'm going to sit with it for a bit before we talk." (Not cold. Not disappearing. Just regulated.)
+- "I'm feeling anxious about where we stand. I'm not going to ask you to fix that. Just wanted you to know." (Honest without demanding.)
 - "I love you. I also need some space to settle myself right now." (Connected and boundaried at the same time.)
 
 **4. Tolerate the gap.**
 
-The hardest part of differentiation is tolerating the moments where things are unresolved. The argument that does not get wrapped up neatly. The tension that lingers for a few hours. The text she has not responded to yet.
+The hardest part of differentiation is tolerating the moments where things are unresolved. The argument that doesn't get wrapped up neatly. The tension that lingers for a few hours. The text she hasn't responded to yet.
 
-Your nervous system will scream at you to close the gap. Do not obey that scream every time. Let the gap exist. Breathe through it. Prove to yourself that you can survive discomfort without needing her to rescue you from it.
+Your nervous system will scream at you to close the gap. Don't obey that scream every time. Let the gap exist. Breathe through it. Prove to yourself that you can survive discomfort without needing her to rescue you from it.
 
 Every time you sit with discomfort instead of reaching, your window of tolerance expands. You become more emotionally self-sufficient. And paradoxically, that self-sufficiency makes you more attractive, more trustworthy, and more capable of real intimacy.
 
@@ -2257,9 +2372,9 @@ Handling tests requires you to stay centered under pressure.
 De-escalating conflict requires you to regulate before engaging.
 And differentiation requires you to love without losing yourself.
 
-These are not separate skills. They are all expressions of the same capacity: **a regulated, self-possessed man who can meet a woman where she is without abandoning where he stands.**
+These aren't separate skills. They're all expressions of the same capacity: **a regulated, self-possessed man who can meet a woman where she is without abandoning where he stands.**
 
-That is what it means to speak Womanese. Not to decode her like a puzzle. Not to manipulate her like a game. But to understand her deeply enough that you can show up with presence, clarity, and strength, and let the relationship become something neither of you could build alone.
+That's what it means to speak Womanese. Not to decode her like a puzzle. Not to manipulate her like a game. But to understand her deeply enough that you can show up with presence, clarity, and strength, and let the relationship become something neither of you could build alone.
 
 ---
 
@@ -2273,11 +2388,15 @@ That is what it means to speak Womanese. Not to decode her like a puzzle. Not to
 - Tolerate the gap. Unresolved tension is uncomfortable but survivable. Every time you sit with it, your capacity grows.
 - The core skill of this entire course: stay grounded in yourself while staying connected to her.$$,
   ARRAY[
-    'List your top three anxious bids. For each one, describe what it looks like, what triggers it, and what you are actually trying to get from her when you do it.',
+    'List your top three anxious bids. For each one, describe what it looks like, what triggers it, and what you''re actually trying to get from her when you do it.',
     'Write down three self-regulation practices you can use instead of reaching for her. Be specific: what will you actually do with your body, breath, or attention?',
-    'Describe a recent moment where you tolerated the gap instead of reaching. If you cannot think of one, describe what it would look like the next time tension goes unresolved for a few hours.'
+    'Describe a recent moment where you tolerated the gap instead of reaching. If you can''t think of one, describe what it would look like the next time tension goes unresolved for a few hours.'
   ]
-);
+)
+ON CONFLICT (id) DO UPDATE SET
+  content = EXCLUDED.content,
+  journal_prompts = EXCLUDED.journal_prompts,
+  description = EXCLUDED.description;
 
 UPDATE courses
 SET coach_id = '11111111-1111-1111-1111-111111111111'

@@ -16,7 +16,8 @@ WHERE id = '00000000-0000-0000-0000-000000000010';
 -- Insert new chapters
 INSERT INTO chapters (id, course_id, title, description, sort_order) VALUES
   ('10000000-0000-0000-0000-000000000015', '00000000-0000-0000-0000-000000000010', 'De-escalating Conflict', 'Understand the neuroscience behind emotional reactivity and learn proven techniques for calming heated moments before they become relationship damage.', 3),
-  ('10000000-0000-0000-0000-000000000016', '00000000-0000-0000-0000-000000000010', 'Differentiation Over Enmeshment', 'Break the Nice Guy pattern of merging with a woman for safety and learn how healthy separateness creates stronger attraction, less conflict, and longer-lasting relationships.', 4);
+  ('10000000-0000-0000-0000-000000000016', '00000000-0000-0000-0000-000000000010', 'Differentiation Over Enmeshment', 'Break the Nice Guy pattern of merging with a woman for safety and learn how healthy separateness creates stronger attraction, less conflict, and longer-lasting relationships.', 4)
+ON CONFLICT (id) DO NOTHING;
 
 -- ============================================================
 -- Lessons for Chapter 4: De-escalating Conflict
@@ -95,7 +96,8 @@ For now, the most important takeaway is this: **your stress response is not a ch
     'Think of a recent argument where you said or did something you regretted. Write down the physical sensations you felt in the 30 seconds before that moment.',
     'What are three early warning signs in your body that tell you your amygdala has taken over? Be as specific as possible: jaw, chest, hands, breath, vision.'
   ]
-);
+)
+ON CONFLICT (id) DO NOTHING;
 
 -- Lesson 11: The Art of the Cool-Down
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -202,7 +204,8 @@ This sequence will not prevent all conflict. Conflict is normal and sometimes ne
     'Think of a recent complaint you had. Rewrite it using the soft startup formula: "I feel [emotion] when [situation] because [impact]. What I need is [request]."',
     'What is your go-to repair attempt? Write down three repair lines that feel natural to you and that you can use when conflict starts escalating.'
   ]
-);
+)
+ON CONFLICT (id) DO NOTHING;
 
 -- Lesson 12: Staying in the Fire Without Getting Burned
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -321,7 +324,8 @@ This is the work. Not memorizing scripts. Building a nervous system that can hol
     'Practice the internal narrator exercise right now. Write down three stories your mind tells you during conflict and then write the neutral observation underneath each one.',
     'Describe what staying present without fixing would look like for you in your most common conflict scenario. Be specific about body, tone, and words.'
   ]
-);
+)
+ON CONFLICT (id) DO NOTHING;
 
 -- ============================================================
 -- Lessons for Chapter 5: Differentiation Over Enmeshment
@@ -417,7 +421,8 @@ That is the foundation we will build in the next two lessons.
     'Identify one covert contract you have run: something you gave without asking, then silently resented her for not reciprocating. Write out what you actually needed and never said.',
     'What parts of your identity, hobbies, friendships, opinions, or preferences have you quietly abandoned to keep a woman comfortable? List them.'
   ]
-);
+)
+ON CONFLICT (id) DO NOTHING;
 
 -- Lesson 14: The Power of Differentiation
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -528,7 +533,8 @@ That is the relationship most men actually want. They just did not know they had
     'Where have you confused detachment with differentiation? Describe one moment where you shut down emotionally and told yourself you were being "strong" or "independent."',
     'Write down one communication style difference between you and your partner. How can you respect her style without abandoning yours?'
   ]
-);
+)
+ON CONFLICT (id) DO NOTHING;
 
 -- Lesson 15: Spotting Your Anxious Bids and Regulating Without Withdrawing
 INSERT INTO lessons (id, chapter_id, title, description, sort_order, duration_seconds, video_source_type, video_url, is_preview, content, journal_prompts) VALUES (
@@ -652,4 +658,5 @@ That is what it means to speak Womanese. Not to decode her like a puzzle. Not to
     'Write down three self-regulation practices you can use instead of reaching for her. Be specific: what will you actually do with your body, breath, or attention?',
     'Describe a recent moment where you tolerated the gap instead of reaching. If you cannot think of one, describe what it would look like the next time tension goes unresolved for a few hours.'
   ]
-);
+)
+ON CONFLICT (id) DO NOTHING;

@@ -9,4 +9,4 @@ SET title = 'How To Speak Womanese And Handle Conflict Like A Champ',
 WHERE id = '00000000-0000-0000-0000-000000000010';
 
 -- Add completed_at column to enrollments for course-level completion tracking
-ALTER TABLE enrollments ADD COLUMN completed_at TIMESTAMPTZ DEFAULT NULL;
+ALTER TABLE enrollments ADD COLUMN IF NOT EXISTS completed_at TIMESTAMPTZ DEFAULT NULL;
