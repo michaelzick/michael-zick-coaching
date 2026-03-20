@@ -24,7 +24,7 @@ export default function CoachesPage() {
       <main className="flex-grow mobile-shell pb-16 pt-32">
         <div className="container mx-auto content-stack">
           <div className="max-w-5xl mb-12">
-            <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">Coaches</p>
+            <p className="text-foreground font-semibold uppercase tracking-widest text-sm mb-4">Coaches</p>
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Meet the men behind the work.</h1>
             <p className="text-lg text-muted-foreground max-w-3xl">
               Each coach brings a distinct style, but the same mission: helping men break shame-driven patterns and build grounded standards.
@@ -42,7 +42,7 @@ export default function CoachesPage() {
                 The platform is being expanded for multiple coaches. Check back soon or browse courses in the meantime.
               </p>
               <Link to="/courses">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Browse Courses</Button>
+                <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Browse Courses</Button>
               </Link>
             </div>
           ) : (
@@ -64,10 +64,10 @@ export default function CoachesPage() {
                   </div>
                   <div className="p-4 sm:p-6">
                     <h2 className="text-2xl font-bold text-card-foreground mb-1">{coach.name}</h2>
-                    <p className="text-primary font-semibold uppercase tracking-[0.04em] text-sm mb-4">{coach.title}</p>
+                    <p className="text-foreground font-semibold uppercase tracking-[0.04em] text-sm mb-4">{coach.title}</p>
                     <p className="text-muted-foreground mb-6">{coach.shortBio}</p>
                     <Link to={`/coaches/${coach.slug}`}>
-                      <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                      <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
                         View Profile
                       </Button>
                     </Link>

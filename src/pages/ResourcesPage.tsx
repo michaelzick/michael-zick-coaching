@@ -20,7 +20,7 @@ export default function ResourcesPage() {
       <main className="flex-grow mobile-shell pb-16 pt-28 md:pt-32">
         <div className="container mx-auto max-w-5xl content-stack">
           <div className="mb-12 fade-in">
-            <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-2">Resources</p>
+            <p className="text-foreground font-semibold uppercase tracking-widest text-sm mb-2">Resources</p>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Nice Guy Recovery Guides
             </h1>
@@ -47,12 +47,12 @@ export default function ResourcesPage() {
                 <Link
                   key={resource.id}
                   to={`/resources/${resource.slug}`}
-                  className="elevated-on-hover block bg-card p-4 transition-colors hover:border-primary sm:p-6"
+                  className="elevated-on-hover block bg-card p-4 transition-colors hover:border-foreground sm:p-6"
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       {resource.category && (
-                        <p className="text-primary font-semibold uppercase tracking-widest text-xs mb-2">
+                        <p className="text-foreground font-semibold uppercase tracking-widest text-xs mb-2">
                           {resource.category}
                         </p>
                       )}

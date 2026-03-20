@@ -33,7 +33,7 @@ export default function CourseCard({ course, className }: CourseCardProps) {
           className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
         />
         {course.bestseller && (
-          <Badge className="absolute top-3 left-3 bg-primary text-primary-foreground">
+          <Badge className="absolute top-3 left-3 bg-foreground text-background">
             Popular
           </Badge>
         )}
@@ -46,18 +46,18 @@ export default function CourseCard({ course, className }: CourseCardProps) {
       
       <div className="p-4 sm:p-5">
         <div className="mb-2 flex items-start justify-between gap-3">
-          <span className="text-xs font-bold text-primary uppercase tracking-[0.05em]">
+          <span className="text-xs font-bold text-foreground uppercase tracking-[0.05em]">
             {categoryLabel}
           </span>
           <div className="flex shrink-0 items-center">
-            <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+            <Star className="w-4 h-4 text-foreground fill-foreground" />
             <span className="text-sm font-medium text-card-foreground ml-1">{course.rating}</span>
             <span className="text-xs text-muted-foreground ml-1">({course.ratingCount})</span>
           </div>
         </div>
         
         <Link to={`/course/${course.slug}`} className="block">
-          <h3 className="font-bold text-card-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors tracking-[0.01em]">
+          <h3 className="font-bold text-card-foreground mb-2 line-clamp-2 group-hover:text-foreground/70 transition-colors tracking-[0.01em]">
             {course.title}
           </h3>
         </Link>
@@ -96,14 +96,14 @@ export default function CourseCard({ course, className }: CourseCardProps) {
         <div className="mt-auto">
           {isInCart(course.id) ? (
             <Link to="/cart" className="block w-full">
-              <Button variant="outline" className="w-full border-border text-foreground hover:bg-accent">
+              <Button variant="outline" className="w-full border-border text-foreground hover:bg-muted">
                 <ShoppingCart className="w-4 h-4 mr-2" />
                 View in Cart
               </Button>
             </Link>
           ) : (
             <Button 
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+              className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
               onClick={(e) => {
                 e.preventDefault();
                 addToCart(course.id);

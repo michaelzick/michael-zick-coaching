@@ -86,7 +86,7 @@ export default function ResetPassword() {
           <div className="container mx-auto max-w-md content-stack">
             <Card className="content-stack">
               <CardContent className="py-12 flex flex-col items-center gap-4">
-                <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
                 <p className="text-center text-muted-foreground">
                   Verifying your password reset link.
                 </p>
@@ -129,7 +129,7 @@ export default function ResetPassword() {
             <CardContent>
               {isPasswordUpdated ? (
                 <div className="text-center py-6">
-                  <CheckCircle2 className="h-12 w-12 text-primary mx-auto mb-4" />
+                  <CheckCircle2 className="h-12 w-12 text-foreground mx-auto mb-4" />
                   <h2 className="text-lg font-semibold text-foreground mb-2">Password updated</h2>
                   <p className="text-muted-foreground mb-4">
                     Your password has been reset. You can continue into the app now.
@@ -168,7 +168,7 @@ export default function ResetPassword() {
 
                   <Button
                     type="submit"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (

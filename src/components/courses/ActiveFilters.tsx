@@ -36,7 +36,7 @@ export default function ActiveFilters({
         <Badge 
           key={level} 
           variant="outline" 
-          className="bg-muted text-foreground hover:bg-accent font-semibold"
+          className="bg-muted text-foreground hover:bg-muted/80 font-semibold"
         >
           {level}
           <X 
@@ -52,7 +52,7 @@ export default function ActiveFilters({
           <Badge 
             key={catId} 
             variant="outline" 
-            className="bg-muted text-foreground hover:bg-accent font-semibold"
+            className="bg-muted text-foreground hover:bg-muted/80 font-semibold"
           >
             {category?.label}
             <X 
@@ -66,7 +66,7 @@ export default function ActiveFilters({
       {!(priceRange[0] === 0 && priceRange[1] === 500) && (
         <Badge 
           variant="outline" 
-          className="bg-muted text-foreground hover:bg-accent font-semibold"
+          className="bg-muted text-foreground hover:bg-muted/80 font-semibold"
         >
           {priceRange[0] === 0 && priceRange[1] === 0 
             ? 'Free' 
@@ -81,7 +81,7 @@ export default function ActiveFilters({
       {searchQuery && (
         <Badge 
           variant="outline" 
-          className="bg-muted text-foreground hover:bg-accent font-semibold"
+          className="bg-muted text-foreground hover:bg-muted/80 font-semibold"
         >
           "{searchQuery}"
           <X 
@@ -94,7 +94,7 @@ export default function ActiveFilters({
       <Button 
         variant="ghost" 
         size="sm" 
-        className="text-muted-foreground hover:text-primary ml-auto"
+        className="text-muted-foreground hover:text-foreground ml-auto"
         onClick={clearFilters}
       >
         Clear All

@@ -125,7 +125,7 @@ export default function Register() {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
                   disabled={isSubmitting}
                 >
                   {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
@@ -135,7 +135,7 @@ export default function Register() {
 
               <div className="text-center text-sm mt-6">
                 <span className="text-muted-foreground">Already have an account? </span>
-                <Link to="/login" className="text-primary hover:underline">
+                <Link to="/login" className="text-foreground underline hover:text-foreground/70">
                   Sign in
                 </Link>
               </div>

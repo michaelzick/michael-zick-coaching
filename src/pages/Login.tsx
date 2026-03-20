@@ -168,7 +168,7 @@ export default function Login() {
                     </div>
                     <Button
                       type="submit"
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                      className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
                       disabled={isSubmitting}
                     >
                       {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
@@ -180,7 +180,7 @@ export default function Login() {
                 <TabsContent value="magic-link">
                   {magicLinkSent ? (
                     <div className="text-center py-6">
-                      <Mail className="h-12 w-12 text-primary mx-auto mb-4" />
+                      <Mail className="h-12 w-12 text-foreground mx-auto mb-4" />
                       <h3 className="text-lg font-semibold text-foreground mb-2">Check Your Email</h3>
                       <p className="text-muted-foreground mb-4">
                         We sent a magic link to your email. Click the link to sign in.
@@ -205,7 +205,7 @@ export default function Login() {
                       </div>
                       <Button
                         type="submit"
-                        className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                        className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
                         disabled={isSubmitting}
                       >
                         {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
@@ -218,7 +218,7 @@ export default function Login() {
                 <TabsContent value="reset-password">
                   {resetLinkSent ? (
                     <div className="text-center py-6">
-                      <Mail className="h-12 w-12 text-primary mx-auto mb-4" />
+                      <Mail className="h-12 w-12 text-foreground mx-auto mb-4" />
                       <h3 className="text-lg font-semibold text-foreground mb-2">Check Your Email</h3>
                       <p className="text-muted-foreground mb-4">
                         We sent you a password reset link. Open it to choose a new password.
@@ -246,7 +246,7 @@ export default function Login() {
                       </p>
                       <Button
                         type="submit"
-                        className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                        className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
                         disabled={isSubmitting}
                       >
                         {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
@@ -258,7 +258,7 @@ export default function Login() {
               </Tabs>
 
               {showLocalMailInbox && (
-                <Alert className="mt-6 border-primary/20 bg-primary/5">
+                <Alert className="mt-6 border-foreground/20 bg-foreground/5">
                   <AlertTitle>Local email inbox</AlertTitle>
                   <AlertDescription>
                     Local Supabase auth emails are captured at{" "}
@@ -266,7 +266,7 @@ export default function Login() {
                       href={localMailInboxUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-medium text-primary underline underline-offset-4"
+                      className="font-medium text-foreground underline underline-offset-4"
                     >
                       {localMailInboxUrl}
                     </a>
@@ -277,7 +277,7 @@ export default function Login() {
 
               <div className="text-center text-sm mt-6">
                 <span className="text-muted-foreground">Don't have an account? </span>
-                <Link to="/register" className="text-primary hover:underline">
+                <Link to="/register" className="text-foreground underline hover:text-foreground/70">
                   Sign up
                 </Link>
               </div>

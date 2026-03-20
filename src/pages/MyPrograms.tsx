@@ -86,7 +86,7 @@ export default function MyPrograms() {
                         className="absolute inset-0 w-full h-full object-cover"
                       />
                       {isCompleted && (
-                        <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-green-600 px-3 py-1 text-xs font-semibold text-white shadow-md">
+                        <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-foreground px-3 py-1 text-xs font-semibold text-background shadow-md">
                           <CheckCircle2 className="h-3.5 w-3.5" />
                           Completed
                         </div>
@@ -99,7 +99,7 @@ export default function MyPrograms() {
                       </p>
                       <div className="flex flex-col gap-2">
                         <Link to={`/learn/${course.slug}`}>
-                          <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                          <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
                             <PlayCircle className="h-4 w-4 mr-2" />
                             {isCompleted ? 'Review Course' : 'Continue Learning'}
                           </Button>
@@ -107,7 +107,7 @@ export default function MyPrograms() {
                         <Button
                           variant="ghost"
                           size="sm"
-                          className={`w-full text-xs ${isCompleted ? 'text-muted-foreground hover:text-foreground' : 'text-green-600 hover:text-green-700'}`}
+                          className={`w-full text-xs ${isCompleted ? 'text-muted-foreground hover:text-foreground' : 'text-foreground hover:text-foreground/70'}`}
                           onClick={() => void handleToggleCompletion(enrollment)}
                           disabled={isToggling}
                         >

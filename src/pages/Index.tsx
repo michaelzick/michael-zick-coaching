@@ -82,7 +82,7 @@ export default function Index() {
         <div className="absolute inset-0 bg-mz-slate/80" />
         <div className="container mx-auto relative z-10 content-stack">
           <div className="max-w-4xl space-y-6">
-            <p className="text-primary font-semibold uppercase tracking-widest text-sm">
+            <p className="text-foreground font-semibold uppercase tracking-widest text-sm">
               Multi-Coach Recovery Platform
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
@@ -99,7 +99,7 @@ export default function Index() {
                 </Button>
               </Link>
               <Link to="/coaches" className="w-full sm:w-auto">
-                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 sm:w-auto">
+                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
                   Meet Our Coaches
                 </Button>
               </Link>
@@ -112,7 +112,7 @@ export default function Index() {
       <section className="bg-background py-20 mobile-shell">
         <div className="container mx-auto content-stack">
           <div className="text-center max-w-4xl mx-auto mb-16">
-            <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">
+            <p className="text-foreground font-semibold uppercase tracking-widest text-sm mb-4">
               The Framework
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -125,8 +125,8 @@ export default function Index() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {framework.map((item) => (
-              <div key={item.step} className="group elevated-on-hover relative bg-card p-4 transition-all duration-300 hover:border-primary sm:p-6 lg:p-8">
-                <span className="text-5xl font-bold text-primary/20 group-hover:text-primary/40 transition-colors">{item.step}</span>
+              <div key={item.step} className="group elevated-on-hover relative bg-card p-4 transition-all duration-300 hover:border-foreground sm:p-6 lg:p-8">
+                <span className="text-5xl font-bold text-foreground/20 group-hover:text-foreground/40 transition-colors">{item.step}</span>
                 <h3 className="text-xl font-bold text-card-foreground mt-4 mb-3">{item.title}</h3>
                 <p className="text-muted-foreground">{item.description}</p>
               </div>
@@ -140,10 +140,10 @@ export default function Index() {
         <div className="container mx-auto content-stack">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-2">Courses</p>
+              <p className="text-foreground font-semibold uppercase tracking-widest text-sm mb-2">Courses</p>
               <h2 className="text-3xl font-bold text-foreground">Featured Courses</h2>
             </div>
-            <Link to="/courses" className="text-primary hover:text-primary/80 font-medium flex items-center">
+            <Link to="/courses" className="text-foreground hover:text-foreground/70 font-medium flex items-center">
               View All
               <ChevronRight className="ml-1 h-5 w-5" />
             </Link>
@@ -160,7 +160,7 @@ export default function Index() {
       <section className="bg-muted py-20 mobile-shell">
         <div className="container mx-auto max-w-4xl content-stack">
           <div className="text-center mb-12">
-            <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">
+            <p className="text-foreground font-semibold uppercase tracking-widest text-sm mb-4">
               Common Questions
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -202,7 +202,7 @@ export default function Index() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/coaches" className="w-full sm:w-auto">
-                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 sm:w-auto">
+                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
                   Meet Our Coaches
                 </Button>
               </Link>

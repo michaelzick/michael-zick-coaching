@@ -90,9 +90,9 @@ export default function ResourceDetail() {
           <div className="container mx-auto max-w-4xl content-stack">
             {/* Breadcrumb */}
             <nav className="mb-8 flex flex-wrap items-center gap-y-1 text-sm">
-              <Link to="/" className="text-muted-foreground hover:text-primary">Home</Link>
+              <Link to="/" className="text-muted-foreground hover:text-foreground/70">Home</Link>
               <span className="mx-2 text-muted-foreground">&rsaquo;</span>
-              <Link to="/resources" className="text-muted-foreground hover:text-primary">Resources</Link>
+              <Link to="/resources" className="text-muted-foreground hover:text-foreground/70">Resources</Link>
               <span className="mx-2 text-muted-foreground">&rsaquo;</span>
               <span className="text-muted-foreground truncate">{resource.title}</span>
             </nav>
@@ -100,7 +100,7 @@ export default function ResourceDetail() {
             {/* Header */}
             <header className="mb-12">
               {resource.category && (
-                <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">
+                <p className="text-foreground font-semibold uppercase tracking-widest text-sm mb-4">
                   {resource.category}
                 </p>
               )}
@@ -130,14 +130,14 @@ export default function ResourceDetail() {
               <div className="flex flex-col gap-4 sm:flex-row">
                 {resource.relatedCourseSlug ? (
                   <Link to={`/course/${resource.relatedCourseSlug}`} className="w-full sm:w-auto">
-                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                    <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
                       View Recommended Course
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
                 ) : (
                   <Link to="/courses" className="w-full sm:w-auto">
-                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                    <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
                       Explore Courses
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>

@@ -134,16 +134,16 @@ export default function CoursePlayer() {
                     <button
                       onClick={() => navigateToLesson(lesson)}
                       className={`flex w-full items-start justify-between gap-3 px-4 py-3 text-left transition-colors hover:bg-muted/60 ${
-                        isActive ? 'border-l-2 border-primary bg-primary/10' : ''
+                        isActive ? 'border-l-2 border-foreground bg-foreground/10' : ''
                       }`}
                     >
                       <div className="flex min-w-0 items-start gap-3">
                         <PlayCircle className={`mt-0.5 h-4 w-4 flex-shrink-0 ${
-                          isActive ? 'text-primary' : 'text-muted-foreground'
+                          isActive ? 'text-foreground' : 'text-muted-foreground'
                         }`} />
                         <div className="min-w-0 flex-grow">
                           <p className={`text-sm ${
-                            isActive ? 'font-medium text-primary' : 'text-card-foreground'
+                            isActive ? 'font-medium text-foreground' : 'text-card-foreground'
                           }`}>
                             {lesson.title}
                           </p>
@@ -262,7 +262,7 @@ export default function CoursePlayer() {
               <>
                 <VideoPlayer lesson={currentLesson} />
                 <div className="mt-6">
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-primary">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-foreground">
                     {lessonProgressLabel}
                   </p>
                   <h2 className="text-2xl font-bold text-foreground mb-2">{currentLesson.title}</h2>

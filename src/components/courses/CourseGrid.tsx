@@ -14,7 +14,7 @@ export default function CourseGrid({ isLoading, courses, clearFilters }: CourseG
   if (isLoading) {
     return (
       <div className="py-16 flex flex-col items-center justify-center gap-3">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
         <p className="text-sm text-muted-foreground">Loading courses...</p>
       </div>
     );
@@ -32,7 +32,7 @@ export default function CourseGrid({ isLoading, courses, clearFilters }: CourseG
         </p>
         <Button 
           variant="outline" 
-          className="border-border text-foreground hover:bg-accent"
+          className="border-border text-foreground hover:bg-muted"
           onClick={clearFilters}
         >
           Clear Filters

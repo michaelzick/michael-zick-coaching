@@ -21,7 +21,7 @@ export default function CheckoutCancel() {
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Link to="/cart" className="w-full sm:w-auto">
-              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
                 Return to Cart
               </Button>
             </Link>

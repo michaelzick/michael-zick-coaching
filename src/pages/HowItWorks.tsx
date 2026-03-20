@@ -79,7 +79,7 @@ export default function HowItWorks() {
         <section className="bg-muted py-16 mobile-shell">
           <div className="container mx-auto content-stack">
             <div className="max-w-5xl">
-              <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">How It Works</p>
+              <p className="text-foreground font-semibold uppercase tracking-widest text-sm mb-4">How It Works</p>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                 A platform for men who are ready to stop performing.
               </h1>
@@ -88,7 +88,7 @@ export default function HowItWorks() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/coaches" className="w-full sm:w-auto">
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 sm:w-auto">
+                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
                     Meet Our Coaches
                   </Button>
                 </Link>
@@ -106,7 +106,7 @@ export default function HowItWorks() {
         <section className="bg-background py-20 mobile-shell">
           <div className="container mx-auto content-stack">
             <div className="max-w-4xl mb-12">
-              <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">The Process</p>
+              <p className="text-foreground font-semibold uppercase tracking-widest text-sm mb-4">The Process</p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Three steps. No fluff.</h2>
               <p className="text-lg text-muted-foreground">
                 The platform is built to make starting simple and staying consistent realistic.
@@ -116,11 +116,11 @@ export default function HowItWorks() {
             <div className="grid gap-6 md:grid-cols-3">
               {steps.map(({ title, description, icon: Icon }, index) => (
                 <div key={title} className="bg-card p-4 elevated-on-hover sm:p-6 lg:p-8">
-                  <p className="text-sm font-bold uppercase tracking-[0.08em] text-primary mb-4">
+                  <p className="text-sm font-bold uppercase tracking-[0.08em] text-foreground mb-4">
                     Step {index + 1}
                   </p>
-                  <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-4">
-                    <Icon className="h-6 w-6 text-primary" />
+                  <div className="w-12 h-12 bg-muted flex items-center justify-center mb-4">
+                    <Icon className="h-6 w-6 text-foreground" />
                   </div>
                   <h3 className="text-xl font-bold text-card-foreground mb-3">{title}</h3>
                   <p className="text-muted-foreground">{description}</p>
@@ -133,7 +133,7 @@ export default function HowItWorks() {
         <section className="bg-muted py-20 mobile-shell">
           <div className="container mx-auto content-stack">
             <div className="max-w-4xl mb-12">
-              <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">Core Work</p>
+              <p className="text-foreground font-semibold uppercase tracking-widest text-sm mb-4">Core Work</p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">The three pillars of transformation</h2>
               <p className="text-lg text-muted-foreground">
                 Different coaches teach with different voices, but the work keeps returning to the same foundations.
@@ -143,8 +143,8 @@ export default function HowItWorks() {
             <div className="grid gap-6 lg:grid-cols-3">
               {pillars.map(({ title, description, icon: Icon }) => (
                 <div key={title} className="bg-card p-4 sm:p-6 lg:p-8">
-                  <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-4">
-                    <Icon className="h-6 w-6 text-primary" />
+                  <div className="w-12 h-12 bg-muted flex items-center justify-center mb-4">
+                    <Icon className="h-6 w-6 text-foreground" />
                   </div>
                   <h3 className="text-2xl font-bold text-card-foreground mb-3">{title}</h3>
                   <p className="text-muted-foreground">{description}</p>
@@ -157,7 +157,7 @@ export default function HowItWorks() {
         <section className="bg-background py-20 mobile-shell">
           <div className="container mx-auto max-w-4xl content-stack">
             <div className="text-center mb-12">
-              <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-4">Platform FAQ</p>
+              <p className="text-foreground font-semibold uppercase tracking-widest text-sm mb-4">Platform FAQ</p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">Common Questions</h2>
             </div>
 
@@ -185,7 +185,7 @@ export default function HowItWorks() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/coaches" className="w-full sm:w-auto">
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 sm:w-auto">
+                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
                     Meet Our Coaches
                   </Button>
                 </Link>

@@ -110,9 +110,9 @@ export default function CourseDetails() {
             <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)]">
               <div className="min-w-0 fade-in">
                 <div className="mb-4 flex flex-wrap items-center text-sm">
-                  <Link to="/" className="text-muted-foreground hover:text-primary">Home</Link>
+                  <Link to="/" className="text-muted-foreground hover:text-foreground/70">Home</Link>
                   <span className="mx-2">&rsaquo;</span>
-                  <Link to="/courses" className="text-muted-foreground hover:text-primary">Courses</Link>
+                  <Link to="/courses" className="text-muted-foreground hover:text-foreground/70">Courses</Link>
                   <span className="mx-2">&rsaquo;</span>
                   <span className="text-muted-foreground">{course.category.replace(/-/g, " ")}</span>
                 </div>
@@ -124,7 +124,7 @@ export default function CourseDetails() {
                   <div className="flex items-center">
                     <div className="flex">
                       {Array(5).fill(0).map((_, i) => (
-                        <Star key={i} className={`w-4 h-4 ${i < Math.round(course.rating) ? 'text-accent fill-accent' : 'text-muted-foreground'}`} />
+                        <Star key={i} className={`w-4 h-4 ${i < Math.round(course.rating) ? 'text-foreground fill-foreground' : 'text-muted-foreground'}`} />
                       ))}
                     </div>
                     <span className="ml-2 font-medium">{course.rating}</span>
@@ -141,13 +141,13 @@ export default function CourseDetails() {
                 </div>
 
                 <div className="flex items-center mb-6">
-                  <div className="w-10 h-10 bg-primary/20 mr-3 flex items-center justify-center">
-                    <User className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 bg-muted mr-3 flex items-center justify-center">
+                    <User className="w-5 h-5 text-foreground" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Created by</p>
                     {coachProfileHref ? (
-                      <Link to={coachProfileHref} className="font-medium text-secondary-foreground hover:text-primary transition-colors">
+                      <Link to={coachProfileHref} className="font-medium text-secondary-foreground hover:text-foreground/70 transition-colors">
                         {coachDisplayName}
                       </Link>
                     ) : (
@@ -179,7 +179,7 @@ export default function CourseDetails() {
                         <div className="grid sm:grid-cols-2 gap-3">
                           {course.whatYouWillLearn.map((item, index) => (
                             <div key={index} className="flex min-w-0 items-start">
-                              <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                              <Check className="h-5 w-5 text-foreground mr-3 flex-shrink-0 mt-0.5" />
                               <span className="min-w-0 break-words text-muted-foreground">{item}</span>
                             </div>
                           ))}
@@ -234,7 +234,7 @@ export default function CourseDetails() {
                                               <PlayCircle className="h-5 w-5 text-muted-foreground mr-3" />
                                               <span className="min-w-0 break-words text-foreground">{lesson.title}</span>
                                               {lesson.isPreview && (
-                                                <span className="ml-2 text-xs bg-primary/10 text-primary px-2 py-0.5 border border-primary uppercase tracking-[0.03em]">Preview</span>
+                                                <span className="ml-2 text-xs bg-foreground/10 text-foreground px-2 py-0.5 border border-foreground uppercase tracking-[0.03em]">Preview</span>
                                               )}
                                             </div>
                                             {lesson.durationSeconds > 0 && (
@@ -257,11 +257,11 @@ export default function CourseDetails() {
 
                     <TabsContent value="instructor" className="fade-in">
                       <div className="mb-8 flex flex-col gap-6 sm:flex-row sm:items-start">
-                        <div className="flex h-20 w-20 items-center justify-center overflow-hidden bg-primary/20">
+                        <div className="flex h-20 w-20 items-center justify-center overflow-hidden bg-muted">
                           {coach?.imageUrl ? (
                             <img src={coach.imageUrl} alt={coachDisplayName} className="w-full h-full object-cover" />
                           ) : (
-                            <User className="w-10 h-10 text-primary" />
+                            <User className="w-10 h-10 text-foreground" />
                           )}
                         </div>
                         <div className="min-w-0">
@@ -324,14 +324,14 @@ export default function CourseDetails() {
 
                     {isInCart(course.id) ? (
                       <Link to="/cart" className="block w-full">
-                        <Button variant="outline" className="mb-3 w-full border-primary text-primary hover:bg-primary/10">
+                        <Button variant="outline" className="mb-3 w-full border-foreground text-foreground hover:bg-foreground/10">
                           <ShoppingCart className="mr-2 h-5 w-5" />
                           Go to Cart
                         </Button>
                       </Link>
                     ) : (
                       <Button
-                        className="mb-3 w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                        className="mb-3 w-full bg-accent text-accent-foreground hover:bg-accent/90"
                         onClick={() => addToCart(course.id)}
                       >
                         Enroll Now
@@ -374,7 +374,7 @@ export default function CourseDetails() {
                     </li>
                     <li className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                       <span className="text-muted-foreground">Category</span>
-                      <span className="break-words font-medium text-primary sm:text-right">{course.category.replace(/-/g, " ")}</span>
+                      <span className="break-words font-medium text-foreground sm:text-right">{course.category.replace(/-/g, " ")}</span>
                     </li>
                     <li className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                       <span className="text-muted-foreground">Language</span>
@@ -431,13 +431,13 @@ export default function CourseDetails() {
           </div>
           {isInCart(course.id) ? (
             <Link to="/cart" className="shrink-0">
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
+              <Button variant="outline" className="border-foreground text-foreground hover:bg-foreground/10">
                 Go to Cart
               </Button>
             </Link>
           ) : (
             <Button
-              className="shrink-0 bg-primary text-primary-foreground hover:bg-primary/90"
+              className="shrink-0 bg-accent text-accent-foreground hover:bg-accent/90"
               onClick={() => addToCart(course.id)}
             >
               Enroll Now

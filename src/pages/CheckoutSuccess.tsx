@@ -106,7 +106,7 @@ export default function CheckoutSuccess() {
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row">
                 <Link to="/cart" className="w-full sm:w-auto">
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
                     Return to Cart
                   </Button>
                 </Link>
@@ -117,8 +117,8 @@ export default function CheckoutSuccess() {
             </>
           ) : (
             <>
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 dark:bg-green-900/30 mb-6">
-                <CheckCircle2 className="h-10 w-10 text-green-600 dark:text-green-400" />
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-foreground/10 mb-6">
+                <CheckCircle2 className="h-10 w-10 text-foreground" />
               </div>
               <h1 className="text-3xl font-bold text-foreground mb-4">Payment Successful!</h1>
               <p className="text-muted-foreground mb-8">
@@ -126,7 +126,7 @@ export default function CheckoutSuccess() {
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row">
                 <Link to="/my-courses" className="w-full sm:w-auto">
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
                     Go to My Courses
                   </Button>
                 </Link>

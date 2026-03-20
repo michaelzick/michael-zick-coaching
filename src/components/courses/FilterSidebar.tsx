@@ -35,7 +35,7 @@ export default function FilterSidebar({
             <h2 className="font-bold text-foreground tracking-[0.02em]">Filters</h2>
             {hasFilters() && (
               <button 
-                className="text-muted-foreground hover:text-primary text-sm font-bold tracking-normal"
+                className="text-muted-foreground hover:text-foreground text-sm font-bold tracking-normal"
                 onClick={clearFilters}
               >
                 Clear All

@@ -169,7 +169,7 @@ export default function Cart() {
                           <div className="min-w-0">
                             <Link
                               to={`/course/${item.slug}`}
-                              className="block break-words font-medium text-card-foreground hover:text-primary"
+                              className="block break-words font-medium text-card-foreground hover:text-foreground/70"
                             >
                               {item.title}
                             </Link>
@@ -204,7 +204,7 @@ export default function Cart() {
                   </div>
 
                   <div className="border-t border-border bg-muted p-6">
-                    <Link to="/courses" className="inline-flex items-center font-medium text-primary hover:text-primary/80">
+                    <Link to="/courses" className="inline-flex items-center font-medium text-foreground hover:text-foreground/70">
                       <ChevronLeft className="mr-1 h-4 w-4" />
                       Continue Browsing
                     </Link>
@@ -237,7 +237,7 @@ export default function Cart() {
                         <div className="min-w-0 flex-1">
                           <Link
                             to={`/course/${item.slug}`}
-                            className="block break-words text-lg font-medium text-card-foreground hover:text-primary"
+                            className="block break-words text-lg font-medium text-card-foreground hover:text-foreground/70"
                           >
                             {item.title}
                           </Link>
@@ -278,7 +278,7 @@ export default function Cart() {
                   ))}
 
                   <div className="px-1">
-                    <Link to="/courses" className="inline-flex items-center font-medium text-primary hover:text-primary/80">
+                    <Link to="/courses" className="inline-flex items-center font-medium text-foreground hover:text-foreground/70">
                       <ChevronLeft className="mr-1 h-4 w-4" />
                       Continue Browsing
                     </Link>
@@ -296,7 +296,7 @@ export default function Cart() {
                       {discount > 0 && (
                         <div className="flex items-start justify-between gap-4">
                           <span className="text-muted-foreground">Discount</span>
-                          <span className="text-right font-medium text-green-500">-{formatPrice(discount)}</span>
+                          <span className="text-right font-medium text-foreground">-{formatPrice(discount)}</span>
                         </div>
                       )}
                     </div>
@@ -338,7 +338,7 @@ export default function Cart() {
                       {discount > 0 && (
                         <div className="flex justify-between gap-4">
                           <span className="text-muted-foreground">Discount</span>
-                          <span className="text-right font-medium text-green-500">-{formatPrice(discount)}</span>
+                          <span className="text-right font-medium text-foreground">-{formatPrice(discount)}</span>
                         </div>
                       )}
                     </div>
@@ -351,7 +351,7 @@ export default function Cart() {
                     </div>
 
                     <Button
-                      className="mb-4 w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                      className="mb-4 w-full bg-accent hover:bg-accent/90 text-accent-foreground"
                       onClick={handleCheckout}
                       disabled={isCheckingOut}
                     >
@@ -391,7 +391,7 @@ export default function Cart() {
               <p className="truncate text-xl font-bold text-card-foreground">{formatPrice(subtotal)}</p>
             </div>
             <Button
-              className="shrink-0 bg-primary text-primary-foreground hover:bg-primary/90"
+              className="shrink-0 bg-accent text-accent-foreground hover:bg-accent/90"
               onClick={handleCheckout}
               disabled={isCheckingOut}
             >

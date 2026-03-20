@@ -56,30 +56,30 @@ export default function Navbar() {
       <div className="container mx-auto mobile-shell content-stack">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2 cubist-link">
-            <span className="cta-elevated-on-hover inline-block max-w-[calc(100vw-9rem)] truncate text-sm font-bold tracking-[0.03em] text-accent-foreground bg-accent px-3 py-1 sm:text-base site-nav:max-w-none site-nav:text-2xl">
+            <span className="cta-elevated-on-hover inline-block max-w-[calc(100vw-9rem)] truncate text-sm font-bold tracking-[0.03em] text-background bg-foreground px-3 py-1 sm:text-base site-nav:max-w-none site-nav:text-2xl">
               NICE GUY UNIVERSITY
             </span>
           </Link>
 
           <nav className="hidden items-center space-x-4 lg:space-x-5 site-nav:flex">
-            <Link to="/courses" className="cubist-link text-foreground hover:text-primary transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
+            <Link to="/courses" className="cubist-link text-foreground hover:text-foreground/70 transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
               Courses
             </Link>
-            <Link to="/coaches" className="cubist-link text-foreground hover:text-primary transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
+            <Link to="/coaches" className="cubist-link text-foreground hover:text-foreground/70 transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
               Coaches
             </Link>
-            <Link to="/how-it-works" className="cubist-link text-foreground hover:text-primary transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
+            <Link to="/how-it-works" className="cubist-link text-foreground hover:text-foreground/70 transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
               How It Works
             </Link>
-            <Link to="/resources" className="cubist-link text-foreground hover:text-primary transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
+            <Link to="/resources" className="cubist-link text-foreground hover:text-foreground/70 transition-colors font-bold uppercase tracking-[0.03em] border-b-2 border-transparent hover:border-foreground pb-1">
               Resources
             </Link>
 
             <Link to="/cart" className="relative">
-              <Button variant="outline" size="icon" className="text-foreground hover:text-primary" aria-label="View cart">
+              <Button variant="outline" size="icon" className="text-foreground hover:text-foreground/70" aria-label="View cart">
                 <ShoppingCart className="h-5 w-5" />
                 {cart.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold h-6 min-w-6 px-1 flex items-center justify-center">
+                  <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground text-xs font-bold h-6 min-w-6 px-1 flex items-center justify-center">
                     {cart.length}
                   </span>
                 )}
@@ -89,7 +89,7 @@ export default function Navbar() {
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline" size="icon" className="text-foreground hover:text-primary" aria-label="Open account menu">
+                  <Button variant="outline" size="icon" className="text-foreground hover:text-foreground/70" aria-label="Open account menu">
                     <User className="h-5 w-5" />
                   </Button>
                 </DropdownMenuTrigger>
@@ -132,7 +132,7 @@ export default function Navbar() {
               </DropdownMenu>
             ) : (
               <Link to="/login">
-                <Button variant="ghost" className="text-foreground hover:text-primary font-bold">
+                <Button variant="ghost" className="text-foreground hover:text-foreground/70 font-bold">
                   Sign In
                 </Button>
               </Link>
@@ -145,7 +145,7 @@ export default function Navbar() {
               <Button variant="outline" size="icon" className="text-foreground" aria-label="View cart">
                 <ShoppingCart className="h-5 w-5" />
                 {cart.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold h-6 min-w-6 px-1 flex items-center justify-center">
+                  <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground text-xs font-bold h-6 min-w-6 px-1 flex items-center justify-center">
                     {cart.length}
                   </span>
                 )}
@@ -168,19 +168,19 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="absolute left-0 top-full max-h-[calc(100dvh-5rem)] w-full overflow-y-auto overscroll-contain border-t border-border bg-secondary py-4 mobile-shell fade-in site-nav:hidden">
           <nav className="flex flex-col space-y-3">
-            <Link to="/courses" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
+            <Link to="/courses" className="cubist-link text-foreground hover:text-foreground/70 font-bold uppercase tracking-[0.03em] py-2 px-3">
               Courses
             </Link>
-            <Link to="/my-courses" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
+            <Link to="/my-courses" className="cubist-link text-foreground hover:text-foreground/70 font-bold uppercase tracking-[0.03em] py-2 px-3">
               My Courses
             </Link>
-            <Link to="/coaches" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
+            <Link to="/coaches" className="cubist-link text-foreground hover:text-foreground/70 font-bold uppercase tracking-[0.03em] py-2 px-3">
               Coaches
             </Link>
-            <Link to="/how-it-works" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
+            <Link to="/how-it-works" className="cubist-link text-foreground hover:text-foreground/70 font-bold uppercase tracking-[0.03em] py-2 px-3">
               How It Works
             </Link>
-            <Link to="/resources" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
+            <Link to="/resources" className="cubist-link text-foreground hover:text-foreground/70 font-bold uppercase tracking-[0.03em] py-2 px-3">
               Resources
             </Link>
             {user ? (
@@ -191,7 +191,7 @@ export default function Navbar() {
                       Admin
                     </p>
                     {adminRoutes.map(({ to, label }) => (
-                      <Link key={to} to={to} className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
+                      <Link key={to} to={to} className="cubist-link text-foreground hover:text-foreground/70 font-bold uppercase tracking-[0.03em] py-2 px-3">
                         {label}
                       </Link>
                     ))}
@@ -199,7 +199,7 @@ export default function Navbar() {
                 )}
                 <Button
                   variant="ghost"
-                  className="justify-start text-foreground hover:text-primary font-bold"
+                  className="justify-start text-foreground hover:text-foreground/70 font-bold"
                   onClick={() => void handleSignOut()}
                   disabled={isSigningOut}
                 >
@@ -207,7 +207,7 @@ export default function Navbar() {
                 </Button>
               </>
             ) : (
-              <Link to="/login" className="cubist-link text-foreground hover:text-primary font-bold uppercase tracking-[0.03em] py-2 px-3">
+              <Link to="/login" className="cubist-link text-foreground hover:text-foreground/70 font-bold uppercase tracking-[0.03em] py-2 px-3">
                 Sign In
               </Link>
             )}
