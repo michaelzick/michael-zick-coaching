@@ -56,7 +56,7 @@ export default function Navbar() {
       <div className="container mx-auto mobile-shell content-stack">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2 cubist-link">
-            <span className="cta-elevated-on-hover inline-block max-w-[calc(100vw-9rem)] truncate text-sm font-bold tracking-[0.03em] text-background bg-foreground px-3 py-1 sm:text-base site-nav:max-w-none site-nav:text-2xl">
+            <span className="cta-elevated-on-hover inline-block max-w-[calc(100vw-9rem)] truncate rounded-lg text-sm font-bold tracking-[0.03em] text-background bg-foreground px-3 py-1 sm:text-base site-nav:max-w-none site-nav:text-2xl">
               NICE GUY UNIVERSITY
             </span>
           </Link>
@@ -79,7 +79,7 @@ export default function Navbar() {
               <Button variant="outline" size="icon" className="text-foreground hover:text-foreground/70" aria-label="View cart">
                 <ShoppingCart className="h-5 w-5" />
                 {cart.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground text-xs font-bold h-6 min-w-6 px-1 flex items-center justify-center">
+                  <span className="absolute -top-2 -right-2 rounded-full bg-accent text-accent-foreground text-xs font-bold h-6 min-w-6 px-1 flex items-center justify-center">
                     {cart.length}
                   </span>
                 )}
@@ -132,7 +132,7 @@ export default function Navbar() {
               </DropdownMenu>
             ) : (
               <Link to="/login">
-                <Button variant="ghost" className="text-foreground hover:text-foreground/70 font-bold">
+                <Button variant="ghost" className="h-11 text-foreground hover:text-foreground/70 font-bold">
                   Sign In
                 </Button>
               </Link>
@@ -145,7 +145,7 @@ export default function Navbar() {
               <Button variant="outline" size="icon" className="text-foreground" aria-label="View cart">
                 <ShoppingCart className="h-5 w-5" />
                 {cart.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground text-xs font-bold h-6 min-w-6 px-1 flex items-center justify-center">
+                  <span className="absolute -top-2 -right-2 rounded-full bg-accent text-accent-foreground text-xs font-bold h-6 min-w-6 px-1 flex items-center justify-center">
                     {cart.length}
                   </span>
                 )}

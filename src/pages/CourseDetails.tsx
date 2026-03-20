@@ -52,7 +52,7 @@ export default function CourseDetails() {
             <h1 className="text-3xl font-bold text-foreground mb-4">Course Not Found</h1>
             <p className="text-xl text-muted-foreground mb-8">We couldn't find the course you're looking for.</p>
             <Link to="/courses">
-              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Browse Courses</Button>
+              <Button className="bg-lavender hover:bg-lavender/90 text-lavender-foreground">Browse Courses</Button>
             </Link>
           </div>
         </div>
@@ -214,7 +214,7 @@ export default function CourseDetails() {
                             {chapters.map((chapter) => {
                               const chapterDuration = chapter.lessons.reduce((s, l) => s + l.durationSeconds, 0);
                               return (
-                                <AccordionItem key={chapter.id} value={chapter.id} className="mb-4 overflow-hidden bg-card">
+                                <AccordionItem key={chapter.id} value={chapter.id} className="mb-4 overflow-hidden bg-card rounded-lg">
                                   <AccordionTrigger className="px-6 py-4 hover:bg-muted">
                                     <div className="flex justify-between items-center w-full text-left">
                                       <div>
@@ -301,7 +301,7 @@ export default function CourseDetails() {
               </div>
 
               <div className="space-y-6 fade-in-delay-1 lg:sticky lg:top-24">
-                <div className="bg-card overflow-hidden">
+                <div className="bg-card rounded-lg overflow-hidden">
                   <div className="relative pb-[56.25%] overflow-hidden">
                     <img
                       src={`${course.thumbnailUrl}?auto=format&fit=crop&w=800&q=80`}
@@ -365,7 +365,7 @@ export default function CourseDetails() {
                     </div>
                   </div>
                 </div>
-                <div className="bg-card p-4 sm:p-6">
+                <div className="bg-card rounded-lg p-4 sm:p-6">
                   <h3 className="text-lg font-bold text-card-foreground mb-4">Course Details</h3>
                   <ul className="space-y-4">
                     <li className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">

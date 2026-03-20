@@ -29,7 +29,7 @@ export default function FilterSidebar({
 
   return (
     <div className={`${isDesktop ? 'hidden md:block w-1/4 fade-in' : 'md:hidden fade-in'}`}>
-      <div className="sticky top-24 overflow-hidden bg-card">
+      <div className="sticky top-24 overflow-hidden bg-card rounded-lg">
         <div className="p-4 sm:p-6">
           <div className="flex justify-between items-center mb-4">
             <h2 className="font-bold text-foreground tracking-[0.02em]">Filters</h2>

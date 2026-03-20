@@ -93,13 +93,13 @@ export default function Index() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link to="/courses" className="w-full sm:w-auto">
-                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
+                <Button className="w-full bg-lavender text-lavender-foreground hover:bg-lavender/90 sm:w-auto">
                   Browse Courses
                   <ChevronRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link to="/coaches" className="w-full sm:w-auto">
-                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
+                <Button className="w-full bg-lavender text-lavender-foreground hover:bg-lavender/90 sm:w-auto">
                   Meet Our Coaches
                 </Button>
               </Link>
@@ -125,7 +125,7 @@ export default function Index() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {framework.map((item) => (
-              <div key={item.step} className="group elevated-on-hover relative bg-card p-4 transition-all duration-300 hover:border-foreground sm:p-6 lg:p-8">
+              <div key={item.step} className="group elevated-on-hover relative bg-card rounded-lg p-4 transition-all duration-300 hover:border-foreground sm:p-6 lg:p-8">
                 <span className="text-5xl font-bold text-foreground/20 group-hover:text-foreground/40 transition-colors">{item.step}</span>
                 <h3 className="text-xl font-bold text-card-foreground mt-4 mb-3">{item.title}</h3>
                 <p className="text-muted-foreground">{item.description}</p>
@@ -170,7 +170,7 @@ export default function Index() {
 
           <Accordion type="single" collapsible className="w-full">
             {homeFAQs.map((faq, index) => (
-              <AccordionItem key={index} value={`faq-${index}`} className="mb-4 overflow-hidden bg-card">
+              <AccordionItem key={index} value={`faq-${index}`} className="mb-4 overflow-hidden bg-card rounded-lg">
                 <AccordionTrigger className="px-4 py-4 text-left hover:bg-muted sm:px-6">
                   <span className="font-bold text-foreground">{faq.question}</span>
                 </AccordionTrigger>
@@ -202,12 +202,12 @@ export default function Index() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/coaches" className="w-full sm:w-auto">
-                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
+                <Button className="w-full bg-lavender text-lavender-foreground hover:bg-lavender/90 sm:w-auto">
                   Meet Our Coaches
                 </Button>
               </Link>
               <Link to="/courses" className="w-full sm:w-auto">
-                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
+                <Button className="w-full bg-lavender text-lavender-foreground hover:bg-lavender/90 sm:w-auto">
                   Browse Courses
                 </Button>
               </Link>

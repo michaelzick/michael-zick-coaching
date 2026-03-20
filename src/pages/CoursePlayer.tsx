@@ -184,7 +184,7 @@ export default function CoursePlayer() {
           <div className="text-center">
             <h1 className="text-2xl font-bold text-foreground mb-4">Course Not Found</h1>
             <Link to="/courses">
-              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Browse Courses</Button>
+              <Button className="bg-lavender hover:bg-lavender/90 text-lavender-foreground">Browse Courses</Button>
             </Link>
           </div>
         </div>
@@ -312,7 +312,7 @@ export default function CoursePlayer() {
           </div>
 
           {/* Desktop sidebar */}
-          <aside className="hidden border-l border-border bg-card lg:sticky lg:top-20 lg:block lg:w-96 lg:flex-shrink-0 lg:self-start">
+          <aside className="hidden border-l border-border bg-card rounded-lg lg:sticky lg:top-20 lg:block lg:w-96 lg:flex-shrink-0 lg:self-start">
             <div className="border-b border-border p-4">
               <h3 className="font-bold text-card-foreground flex items-center gap-2">
                 <BookOpen className="h-4 w-4" />

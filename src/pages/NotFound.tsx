@@ -20,7 +20,7 @@ const NotFound = () => {
       <SEOHead title="Page Not Found" description="The page you're looking for doesn't exist" noIndex />
       <Navbar />
       <main className="mobile-shell flex flex-1 items-center justify-center pb-16 pt-32">
-        <div className="content-stack max-w-xl bg-card p-6 text-center sm:p-10">
+        <div className="content-stack max-w-xl bg-card rounded-lg p-6 text-center sm:p-10">
           <h1 className="mb-4 text-4xl font-bold">404</h1>
           <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
           <p className="mb-8 text-muted-foreground">

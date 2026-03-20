@@ -25,7 +25,7 @@ export default function CourseCard({ course, className }: CourseCardProps) {
   const categoryLabel = course.category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 
   return (
-    <div className={cn("course-card content-stack group overflow-hidden bg-card transition-all duration-300", className)}>
+    <div className={cn("course-card content-stack group overflow-hidden bg-card rounded-lg transition-all duration-300", className)}>
       <Link to={`/course/${course.slug}`} className="block relative pb-[56.25%] overflow-hidden">
         <img 
           src={`${course.thumbnailUrl}?auto=format&fit=crop&w=800&q=80`}

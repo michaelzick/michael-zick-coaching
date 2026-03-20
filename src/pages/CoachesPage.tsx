@@ -36,19 +36,19 @@ export default function CoachesPage() {
               <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
             </div>
           ) : coaches.length === 0 ? (
-            <div className="content-stack max-w-4xl bg-card p-6 sm:p-10">
+            <div className="content-stack max-w-4xl bg-card rounded-lg p-6 sm:p-10">
               <h2 className="text-2xl font-bold text-card-foreground mb-3">Coach profiles are coming online.</h2>
               <p className="text-muted-foreground mb-6">
                 The platform is being expanded for multiple coaches. Check back soon or browse courses in the meantime.
               </p>
               <Link to="/courses">
-                <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Browse Courses</Button>
+                <Button className="bg-lavender hover:bg-lavender/90 text-lavender-foreground">Browse Courses</Button>
               </Link>
             </div>
           ) : (
             <div className="grid gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
               {coaches.map((coach) => (
-                <article key={coach.id} className="bg-card overflow-hidden elevated-on-hover">
+                <article key={coach.id} className="bg-card rounded-lg overflow-hidden elevated-on-hover">
                   <div className="aspect-square bg-muted overflow-hidden">
                     {coach.imageUrl ? (
                       <img
@@ -67,7 +67,7 @@ export default function CoachesPage() {
                     <p className="text-foreground font-semibold uppercase tracking-[0.04em] text-sm mb-4">{coach.title}</p>
                     <p className="text-muted-foreground mb-6">{coach.shortBio}</p>
                     <Link to={`/coaches/${coach.slug}`}>
-                      <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                      <Button className="w-full bg-lavender hover:bg-lavender/90 text-lavender-foreground">
                         View Profile
                       </Button>
                     </Link>

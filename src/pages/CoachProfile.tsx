@@ -39,11 +39,11 @@ export default function CoachProfile() {
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <div className="mobile-shell flex-grow flex items-center justify-center">
-          <div className="content-stack max-w-xl bg-card p-6 sm:p-10">
+          <div className="content-stack max-w-xl bg-card rounded-lg p-6 sm:p-10">
             <h1 className="text-3xl font-bold text-card-foreground mb-4">Coach Not Found</h1>
             <p className="text-muted-foreground mb-6">We could not find the coach profile you were looking for.</p>
             <Link to="/coaches">
-              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">Browse Coaches</Button>
+              <Button className="bg-lavender hover:bg-lavender/90 text-lavender-foreground">Browse Coaches</Button>
             </Link>
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function CoachProfile() {
         <section className="bg-muted py-12 mobile-shell">
           <div className="container mx-auto content-stack">
             <div className="grid items-start gap-8 lg:grid-cols-[minmax(280px,360px)_minmax(0,1fr)] lg:gap-10">
-              <div className="max-w-sm overflow-hidden bg-card lg:max-w-none">
+              <div className="max-w-sm overflow-hidden bg-card rounded-lg lg:max-w-none">
                 <div className="aspect-square bg-secondary">
                   {coach.imageUrl ? (
                     <img src={coach.imageUrl} alt={coach.name} className="w-full h-full object-cover" />
@@ -109,7 +109,7 @@ export default function CoachProfile() {
                     </a>
                   )}
                   <Link to="/courses" className="w-full sm:w-auto">
-                    <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
+                    <Button className="w-full bg-lavender text-lavender-foreground hover:bg-lavender/90 sm:w-auto">
                       Browse Courses
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>
@@ -161,7 +161,7 @@ export default function CoachProfile() {
                 {coach.philosophy.map((item) => {
                   const Icon = getCoachIcon(item.icon);
                   return (
-                    <div key={item.title} className="bg-card p-4 sm:p-6 lg:p-8">
+                    <div key={item.title} className="bg-card rounded-lg p-4 sm:p-6 lg:p-8">
                       <div className="w-12 h-12 bg-muted flex items-center justify-center mb-4">
                         <Icon className="h-6 w-6 text-foreground" />
                       </div>
@@ -182,7 +182,7 @@ export default function CoachProfile() {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10">What men say after the work starts landing</h2>
               <div className="grid gap-6 md:grid-cols-2">
                 {coach.testimonials.map((testimonial) => (
-                  <div key={`${testimonial.name}-${testimonial.text.slice(0, 20)}`} className="bg-card p-4 sm:p-6 lg:p-8">
+                  <div key={`${testimonial.name}-${testimonial.text.slice(0, 20)}`} className="bg-card rounded-lg p-4 sm:p-6 lg:p-8">
                     <Star className="h-8 w-8 text-foreground/30 mb-4" />
                     <p className="text-muted-foreground text-lg leading-relaxed mb-6">"{testimonial.text}"</p>
                     <p className="font-bold text-card-foreground">{testimonial.name}</p>
@@ -207,7 +207,7 @@ export default function CoachProfile() {
                 <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
               </div>
             ) : courses.length === 0 ? (
-              <div className="content-stack max-w-3xl bg-card p-6 sm:p-8">
+              <div className="content-stack max-w-3xl bg-card rounded-lg p-6 sm:p-8">
                 <p className="text-muted-foreground">Courses from this coach are coming soon.</p>
               </div>
             ) : (
@@ -236,7 +236,7 @@ export default function CoachProfile() {
                   </a>
                 )}
                 <Link to="/courses" className="w-full sm:w-auto">
-                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
+                  <Button className="w-full bg-lavender text-lavender-foreground hover:bg-lavender/90 sm:w-auto">
                     Browse Courses
                   </Button>
                 </Link>

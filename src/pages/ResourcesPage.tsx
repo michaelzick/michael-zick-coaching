@@ -47,7 +47,7 @@ export default function ResourcesPage() {
                 <Link
                   key={resource.id}
                   to={`/resources/${resource.slug}`}
-                  className="elevated-on-hover block bg-card p-4 transition-colors hover:border-foreground sm:p-6"
+                  className="elevated-on-hover block bg-card rounded-lg p-4 transition-colors hover:border-foreground sm:p-6"
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">

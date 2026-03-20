@@ -129,7 +129,7 @@ export default function Cart() {
                 Browse our coaching courses and start your recovery journey.
               </p>
               <Link to="/courses" className="inline-flex w-full justify-center sm:w-auto">
-                <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground sm:w-auto">
+                <Button className="w-full bg-lavender hover:bg-lavender/90 text-lavender-foreground sm:w-auto">
                   Browse Courses
                 </Button>
               </Link>
@@ -137,7 +137,7 @@ export default function Cart() {
           ) : (
             <div className="grid gap-8 md:grid-cols-3">
               <div className="md:col-span-2 fade-in">
-                <div className="hidden overflow-hidden bg-card md:block">
+                <div className="hidden overflow-hidden bg-card rounded-lg md:block">
                   <div className="p-6 pb-3">
                     <div className="mb-4 flex items-center justify-between gap-4">
                       <h2 className="text-xl font-bold text-card-foreground tracking-[0.01em]">Selected Courses</h2>
@@ -212,7 +212,7 @@ export default function Cart() {
                 </div>
 
                 <div className="space-y-4 md:hidden">
-                  <div className="bg-card p-4">
+                  <div className="bg-card rounded-lg p-4">
                     <h2 className="text-xl font-bold tracking-[0.01em] text-card-foreground">Selected Courses</h2>
                     <Button
                       variant="outline"
@@ -224,7 +224,7 @@ export default function Cart() {
                   </div>
 
                   {cartItems.map((item) => (
-                    <article key={item.id} className="space-y-4 bg-card p-4 fade-in">
+                    <article key={item.id} className="space-y-4 bg-card rounded-lg p-4 fade-in">
                       <div className="flex min-w-0 gap-3">
                         <div className="h-20 w-28 flex-shrink-0 overflow-hidden bg-muted">
                           <img
@@ -284,7 +284,7 @@ export default function Cart() {
                     </Link>
                   </div>
 
-                  <div className="bg-card p-4">
+                  <div className="bg-card rounded-lg p-4">
                     <h2 className="mb-4 text-xl font-bold text-card-foreground">Order Details</h2>
 
                     <div className="mb-4 space-y-3">
@@ -325,7 +325,7 @@ export default function Cart() {
               </div>
 
               <div className="hidden md:block md:col-span-1 fade-in-delay-1">
-                <div className="sticky top-24 overflow-hidden bg-card">
+                <div className="sticky top-24 overflow-hidden bg-card rounded-lg">
                   <div className="p-6">
                     <h2 className="mb-4 text-xl font-bold text-card-foreground">Summary</h2>
 

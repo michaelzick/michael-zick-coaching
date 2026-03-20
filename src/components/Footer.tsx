@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div>
             <Link to="/" className="mb-4 flex items-center space-x-2 sm:mb-6">
-              <span className="cta-elevated-on-hover whitespace-nowrap text-base lg:text-sm xl:text-base font-bold text-background tracking-[0.03em] uppercase bg-foreground px-3 py-1 inline-block">
+              <span className="cta-elevated-on-hover whitespace-nowrap rounded-lg text-base lg:text-sm xl:text-base font-bold text-background tracking-[0.03em] uppercase bg-foreground px-3 py-1 inline-block">
                 NICE GUY UNIVERSITY
               </span>
             </Link>

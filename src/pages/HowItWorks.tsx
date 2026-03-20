@@ -88,12 +88,12 @@ export default function HowItWorks() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/coaches" className="w-full sm:w-auto">
-                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
+                  <Button className="w-full bg-lavender text-lavender-foreground hover:bg-lavender/90 sm:w-auto">
                     Meet Our Coaches
                   </Button>
                 </Link>
                 <Link to="/courses" className="w-full sm:w-auto">
-                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
+                  <Button className="w-full bg-lavender text-lavender-foreground hover:bg-lavender/90 sm:w-auto">
                     Browse Courses
                     <ChevronRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -115,7 +115,7 @@ export default function HowItWorks() {
 
             <div className="grid gap-6 md:grid-cols-3">
               {steps.map(({ title, description, icon: Icon }, index) => (
-                <div key={title} className="bg-card p-4 elevated-on-hover sm:p-6 lg:p-8">
+                <div key={title} className="bg-card rounded-lg p-4 elevated-on-hover sm:p-6 lg:p-8">
                   <p className="text-sm font-bold uppercase tracking-[0.08em] text-foreground mb-4">
                     Step {index + 1}
                   </p>
@@ -142,7 +142,7 @@ export default function HowItWorks() {
 
             <div className="grid gap-6 lg:grid-cols-3">
               {pillars.map(({ title, description, icon: Icon }) => (
-                <div key={title} className="bg-card p-4 sm:p-6 lg:p-8">
+                <div key={title} className="bg-card rounded-lg p-4 sm:p-6 lg:p-8">
                   <div className="w-12 h-12 bg-muted flex items-center justify-center mb-4">
                     <Icon className="h-6 w-6 text-foreground" />
                   </div>
@@ -163,7 +163,7 @@ export default function HowItWorks() {
 
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((faq, index) => (
-                <AccordionItem key={faq.question} value={`faq-${index}`} className="mb-4 overflow-hidden bg-card">
+                <AccordionItem key={faq.question} value={`faq-${index}`} className="mb-4 overflow-hidden bg-card rounded-lg">
                   <AccordionTrigger className="px-4 py-4 text-left hover:bg-muted sm:px-6">
                     <span className="font-bold text-foreground">{faq.question}</span>
                   </AccordionTrigger>
@@ -185,12 +185,12 @@ export default function HowItWorks() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/coaches" className="w-full sm:w-auto">
-                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
+                  <Button className="w-full bg-lavender text-lavender-foreground hover:bg-lavender/90 sm:w-auto">
                     Meet Our Coaches
                   </Button>
                 </Link>
                 <Link to="/courses" className="w-full sm:w-auto">
-                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto">
+                  <Button className="w-full bg-lavender text-lavender-foreground hover:bg-lavender/90 sm:w-auto">
                     Browse Courses
                   </Button>
                 </Link>
