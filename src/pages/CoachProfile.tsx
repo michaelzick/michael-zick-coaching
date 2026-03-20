@@ -43,7 +43,7 @@ export default function CoachProfile() {
             <h1 className="text-3xl font-bold text-card-foreground mb-4">Coach Not Found</h1>
             <p className="text-muted-foreground mb-6">We could not find the coach profile you were looking for.</p>
             <Link to="/coaches">
-              <Button className="bg-lavender hover:bg-lavender/90 text-lavender-foreground">Browse Coaches</Button>
+              <Button className="bg-electric hover:bg-electric/90 text-electric-foreground">Browse Coaches</Button>
             </Link>
           </div>
         </div>
@@ -109,7 +109,7 @@ export default function CoachProfile() {
                     </a>
                   )}
                   <Link to="/courses" className="w-full sm:w-auto">
-                    <Button className="w-full bg-lavender text-lavender-foreground hover:bg-lavender/90 sm:w-auto">
+                    <Button className="w-full bg-electric text-electric-foreground hover:bg-electric/90 sm:w-auto">
                       Browse Courses
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>
@@ -236,7 +236,7 @@ export default function CoachProfile() {
                   </a>
                 )}
                 <Link to="/courses" className="w-full sm:w-auto">
-                  <Button className="w-full bg-lavender text-lavender-foreground hover:bg-lavender/90 sm:w-auto">
+                  <Button className="w-full bg-electric text-electric-foreground hover:bg-electric/90 sm:w-auto">
                     Browse Courses
                   </Button>
                 </Link>

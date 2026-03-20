@@ -34,7 +34,7 @@ export default function ResourceDetail() {
             <h1 className="text-3xl font-bold text-foreground mb-4">Resource Not Found</h1>
             <p className="text-xl text-muted-foreground mb-8">We couldn't find the article you're looking for.</p>
             <Link to="/resources">
-              <Button className="bg-lavender hover:bg-lavender/90 text-lavender-foreground">Browse Resources</Button>
+              <Button className="bg-electric hover:bg-electric/90 text-electric-foreground">Browse Resources</Button>
             </Link>
           </div>
         </div>
@@ -130,14 +130,14 @@ export default function ResourceDetail() {
               <div className="flex flex-col gap-4 sm:flex-row">
                 {resource.relatedCourseSlug ? (
                   <Link to={`/course/${resource.relatedCourseSlug}`} className="w-full sm:w-auto">
-                    <Button className="w-full bg-lavender text-lavender-foreground hover:bg-lavender/90">
+                    <Button className="w-full bg-electric text-electric-foreground hover:bg-electric/90">
                       View Recommended Course
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
                 ) : (
                   <Link to="/courses" className="w-full sm:w-auto">
-                    <Button className="w-full bg-lavender text-lavender-foreground hover:bg-lavender/90">
+                    <Button className="w-full bg-electric text-electric-foreground hover:bg-electric/90">
                       Explore Courses
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>

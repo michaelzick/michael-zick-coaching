@@ -39,8 +39,8 @@
     --mz-charcoal: 0 0% 3%;
     --mz-warm: 0 0% 70%;
 
-    --lavender: 260 60% 70%;
-    --lavender-foreground: 0 0% 100%;
+    --electric: 217 100% 58%;
+    --electric-foreground: 0 0% 100%;
 
     --site-gutter-compact: 0.75rem;
     --site-gutter-tablet: 2.75rem;
@@ -77,8 +77,8 @@
     --input: 0 0% 18%;
     --ring: 293 69% 49%;
 
-    --lavender: 260 60% 70%;
-    --lavender-foreground: 0 0% 100%;
+    --electric: 217 100% 58%;
+    --electric-foreground: 0 0% 100%;
   }
 }
 
@@ -234,7 +234,7 @@
 
   .cta-elevated-on-hover:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 8px 8px 0 rgba(100, 220, 200, 0.55);
+    box-shadow: 8px 8px 0 rgba(160, 130, 255, 0.6);
   }
 
   /* Apply glass automatically to cards and course cards */

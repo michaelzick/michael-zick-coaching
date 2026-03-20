@@ -42,7 +42,7 @@ export default function CoachesPage() {
                 The platform is being expanded for multiple coaches. Check back soon or browse courses in the meantime.
               </p>
               <Link to="/courses">
-                <Button className="bg-lavender hover:bg-lavender/90 text-lavender-foreground">Browse Courses</Button>
+                <Button className="bg-electric hover:bg-electric/90 text-electric-foreground">Browse Courses</Button>
               </Link>
             </div>
           ) : (
@@ -67,7 +67,7 @@ export default function CoachesPage() {
                     <p className="text-foreground font-semibold uppercase tracking-[0.04em] text-sm mb-4">{coach.title}</p>
                     <p className="text-muted-foreground mb-6">{coach.shortBio}</p>
                     <Link to={`/coaches/${coach.slug}`}>
-                      <Button className="w-full bg-lavender hover:bg-lavender/90 text-lavender-foreground">
+                      <Button className="w-full bg-electric hover:bg-electric/90 text-electric-foreground">
                         View Profile
                       </Button>
                     </Link>

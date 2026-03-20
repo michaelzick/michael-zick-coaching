@@ -54,9 +54,9 @@ export default {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))'
 				},
-				lavender: {
-					DEFAULT: 'hsl(var(--lavender))',
-					foreground: 'hsl(var(--lavender-foreground))'
+				electric: {
+					DEFAULT: 'hsl(var(--electric))',
+					foreground: 'hsl(var(--electric-foreground))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',

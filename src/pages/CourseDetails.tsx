@@ -52,7 +52,7 @@ export default function CourseDetails() {
             <h1 className="text-3xl font-bold text-foreground mb-4">Course Not Found</h1>
             <p className="text-xl text-muted-foreground mb-8">We couldn't find the course you're looking for.</p>
             <Link to="/courses">
-              <Button className="bg-lavender hover:bg-lavender/90 text-lavender-foreground">Browse Courses</Button>
+              <Button className="bg-electric hover:bg-electric/90 text-electric-foreground">Browse Courses</Button>
             </Link>
           </div>
         </div>

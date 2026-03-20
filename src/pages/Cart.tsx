@@ -129,7 +129,7 @@ export default function Cart() {
                 Browse our coaching courses and start your recovery journey.
               </p>
               <Link to="/courses" className="inline-flex w-full justify-center sm:w-auto">
-                <Button className="w-full bg-lavender hover:bg-lavender/90 text-lavender-foreground sm:w-auto">
+                <Button className="w-full bg-electric hover:bg-electric/90 text-electric-foreground sm:w-auto">
                   Browse Courses
                 </Button>
               </Link>
