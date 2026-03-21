@@ -162,6 +162,7 @@ export default function AdminCoachForm() {
 
   const watchFirstName = form.watch('first_name');
   const watchLastName = form.watch('last_name');
+  const coachImageUrl = form.watch('image_url');
 
   useEffect(() => {
     if (isEditing) return;
@@ -360,11 +361,16 @@ export default function AdminCoachForm() {
             <CardTitle>Profile Image</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
+            <div className="space-y-2">
+              <Label>Image URL</Label>
+              <Input {...form.register('image_url')} placeholder="https://... or /img/coaches/..." />
+            </div>
+
             <div className="flex flex-col gap-6 md:flex-row md:items-start">
               <div className="w-40 aspect-square bg-muted overflow-hidden flex items-center justify-center">
-                {form.watch('image_url') ? (
+                {coachImageUrl ? (
                   <img
-                    src={form.watch('image_url')}
+                    src={coachImageUrl}
                     alt="Coach preview"
                     className="w-full h-full object-cover"
                   />
@@ -391,7 +397,7 @@ export default function AdminCoachForm() {
                     Uploading image...
                   </div>
                 )}
-                {form.watch('image_url') && (
+                {coachImageUrl && (
                   <Button
                     type="button"
                     variant="outline"
