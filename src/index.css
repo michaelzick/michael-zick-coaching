@@ -32,8 +32,6 @@
     --input: 0 0% 18%;
     --ring: 293 69% 49%;
 
-    --radius: 0.75rem;
-
     --mz-blue: 0 0% 12%;
     --mz-slate: 0 0% 5%;
     --mz-charcoal: 0 0% 3%;
@@ -109,8 +107,6 @@
     @apply border-border;
   }
 
-  /* border-radius controlled by --radius variable */
-
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, sans-serif;
@@ -169,7 +165,6 @@
 
   img {
     filter: contrast(1.08) saturate(1.12);
-    border-radius: var(--radius);
   }
 }
 
