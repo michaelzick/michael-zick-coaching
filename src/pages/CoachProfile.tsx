@@ -211,7 +211,7 @@ export default function CoachProfile() {
                 <p className="text-muted-foreground">Courses from this coach are coming soon.</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 xl:grid-cols-3">
                 {courses.map((course) => (
                   <CourseCard key={course.id} course={course} />
                 ))}

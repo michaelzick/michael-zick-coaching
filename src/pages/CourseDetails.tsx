@@ -400,7 +400,7 @@ export default function CourseDetails() {
           <section className="py-12 bg-muted">
             <div className="container mx-auto mobile-shell content-stack">
               <h2 className="text-2xl font-bold text-foreground mb-8">Related Courses</h2>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 sm:gap-6">
+              <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2 lg:grid-cols-4 sm:gap-6">
                 {relatedCourses.map((relatedCourse, index) => (
                   <CourseCard
                     key={relatedCourse.id}

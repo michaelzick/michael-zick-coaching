@@ -47,7 +47,7 @@ export default function CourseGrid({ isLoading, courses, clearFilters }: CourseG
         Showing {courses.length} {courses.length === 1 ? 'course' : 'courses'}
       </p>
       
-      <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 items-stretch gap-4 sm:gap-6 md:grid-cols-2">
         {courses.map((course, index) => (
           <CourseCard 
             key={course.id} 
