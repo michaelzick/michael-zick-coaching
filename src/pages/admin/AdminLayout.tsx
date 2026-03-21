@@ -23,16 +23,16 @@ export default function AdminLayout() {
     setMobileNavOpen(false);
   }, [location.pathname]);
 
-  const renderSidebar = (className = '') => (
-    <div className={`flex h-full flex-col bg-card ${className}`.trim()}>
-      <div className="border-b border-border p-4 sm:p-6">
+  const renderSidebar = (className = '', isDesktop = false) => (
+    <div className={`flex flex-col bg-card ${isDesktop ? 'h-screen overflow-hidden' : 'h-full'} ${className}`.trim()}>
+      <div className="shrink-0 border-b border-border p-4 sm:p-6">
         <Link to="/" className="flex items-center gap-2">
           <span className="text-lg font-bold tracking-tight text-foreground">NICE GUY UNIVERSITY</span>
         </Link>
         <p className="mt-1 text-xs uppercase tracking-[0.08em] text-muted-foreground">Admin Dashboard</p>
       </div>
 
-      <nav className="flex-1 space-y-1 overflow-y-auto p-3 sm:p-4">
+      <nav className="min-h-0 flex-1 space-y-1 overflow-y-auto p-3 sm:p-4">
         {navItems.map((item) => {
           const isActive = item.exact
             ? location.pathname === item.to
@@ -57,7 +57,7 @@ export default function AdminLayout() {
         })}
       </nav>
 
-      <div className="mt-auto border-t border-border p-3 sm:p-4">
+      <div className="mt-auto shrink-0 border-t border-border p-3 sm:p-4">
         <Link to="/">
           <Button variant="ghost" size="sm" className="w-full justify-start text-muted-foreground">
             <ChevronLeft className="mr-1 h-4 w-4" />
@@ -70,8 +70,8 @@ export default function AdminLayout() {
 
   return (
     <div className="min-h-screen bg-muted site-nav:flex">
-      <aside className="hidden w-64 border-r border-border site-nav:flex site-nav:min-h-screen">
-        {renderSidebar('w-full')}
+      <aside className="hidden w-64 shrink-0 self-start border-r border-border site-nav:sticky site-nav:top-0 site-nav:flex site-nav:h-screen">
+        {renderSidebar('w-full', true)}
       </aside>
 
       <div className="flex min-h-screen min-w-0 flex-1 flex-col">

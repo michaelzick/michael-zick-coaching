@@ -180,16 +180,29 @@ export default function AdminCoachForm() {
 
   const saveCoachMutation = useMutation({
     mutationFn: async (data: CoachFormData) => {
-      const socialLinks = Object.fromEntries(
-        [
-          ['x', data.social_x],
-          ['instagram', data.social_instagram],
-          ['youtube', data.social_youtube],
-          ['linkedin', data.social_linkedin],
-        ].filter((entry): entry is [string, string] => Boolean(entry[1]?.trim())),
-      );
+      const socialLinksEntries = [
+        ['x', data.social_x],
+        ['instagram', data.social_instagram],
+        ['youtube', data.social_youtube],
+        ['linkedin', data.social_linkedin],
+      ].filter((entry): entry is [string, string] => Boolean(entry[1]?.trim()));
 
-      const payload: Partial<DbCoach> = {
+      const socialLinks: DbCoach['social_links'] = socialLinksEntries.length > 0
+        ? Object.fromEntries(socialLinksEntries)
+        : null;
+
+      const philosophy: DbCoach['philosophy'] = data.philosophy.map((item) => ({
+        title: item.title.trim(),
+        description: item.description.trim(),
+        icon: item.icon,
+      }));
+
+      const testimonials: DbCoach['testimonials'] = data.testimonials.map((item) => ({
+        name: item.name.trim(),
+        text: item.text.trim(),
+      }));
+
+      const payload = {
         first_name: data.first_name.trim(),
         last_name: data.last_name.trim(),
         slug: data.slug.trim(),
@@ -201,18 +214,11 @@ export default function AdminCoachForm() {
         booking_url: data.booking_url?.trim() || null,
         website_url: data.website_url?.trim() || null,
         social_links: socialLinks,
-        philosophy: data.philosophy.map((item) => ({
-          ...item,
-          title: item.title.trim(),
-          description: item.description.trim(),
-        })),
-        testimonials: data.testimonials.map((item) => ({
-          name: item.name.trim(),
-          text: item.text.trim(),
-        })),
+        philosophy,
+        testimonials,
         featured: data.featured,
         published: data.published,
-      };
+      } satisfies Partial<DbCoach>;
 
       if (isEditing) {
         return updateCoach(id!, payload);
