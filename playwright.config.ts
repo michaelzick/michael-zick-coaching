@@ -20,7 +20,9 @@ export default defineConfig({
   },
   webServer: {
     command: webServerCommand,
-    url: `http://127.0.0.1:${port}`,
+    // Every page redirects off-site now; probe a static file so readiness
+    // never depends on following a redirect to niceguyuniversity.com.
+    url: `http://127.0.0.1:${port}/img/ryan.webp`,
     reuseExistingServer,
     timeout: 120 * 1000,
   },

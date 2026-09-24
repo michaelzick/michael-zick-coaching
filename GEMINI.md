@@ -10,6 +10,8 @@ Sibling files [CLAUDE.md](CLAUDE.md) (Claude Code) and [AGENTS.md](AGENTS.md) (C
 
 **michaelzick.com** is Michael Zick's coaching website and conversion platform for Nice Guy Recovery / Reality Alignment coaching. It combines static marketing pages, a blog, lead-capture forms, an AI-assisted questionnaire, analytics instrumentation, and Nice Guy University promotion flows.
 
+> **Redirected to Nice Guy University.** The site's content now lives on Michael's NGU coach profile (`https://www.niceguyuniversity.com/coaches/michael-zick`, one tab per former page). `next.config.ts` permanently (308) redirects every path to its NGU counterpart through the table in `lib/ngu-redirects.ts`: `/` to the profile, `/about`, `/testimonials`, `/questionnaire`, and `/contact` to the matching tab, `/blog` and `/blog/:slug` to `/articles` and `/articles/:slug` (NGU kept the slugs), `/nice-guy-university` to NGU's home, the legal pages to NGU's `/privacy` and `/terms`, `sitemap.xml` and `robots.txt` to NGU's, and everything else, including `/api/*`, to the profile. Only `/img/*` still serves locally. The pages, components, and API routes below are no longer reachable. They stay in the tree until a cleanup PR strips the app down to the redirects. Add a new blog post on NGU, not here: the unit test pins the slug list to what NGU ships.
+
 Primary flows:
 - Visitors learn about Michael's coaching model through the home, about, testimonials, contact, and Nice Guy University pages.
 - Visitors submit a multi-step questionnaire and receive an OpenAI-generated coaching analysis.
@@ -25,7 +27,7 @@ Primary flows:
 - **AI, email, and CRM:** OpenAI Node SDK for questionnaire analysis; Nodemailer with Brevo SMTP for notifications; HubSpot CRM API for newsletter subscriber sync.
 - **Bot protection:** Classic Invisible reCAPTCHA v2 via `NEXT_PUBLIC_RECAPTCHA_SITE_KEY_V2` and `RECAPTCHA_SECRET_KEY_V2`.
 - **Analytics:** GA4 and Mixpanel scripts in `components/SiteAnalyticsScripts.tsx` (Mixpanel autocapture, session replay, and heatmaps; page text visible, inputs masked); tracked events in `lib/analytics.ts`. Both are consent-gated by a cookie banner: opt-out by default outside the EU/EEA/UK, opt-in within (timezone heuristic). Mixpanel is gated by not loading pre-consent; GA4 is gated with Google Consent Mode v2 (`analytics_storage`, with the ad_* signals always denied).
-- **Testing:** Node's built-in test runner for compiled unit tests, TypeScript test build via `tsconfig.test.json`, and Playwright for E2E/mobile UI checks.
+- **Testing:** Node's built-in test runner for compiled unit tests, TypeScript test build via `tsconfig.test.json`, and Playwright E2E tests (now `tests/e2e/ngu-redirects.spec.ts`, which checks each redirect's status and `Location` against `next start` without following it; the webServer readiness probe hits `/img/ryan.webp` so it never follows a redirect off-site).
 - **Tooling:** npm with `package-lock.json`, Node 24 LTS, ESLint flat config via `eslint-config-next/core-web-vitals`.
 
 ## 3. Repository layout
@@ -112,7 +114,7 @@ npm start                   # Start built Next app on $PORT
 npm run lint                # ESLint / Next core web vitals
 npm run typecheck           # tsc --noEmit
 npm test                    # Compile test TS, run node --test, clean .test-dist
-npm run test:e2e            # Playwright E2E/mobile UI tests
+npm run test:e2e            # Playwright E2E tests (the NGU redirect checks)
 npm run sitemap             # Regenerate public/sitemap.xml
 npm run agent-briefs:sync   # Regenerate CLAUDE.md and GEMINI.md from AGENTS.md
 npm run agent-briefs:check  # Fail if CLAUDE.md or GEMINI.md drift from AGENTS.md
@@ -133,13 +135,15 @@ CI runs the brief sync check, lint, typecheck, unit tests, production build, and
 - **Analytics:** send events through `lib/analytics.ts` or tracked link components so GA4 and Mixpanel payloads stay aligned.
 - **SEO:** update metadata, structured data, sitemap generation, and canonical URLs when adding durable public pages or blog behavior.
 - **Styling:** use Tailwind utility patterns already present in nearby components; keep pages responsive and verify mobile layouts when touching nav, hero, forms, CTAs, or promotional modals.
-- **Testing:** unit-test pure helpers in `tests/*.test.ts`; use Playwright for routed UI behavior, mobile layout, reCAPTCHA flow mocks, and conversion-critical interactions.
+- **Testing:** unit-test pure helpers in `tests/*.test.ts`; use Playwright for routed behavior. With the site redirected, that means the redirect contract in `tests/e2e/ngu-redirects.spec.ts`.
 - **Completion gate:** before marking meaningful work done, run `npm run lint`, `npm run typecheck`, and relevant tests. For PR-ready changes, run `npm run check`; add E2E when UI behavior changed.
 
 ## 8. Key files map
 
 | Path | What lives here |
 |---|---|
+| [lib/ngu-redirects.ts](lib/ngu-redirects.ts) | Permanent redirect table to Michael's NGU coach profile (first match wins; catch-all last) |
+| [next.config.ts](next.config.ts) | Next config: NGU redirects first, then the apex-to-www rule (now only reached by `/img/*`) |
 | [app/layout.tsx](app/layout.tsx) | Root metadata, scripts, global shell, nav, NGU promo, footer |
 | [app/page.tsx](app/page.tsx) | Home route wrapper |
 | [components/HomePageContent.tsx](components/HomePageContent.tsx) | Home page composition |

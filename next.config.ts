@@ -1,4 +1,7 @@
-const nextConfig = {
+import type { NextConfig } from 'next';
+import { NGU_REDIRECTS } from './lib/ngu-redirects';
+
+const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
@@ -17,6 +20,9 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Pages redirect straight to Nice Guy University from either host, so
+      // apex visitors skip the www hop.
+      ...NGU_REDIRECTS,
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'michaelzick.com' }],
@@ -27,4 +33,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
