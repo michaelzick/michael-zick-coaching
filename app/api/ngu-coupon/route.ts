@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { createBrevoTransport, getMailErrorDetails } from '../../../lib/server/mail';
 import { RECAPTCHA_SITE_VERIFY_URL } from '../../../lib/recaptcha';
 import { syncHubSpotSubscriberSafely } from '../../../lib/server/hubspot-subscriber';
 import { consumeRateLimit, getClientIp } from '../../../lib/server/rate-limit';
@@ -82,14 +82,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const transporter = nodemailer.createTransport({
-      host: 'smtp-relay.brevo.com',
-      port: 587,
-      auth: {
-        user: config.userName,
-        pass: config.password,
-      },
-    });
+    const transporter = createBrevoTransport({ userName: config.userName, password: config.password });
 
     const visitorEmail = buildNguCouponVisitorEmail(submission.email!);
     const notificationEmail = buildNguCouponNotificationEmail(submission.email!);
@@ -113,7 +106,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (err) {
-    console.error('Failed to send NGU coupon email', err);
+    console.error('Failed to send NGU coupon email', getMailErrorDetails(err));
     return NextResponse.json(
       { success: false, error: 'Failed to send coupon email' },
       { status: 500 },

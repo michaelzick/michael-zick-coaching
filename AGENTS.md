@@ -22,7 +22,7 @@ Primary flows:
 - **Framework:** Next.js 16.3.6 App Router with React 19 and TypeScript. Cloudflare Workers packaging uses OpenNext with static-asset incremental caching; runtime API handlers remain dynamic.
 - **Styling:** Tailwind CSS 3, global styles in `app/globals.css`, image assets in `public/img/`.
 - **Server routes:** Next route handlers under `app/api/*`, using Node runtime where email/OpenAI APIs are needed.
-- **AI, email, and CRM:** OpenAI Node SDK for questionnaire analysis; Nodemailer with Brevo SMTP for notifications; HubSpot CRM API for newsletter subscriber sync.
+- **AI, email, and CRM:** OpenAI Node SDK for questionnaire analysis; Nodemailer with Brevo SMTP for notifications through `lib/server/mail.ts` (hostname-preserving port 587 socket, mandatory STARTTLS, sanitized error metadata); HubSpot CRM API for newsletter subscriber sync.
 - **Bot protection:** Classic Invisible reCAPTCHA v2 via `NEXT_PUBLIC_RECAPTCHA_SITE_KEY_V2` and `RECAPTCHA_SECRET_KEY_V2`.
 - **Analytics:** GA4 and Mixpanel scripts in `components/SiteAnalyticsScripts.tsx` (Mixpanel autocapture, session replay, and heatmaps; page text visible, inputs masked); tracked events in `lib/analytics.ts`. Both are consent-gated by a cookie banner: opt-out by default outside the EU/EEA/UK, opt-in within (timezone heuristic). Mixpanel is gated by not loading pre-consent; GA4 is gated with Google Consent Mode v2 (`analytics_storage`, with the ad_* signals always denied).
 - **Testing:** Node's built-in test runner for compiled unit tests, TypeScript test build via `tsconfig.test.json`, and Playwright for E2E/mobile UI checks.
@@ -168,6 +168,7 @@ CI runs the brief sync check, lint, typecheck, unit tests, production build, and
 | [app/api/analyze/route.ts](app/api/analyze/route.ts) | OpenAI questionnaire analysis route |
 | [app/api/contact/route.ts](app/api/contact/route.ts) | Contact email + reCAPTCHA route |
 | [app/api/ngu-coupon/route.ts](app/api/ngu-coupon/route.ts) | NGU coupon email + reCAPTCHA route |
+| [lib/server/mail.ts](lib/server/mail.ts) | Shared Brevo transport preserving the SMTP hostname for Cloudflare TLS, plus safe error metadata |
 | [lib/server/contact.ts](lib/server/contact.ts) | Contact normalization, validation, config, email text |
 | [lib/server/hubspot-subscriber.ts](lib/server/hubspot-subscriber.ts) | HubSpot CRM contact upsert and subscriber note sync |
 | [lib/server/ngu-coupon.ts](lib/server/ngu-coupon.ts) | NGU coupon normalization, validation, config, email text |

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { createBrevoTransport, getMailErrorDetails } from '../../../lib/server/mail';
 import { RECAPTCHA_SITE_VERIFY_URL } from '../../../lib/recaptcha';
 import {
   buildContactEmailText,
@@ -45,15 +45,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: validationError }, { status: 400 });
     }
 
-    console.log('Contact form submission', {
-      firstName: submission.firstName || '(not provided)',
-      lastName: submission.lastName || '(not provided)',
-      email: submission.email,
-      subject: submission.subject || '(no subject)',
-      messageLength: submission.message?.length,
-      workbookOptIn: submission.workbookOptIn,
-    });
-
     const config = getContactConfig();
     if (!config) {
       console.error('Contact service configuration is incomplete');
@@ -93,14 +84,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const transporter = nodemailer.createTransport({
-      host: 'smtp-relay.brevo.com',
-      port: 587,
-      auth: {
-        user: config.userName,
-        pass: config.password,
-      },
-    });
+    const transporter = createBrevoTransport({ userName: config.userName, password: config.password });
 
     const email = buildContactEmailText(submission);
 
@@ -122,7 +106,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (err) {
-    console.error('Failed to send contact email', err);
+    console.error('Failed to send contact email', getMailErrorDetails(err));
     return NextResponse.json(
       { success: false, error: 'Failed to send email' },
       { status: 500 },
