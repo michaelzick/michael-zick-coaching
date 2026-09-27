@@ -40,3 +40,11 @@ launch.json
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Cloudflare and local credentials
+.open-next/
+.wrangler/
+.dev.vars*
+.env*
+!.env.example
+cloudflare-env.d.ts
