@@ -27,7 +27,7 @@ import {
   validateNguCouponSubmission,
 } from '../lib/server/ngu-coupon';
 import { getServerOpenAIClient } from '../lib/server/openai';
-import { consumeRateLimit } from '../lib/server/rate-limit';
+import { consumeRateLimit, getClientIp } from '../lib/server/rate-limit';
 
 type HubSpotFetchStubResponse = {
   status?: number;
@@ -547,4 +547,12 @@ test('getServerOpenAIClient only initializes when OPENAI_API_KEY is present', ()
   } as unknown as NodeJS.ProcessEnv);
 
   assert.ok(client);
+});
+
+// A caller-controlled forwarding chain must not override Cloudflare's IP.
+test('getClientIp uses the configured platform header before forwarded values', () => {
+  const headers = new Headers({ 'CF-Connecting-IP': '203.0.113.7', 'x-forwarded-for': '198.51.100.9, 192.0.2.3' });
+  assert.equal(getClientIp(headers, 'CF-Connecting-IP'), '203.0.113.7');
+  assert.equal(getClientIp(headers, ''), '198.51.100.9');
+  assert.equal(getClientIp(new Headers(), 'CF-Connecting-IP'), 'anonymous');
 });

@@ -19,7 +19,7 @@ Primary flows:
 
 ## 2. Tech stack
 
-- **Framework:** Next.js 16 App Router with React 19 and TypeScript; the package is currently pinned to the patched 16.3 canary line until the same security fixes land in a stable release.
+- **Framework:** Next.js 16.3.6 App Router with React 19 and TypeScript. Cloudflare Workers packaging uses OpenNext with static-asset incremental caching; runtime API handlers remain dynamic.
 - **Styling:** Tailwind CSS 3, global styles in `app/globals.css`, image assets in `public/img/`.
 - **Server routes:** Next route handlers under `app/api/*`, using Node runtime where email/OpenAI APIs are needed.
 - **AI, email, and CRM:** OpenAI Node SDK for questionnaire analysis; Nodemailer with Brevo SMTP for notifications; HubSpot CRM API for newsletter subscriber sync.
@@ -86,6 +86,12 @@ michaelzick.com/
 - `scripts/generate-sitemap.js` writes `public/sitemap.xml`; use `SITE_URL` to override the production base URL.
 - Analytics scripts are hardcoded in `components/SiteAnalyticsScripts.tsx`; event dispatch lives in `lib/analytics.ts`. The consent bootstrap there duplicates the consent key/version and EU timezone heuristic from `lib/cookie-consent.ts` — keep them in sync. It must push the GA `consent` `default` command before `config`.
 
+### 4.5 Cloudflare hosting
+
+- `wrangler.jsonc` configures the `michaelzick-com` Worker, static assets, image transformation binding, and observability. `open-next.config.ts` adapts the existing Next build.
+- Workers Builds deploys production from GitHub `main`; see `docs/cloudflare.md` for commands, DNS cutover, and rollback. The coaching site remains active; the separate NGU redirect branch is not part of this deployment.
+- `next.config.js` anchors and escapes the apex hostname matcher so OpenNext redirects only the exact apex to www, without matching www or Worker preview hosts. `tests/e2e/canonical-host.spec.ts` protects this contract. Preserve existing public API contracts.
+
 ## 5. Environment
 
 No committed `.env.example` currently exists. Environment variables used by the app:
@@ -97,9 +103,12 @@ No committed `.env.example` currently exists. Environment variables used by the 
 - `HUBSPOT_CONTACT_OWNER_ID` — required HubSpot owner ID for newsletter subscriber contacts and notes.
 - `NEXT_PUBLIC_RECAPTCHA_SITE_KEY_V2` — public Invisible reCAPTCHA v2 site key used by browser forms.
 - `RECAPTCHA_SECRET_KEY_V2` — server-side Invisible reCAPTCHA v2 secret used with Google `siteverify`.
+- `CLIENT_IP_HEADER` — `CF-Connecting-IP` on Cloudflare; unset locally to retain the forwarding-header fallback. Rate limits remain best-effort per isolate.
 - `SITE_URL` — optional sitemap generation override; defaults to `https://www.michaelzick.com`.
 - `PORT` — used by `npm start` and Playwright web server startup.
 - `CI` and `PLAYWRIGHT_SKIP_BUILD` — influence Playwright server reuse/build behavior.
+
+Runtime credentials belong in encrypted Worker secrets. Read local `.env*` files directly when provisioning, never print values or commit them. Public reCAPTCHA site keys are build-time configuration; never give static frontend projects server credentials.
 
 Do not commit `.env`, API keys, SMTP credentials, reCAPTCHA secrets, Vercel secrets, or production form exports.
 
@@ -108,6 +117,10 @@ Do not commit `.env`, API keys, SMTP credentials, reCAPTCHA secrets, Vercel secr
 ```bash
 npm run dev                 # Next dev server
 npm run build               # Production Next build
+npm run build:cloudflare    # Package Next.js for Workers
+npm run preview:cloudflare  # Exercise the Workers runtime locally
+npm run deploy:cloudflare   # Deploy the prepared Cloudflare build
+npm run cf:typegen          # Generate Cloudflare binding types
 npm start                   # Start built Next app on $PORT
 npm run lint                # ESLint / Next core web vitals
 npm run typecheck           # tsc --noEmit
@@ -140,6 +153,9 @@ CI runs the brief sync check, lint, typecheck, unit tests, production build, and
 
 | Path | What lives here |
 |---|---|
+| [wrangler.jsonc](wrangler.jsonc) | Cloudflare Worker and binding configuration |
+| [open-next.config.ts](open-next.config.ts) | OpenNext packaging and prerendered cache |
+| [docs/cloudflare.md](docs/cloudflare.md) | Hosting, secret handling, cutover, and rollback |
 | [app/layout.tsx](app/layout.tsx) | Root metadata, scripts, global shell, nav, NGU promo, footer |
 | [app/page.tsx](app/page.tsx) | Home route wrapper |
 | [components/HomePageContent.tsx](components/HomePageContent.tsx) | Home page composition |

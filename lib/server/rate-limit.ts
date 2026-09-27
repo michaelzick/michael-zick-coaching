@@ -45,7 +45,11 @@ export function consumeRateLimit({
   };
 }
 
-export function getClientIp(headers: Headers) {
+export function getClientIp(headers: Headers, trustedHeader: string | undefined = process.env.CLIENT_IP_HEADER) {
+  // Only trust a platform-injected header when the deployment opts in.
+  const platformIp = trustedHeader ? headers.get(trustedHeader)?.trim() : undefined;
+  if (platformIp) return platformIp;
+
   const forwarded = headers.get('x-forwarded-for');
   return forwarded ? forwarded.split(',')[0].trim() : 'anonymous';
 }
