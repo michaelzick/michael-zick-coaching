@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { createBrevoTransport, getMailErrorDetails } from '../../../lib/server/mail';
 import { STEPS } from '../../../components/questionnaire/steps';
 import { getServerOpenAIClient } from '../../../lib/server/openai';
 import { consumeRateLimit, getClientIp } from '../../../lib/server/rate-limit';
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
 
     // 1. Honeypot check
     if (website) {
-      console.warn('Bot detected via honeypot:', { email, website });
+      console.warn('Questionnaire honeypot rejected');
       return NextResponse.json({ error: 'System busy. Please try again later.' }, { status: 400 });
     }
 
@@ -136,14 +136,7 @@ export async function POST(req: Request) {
     // Send email notification if SMTP is configured
     if (password && userName && toAddress && fromAddress) {
       try {
-        const transporter = nodemailer.createTransport({
-          host: 'smtp-relay.brevo.com',
-          port: 587,
-          auth: {
-            user: userName,
-            pass: password,
-          },
-        });
+        const transporter = createBrevoTransport({ userName: userName, password: password });
 
         const subject = `[michaelzick.com] New Approval Addiction Result: ${firstName} ${lastName}`;
         const questionsAndAnswers = answerEntries
@@ -158,13 +151,13 @@ export async function POST(req: Request) {
           text: `Name: ${firstName} ${lastName}\nEmail: ${email}\n\nQUEST_ANSWERS:\n${questionsAndAnswers}\n\nAI_ANALYSIS:\n${analysisText}`,
         });
       } catch (mailErr) {
-        console.error('Failed to send result email:', mailErr);
+        console.error('Failed to send result email:', getMailErrorDetails(mailErr));
       }
     }
 
     return NextResponse.json({ analysis: analysisText });
   } catch (error: unknown) {
-    console.error('Error in analysis API:', error);
+    console.error('Error in analysis API', { status: typeof error === 'object' && error !== null && 'status' in error && typeof error.status === 'number' ? error.status : undefined });
     return NextResponse.json({
       error: 'Failed to analyze inputs',
     }, { status: 500 });

@@ -23,3 +23,7 @@ Deploy and validate before cutover. Disable all three DigitalOcean autodeploys a
 ## Acceptance
 
 Validate pages, canonical redirects, images, consent, malformed API submissions, captcha rejection, rate limits, and SMTP connectivity without sending mail. Live email/AI/CRM submissions require user-assisted checks. Check Worker CPU limits and errors before cutover and retirement. Confirm the exact production Git SHA in Workers Builds and no new DigitalOcean build.
+
+## SMTP on the production edge
+
+All email routes use `lib/server/mail.ts`, which connects to Brevo by hostname on port 587 and requires STARTTLS. Nodemailer's default IP-resolved socket fails TLS on the Cloudflare production edge even when local workerd verification succeeds. Keep the custom socket provider, certificate verification, and `requireTLS` enabled. Validate authentication with `transporter.verify()` on a Cloudflare version preview (no email sent), then use user-assisted Contact, Questionnaire, and coupon submissions to confirm delivery. Log only allowlisted error codes, SMTP commands, and numeric response codes; never provider response text, credentials, or submissions.
