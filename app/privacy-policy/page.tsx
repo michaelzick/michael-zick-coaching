@@ -54,7 +54,7 @@ export default function PrivacyPolicy() {
             <ul className={list}>
               <li>
                 <strong>Contact form</strong> — your name, email address, message, and optional
-                workbook/newsletter opt-in.
+                newsletter opt-in.
               </li>
               <li>
                 <strong>Nice Guy University coupon signup</strong> — your email address, used to

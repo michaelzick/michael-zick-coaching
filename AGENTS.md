@@ -63,7 +63,7 @@ michaelzick.com/
 ### 4.2 API routes
 
 - `app/api/analyze/route.ts` accepts questionnaire submissions, applies honeypot/rate limiting/length checks, calls OpenAI (`gpt-5-mini` with fallback to `gpt-4o-mini`), and optionally emails the result via Brevo SMTP.
-- `app/api/contact/route.ts` validates contact submissions, enforces per-IP rate limits, verifies Invisible reCAPTCHA v2, sends contact email via Brevo, and best-effort syncs HubSpot when the workbook/newsletter opt-in is selected.
+- `app/api/contact/route.ts` validates contact submissions, enforces per-IP rate limits, verifies Invisible reCAPTCHA v2, sends contact email via Brevo, and best-effort syncs HubSpot when the newsletter opt-in is selected.
 - `app/api/ngu-coupon/route.ts` validates NGU coupon signups, verifies reCAPTCHA, sends the visitor coupon email, sends the internal notification email, and best-effort syncs the email to HubSpot.
 - Shared server helpers live in `lib/server/`: contact and NGU normalization/validation/email builders, HubSpot subscriber sync, OpenAI client construction, and in-memory rate limiting.
 

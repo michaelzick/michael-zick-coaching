@@ -5,7 +5,7 @@ export type ContactSubmission = {
   subject?: string;
   message?: string;
   captchaToken?: string;
-  workbookOptIn?: boolean;
+  newsletterOptIn?: boolean;
 };
 
 export type ContactConfig = {
@@ -27,7 +27,7 @@ export function normalizeContactSubmission(body: Record<string, unknown>): Conta
     subject: typeof body.subject === 'string' ? body.subject.trim() : undefined,
     message: typeof body.message === 'string' ? body.message.trim() : undefined,
     captchaToken: typeof body.captchaToken === 'string' ? body.captchaToken.trim() : undefined,
-    workbookOptIn: body.workbookOptIn === true,
+    newsletterOptIn: body.newsletterOptIn === true,
   };
 }
 
@@ -107,7 +107,7 @@ export function buildContactEmailText(submission: ContactSubmission) {
       `From: ${fullName}`,
       `Email: ${submission.email}`,
       `Subject: ${emailSubject}`,
-      `Workbook + Email List Consent: ${submission.workbookOptIn ? 'Yes' : 'No'}`,
+      `Email List Consent: ${submission.newsletterOptIn ? 'Yes' : 'No'}`,
       '',
       submission.message || '',
     ].join('\n'),

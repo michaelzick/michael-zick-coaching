@@ -96,7 +96,7 @@ export async function POST(req: NextRequest) {
       text: email.text,
     });
 
-    if (submission.workbookOptIn) {
+    if (submission.newsletterOptIn) {
       await syncHubSpotSubscriberSafely({
         email: submission.email,
         firstName: submission.firstName,
