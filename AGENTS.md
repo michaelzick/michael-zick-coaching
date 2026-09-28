@@ -90,6 +90,7 @@ michaelzick.com/
 
 - `wrangler.jsonc` configures the `michaelzick-com` Worker, static assets, image transformation binding, and observability. `open-next.config.ts` adapts the existing Next build.
 - Workers Builds deploys production from GitHub `main`; see `docs/cloudflare.md` for commands, DNS cutover, and rollback. The coaching site remains active; the separate NGU redirect branch is not part of this deployment.
+- Branch previews use `npm run deploy:preview` after the Cloudflare build to package the static-asset page cache before `wrangler preview`. The `previews` block in `wrangler.jsonc` explicitly supplies `CLIENT_IP_HEADER` and `IMAGES`; preview variables and bindings do not inherit their production counterparts. Preview secrets are managed separately in Cloudflare Previews Base.
 - `next.config.js` anchors and escapes the apex hostname matcher so OpenNext redirects only the exact apex to www, without matching www or Worker preview hosts. `tests/e2e/canonical-host.spec.ts` protects this contract. Preserve existing public API contracts.
 
 ## 5. Environment
@@ -120,6 +121,7 @@ npm run build               # Production Next build
 npm run build:cloudflare    # Package Next.js for Workers
 npm run preview:cloudflare  # Exercise the Workers runtime locally
 npm run deploy:cloudflare   # Deploy the prepared Cloudflare build
+npm run deploy:preview      # Package the page cache and publish a branch preview
 npm run cf:typegen          # Generate Cloudflare binding types
 npm start                   # Start built Next app on $PORT
 npm run lint                # ESLint / Next core web vitals
