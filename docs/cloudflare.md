@@ -8,6 +8,14 @@ Run `npm ci`, `npm run check`, `npm run test:e2e`, then `npm run build:cloudflar
 
 Workers Builds: repository `michaelzick/michaelzick.com`, production branch `main`, root `/`, build `npm ci && npm run build:cloudflare`, deploy `npm run deploy:cloudflare`. Set `NODE_VERSION=24`, `SKIP_DEPENDENCY_INSTALL=1`, and the public `NEXT_PUBLIC_RECAPTCHA_SITE_KEY_V2` in build configuration. Do not provision production credentials for untrusted previews.
 
+## Branch previews
+
+Workers Builds has builds for Preview branches enabled. Previews use the same build command and public build variables as production, with `npm run deploy:preview` as the Preview command. The script runs `opennextjs-cloudflare populateCache local` to copy the prerendered page cache into the asset bundle, then `wrangler preview` to publish it. Calling Wrangler directly skips that OpenNext cache preparation. This publishes a branch preview without deploying the production routes. For a manual preview, run `npm run build:cloudflare` followed by `npm run deploy:preview` on the feature branch.
+
+The `previews` block in `wrangler.jsonc` explicitly declares `CLIENT_IP_HEADER=CF-Connecting-IP` and the `IMAGES` binding. Preview variables and API bindings do not inherit production values; assets and compatibility settings stay at the top level. Keep this block on `main` so future branches inherit it through Git. See [Cloudflare preview configuration](https://developers.cloudflare.com/workers/previews/configuration/).
+
+Preview secrets are managed separately through Cloudflare's **Previews Base** runtime settings. Existing Base secrets are copied into newly created previews; later Base secret changes do not update existing previews. Use preview-safe credentials and resources. A working page preview does not prove live email, AI, CRM, or reCAPTCHA submissions work; reCAPTCHA must also allow the preview hostname.
+
 ## Credentials
 
 Use local `.env*` files as the source and encrypted Worker secrets as the destination. Transfer values through process memory/stdin, never command arguments, logs, documentation, or committed files. Required names: `OPENAI_API_KEY`, `BREVO_SMTP_PASSWORD`, `BREVO_USER`, `BREVO_TO`, `BREVO_FROM`, `RECAPTCHA_SECRET_KEY_V2`, `HUBSPOT_SERVICE_KEY`, `HUBSPOT_CONTACT_OWNER_ID`. Use the preferred HubSpot key rather than copying legacy fallbacks. Only the reCAPTCHA site key is public client configuration. Never copy these credentials to the static subdomain Workers.

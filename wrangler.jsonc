@@ -19,6 +19,14 @@
   "vars": {
     "CLIENT_IP_HEADER": "CF-Connecting-IP"
   },
+  "previews": {
+    "vars": {
+      "CLIENT_IP_HEADER": "CF-Connecting-IP"
+    },
+    "images": {
+      "binding": "IMAGES"
+    }
+  },
   "observability": {
     "enabled": true
   },
