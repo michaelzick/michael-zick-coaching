@@ -9,7 +9,7 @@ interface FormData {
   lastName: string;
   email: string;
   message: string;
-  workbookOptIn: boolean;
+  newsletterOptIn: boolean;
 }
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY_V2;
@@ -18,7 +18,7 @@ const initialFormData: FormData = {
   lastName: '',
   email: '',
   message: '',
-  workbookOptIn: true,
+  newsletterOptIn: true,
 };
 
 function getContactFailureReason(message: string) {
@@ -38,7 +38,7 @@ export default function ContactForm() {
   const [captchaError, setCaptchaError] = useState<string | null>(null);
   const [captchaReady, setCaptchaReady] = useState(false);
   const [submittedEmail, setSubmittedEmail] = useState('');
-  const [submittedWorkbook, setSubmittedWorkbook] = useState(false);
+  const [submittedNewsletter, setSubmittedNewsletter] = useState(false);
   const captchaContainerRef = useRef<HTMLDivElement>(null);
   const captchaWidgetIdRef = useRef<number | null>(null);
   const captchaResolveRef = useRef<((token: string) => void) | null>(null);
@@ -157,7 +157,7 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     trackEvent('contact_form_submit_started', {
-      workbook_opt_in: formData.workbookOptIn,
+      newsletter_opt_in: formData.newsletterOptIn,
       page_path: window.location.pathname,
     });
     setStatus('submitting');
@@ -186,9 +186,9 @@ export default function ContactForm() {
         throw new Error(data?.error || 'Request failed');
       }
       setSubmittedEmail(formData.email);
-      setSubmittedWorkbook(formData.workbookOptIn);
+      setSubmittedNewsletter(formData.newsletterOptIn);
       trackEvent('contact_form_submit_succeeded', {
-        workbook_opt_in: formData.workbookOptIn,
+        newsletter_opt_in: formData.newsletterOptIn,
         page_path: window.location.pathname,
       });
       setStatus('success');
@@ -234,9 +234,9 @@ export default function ContactForm() {
         <p className="text-lg text-default-grey/80">
           I&apos;ll get back to you within 48 hours.
         </p>
-        {submittedWorkbook && (
+        {submittedNewsletter && (
           <p className="text-base text-default-grey/60">
-            Your free workbook is on its way to <strong>{submittedEmail}</strong>.
+            <strong>{submittedEmail}</strong> has been added to my email list.
           </p>
         )}
       </div>
@@ -304,18 +304,18 @@ export default function ContactForm() {
       </div>
       <div className="flex items-center gap-3 rounded-lg border border-gray-200 bg-gray-50 p-4">
         <input
-          id="workbookOptIn"
-          name="workbookOptIn"
+          id="newsletterOptIn"
+          name="newsletterOptIn"
           type="checkbox"
           className="h-5 w-5 rounded border-gray-300 text-primary-blue focus:ring-primary-blue/30"
-          checked={formData.workbookOptIn}
+          checked={formData.newsletterOptIn}
           onChange={handleChange}
         />
         <label
-          htmlFor="workbookOptIn"
+          htmlFor="newsletterOptIn"
           className="text-sm font-medium text-default-grey/80 leading-relaxed"
         >
-          Send me a free Belief Reprogramming Workbook and add me to your email newsletter. Unsubscribe anytime.
+          Add me to your email newsletter. Unsubscribe anytime.
         </label>
       </div>
       <div
@@ -362,9 +362,7 @@ export default function ContactForm() {
             ? 'Sending...'
             : !captchaReady
               ? 'Loading security check...'
-              : formData.workbookOptIn
-                ? 'Get My Free Workbook'
-                : 'Send My Message'}
+              : 'Send My Message'}
         </button>
       </div>
     </form>

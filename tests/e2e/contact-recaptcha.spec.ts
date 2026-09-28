@@ -17,7 +17,7 @@ test.describe('contact form invisible reCAPTCHA', () => {
         lastName: '',
         email: 'person@example.com',
         message: 'I want to book a session.',
-        workbookOptIn: true,
+        newsletterOptIn: true,
         captchaToken: 'test-captcha-token',
       });
       await route.fulfill({
@@ -35,7 +35,7 @@ test.describe('contact form invisible reCAPTCHA', () => {
 
     await page.getByRole('textbox', { name: /email/i }).fill('person@example.com');
     await page.getByRole('textbox', { name: /message/i }).fill('I want to book a session.');
-    await page.getByRole('button', { name: /get my free workbook/i }).click();
+    await page.getByRole('button', { name: /send my message/i }).click();
 
     await expect(page.getByText(/message sent/i)).toBeVisible();
     await expect.poll(() => page.evaluate(() => (

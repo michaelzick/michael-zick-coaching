@@ -127,11 +127,11 @@ test('contact helpers build email content and validate recaptcha state', () => {
     email: 'person@example.com',
     subject: 'Coaching',
     message: 'I am ready to talk.',
-    workbookOptIn: true,
+    newsletterOptIn: true,
   });
 
   assert.match(email.subject, /^\[michaelzick\.com\] Coaching$/);
-  assert.match(email.text, /Workbook \+ Email List Consent: Yes/);
+  assert.match(email.text, /Email List Consent: Yes/);
 
   assert.equal(
     isValidRecaptchaResponse({
