@@ -510,7 +510,7 @@ export async function syncHubSpotSubscriberSafely(
     return { status: 'synced', ...result };
   } catch (error) {
     const logError = options.logError ?? console.error;
-    logError('[michaelzick.com] failed to sync HubSpot subscriber', error);
+    logError('[michael-zick-coaching] failed to sync HubSpot subscriber', error);
     return { status: 'error', error: getHubSpotErrorMessage(error) };
   }
 }

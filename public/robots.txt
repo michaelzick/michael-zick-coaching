@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.michaelzick.com/sitemap.xml
+Sitemap: https://michael-zick-coaching.zickonezero.workers.dev/sitemap.xml

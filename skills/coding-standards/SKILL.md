@@ -1,13 +1,13 @@
 ---
 name: coding-standards
-description: Apply repo-specific production standards for michaelzick.com Next.js, React, TypeScript, API routes, forms, analytics, SEO, security, and tests. Use before implementation, refactors, API route work, UI state changes, styling work, error handling, analytics changes, security-sensitive code, tests, and code reviews.
+description: Apply repo-specific production standards for the michael-zick-coaching Next.js, React, TypeScript, API routes, forms, analytics, SEO, security, and tests. Use before implementation, refactors, API route work, UI state changes, styling work, error handling, analytics changes, security-sensitive code, tests, and code reviews.
 ---
 
 # Coding Standards
 
 ## Purpose
 
-This guide defines production standards for `michaelzick.com`: a Next.js App Router coaching website with conversion-critical forms, AI analysis, email delivery, analytics, blog content, SEO metadata, and mobile-heavy UI. Use it to keep changes clear, secure, testable, accessible, and consistent with the existing brand experience.
+This guide defines production standards for `michael-zick-coaching`: a Next.js App Router coaching website with conversion-critical forms, AI analysis, email delivery, analytics, blog content, SEO metadata, and mobile-heavy UI. Use it to keep changes clear, secure, testable, accessible, and consistent with the existing brand experience.
 
 ## Core principles
 

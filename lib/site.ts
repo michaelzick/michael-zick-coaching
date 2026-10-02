@@ -1,5 +1,5 @@
 export const siteConfig = {
-  url: 'https://www.michaelzick.com',
+  url: 'https://michael-zick-coaching.zickonezero.workers.dev',
   name: 'Michael Zick | Nice Guy Recovery Coach',
   shortName: 'Michael Zick',
   description: 'Michael Zick is an LA-based Nice Guy Recovery Coach helping high-functioning men break free from approval addiction, toxic shame, and enmeshment to reclaim internal authority.',

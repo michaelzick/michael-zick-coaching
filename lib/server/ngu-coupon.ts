@@ -101,7 +101,7 @@ export function buildNguCouponVisitorEmail(email: string) {
 
 export function buildNguCouponNotificationEmail(email: string) {
   return {
-    subject: '[michaelzick.com] New NGU signup modal coupon request',
+    subject: '[michael-zick-coaching] New NGU signup modal coupon request',
     text: [
       `Email: ${email}`,
       `Source: ${NGU_SIGNUP_SOURCE}`,

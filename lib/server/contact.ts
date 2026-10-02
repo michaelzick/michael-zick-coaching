@@ -102,7 +102,7 @@ export function buildContactEmailText(submission: ContactSubmission) {
   const emailSubject = submission.subject || '(No Subject)';
 
   return {
-    subject: `[michaelzick.com] ${emailSubject}`,
+    subject: `[michael-zick-coaching] ${emailSubject}`,
     text: [
       `From: ${fullName}`,
       `Email: ${submission.email}`,

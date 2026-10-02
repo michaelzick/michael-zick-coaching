@@ -7,13 +7,13 @@ test('generated sitemap includes Nice Guy University landing page', () => {
 
   assert.match(
     sitemap,
-    /https:\/\/www\.michaelzick\.com\/nice-guy-university/,
+    /https:\/\/michael-zick-coaching\.zickonezero\.workers\.dev\/nice-guy-university/,
   );
 });
 
 test('generated sitemap includes the legal pages', () => {
   const sitemap = readFileSync('public/sitemap.xml', 'utf8');
 
-  assert.match(sitemap, /https:\/\/www\.michaelzick\.com\/privacy-policy/);
-  assert.match(sitemap, /https:\/\/www\.michaelzick\.com\/terms-of-service/);
+  assert.match(sitemap, /https:\/\/michael-zick-coaching\.zickonezero\.workers\.dev\/privacy-policy/);
+  assert.match(sitemap, /https:\/\/michael-zick-coaching\.zickonezero\.workers\.dev\/terms-of-service/);
 });

@@ -19,7 +19,7 @@ env:
   BREVO_USER: test-brevo-user
   BREVO_TO: test-to@example.com
   BREVO_FROM: test-from@example.com
-  SITE_URL: https://www.michaelzick.com
+  SITE_URL: https://michael-zick-coaching.zickonezero.workers.dev
 
 jobs:
   validate:

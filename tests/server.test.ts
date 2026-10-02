@@ -130,7 +130,7 @@ test('contact helpers build email content and validate recaptcha state', () => {
     newsletterOptIn: true,
   });
 
-  assert.match(email.subject, /^\[michaelzick\.com\] Coaching$/);
+  assert.match(email.subject, /^\[michael-zick-coaching\] Coaching$/);
   assert.match(email.text, /Email List Consent: Yes/);
 
   assert.equal(
