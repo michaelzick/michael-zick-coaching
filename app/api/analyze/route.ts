@@ -138,7 +138,7 @@ export async function POST(req: Request) {
       try {
         const transporter = createBrevoTransport({ userName: userName, password: password });
 
-        const subject = `[michaelzick.com] New Approval Addiction Result: ${firstName} ${lastName}`;
+        const subject = `[michael-zick-coaching] New Approval Addiction Result: ${firstName} ${lastName}`;
         const questionsAndAnswers = answerEntries
           .map(([qId, answer]) => `Q: ${qId}\nA: ${String(answer)}`)
           .join('\n\n');

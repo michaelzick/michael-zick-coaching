@@ -8,7 +8,7 @@ Sibling files [CLAUDE.md](CLAUDE.md) (Claude Code) and [AGENTS.md](AGENTS.md) (C
 
 ## 1. Project overview
 
-**michaelzick.com** is Michael Zick's coaching website and conversion platform for Nice Guy Recovery / Reality Alignment coaching. It combines static marketing pages, a blog, lead-capture forms, an AI-assisted questionnaire, analytics instrumentation, and Nice Guy University promotion flows.
+**michael-zick-coaching** (GitHub `michaelzick/michael-zick-coaching`) is Michael Zick's coaching website and conversion platform for Nice Guy Recovery / Reality Alignment coaching. It used to serve michaelzick.com; that domain now belongs to Michael's landing page (the `michaelzick/michaelzick.com` repo, whose redirects send this site's old URLs to Nice Guy University), and this site runs only at `https://michael-zick-coaching.zickonezero.workers.dev`, kept out of search results. It combines static marketing pages, a blog, lead-capture forms, an AI-assisted questionnaire, analytics instrumentation, and Nice Guy University promotion flows.
 
 Primary flows:
 - Visitors learn about Michael's coaching model through the home, about, testimonials, contact, and Nice Guy University pages.
@@ -31,7 +31,7 @@ Primary flows:
 ## 3. Repository layout
 
 ```
-michaelzick.com/
+michael-zick-coaching/
 ├── app/                 # Next App Router pages, layout, metadata, API routes, sitemap/robots
 ├── components/          # React UI components, navigation, sections, blog, questionnaire, hooks
 ├── content/blog/        # JSON-backed blog content fixtures and production posts
@@ -88,10 +88,10 @@ michaelzick.com/
 
 ### 4.5 Cloudflare hosting
 
-- `wrangler.jsonc` configures the `michaelzick-com` Worker, static assets, image transformation binding, and observability. `open-next.config.ts` adapts the existing Next build.
-- Workers Builds deploys production from GitHub `main`; see `docs/cloudflare.md` for commands, DNS cutover, and rollback. The coaching site remains active; the separate NGU redirect branch is not part of this deployment.
+- `wrangler.jsonc` configures the `michael-zick-coaching` Worker (workers.dev and preview URLs only, no custom domains), static assets, image transformation binding, and observability. `open-next.config.ts` adapts the existing Next build.
+- Workers Builds deploys production from GitHub `main`; see `docs/cloudflare.md` for commands and history. Never add `routes` for michaelzick.com or www.michaelzick.com: a domain belongs to one Worker, and they are the landing page's.
 - Branch previews use `npm run deploy:preview` after the Cloudflare build to package the static-asset page cache before `wrangler preview`. The `previews` block in `wrangler.jsonc` explicitly supplies `CLIENT_IP_HEADER` and `IMAGES`; preview variables and bindings do not inherit their production counterparts. Preview secrets are managed separately in Cloudflare Previews Base.
-- `next.config.js` anchors and escapes the apex hostname matcher so OpenNext redirects only the exact apex to www, without matching www or Worker preview hosts. `tests/e2e/canonical-host.spec.ts` protects this contract. Preserve existing public API contracts.
+- `next.config.js` sends `X-Robots-Tag: noindex` on every path and has no host redirects, and `siteConfig.url` (`lib/site.ts`) is the workers.dev URL, so canonical tags, the sitemap, and robots point there. `tests/e2e/canonical-host.spec.ts` protects this contract. Preserve existing public API contracts.
 
 ## 5. Environment
 
@@ -105,7 +105,7 @@ No committed `.env.example` currently exists. Environment variables used by the 
 - `NEXT_PUBLIC_RECAPTCHA_SITE_KEY_V2` — public Invisible reCAPTCHA v2 site key used by browser forms.
 - `RECAPTCHA_SECRET_KEY_V2` — server-side Invisible reCAPTCHA v2 secret used with Google `siteverify`.
 - `CLIENT_IP_HEADER` — `CF-Connecting-IP` on Cloudflare; unset locally to retain the forwarding-header fallback. Rate limits remain best-effort per isolate.
-- `SITE_URL` — optional sitemap generation override; defaults to `https://www.michaelzick.com`.
+- `SITE_URL` — optional sitemap generation override; defaults to `https://michael-zick-coaching.zickonezero.workers.dev`.
 - `PORT` — used by `npm start` and Playwright web server startup.
 - `CI` and `PLAYWRIGHT_SKIP_BUILD` — influence Playwright server reuse/build behavior.
 

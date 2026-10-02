@@ -1,20 +1,22 @@
 # Cloudflare deployment
 
-The `michaelzick-com` Worker serves the current coaching site from `main`. Keep the NGU redirect branch separate. Use Node 24 and npm.
+The `michael-zick-coaching` Worker serves the coaching site from `main`, at `https://michael-zick-coaching.zickonezero.workers.dev` only. Every response carries `X-Robots-Tag: noindex`. Use Node 24 and npm.
+
+This Worker was `michaelzick-com` and served `michaelzick.com` and `www.michaelzick.com` until Michael's landing page (GitHub `michaelzick/michaelzick.com`, Worker `michaelzick-com`) took both domains. That repo's redirects send the old coaching URLs to Nice Guy University. A domain belongs to one Worker, so never add those domains to this Worker's `routes`.
 
 ## Build and deploy
 
 Run `npm ci`, `npm run check`, `npm run test:e2e`, then `npm run build:cloudflare`. Exercise `npm run preview:cloudflare` before deploying with `npm run deploy:cloudflare`. Bindings are generated with `npm run cf:typegen`. Pages use a read-only static-asset incremental cache because content changes at build time; API routes stay dynamic. Images use the IMAGES binding.
 
-Workers Builds: repository `michaelzick/michaelzick.com`, production branch `main`, root `/`, build `npm ci && npm run build:cloudflare`, deploy `npm run deploy:cloudflare`. Set `NODE_VERSION=24`, `SKIP_DEPENDENCY_INSTALL=1`, and the public `NEXT_PUBLIC_RECAPTCHA_SITE_KEY_V2` in build configuration. Do not provision production credentials for untrusted previews.
+Workers Builds: repository `michaelzick/michael-zick-coaching`, production branch `main`, root `/`, build `npm ci && npm run build:cloudflare`, deploy `npm run deploy:cloudflare`. Set `NODE_VERSION=24`, `SKIP_DEPENDENCY_INSTALL=1`, and the public `NEXT_PUBLIC_RECAPTCHA_SITE_KEY_V2` in build configuration. Do not provision production credentials for untrusted previews.
 
 ## Branch previews
 
-Workers Builds has builds for Preview branches enabled. Previews use the same build command and public build variables as production, with `npm run deploy:preview` as the Preview command. The script runs `opennextjs-cloudflare populateCache local` to copy the prerendered page cache into the asset bundle, then `wrangler preview` to publish it. Calling Wrangler directly skips that OpenNext cache preparation. This publishes a branch preview without deploying the production routes. For a manual preview, run `npm run build:cloudflare` followed by `npm run deploy:preview` on the feature branch.
+Workers Builds has builds for Preview branches enabled. Preview URLs are `<branch>-michael-zick-coaching.zickonezero.workers.dev`, so keep branch names under about 40 characters (a DNS label holds 63). Previews use the same build command and public build variables as production, with `npm run deploy:preview` as the Preview command. The script runs `opennextjs-cloudflare populateCache local` to copy the prerendered page cache into the asset bundle, then `wrangler preview` to publish it. Calling Wrangler directly skips that OpenNext cache preparation. This publishes a branch preview without deploying the production routes. For a manual preview, run `npm run build:cloudflare` followed by `npm run deploy:preview` on the feature branch.
 
 The `previews` block in `wrangler.jsonc` explicitly declares `CLIENT_IP_HEADER=CF-Connecting-IP` and the `IMAGES` binding. Preview variables and API bindings do not inherit production values; assets and compatibility settings stay at the top level. Keep this block on `main` so future branches inherit it through Git. See [Cloudflare preview configuration](https://developers.cloudflare.com/workers/previews/configuration/).
 
-Preview secrets are managed separately through Cloudflare's **Previews Base** runtime settings. Existing Base secrets are copied into newly created previews; later Base secret changes do not update existing previews. Use preview-safe credentials and resources. A working page preview does not prove live email, AI, CRM, or reCAPTCHA submissions work; reCAPTCHA must also allow the preview hostname.
+Preview secrets are managed separately through Cloudflare's **Previews Base** runtime settings. Existing Base secrets are copied into newly created previews; later Base secret changes do not update existing previews. Use preview-safe credentials and resources. A working page preview does not prove live email, AI, CRM, or reCAPTCHA submissions work; reCAPTCHA must also allow the preview hostname, and the site key's domains must include `michael-zick-coaching.zickonezero.workers.dev`.
 
 ## Credentials
 
@@ -24,13 +26,13 @@ Use local `.env*` files as the source and encrypted Worker secrets as the destin
 
 ## DNS and rollback
 
-Registration stays at GoDaddy. Cloudflare becomes authoritative for the complete zone, including Google MX, Brevo DKIM/DMARC, and verification TXT records. Keep mail records DNS-only. Attach `michaelzick.com` and `www.michaelzick.com` to this Worker; each subdomain has its own Worker.
+`michaelzick.com` is registered at GoDaddy with Cloudflare's nameservers, and Cloudflare is authoritative for the whole zone, including Google MX, Brevo DKIM/DMARC, and verification TXT records. Keep mail records DNS-only. Brevo still sends from the michaelzick.com domain, which the move left alone, and `findyourflowstate` and `whosincharge` keep their own Workers on their subdomains.
 
-Deploy and validate before cutover. Disable all three DigitalOcean autodeploys after preview checks and before merging migration changes to main, so migration commits cannot trigger old-provider builds. Keep the old app for 48 hours, then recheck and archive it. For rollback, restore the saved DigitalOcean web records; keep Cloudflare authoritative. Do not delete the old DNS zone.
+To roll back the domain move, take `michaelzick.com` and `www.michaelzick.com` off the landing page's `michaelzick-com` Worker, attach them to this Worker under **Domains & Routes**, and revert `siteConfig.url` and the `noindex` header.
 
 ## Acceptance
 
-Validate pages, canonical redirects, images, consent, malformed API submissions, captcha rejection, rate limits, and SMTP connectivity without sending mail. Live email/AI/CRM submissions require user-assisted checks. Check Worker CPU limits and errors before cutover and retirement. Confirm the exact production Git SHA in Workers Builds and no new DigitalOcean build.
+Validate pages, the `noindex` header and canonical URLs, images, consent, malformed API submissions, captcha rejection, rate limits, and SMTP connectivity without sending mail. Live email/AI/CRM submissions require user-assisted checks. Check Worker CPU limits and errors before cutover and retirement. Confirm the exact production Git SHA in Workers Builds and no new DigitalOcean build.
 
 ## SMTP on the production edge
 
